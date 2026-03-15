@@ -1545,9 +1545,8 @@ ul {
   }
   .work-with-me__card:nth-child(1) { grid-column: span 3; }
   .work-with-me__card:nth-child(2) { grid-column: span 3; }
-  .work-with-me__card:nth-child(3) { grid-column: span 2; }
-  .work-with-me__card:nth-child(4) { grid-column: span 2; }
-  .work-with-me__card:nth-child(5) { grid-column: span 2; }
+  .work-with-me__card:nth-child(3) { grid-column: span 3; }
+  .work-with-me__card:nth-child(4) { grid-column: span 3; }
 }
 
 .work-with-me__card {
