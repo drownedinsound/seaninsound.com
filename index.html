@@ -1075,7 +1075,7 @@
     // Fade-in scroll animations
     if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
       var fadeEls = document.querySelectorAll(
-        '.timeline__entry, .now__item, .track-card, .release-card, .beyond-card, .what-next__card, .recognition__list li, .press-quote'
+        '.timeline__entry, .now__item, .track-card, .release-card, .beyond-card, .what-next__card, .recognition__list li, .press-quote, .watch-item'
       );
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(el) {
