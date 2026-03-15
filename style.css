@@ -19,7 +19,13 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body {
@@ -305,7 +311,7 @@ ul {
 }
 
 .argument__body p {
-  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
   line-height: 1.85;
   color: #CCCCCC;
   margin-bottom: 1.6em;
@@ -335,7 +341,7 @@ ul {
 }
 
 .now__item-desc {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: #CCCCCC;
   line-height: 1.75;
 }
@@ -392,7 +398,7 @@ ul {
 }
 
 .track-card__desc {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #CCCCCC;
   line-height: 1.75;
 }
@@ -412,7 +418,7 @@ ul {
    RELEASES / DISCOGRAPHY
    ------------------------------------------------------------ */
 .releases__intro {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: #CCCCCC;
   line-height: 1.75;
   max-width: 680px;
@@ -515,7 +521,7 @@ ul {
 }
 
 .discog-list__item {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #CCCCCC;
   line-height: 1.6;
   padding: 8px 0;
@@ -551,7 +557,7 @@ ul {
 }
 
 .sub-label__desc {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #888;
   margin-bottom: 20px;
 }
@@ -564,7 +570,7 @@ ul {
 }
 
 .sub-label__item {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #CCCCCC;
   padding: 6px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
@@ -631,7 +637,7 @@ ul {
 }
 
 .what-next__trajectory {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #CCCCCC;
   line-height: 1.6;
 }
@@ -718,7 +724,7 @@ ul {
 }
 
 .timeline__entry-desc {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: #999;
   line-height: 1.6;
 }
@@ -800,7 +806,7 @@ ul {
 }
 
 .beyond-card__desc {
-  font-size: 0.92rem;
+  font-size: 1rem;
   color: #CCCCCC;
   line-height: 1.7;
 }
@@ -871,7 +877,7 @@ ul {
 }
 
 .recognition__list li {
-  font-size: 0.92rem;
+  font-size: 1rem;
   color: #CCCCCC;
   line-height: 1.6;
   padding-bottom: 8px;
@@ -885,7 +891,7 @@ ul {
 }
 
 .recognition__text {
-  font-size: 0.92rem;
+  font-size: 1rem;
   color: #CCCCCC;
   line-height: 1.75;
   max-width: 640px;
