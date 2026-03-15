@@ -303,7 +303,7 @@ blockquote {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   border: 1px solid rgba(255, 20, 147, 0.2);
   margin-bottom: 56px;
@@ -743,11 +743,6 @@ footer {
 
   .container {
     padding: 0 20px;
-  }
-
-  /* Stats: 2 columns on small screens */
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .stat {
