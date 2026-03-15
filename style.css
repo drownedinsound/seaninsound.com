@@ -1362,3 +1362,61 @@ ul {
     filter: brightness(1.15);
   }
 }
+
+/* ------------------------------------------------------------
+   NOW SECTION SCREENSHOTS
+   ------------------------------------------------------------ */
+.now__screenshot-link {
+  display: block;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 20, 147, 0.15);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.now__screenshot-link:hover {
+  border-color: rgba(255, 20, 147, 0.5);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.1);
+  opacity: 1;
+}
+
+.now__screenshot {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ------------------------------------------------------------
+   PODCAST EMBED
+   ------------------------------------------------------------ */
+.podcast-embed {
+  margin-top: 20px;
+  background: #111;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+/* ------------------------------------------------------------
+   TIMELINE SCROLL HINT
+   ------------------------------------------------------------ */
+.timeline__scroll-hint {
+  font-family: 'Francois One', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .timeline__scroll-hint {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .timeline__scroll-hint {
+    display: none;
+  }
+}
