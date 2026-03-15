@@ -9,6 +9,26 @@
 </head>
 <body>
 
+  <div id="nav-sentinel" aria-hidden="true" style="position:absolute;top:0;height:1px;width:100%;pointer-events:none;"></div>
+
+  <nav class="site-nav" id="site-nav" aria-label="Site navigation">
+    <div class="site-nav__inner">
+      <a class="site-nav__logo" href="#" aria-label="Back to top">SA</a>
+      <button class="site-nav__burger" id="nav-burger" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="site-nav__links" id="nav-links" role="list">
+        <li><a href="#bio">About</a></li>
+        <li><a href="#now">Now</a></li>
+        <li><a href="#argument">Why It Matters</a></li>
+        <li><a href="#watch">Watch</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#featured-client">Work With Me</a></li>
+        <li><a class="site-nav__cta" href="mailto:sean@drownedinsound.org">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- ========================================================
        HERO
        ======================================================== -->
@@ -60,6 +80,23 @@
       </div>
     </div>
   </header>
+
+  <!-- ========================================================
+       MANIFESTO
+       ======================================================== -->
+  <section id="manifesto" class="section section--manifesto">
+    <div class="container">
+      <div class="dis-is__inner">
+        <div class="dis-is__text">
+          <p>DiS is that hopeful vision in your mind&rsquo;s eye the Monday morning after Glastonbury.</p>
+          <p>It&rsquo;s the goosebumps you got when you first heard Bj&ouml;rk, Billie Eilish, Aurora, ANOHNI or Brian Eno speak about the environment in ways that felt far too close to home and made global change feel urgent.</p>
+          <p>It&rsquo;s that realisation that your speakers were distorting when you turned <span class="pink-phrase">Rage Against The Machine beyond eleven</span>.</p>
+          <p>It&rsquo;s that moment you truly understood what Dead Prez, Kathleen Hanna or Kendrick Lamar meant about injustice.</p>
+          <p>It&rsquo;s not just believing that a new world is possible, it&rsquo;s <span class="pink-phrase">working together to make it real</span>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ========================================================
        BIO
@@ -186,7 +223,7 @@
           </div>
 
           <div class="featured-client__teaser">
-            <p><strong>New album coming August 2026.</strong> Managing complete campaign strategy, release coordination, and industry positioning.</p>
+            <p>Managing complete campaign strategy, release coordination, and industry positioning for her forthcoming new album.</p>
           </div>
 
         </div>
@@ -851,23 +888,6 @@
   </section>
 
   <!-- ========================================================
-       DiS IS... MANIFESTO
-       ======================================================== -->
-  <section id="dis-is" class="section section--dark dis-is">
-    <div class="container">
-      <div class="dis-is__inner">
-        <div class="dis-is__text">
-          <p>DiS is that hopeful vision in your mind&rsquo;s eye the Monday morning after Glastonbury.</p>
-          <p>It&rsquo;s the goosebumps you got when you first heard Bj&ouml;rk, Billie Eilish, Aurora, ANOHNI or Brian Eno speak about the environment in ways that felt far too close to home and made global change feel urgent.</p>
-          <p>It&rsquo;s that realisation that your speakers were distorting when you turned <span class="pink-phrase">Rage Against The Machine beyond eleven</span>.</p>
-          <p>It&rsquo;s that moment you truly understood what Dead Prez, Kathleen Hanna or Kendrick Lamar meant about injustice.</p>
-          <p>It&rsquo;s not just believing that a new world is possible, it&rsquo;s <span class="pink-phrase">working together to make it real</span>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
        RELEASES
        ======================================================== -->
   <section id="releases" class="section section--dark">
@@ -1243,6 +1263,46 @@
           }
         });
       });
+
+      // Sticky nav: hide on scroll-down, show on scroll-up
+      (function() {
+        var nav = document.getElementById('site-nav');
+        var lastY = 0;
+        var ticking = false;
+
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            requestAnimationFrame(function() {
+              var y = window.scrollY;
+              if (y > lastY && y > 80) {
+                nav.classList.add('nav--hidden');
+              } else {
+                nav.classList.remove('nav--hidden');
+              }
+              lastY = y;
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+
+        // Burger toggle
+        var burger = document.getElementById('nav-burger');
+        var links = document.getElementById('nav-links');
+        burger.addEventListener('click', function() {
+          var open = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !open);
+          links.classList.toggle('nav--open', !open);
+        });
+
+        // Close menu on link click (mobile)
+        links.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            burger.setAttribute('aria-expanded', 'false');
+            links.classList.remove('nav--open');
+          });
+        });
+      })();
   </script>
 
 </body>
