@@ -1385,35 +1385,7 @@ ul {
   gap: 8px;
 }
 
-/* Desktop horizontal scrollable timeline */
-@media (min-width: 768px) {
-  .timeline {
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 24px;
-    scrollbar-width: thin;
-    scrollbar-color: #FF1493 #111;
-  }
-  .timeline__era {
-    min-width: 280px;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-    border-right: 1px solid rgba(255,20,147,0.2);
-    padding-right: 32px;
-    margin-right: 32px;
-    margin-bottom: 0;
-  }
-  .timeline__era:last-child {
-    border-right: none;
-  }
-  .timeline__entries {
-    padding-left: 0;
-    flex-direction: column;
-  }
-  .timeline__dot-col { display: none; }
-}
+/* Timeline is a vertical stack of collapsible eras on all screen sizes */
 
 /* ------------------------------------------------------------
    TIMELINE INTRO & COLLAPSIBLE ERAS
@@ -1990,9 +1962,10 @@ ul {
 }
 
 /* ------------------------------------------------------------
-   TIMELINE SCROLL HINT
+   TIMELINE SCROLL HINT (removed)
    ------------------------------------------------------------ */
 .timeline__scroll-hint {
+  display: none;
   font-family: 'Francois One', sans-serif;
   font-size: 0.75rem;
   text-transform: uppercase;
