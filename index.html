@@ -3,891 +3,1002 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sean Adams — Founder of Drowned in Sound, podcast host, journalist, artist manager, and consultant. 25 years building infrastructure for music's collective power.">
-  <title>Sean Adams · Drowned in Sound</title>
+  <title>Sean Adams — Founder, Drowned in Sound</title>
+  <meta name="description" content="Sean Adams — Founder of Drowned in Sound, podcast host, journalist, and artist manager. 25 years building infrastructure for music's power.">
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════
-       SECTION 1: HERO / LINKTREE
-       ══════════════════════════════════════ -->
-  <section id="hero">
-    <div class="hero-photo-wrap">
-      <img
-        src="assets/sean-headshot.jpg"
-        alt="Sean Adams"
-        class="hero-photo"
-        width="150"
-        height="150"
-      >
+  <!-- ========================================================
+       HERO
+       ======================================================== -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero__inner">
+
+        <div class="hero__photo-wrap">
+          <img
+            class="hero__photo"
+            src="assets/sean-headshot.jpg"
+            alt="Sean Adams"
+            width="220"
+            height="220"
+          >
+          <p class="hero__photo-credit">Photo: Jen McCord / SheSaidSo</p>
+        </div>
+
+        <h1 class="hero__name">Sean Adams</h1>
+        <p class="hero__title">Founder, Drowned in Sound &middot; Podcast Host &middot; Journalist &middot; Artist Manager</p>
+
+        <p class="hero__quote">&ldquo;Music is upstream from politics.&rdquo;</p>
+
+        <nav class="hero__links" aria-label="Key links">
+          <a class="hero__link-btn hero__link-btn--primary" href="https://drownedinsound.org" target="_blank" rel="noopener">Subscribe to the DiS Newsletter</a>
+          <a class="hero__link-btn" href="https://drownedinsound.org/podcasts/" target="_blank" rel="noopener">Listen to the DiS Podcast</a>
+          <a class="hero__link-btn" href="https://www.huckmag.com/article/music-journalism-crisis-oblivion-salvation-save-association-editors-sean-adams-drowned-in-sound" target="_blank" rel="noopener">Read my Huck essay</a>
+          <a class="hero__link-btn" href="https://thesounding.org" target="_blank" rel="noopener">The Sounding</a>
+          <a class="hero__link-btn" href="https://music-editors.com" target="_blank" rel="noopener">Association of Music Editors</a>
+          <a class="hero__link-btn" href="mailto:sean@drownedinsound.org">Contact me</a>
+        </nav>
+
+        <div class="hero__socials" aria-label="Social profiles">
+          <a class="hero__social-link" href="https://linkedin.com/in/seaninsound" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a class="hero__social-link" href="https://bsky.app/profile/drownedinsound.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.299-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg>
+          </a>
+          <a class="hero__social-link" href="https://instagram.com/seaninsound" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a class="hero__social-link" href="https://tiktok.com/@drownedinsoundorg" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+          </a>
+        </div>
+
+        <a class="hero__scroll-hint" href="#argument" aria-label="Scroll to content">&#8964;</a>
+
+      </div>
     </div>
-
-    <h1 class="hero-name">Sean Adams</h1>
-    <p class="hero-title">Founder, Drowned in Sound · Podcast Host · Journalist · Artist Manager</p>
-    <p class="hero-quote">"Music is upstream from politics."</p>
-
-    <nav class="link-buttons" aria-label="Key links">
-      <a href="https://drownedinsound.org" class="link-btn" target="_blank" rel="noopener">Subscribe to the DiS Newsletter</a>
-      <a href="https://drownedinsound.org/podcasts/" class="link-btn" target="_blank" rel="noopener">Listen to the DiS Podcast</a>
-      <a href="https://www.huckmag.com/article/music-journalism-crisis-oblivion-salvation-save-association-editors-sean-adams-drowned-in-sound" class="link-btn" target="_blank" rel="noopener">Read my Huck essay</a>
-      <a href="https://thesounding.org" class="link-btn" target="_blank" rel="noopener">The Sounding</a>
-      <a href="https://music-editors.com" class="link-btn" target="_blank" rel="noopener">Association of Music Editors</a>
-      <a href="mailto:sean@drownedinsound.org" class="link-btn">Contact me</a>
-    </nav>
-
-    <div class="social-row" aria-label="Social profiles">
-      <!-- LinkedIn -->
-      <a href="https://linkedin.com/in/seaninsound" class="social-icon" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-      </a>
-      <!-- Bluesky -->
-      <a href="https://bsky.app/profile/drownedinsound.bsky.social" class="social-icon" target="_blank" rel="noopener" aria-label="Bluesky">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.299-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/>
-        </svg>
-      </a>
-      <!-- Instagram -->
-      <a href="https://instagram.com/seaninsound" class="social-icon" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-        </svg>
-      </a>
-      <!-- TikTok -->
-      <a href="https://tiktok.com/@drownedinsoundorg" class="social-icon" target="_blank" rel="noopener" aria-label="TikTok">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
-        </svg>
-      </a>
-    </div>
-
-    <p class="photo-credit">Photo: Jen McCord / SheSaidSo</p>
-
-    <a href="#argument" class="scroll-hint" aria-label="Scroll down for more">
-      <span>More</span>
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <polyline points="6 9 12 15 18 9"/>
-      </svg>
-    </a>
-  </section>
+  </header>
 
   <hr class="section-rule">
 
-  <!-- ══════════════════════════════════════
-       SECTION 2: THE ARGUMENT
-       ══════════════════════════════════════ -->
-  <section id="argument">
+  <!-- ========================================================
+       WHY MUSIC MATTERS
+       ======================================================== -->
+  <section id="argument" class="section section--dark">
     <div class="container">
       <h2 class="section-heading">Why Music Matters</h2>
-
-      <p>For years, the Breitbart doctrine — "politics is downstream from culture" — was weaponised by the far right to pummel the inclusive world of music with smears and abuse. I believe it's time to flip that around: culture and working people are upstream of these billionaires and their angry army of riled-up trolls.</p>
-
-      <p>Corporate power has consolidated across the music industry in ways most fans don't see. The same private equity buying up festivals is investing in fossil fuel. Spotify CEO Daniel Ek has invested heavily in military AI company Helsing. Deezer's Len Blavatnik — who also owns a large stake in Warner Music — has been sanctioned by Ukraine whilst supporting Netanyahu.</p>
-
-      <p>Music fans have far more collective power than they realise. Everything I've built — from releasing records and promoting grassroots shows to running tactical voting campaigns — has been about building the infrastructure for that power to be discovered and used.</p>
+      <div class="argument__body">
+        <p>For years, the Breitbart doctrine &mdash; &ldquo;politics is downstream from culture&rdquo; &mdash; was weaponised by the far right to pummel the inclusive world of music with smears and abuse. I believe it&rsquo;s time to flip that around: culture and working people are upstream of these billionaires and their angry army of riled-up trolls.</p>
+        <p>Corporate power has consolidated across the music industry in ways most fans don&rsquo;t see. The same private equity buying up festivals is investing in fossil fuel. Spotify CEO Daniel Ek has invested heavily in military AI company Helsing. Deezer&rsquo;s Len Blavatnik &mdash; who also owns a large stake in Warner Music &mdash; has been sanctioned by Ukraine whilst supporting Netanyahu.</p>
+        <p>Music fans have far more collective power than they realise. Everything I&rsquo;ve built &mdash; from releasing records and promoting grassroots shows to running tactical voting campaigns &mdash; has been about building the infrastructure for that power to be discovered and used.</p>
+      </div>
     </div>
   </section>
 
   <hr class="section-rule">
 
-  <!-- ══════════════════════════════════════
-       SECTION 3: WHAT I'M BUILDING NOW
-       ══════════════════════════════════════ -->
-  <section id="now">
+  <!-- ========================================================
+       STATS BAND
+       ======================================================== -->
+  <section id="stats" class="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stats__item">
+          <span class="stats__number">25</span>
+          <span class="stats__label">Years of DiS</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">300K</span>
+          <span class="stats__label">Podcast impressions/month</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">2&ndash;3M</span>
+          <span class="stats__label">Forum pageviews/month</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">200K</span>
+          <span class="stats__label">Social followers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- ========================================================
+       NOW
+       ======================================================== -->
+  <section id="now" class="section section--dark">
     <div class="container">
       <h2 class="section-heading">Now</h2>
+      <ul class="now__list">
+
+        <li class="now__item">
+          <p class="now__item-title">Drowned in Sound Podcast Network <span style="font-size:0.8rem;color:#666;">(launching April 2026)</span></p>
+          <p class="now__item-desc">The DiS Podcast &mdash; hopeful, future-facing conversations with extraordinary artists and cultural leaders reshaping the music ecosystem. Recent guests include Enter Shikari, Faithless, Kelly Lee Owens, Sofia Isella, Tori Tsui, Lord Kevin Brennan (Culture Media and Sport Committee), and Gazelle Twin. 300,000 impressions/month. 50,000 downloads/year. +100% growth in the last 6 months. Sponsored by <a href="https://www.qobuz.com" target="_blank" rel="noopener">Qobuz</a>.</p>
+        </li>
+
+        <li class="now__item">
+          <p class="now__item-title">The DiS Newsletter</p>
+          <p class="now__item-desc">A weekly publication about the future of music to 10,000+ subscribers (46% open rate). Solutions-focused journalism investigating streaming economics, venue closures, gender equity, AI, and climate &mdash; alongside the music recommendations DiS was built on.</p>
+        </li>
+
+        <li class="now__item">
+          <p class="now__item-title">The DiS Community</p>
+          <p class="now__item-desc">The <a href="https://community.drownedinsound.com" target="_blank" rel="noopener">forums</a> launched alongside the website in 2000, survived the hiatus, and still rack up 2&ndash;3 million pageviews a month. A quarter of a century old and still going.</p>
+        </li>
+
+        <li class="now__item">
+          <p class="now__item-title">The Sounding <span style="font-size:0.8rem;color:#666;">(co-founded with Tom Venvell, 2025)</span></p>
+          <p class="now__item-desc">A transmedia production house and growth consultancy for purpose-driven brands across music, wellness, and social sectors.</p>
+        </li>
+
+        <li class="now__item">
+          <p class="now__item-title">Association of Music Editors <span style="font-size:0.8rem;color:#666;">(founded 2025)</span></p>
+          <p class="now__item-desc">A collective voice for editors of music publications, podcasts and zines. Because music journalism has been fracked by an attention economy that prioritises volume and rage-bait over quality and insight.</p>
+        </li>
+
+        <li class="now__item">
+          <p class="now__item-title">Spotify Exodus series <span style="font-size:0.8rem;color:#666;">(2025)</span></p>
+          <p class="now__item-desc">DiS&rsquo;s investigative coverage of the #DisarmSpotify movement catalysed an artist and fan movement, generating 10 million+ campaign impressions.</p>
+        </li>
+
+        <li class="now__item">
+          <p class="now__item-title">Music Fans Voice</p>
+          <p class="now__item-desc">A survey engaging 8,000 participants that helped drive the UK government to launch a fan-led review of live music.</p>
+        </li>
 
-      <!-- Stats infographic -->
-      <div class="stats-grid" aria-label="Key numbers">
-        <div class="stat">
-          <span class="stat-number">25</span>
-          <span class="stat-label">years of DiS</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">300K</span>
-          <span class="stat-label">podcast impressions/month</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">2–3M</span>
-          <span class="stat-label">forum pageviews/month</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">200K</span>
-          <span class="stat-label">social followers</span>
-        </div>
-      </div>
-
-      <div class="now-item">
-        <span class="now-title">Drowned in Sound Podcast Network <em style="font-weight:400; color: var(--grey); font-size:0.85em;">(launching April 2026)</em></span>
-        <p>The DiS Podcast — hopeful, future-facing conversations with extraordinary artists and cultural leaders reshaping the music ecosystem. Recent guests include Enter Shikari, Faithless, Kelly Lee Owens, Sofia Isella, Tori Tsui, Lord Kevin Brennan (Culture Media and Sport Committee), and Gazelle Twin. 300,000 impressions/month. 50,000 downloads/year. +100% growth in the last 6 months. Sponsored by <a href="https://www.qobuz.com" target="_blank" rel="noopener">Qobuz</a>.</p>
-      </div>
-
-      <div class="now-item">
-        <span class="now-title">The DiS Newsletter</span>
-        <p>A weekly publication about the future of music to 10,000+ subscribers (46% open rate). Solutions-focused journalism investigating streaming economics, venue closures, gender equity, AI, and climate — alongside the music recommendations DiS was built on.</p>
-      </div>
-
-      <div class="now-item">
-        <span class="now-title">The DiS Community</span>
-        <p>The <a href="https://community.drownedinsound.com" target="_blank" rel="noopener">forums</a> launched alongside the website in 2000, survived the hiatus, and still rack up 2–3 million pageviews a month. A quarter of a century old and still going.</p>
-      </div>
-
-      <div class="now-item">
-        <span class="now-title">The Sounding <em style="font-weight:400; color: var(--grey); font-size:0.85em;">(co-founded with Tom Venvell, 2025)</em></span>
-        <p>A transmedia production house and growth consultancy for purpose-driven brands across music, wellness, and social sectors.</p>
-      </div>
-
-      <div class="now-item">
-        <span class="now-title">Association of Music Editors <em style="font-weight:400; color: var(--grey); font-size:0.85em;">(founded 2025)</em></span>
-        <p>A collective voice for editors of music publications, podcasts and zines. Because music journalism has been fracked by an attention economy that prioritises volume and rage-bait over quality and insight.</p>
-      </div>
-
-      <div class="now-item">
-        <span class="now-title">Spotify Exodus series <em style="font-weight:400; color: var(--grey); font-size:0.85em;">(2025)</em></span>
-        <p>DiS's investigative coverage of the #DisarmSpotify movement catalysed an artist and fan movement, generating 10 million+ campaign impressions.</p>
-      </div>
-
-      <div class="now-item">
-        <span class="now-title">Music Fans Voice</span>
-        <p>A survey engaging 8,000 participants that helped drive the UK government to launch a fan-led review of live music.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-rule">
-
-  <!-- ══════════════════════════════════════
-       SECTION 4: TRACK RECORD
-       ══════════════════════════════════════ -->
-  <section id="track-record">
-    <div class="container">
-      <h2 class="section-heading">Track Record</h2>
-
-      <blockquote class="intro-quote">"I have a habit of finding something special. I then get truly obsessed."</blockquote>
-
-      <p class="body-intro">I started reviewing demos by Muse, Coldplay, and Cooper Temple Clause as a teenager in Dorset, publishing an email fanzine called The Last Resort from 1998 — some of those were the artists' very first interviews. I simultaneously worked in a record shop ("more like Empire Records than High Fidelity") and promoted a weekly live music club night — booking acts including Ash and jj72, and building the venue's website — all before turning 20.</p>
-
-      <blockquote class="inset-quote">"Hearing Muse's first demo and seeing their rise and rise and rise — despite the music press being dismissive and a bit snobby about them — was definitely a big catalyst."</blockquote>
-
-      <div class="track-item-block">
-        <p><span class="track-label">Publication: </span><span>Drowned in Sound (2000–present), reaching 3 million music fans annually at its peak. Also spawned <a href="https://thequietus.com" target="_blank" rel="noopener">The Quietus</a> in 2008.</span></p>
-      </div>
-
-      <div class="track-item-block">
-        <p><span class="track-label">Record label: </span><span><a href="https://drownedinsound.bandcamp.com" target="_blank" rel="noopener">DiS Recordings</a> (from 2003), releasing debuts by Kaiser Chiefs, Bat for Lashes, Emmy the Great, The Stills, Brett Anderson, Martha Wainwright (80,000 CDs sold), and Metric. Full catalogue on <a href="https://www.discogs.com/label/34377-Drowned-In-Sound-Recordings" target="_blank" rel="noopener">Discogs</a>.</span></p>
-      </div>
-
-      <div class="track-item-block">
-        <p><span class="track-label">Live promotion &amp; festival curation: </span><span>16 years (2000–2017) of club nights and festival stages — from the Barfly and Dublin Castle to SXSW, Iceland Airwaves, and The Great Escape (launch curator), the relaunched Camden Crawl, and Summer Sundae. Programmed stages at Iceland Airwaves and SXSW. Artists platformed include Laura Marling, Biffy Clyro, Jamie T, M83, Foals, Santigold, Frightened Rabbit, and many more.</span></p>
-      </div>
-
-      <div class="track-item-block">
-        <p><span class="track-label">Curation: </span><span>One of the UK's first music podcasts (2005), curated playlists for Spotify's official blog (2010–2011), and ran Independent Music Monday (2015–2017, supported by [PIAS]). From early Spotify curation to recent investigative coverage of the #DisarmSpotify movement — tracking the platform's journey from cultural promise to ethical flashpoint.</span></p>
-      </div>
-
-      <div class="track-item-block">
-        <p><span class="track-label">Interviews: </span><span>Over 25 years of conversations with artists from Paramore and Nine Inch Nails to St. Vincent, Bon Iver, and hundreds more — driven by curiosity about where a guest's excitement lives.</span></p>
-      </div>
-
-      <div class="track-item-block">
-        <p><span class="track-label">Artist championing: </span><span>68% hit rate for early championing across 25 years of Album of the Year lists. Among the first UK journalists to back Muse (from their earliest demos), Lizzo, Bon Iver (saw him the day he signed to 4AD at SXSW), and St. Vincent (covered first album, made the second Album of the Year). Gender representation in DiS's annual picks has risen from ~12% to ~45%.</span></p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-rule">
-
-  <!-- ══════════════════════════════════════
-       SECTION 5: TIMELINE
-       ══════════════════════════════════════ -->
-  <section id="timeline">
-    <div class="container">
-      <h2 class="section-heading">A Quarter Century</h2>
-
-      <!-- ERA 1 -->
-      <div class="timeline-era">
-        <h3 class="timeline-era-heading">1997–2000 · The Dorset Years</h3>
-        <div class="timeline-entries">
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">1997</span>
-              </div>
-              <p class="timeline-title">Record shop assistant, FM Music / Falcon Records</p>
-              <p class="timeline-desc">"More like Empire Records than High Fidelity."</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">1997</span>
-                <span class="tag tag-live">live</span>
-              </div>
-              <p class="timeline-title">Club promoter, Verdis Weymouth</p>
-              <p class="timeline-desc">Weekly live nights booking Ash, Cooper Temple Clause, jj72, Toploader. Also built the venue's website.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry timeline-entry--major">
-            <div class="timeline-dot timeline-dot--major"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">1998</span>
-                <span class="tag tag-publication">publication</span>
-              </div>
-              <p class="timeline-title">The Last Resort email fanzine ★</p>
-              <p class="timeline-desc">Reviewed first demos by Muse, Coldplay, Cooper Temple Clause. Some of their very first interviews.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ERA 2 -->
-      <div class="timeline-era">
-        <h3 class="timeline-era-heading">2000–2008 · Building the Ecosystem</h3>
-        <div class="timeline-entries">
-
-          <div class="timeline-entry timeline-entry--major">
-            <div class="timeline-dot timeline-dot--major"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2000</span>
-                <span class="tag tag-publication">publication</span>
-                <span class="tag tag-live">live</span>
-              </div>
-              <p class="timeline-title">Drowned in Sound launched ★</p>
-              <p class="timeline-desc">Website, community forums (still running: 2–3m pageviews/month today), club nights at the Barfly, Dublin Castle, Notting Hill Arts Club.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry timeline-entry--major">
-            <div class="timeline-dot timeline-dot--major"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2003</span>
-                <span class="tag tag-label">label</span>
-              </div>
-              <p class="timeline-title">DiS Recordings launched ★</p>
-              <p class="timeline-desc">Debut releases by Kaiser Chiefs, Bat for Lashes, Emmy the Great, Martha Wainwright (80k CDs), Metric, The Stills, Brett Anderson.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2005</span>
-                <span class="tag tag-publication">publication</span>
-              </div>
-              <p class="timeline-title">DiS podcast launched</p>
-              <p class="timeline-desc">One of the UK's first music podcasts. Won Best Podcast, Record of the Day 2006.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2006</span>
-                <span class="tag tag-publication">publication</span>
-              </div>
-              <p class="timeline-title">Observer: DiS ranked #9 Top 25 Websites</p>
-              <p class="timeline-desc">Best Online Music Publication (Record of the Day 2007). NME, BT Digital Awards nominations.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2008</span>
-                <span class="tag tag-publication">publication</span>
-              </div>
-              <p class="timeline-title">The Quietus launched from DiS</p>
-              <p class="timeline-desc">Spawned and funded from a DiS ad revenue advance. Now one of the UK's most respected music publications.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2008</span>
-                <span class="tag tag-political">political</span>
-              </div>
-              <p class="timeline-title">Love Music Hate Racism partnership</p>
-              <p class="timeline-desc">Tours and LMHR Carnival, Victoria Park. Music fandom as anti-fascist coalition building.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ERA 3 -->
-      <div class="timeline-era">
-        <h3 class="timeline-era-heading">2009–2019 · Peak Reach and New Roles</h3>
-        <div class="timeline-entries">
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2009</span>
-                <span class="tag tag-media">media</span>
-              </div>
-              <p class="timeline-title">Sunday Times "My Generation" column</p>
-              <p class="timeline-desc">Fortnightly column on music × technology × commerce, Culture section (to 2012).</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2010</span>
-                <span class="tag tag-publication">publication</span>
-              </div>
-              <p class="timeline-title">Spotify playlist curator</p>
-              <p class="timeline-desc">Monthly playlists for Spotify's official blog (to 2011). Best Publication, Record of the Day 2010.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2012</span>
-                <span class="tag tag-management">management</span>
-              </div>
-              <p class="timeline-title">Artist management begins (CCCLX Music)</p>
-              <p class="timeline-desc">Ed Harcourt, The Anchoress. Ed produced Sophie Ellis-Bextor's comeback, wrote for Paloma Faith, James Bay; Burberry campaign.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2015</span>
-                <span class="tag tag-publication">publication</span>
-              </div>
-              <p class="timeline-title">Independent Music Monday playlists</p>
-              <p class="timeline-desc">Weekly playlist celebrating best indie label releases, supported by [PIAS] (to 2017).</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2015</span>
-                <span class="tag tag-media">media</span>
-              </div>
-              <p class="timeline-title">Soho Radio host</p>
-              <p class="timeline-desc">Regular show for nearly six years (to 2021).</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2016</span>
-                <span class="tag tag-media">media</span>
-              </div>
-              <p class="timeline-title">BBC Radio 6 Music — Social Media Producer</p>
-              <p class="timeline-desc">Managed social strategy, created viral content. Also covered BBC Radio 2 (to 2021).</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2019</span>
-              </div>
-              <p class="timeline-title">DiS goes on hiatus</p>
-              <p class="timeline-desc">Ad rates collapsed from £3–8 CPM to 25p. 3 million annual readers but the business model broke. Community forums continued.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ERA 4 -->
-      <div class="timeline-era">
-        <h3 class="timeline-era-heading">2020–2024 · Rebuilding and Diversifying</h3>
-        <div class="timeline-entries">
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2021</span>
-                <span class="tag tag-media">media</span>
-              </div>
-              <p class="timeline-title">Head of Digital, Studio Richter Mahr</p>
-              <p class="timeline-desc">Three album campaigns with Max Richter alongside his work with UN Human Rights (to 2022).</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2022</span>
-                <span class="tag tag-management">management</span>
-              </div>
-              <p class="timeline-title">Charlotte Church — artist management</p>
-              <p class="timeline-desc">Navigating her transition to politically engaged independent artist (to early 2026).</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2022</span>
-                <span class="tag tag-media">media</span>
-              </div>
-              <p class="timeline-title">The Trawl — podcast producer</p>
-              <p class="timeline-desc">Political podcast with Marina Purkiss &amp; Jemma Forte. Subsequently joined Goalhanger (Gary Lineker) family.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry timeline-entry--major">
-            <div class="timeline-dot timeline-dot--major"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2023</span>
-                <span class="tag tag-publication">publication</span>
-              </div>
-              <p class="timeline-title">DiS relaunched as newsletter + podcast ★</p>
-              <p class="timeline-desc">Moved from Substack to Ghost for ethical reasons. Mission: surfacing music's power for change.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2024</span>
-                <span class="tag tag-political">political</span>
-              </div>
-              <p class="timeline-title">StopTheTories.vote — strategic comms</p>
-              <p class="timeline-desc">Tactical voting campaign with Carol Vorderman. Reached 1.75 million people.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2024</span>
-                <span class="tag tag-political">political</span>
-              </div>
-              <p class="timeline-title">Music Fans Voice survey</p>
-              <p class="timeline-desc">8,000 participants. Helped drive UK government fan-led review of live music.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ERA 5 -->
-      <div class="timeline-era">
-        <h3 class="timeline-era-heading">2025–Now · The Network Era</h3>
-        <div class="timeline-entries">
-
-          <div class="timeline-entry timeline-entry--major">
-            <div class="timeline-dot timeline-dot--major"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2025</span>
-                <span class="tag tag-network">network</span>
-              </div>
-              <p class="timeline-title">The Sounding co-founded with Tom Venvell ★</p>
-              <p class="timeline-desc">Transmedia production house and growth consultancy for purpose-driven brands.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry timeline-entry--major">
-            <div class="timeline-dot timeline-dot--major"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2025</span>
-                <span class="tag tag-network">network</span>
-              </div>
-              <p class="timeline-title">Association of Music Editors founded ★</p>
-              <p class="timeline-desc">Collective organising for editors of music publications, podcasts, and zines.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2025</span>
-                <span class="tag tag-publication">publication</span>
-              </div>
-              <p class="timeline-title">Qobuz becomes DiS podcast title sponsor</p>
-              <p class="timeline-desc">Partnership with ethical streaming platform. Featured in TechRadar.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2025</span>
-                <span class="tag tag-publication">publication</span>
-                <span class="tag tag-political">political</span>
-              </div>
-              <p class="timeline-title">Spotify Exodus investigative series</p>
-              <p class="timeline-desc">Coverage of #DisarmSpotify catalysed artist/fan movement. 10m+ campaign impressions.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2025</span>
-                <span class="tag tag-media">media</span>
-              </div>
-              <p class="timeline-title">Huck 82: "We Gotta Get Through This"</p>
-              <p class="timeline-desc">Feature on the crisis in music journalism and the Association of Music Editors.</p>
-            </div>
-          </div>
-
-          <div class="timeline-entry timeline-entry--major">
-            <div class="timeline-dot timeline-dot--major"></div>
-            <div class="timeline-content">
-              <div class="timeline-meta">
-                <span class="timeline-year">2026</span>
-                <span class="tag tag-network">network</span>
-              </div>
-              <p class="timeline-title">DiS Podcast Network launches ★</p>
-              <p class="timeline-desc">Three shows: The DiS Podcast (host), Sounds Like Change (producer), How Music Can Save The World (producer). 300k impressions/month, 50k downloads/year, +100% growth.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Timeline legend -->
-      <div class="timeline-legend" aria-label="Category legend">
-        <span class="tag tag-publication">publication</span>
-        <span class="tag tag-label">label</span>
-        <span class="tag tag-live">live</span>
-        <span class="tag tag-media">media</span>
-        <span class="tag tag-management">management</span>
-        <span class="tag tag-political">political</span>
-        <span class="tag tag-network">network</span>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="section-rule">
-
-  <!-- ══════════════════════════════════════
-       SECTION 6: BEYOND MUSIC
-       ══════════════════════════════════════ -->
-  <section id="beyond-music">
-    <div class="container">
-      <h2 class="section-heading">Beyond Music</h2>
-
-      <ul class="beyond-list">
-        <li><span class="beyond-label">Tactical voting: </span>Oversaw strategic comms for StopTheTories.vote alongside Carol Vorderman, reaching 1.75 million people during the 2024 UK general election.</li>
-        <li><span class="beyond-label">BBC Radio 6 Music: </span>Social Media Producer for 4+ years (2016–2021), managing the station's social strategy and creating viral content.</li>
-        <li><span class="beyond-label">Max Richter / UN Human Rights: </span>Head of Digital at Studio Richter Mahr (2021–2022), working on three album campaigns alongside Richter's work with UN Human Rights.</li>
-        <li><span class="beyond-label">The Trawl: </span>Produced the political podcast hosted by Marina Purkiss and Jemma Forte. It subsequently joined Gary Lineker's Goalhanger family of podcasts.</li>
-        <li><span class="beyond-label">The Sunday Times: </span>"My Generation" columnist in the Culture section (2009–2012).</li>
-        <li><span class="beyond-label">Soho Radio: </span>Host for nearly six years (2015–2021).</li>
-        <li><span class="beyond-label">Love Music Hate Racism: </span>Partnered on tours and the 2008 LMHR Carnival in Victoria Park.</li>
-        <li><span class="beyond-label">Artist management: </span>Charlotte Church, The Anchoress (ongoing), Ed Harcourt, Juanita Stein (Howling Bells), Max Richter.</li>
       </ul>
     </div>
   </section>
 
   <hr class="section-rule">
 
-  <!-- ══════════════════════════════════════
-       SECTION 7: RECOGNITION
-       ══════════════════════════════════════ -->
-  <section id="recognition">
+  <!-- ========================================================
+       TRACK RECORD
+       ======================================================== -->
+  <section id="track-record" class="section section--alt">
+    <div class="container">
+      <h2 class="section-heading">Track Record</h2>
+
+      <p class="track-record__intro-quote">&ldquo;I have a habit of finding something special. I then get truly obsessed.&rdquo;</p>
+
+      <p class="track-record__body">I started reviewing demos by Muse, Coldplay, and Cooper Temple Clause as a teenager in Dorset, publishing an email fanzine called The Last Resort from 1998 &mdash; some of those were the artists&rsquo; very first interviews. I simultaneously worked in a record shop (&ldquo;more like Empire Records than High Fidelity&rdquo;) and promoted a weekly live music club night &mdash; booking acts including Ash and jj72, and building the venue&rsquo;s website &mdash; all before turning 20.</p>
+
+      <blockquote class="track-record__inset">&ldquo;Hearing Muse&rsquo;s first demo and seeing their rise and rise and rise &mdash; despite the music press being dismissive and a bit snobby about them &mdash; was definitely a big catalyst.&rdquo;</blockquote>
+
+      <div class="track-card">
+        <p class="track-card__title">Publication</p>
+        <p class="track-card__desc">Drowned in Sound (2000&ndash;present), reaching 3 million music fans annually at its peak. Also spawned <a href="https://thequietus.com" target="_blank" rel="noopener">The Quietus</a> in 2008.</p>
+      </div>
+
+      <div class="track-card">
+        <p class="track-card__title">Record Label</p>
+        <p class="track-card__desc"><a href="https://drownedinsound.bandcamp.com" target="_blank" rel="noopener">DiS Recordings</a> (from 2003), releasing debuts by <strong class="artist-name">Kaiser Chiefs</strong>, <strong class="artist-name">Bat for Lashes</strong>, Emmy the Great, The Stills, Brett Anderson, <strong class="artist-name">Martha Wainwright</strong> (80,000 CDs sold), and Metric. Full catalogue on <a href="https://www.discogs.com/label/34377-Drowned-In-Sound-Recordings" target="_blank" rel="noopener">Discogs</a>.</p>
+      </div>
+
+      <div class="track-card">
+        <p class="track-card__title">Live Promotion &amp; Festival Curation</p>
+        <p class="track-card__desc">16 years (2000&ndash;2017) of club nights and festival stages &mdash; from the Barfly and Dublin Castle to SXSW, Iceland Airwaves, and The Great Escape (launch curator), the relaunched Camden Crawl, and Summer Sundae. Programmed stages at Iceland Airwaves and SXSW. Artists platformed include <strong class="artist-name">Laura Marling</strong>, <strong class="artist-name">Biffy Clyro</strong>, Jamie T, M83, <strong class="artist-name">Foals</strong>, Santigold, Frightened Rabbit, and many more.</p>
+      </div>
+
+      <div class="track-card">
+        <p class="track-card__title">Curation</p>
+        <p class="track-card__desc">One of the UK&rsquo;s first music podcasts (2005), curated playlists for Spotify&rsquo;s official blog (2010&ndash;2011), and ran Independent Music Monday (2015&ndash;2017, supported by [PIAS]). From early Spotify curation to recent investigative coverage of the #DisarmSpotify movement.</p>
+      </div>
+
+      <div class="track-card">
+        <p class="track-card__title">Interviews</p>
+        <p class="track-card__desc">Over 25 years of conversations with artists from Paramore and Nine Inch Nails to <strong class="artist-name">St. Vincent</strong>, <strong class="artist-name">Bon Iver</strong>, and hundreds more &mdash; driven by curiosity about where a guest&rsquo;s excitement lives.</p>
+      </div>
+
+      <div class="track-card">
+        <p class="track-card__title">Artist Championing</p>
+        <p class="track-card__desc">68% hit rate for early championing across 25 years of Album of the Year lists. Among the first UK journalists to back <strong class="artist-name">Muse</strong> (from their earliest demos), <strong class="artist-name">Lizzo</strong>, Bon Iver, and St. Vincent. Gender representation in DiS&rsquo;s annual picks has risen from ~12% to ~45%.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- ========================================================
+       RELEASES
+       ======================================================== -->
+  <section id="releases" class="section section--dark">
+    <div class="container">
+      <h2 class="section-heading">Releases</h2>
+
+      <p class="releases__intro">DiS Recordings was founded in 2003 as an extension of the DiS editorial. Relaunched in 2023. Full catalogue on <a href="https://www.discogs.com/label/34377-Drowned-In-Sound-Recordings" target="_blank" rel="noopener">Discogs</a> and <a href="https://drownedinsound.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>.</p>
+
+      <h3 class="section-subheading" style="margin-top:0;">DiS Recordings &mdash; Albums</h3>
+
+      <div class="albums-grid">
+
+        <div class="release-card">
+          <p class="release-card__artist">thisGIRL</p>
+          <p class="release-card__title">Uno</p>
+          <p class="release-card__meta">2004 &middot; CD</p>
+        </div>
+
+        <div class="release-card">
+          <p class="release-card__artist">Martha Wainwright</p>
+          <p class="release-card__title">Martha Wainwright</p>
+          <p class="release-card__meta">2005 &middot; CD / LP</p>
+          <p class="release-card__note">80,000 copies sold</p>
+        </div>
+
+        <div class="release-card">
+          <p class="release-card__artist">Redjetson</p>
+          <p class="release-card__title">New General Catalogue</p>
+          <p class="release-card__meta">2005 &middot; CD</p>
+        </div>
+
+        <div class="release-card">
+          <p class="release-card__artist">Jeniferever</p>
+          <p class="release-card__title">Choose A Bright Morning</p>
+          <p class="release-card__meta">2006 &middot; CD</p>
+        </div>
+
+        <div class="release-card">
+          <p class="release-card__artist">Metric</p>
+          <p class="release-card__title">Live It Out</p>
+          <p class="release-card__meta">2006 &middot; CD / LP</p>
+          <p class="release-card__note">UK release</p>
+        </div>
+
+        <div class="release-card">
+          <p class="release-card__artist">The Stills</p>
+          <p class="release-card__title">Without Feathers</p>
+          <p class="release-card__meta">2006 &middot; CD</p>
+        </div>
+
+        <div class="release-card">
+          <p class="release-card__artist">Brett Anderson</p>
+          <p class="release-card__title">Brett Anderson</p>
+          <p class="release-card__meta">2007 &middot; CD / LP</p>
+          <p class="release-card__note">Solo debut from the Suede frontman</p>
+        </div>
+
+        <div class="release-card">
+          <p class="release-card__artist">Emily Haines &amp; The Soft Skeleton</p>
+          <p class="release-card__title">Knives Don&rsquo;t Have Your Back</p>
+          <p class="release-card__meta">2007 &middot; CD</p>
+          <p class="release-card__note">Solo project from the Metric frontwoman</p>
+        </div>
+
+        <div class="release-card">
+          <p class="release-card__artist">Youthmovies</p>
+          <p class="release-card__title">Good Nature</p>
+          <p class="release-card__meta">2008 &middot; CD</p>
+        </div>
+
+        <div class="release-card">
+          <p class="release-card__artist">Martha Wainwright</p>
+          <p class="release-card__title">Sans Fusils, Ni Souliers, &Agrave; Paris</p>
+          <p class="release-card__meta">2009 &middot; CD</p>
+          <p class="release-card__note">Licensed to V2</p>
+        </div>
+
+        <div class="release-card">
+          <p class="release-card__artist">The Anchoress</p>
+          <p class="release-card__title">Versions</p>
+          <p class="release-card__meta">2023 &middot; LP / CD</p>
+          <p class="release-card__note">Label relaunch release</p>
+        </div>
+
+      </div>
+
+      <!-- Singles toggle -->
+      <button class="toggle-singles-btn" id="toggle-singles" aria-expanded="false" aria-controls="singles-list">
+        Show all singles &amp; EPs <span class="toggle-arrow">&#8595;</span>
+      </button>
+
+      <ul class="discog-list discog-list--hidden" id="singles-list" aria-hidden="true">
+        <li class="discog-list__item"><span class="year">2003</span> The Koreans &mdash; Machine Code (CD) <span class="note">First ever DiS Recordings release</span></li>
+        <li class="discog-list__item"><span class="year">2003</span> The Koreans &mdash; How Does It Feel? (CD)</li>
+        <li class="discog-list__item"><span class="year">2004</span> Kaiser Chiefs &mdash; Oh My God (CD/7&quot;) <span class="note">Debut single</span></li>
+        <li class="discog-list__item"><span class="year">2004</span> thisGIRL &mdash; Hallelujah (CD)</li>
+        <li class="discog-list__item"><span class="year">2004</span> Redjetson / Youthmovie Soundtrack Strategies &mdash; Split Single (7&quot;)</li>
+        <li class="discog-list__item"><span class="year">2004</span> thisGIRL &mdash; Master Blaster (CD)</li>
+        <li class="discog-list__item"><span class="year">2004</span> Martha Wainwright &mdash; Bloody Mother Fucking Asshole (CD EP)</li>
+        <li class="discog-list__item"><span class="year">2005</span> Martha Wainwright &mdash; When The Day Is Short (CD)</li>
+        <li class="discog-list__item"><span class="year">2005</span> Komakino &mdash; Say Something (CD) <span class="note">Limited, numbered</span></li>
+        <li class="discog-list__item"><span class="year">2005</span> Redjetson &mdash; This, Every Day, For The Rest Of Your Life (7&quot;)</li>
+        <li class="discog-list__item"><span class="year">2005</span> Martha Wainwright &mdash; Far Away (CD)</li>
+        <li class="discog-list__item"><span class="year">2005</span> Blood Red Shoes &mdash; Victory for the Magpie / Stitch Me Up (7&quot;)</li>
+        <li class="discog-list__item"><span class="year">2005</span> Les Incompetents &mdash; Reunion / How To Create A Monster (Single)</li>
+        <li class="discog-list__item"><span class="year">2006</span> Jeniferever &mdash; From Across The Sea (7&quot;)</li>
+        <li class="discog-list__item"><span class="year">2006</span> Bat for Lashes &mdash; The Wizard (Digital/CD) <span class="note">DiS Digital Singles Club</span></li>
+        <li class="discog-list__item"><span class="year">2006</span> Metric &mdash; Poster Of A Girl (7&quot;)</li>
+        <li class="discog-list__item"><span class="year">2006</span> Metric &mdash; Monster Hospital (CD/7&quot;)</li>
+        <li class="discog-list__item"><span class="year">2006</span> Emmy The Great &mdash; Secret Circus / The Hypnotist&rsquo;s Son (CDr)</li>
+        <li class="discog-list__item"><span class="year">2006</span> Blood Red Shoes &mdash; You Bring Me Down (CDr)</li>
+        <li class="discog-list__item"><span class="year">2007</span> Brett Anderson &mdash; Love Is Dead (CD/7&quot;)</li>
+        <li class="discog-list__item"><span class="year">2007</span> Brett Anderson &mdash; Back To You (CD EP)</li>
+        <li class="discog-list__item"><span class="year">2007</span> Metric &mdash; Empty (7&quot;) <span class="note">Limited</span></li>
+        <li class="discog-list__item"><span class="year">2007</span> Emily Haines &amp; The Soft Skeleton &mdash; Doctor Blind (CDr)</li>
+        <li class="discog-list__item"><span class="year">2008</span> Youthmovies &mdash; The Naughtiest Girl Is A Monitor (7&quot;) <span class="note">Limited</span></li>
+        <li class="discog-list__item"><span class="year">2008</span> Martha Wainwright &mdash; Bleeding All Over You (7&quot;)</li>
+        <li class="discog-list__item"><span class="year">2008</span> Martha Wainwright &mdash; Comin&rsquo; Tonight (Single)</li>
+        <li class="discog-list__item"><span class="year">2008</span> Martha Wainwright &mdash; You Cheated Me (Single)</li>
+      </ul>
+
+      <!-- CCCLX Music -->
+      <div class="sub-label">
+        <p class="sub-label__heading">CCCLX Music</p>
+        <p class="sub-label__desc">Established 2013 as a management/label hybrid for Ed Harcourt&rsquo;s independent material.</p>
+        <ul class="sub-label__list">
+          <li class="sub-label__item"><span class="year">2013</span> Ed Harcourt &mdash; Back Into The Woods (Album CD/LP)</li>
+          <li class="sub-label__item"><span class="year">2013</span> Ed Harcourt &mdash; The Pretty Girls (Single)</li>
+          <li class="sub-label__item"><span class="year">2013</span> Ed Harcourt &mdash; Hey Little Bruiser (Single)</li>
+          <li class="sub-label__item"><span class="year">2014</span> Ed Harcourt &mdash; Time Of Dust (Mini-Album 12&quot;/CD)</li>
+          <li class="sub-label__item"><span class="year">2014</span> Ed Harcourt &mdash; In My Time Of Dust (Single)</li>
+        </ul>
+      </div>
+
+      <!-- Hiraeth Records -->
+      <div class="sub-label">
+        <p class="sub-label__heading">Hiraeth Records</p>
+        <p class="sub-label__desc">The Anchoress&rsquo;s own imprint, co-established with Sean Adams.</p>
+        <ul class="sub-label__list">
+          <li class="sub-label__item"><span class="year">2014</span> The Anchoress &mdash; What Goes Around (Single)</li>
+          <li class="sub-label__item"><span class="year">2014</span> The Anchoress &mdash; One For Sorrow (EP 12&quot;/CD)</li>
+          <li class="sub-label__item"><span class="year">2022</span> The Anchoress &mdash; Versions / EP1 (CD Limited)</li>
+          <li class="sub-label__item"><span class="year">2022</span> The Anchoress &mdash; Versions / EP2 (CD Limited)</li>
+          <li class="sub-label__item"><span class="year">2023</span> The Anchoress &mdash; Versions / EP3 (CD Limited)</li>
+          <li class="sub-label__item"><span class="year">2024</span> The Anchoress &mdash; Versions / EP4 (CD Limited)</li>
+          <li class="sub-label__item"><span class="year">2024</span> The Anchoress &mdash; Versions: Encore (EP 12&quot; Vinyl)</li>
+        </ul>
+      </div>
+
+      <!-- What Happened Next -->
+      <div class="what-next">
+        <h3 class="what-next__heading">What Happened Next</h3>
+        <div class="what-next__grid">
+
+          <div class="what-next__card">
+            <p class="what-next__artist">Kaiser Chiefs</p>
+            <p class="what-next__release">Oh My God (2004)</p>
+            <p class="what-next__trajectory">Multi-platinum albums, arena headliners</p>
+          </div>
+
+          <div class="what-next__card">
+            <p class="what-next__artist">Bat for Lashes</p>
+            <p class="what-next__release">The Wizard (2006)</p>
+            <p class="what-next__trajectory">Signed to Echo/Parlophone, Mercury Prize nominations, global critical acclaim</p>
+          </div>
+
+          <div class="what-next__card">
+            <p class="what-next__artist">Martha Wainwright</p>
+            <p class="what-next__release">Debut album (2005)</p>
+            <p class="what-next__trajectory">80,000 CDs sold, sustained international career</p>
+          </div>
+
+          <div class="what-next__card">
+            <p class="what-next__artist">Blood Red Shoes</p>
+            <p class="what-next__release">Early singles (2005&ndash;06)</p>
+            <p class="what-next__trajectory">Signed to V2/Jazz Life, multiple albums, extensive touring</p>
+          </div>
+
+          <div class="what-next__card">
+            <p class="what-next__artist">Emmy the Great</p>
+            <p class="what-next__release">Secret Circus (2006)</p>
+            <p class="what-next__trajectory">Signed to Close Harbour, acclaimed debut album</p>
+          </div>
+
+          <div class="what-next__card">
+            <p class="what-next__artist">Metric</p>
+            <p class="what-next__release">UK releases (2006&ndash;07)</p>
+            <p class="what-next__trajectory">Major international success, Juno Awards, festival headliners</p>
+          </div>
+
+          <div class="what-next__card">
+            <p class="what-next__artist">Brett Anderson</p>
+            <p class="what-next__release">Solo album + live series (2007)</p>
+            <p class="what-next__trajectory">Suede reunion, continued solo career</p>
+          </div>
+
+          <div class="what-next__card">
+            <p class="what-next__artist">Emily Haines</p>
+            <p class="what-next__release">Knives Don&rsquo;t Have Your Back (2007)</p>
+            <p class="what-next__trajectory">Continued success with Metric, solo career</p>
+          </div>
+
+          <div class="what-next__card">
+            <p class="what-next__artist">Ed Harcourt</p>
+            <p class="what-next__release">Back Into The Woods (2013)</p>
+            <p class="what-next__trajectory">Produced Sophie Ellis-Bextor&rsquo;s comeback album, wrote for Paloma Faith and James Bay, Burberry campaign</p>
+          </div>
+
+          <div class="what-next__card">
+            <p class="what-next__artist">The Anchoress</p>
+            <p class="what-next__release">Versions (2023)</p>
+            <p class="what-next__trajectory">PROG Award winner, Manic Street Preachers collaborator, new album forthcoming</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- ========================================================
+       A QUARTER CENTURY — TIMELINE
+       ======================================================== -->
+  <section id="timeline" class="section section--alt">
+    <div class="container">
+      <h2 class="section-heading">A Quarter Century</h2>
+
+      <div class="timeline">
+
+        <!-- Era 1 -->
+        <div class="timeline__era">
+          <h3 class="timeline__era-heading">1997&ndash;2000 &middot; The Dorset Years</h3>
+          <div class="timeline__entries">
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">1997</p>
+                <p class="timeline__entry-title">Record shop assistant, FM Music / Falcon Records</p>
+                <p class="timeline__entry-desc">&ldquo;More like Empire Records than High Fidelity.&rdquo;</p>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">1997</p>
+                <p class="timeline__entry-title">Club promoter, Verdis Weymouth</p>
+                <p class="timeline__entry-desc">Weekly live nights booking Ash, Cooper Temple Clause, jj72, Toploader. Also built the venue&rsquo;s website.</p>
+                <div class="tags"><span class="tag tag--live">live</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot timeline__dot--major"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">1998 &#9733;</p>
+                <p class="timeline__entry-title">The Last Resort email fanzine</p>
+                <p class="timeline__entry-desc">Reviewed first demos by Muse, Coldplay, Cooper Temple Clause. Some of their very first interviews.</p>
+                <div class="tags"><span class="tag tag--publication">publication</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Era 2 -->
+        <div class="timeline__era">
+          <h3 class="timeline__era-heading">2000&ndash;2008 &middot; Building the Ecosystem</h3>
+          <div class="timeline__entries">
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot timeline__dot--major"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2000 &#9733;</p>
+                <p class="timeline__entry-title">Drowned in Sound launched</p>
+                <p class="timeline__entry-desc">Website, community forums (still running: 2&ndash;3m pageviews/month today), club nights at the Barfly, Dublin Castle, Notting Hill Arts Club.</p>
+                <div class="tags"><span class="tag tag--publication">publication</span><span class="tag tag--live">live</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot timeline__dot--major"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2003 &#9733;</p>
+                <p class="timeline__entry-title">DiS Recordings launched</p>
+                <p class="timeline__entry-desc">Debut releases by Kaiser Chiefs, Bat for Lashes, Emmy the Great, Martha Wainwright (80k CDs), Metric, The Stills, Brett Anderson.</p>
+                <div class="tags"><span class="tag tag--label">label</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2005</p>
+                <p class="timeline__entry-title">DiS podcast launched</p>
+                <p class="timeline__entry-desc">One of the UK&rsquo;s first music podcasts. Won Best Podcast, Record of the Day 2006.</p>
+                <div class="tags"><span class="tag tag--publication">publication</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2006</p>
+                <p class="timeline__entry-title">Observer: DiS ranked #9 Top 25 Websites</p>
+                <p class="timeline__entry-desc">Best Online Music Publication (Record of the Day 2007).</p>
+                <div class="tags"><span class="tag tag--publication">publication</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2008</p>
+                <p class="timeline__entry-title">The Quietus launched from DiS</p>
+                <p class="timeline__entry-desc">Spawned and funded from a DiS ad revenue advance.</p>
+                <div class="tags"><span class="tag tag--publication">publication</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2008</p>
+                <p class="timeline__entry-title">Love Music Hate Racism partnership</p>
+                <p class="timeline__entry-desc">Tours and LMHR Carnival, Victoria Park.</p>
+                <div class="tags"><span class="tag tag--political">political</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Era 3 -->
+        <div class="timeline__era">
+          <h3 class="timeline__era-heading">2009&ndash;2019 &middot; Peak Reach and New Roles</h3>
+          <div class="timeline__entries">
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2009</p>
+                <p class="timeline__entry-title">Sunday Times &ldquo;My Generation&rdquo; column</p>
+                <p class="timeline__entry-desc">Fortnightly column on music &times; technology &times; commerce, Culture section (to 2012).</p>
+                <div class="tags"><span class="tag tag--media">media</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2010</p>
+                <p class="timeline__entry-title">Spotify playlist curator</p>
+                <p class="timeline__entry-desc">Monthly playlists for Spotify&rsquo;s official blog (to 2011). Best Publication, Record of the Day 2010.</p>
+                <div class="tags"><span class="tag tag--publication">publication</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2012</p>
+                <p class="timeline__entry-title">Artist management begins (CCCLX Music)</p>
+                <p class="timeline__entry-desc">Ed Harcourt, The Anchoress.</p>
+                <div class="tags"><span class="tag tag--management">management</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2015</p>
+                <p class="timeline__entry-title">Independent Music Monday playlists</p>
+                <p class="timeline__entry-desc">Weekly playlist celebrating best indie label releases, supported by [PIAS] (to 2017).</p>
+                <div class="tags"><span class="tag tag--publication">publication</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2015</p>
+                <p class="timeline__entry-title">Soho Radio host</p>
+                <p class="timeline__entry-desc">Regular show for nearly six years (to 2021).</p>
+                <div class="tags"><span class="tag tag--media">media</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2016</p>
+                <p class="timeline__entry-title">BBC Radio 6 Music &mdash; Social Media Producer</p>
+                <p class="timeline__entry-desc">Managed social strategy, created viral content. Also covered BBC Radio 2 (to 2021).</p>
+                <div class="tags"><span class="tag tag--media">media</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2019</p>
+                <p class="timeline__entry-title">DiS goes on hiatus</p>
+                <p class="timeline__entry-desc">Ad rates collapsed from &pound;3&ndash;8 CPM to 25p. 3 million annual readers but the business model broke. Community forums continued.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Era 4 -->
+        <div class="timeline__era">
+          <h3 class="timeline__era-heading">2020&ndash;2024 &middot; Rebuilding and Diversifying</h3>
+          <div class="timeline__entries">
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2021</p>
+                <p class="timeline__entry-title">Head of Digital, Studio Richter Mahr</p>
+                <p class="timeline__entry-desc">Three album campaigns with Max Richter alongside his work with UN Human Rights (to 2022).</p>
+                <div class="tags"><span class="tag tag--media">media</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2022</p>
+                <p class="timeline__entry-title">Charlotte Church &mdash; artist management</p>
+                <p class="timeline__entry-desc">Navigating her transition to politically engaged independent artist (to early 2026).</p>
+                <div class="tags"><span class="tag tag--management">management</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2022</p>
+                <p class="timeline__entry-title">The Trawl &mdash; podcast producer</p>
+                <p class="timeline__entry-desc">Political podcast with Marina Purkiss &amp; Jemma Forte. Subsequently joined Goalhanger (Gary Lineker) family.</p>
+                <div class="tags"><span class="tag tag--media">media</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot timeline__dot--major"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2023 &#9733;</p>
+                <p class="timeline__entry-title">DiS relaunched as newsletter + podcast</p>
+                <p class="timeline__entry-desc">Moved from Substack to Ghost for ethical reasons. Mission: surfacing music&rsquo;s power for change.</p>
+                <div class="tags"><span class="tag tag--publication">publication</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2024</p>
+                <p class="timeline__entry-title">StopTheTories.vote &mdash; strategic comms</p>
+                <p class="timeline__entry-desc">Tactical voting campaign with Carol Vorderman. Reached 1.75 million people.</p>
+                <div class="tags"><span class="tag tag--political">political</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2024</p>
+                <p class="timeline__entry-title">Music Fans Voice survey</p>
+                <p class="timeline__entry-desc">8,000 participants. Helped drive UK government fan-led review of live music.</p>
+                <div class="tags"><span class="tag tag--political">political</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Era 5 -->
+        <div class="timeline__era">
+          <h3 class="timeline__era-heading">2025&ndash;Now &middot; The Network Era</h3>
+          <div class="timeline__entries">
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot timeline__dot--major"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2025 &#9733;</p>
+                <p class="timeline__entry-title">The Sounding co-founded with Tom Venvell</p>
+                <p class="timeline__entry-desc">Transmedia production house and growth consultancy for purpose-driven brands.</p>
+                <div class="tags"><span class="tag tag--network">network</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot timeline__dot--major"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2025 &#9733;</p>
+                <p class="timeline__entry-title">Association of Music Editors founded</p>
+                <p class="timeline__entry-desc">Collective organising for editors of music publications, podcasts, and zines.</p>
+                <div class="tags"><span class="tag tag--network">network</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2025</p>
+                <p class="timeline__entry-title">Qobuz becomes DiS podcast title sponsor</p>
+                <p class="timeline__entry-desc">Partnership with ethical streaming platform. Featured in TechRadar.</p>
+                <div class="tags"><span class="tag tag--publication">publication</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2025</p>
+                <p class="timeline__entry-title">Spotify Exodus investigative series</p>
+                <p class="timeline__entry-desc">Coverage of #DisarmSpotify catalysed artist/fan movement. 10m+ campaign impressions.</p>
+                <div class="tags"><span class="tag tag--publication">publication</span><span class="tag tag--political">political</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2025</p>
+                <p class="timeline__entry-title">Huck 82: &ldquo;We Gotta Get Through This&rdquo;</p>
+                <p class="timeline__entry-desc">Feature on the crisis in music journalism and the Association of Music Editors.</p>
+                <div class="tags"><span class="tag tag--media">media</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot timeline__dot--major"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2026 &#9733;</p>
+                <p class="timeline__entry-title">DiS Podcast Network launches</p>
+                <p class="timeline__entry-desc">Three shows: The DiS Podcast (host), Sounds Like Change (producer), How Music Can Save The World (producer). 300k impressions/month, 50k downloads/year, +100% growth.</p>
+                <div class="tags"><span class="tag tag--network">network</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="timeline__legend">
+          <p class="timeline__legend-title">Legend</p>
+          <div class="timeline__legend-tags">
+            <span class="tag tag--publication">publication</span>
+            <span class="tag tag--label">label</span>
+            <span class="tag tag--live">live</span>
+            <span class="tag tag--media">media</span>
+            <span class="tag tag--management">management</span>
+            <span class="tag tag--political">political</span>
+            <span class="tag tag--network">network</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- ========================================================
+       BEYOND MUSIC
+       ======================================================== -->
+  <section id="beyond-music" class="section section--dark">
+    <div class="container">
+      <h2 class="section-heading">Beyond Music</h2>
+      <div class="beyond-music__grid">
+
+        <div class="beyond-card">
+          <p class="beyond-card__label">Tactical Voting</p>
+          <p class="beyond-card__desc">Oversaw strategic comms for StopTheTories.vote alongside Carol Vorderman, reaching 1.75 million people during the 2024 UK general election.</p>
+        </div>
+
+        <div class="beyond-card">
+          <p class="beyond-card__label">BBC Radio 6 Music</p>
+          <p class="beyond-card__desc">Social Media Producer for 4+ years (2016&ndash;2021), managing the station&rsquo;s social strategy and creating viral content.</p>
+        </div>
+
+        <div class="beyond-card">
+          <p class="beyond-card__label">Max Richter / UN Human Rights</p>
+          <p class="beyond-card__desc">Head of Digital at Studio Richter Mahr (2021&ndash;2022), working on three album campaigns alongside Richter&rsquo;s work with UN Human Rights.</p>
+        </div>
+
+        <div class="beyond-card">
+          <p class="beyond-card__label">The Trawl</p>
+          <p class="beyond-card__desc">Produced the political podcast hosted by Marina Purkiss and Jemma Forte. It subsequently joined Gary Lineker&rsquo;s Goalhanger family of podcasts.</p>
+        </div>
+
+        <div class="beyond-card">
+          <p class="beyond-card__label">The Sunday Times</p>
+          <p class="beyond-card__desc">&ldquo;My Generation&rdquo; columnist in the Culture section (2009&ndash;2012).</p>
+        </div>
+
+        <div class="beyond-card">
+          <p class="beyond-card__label">Soho Radio</p>
+          <p class="beyond-card__desc">Host for nearly six years (2015&ndash;2021).</p>
+        </div>
+
+        <div class="beyond-card">
+          <p class="beyond-card__label">Love Music Hate Racism</p>
+          <p class="beyond-card__desc">Partnered on tours and the 2008 LMHR Carnival in Victoria Park.</p>
+        </div>
+
+        <div class="beyond-card">
+          <p class="beyond-card__label">Artist Management</p>
+          <p class="beyond-card__desc">Charlotte Church, The Anchoress (ongoing), Ed Harcourt, Juanita Stein (Howling Bells), Max Richter.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- ========================================================
+       RECOGNITION
+       ======================================================== -->
+  <section id="recognition" class="section section--alt">
     <div class="container">
       <h2 class="section-heading">Recognition</h2>
 
-      <div class="recognition-group">
-        <p class="recognition-subhead">Awards</p>
-        <ul class="recognition-list">
+      <!-- Press quotes — HUGE, first -->
+      <div class="recognition__quotes">
+        <div class="press-quote">
+          <p class="press-quote__text">&ldquo;The discerning indie fan&rsquo;s first point of reference.&rdquo;</p>
+          <p class="press-quote__citation">The Observer</p>
+        </div>
+        <div class="press-quote">
+          <p class="press-quote__text">&ldquo;For any rock misfit searching for an alternative to the mainstream music press, immersion in Drowned in Sound is a must.&rdquo;</p>
+          <p class="press-quote__citation">The Times</p>
+        </div>
+      </div>
+
+      <!-- Awards, judging, speaking, press -->
+      <div class="recognition__awards">
+
+        <p class="recognition__sub">Awards</p>
+        <ul class="recognition__list">
           <li><a href="https://archive.is/2021.10.02-052723/https://www.thetimes.co.uk/article/the-top-30-power-players-under-30-79hnqksf6gw" target="_blank" rel="noopener">The Times: Top 30 Power Players Under 30</a></li>
           <li>Record of the Day: Best Podcast (2006), Best Online Music Publication (2007), Best Publication (2010)</li>
           <li>The Observer: DiS ranked 9th in Top 25 Websites (2006)</li>
           <li>Nominated: NME Best Website, BT Digital Music Awards, PLUG Awards (2007)</li>
         </ul>
-      </div>
 
-      <div class="recognition-group">
-        <p class="recognition-subhead">Judging</p>
-        <ul class="recognition-list">
-          <li>BRITs Critics' Choice, AIM Awards, BBC Sound of…, BT Music Awards, Music Producers Guild Awards, Scottish Album of the Year (SAY Award)</li>
+        <p class="recognition__sub">Judging</p>
+        <p class="recognition__text">BRITs Critics&rsquo; Choice, AIM Awards, BBC Sound of&hellip;, BT Music Awards, Music Producers Guild Awards, Scottish Album of the Year (SAY Award)</p>
+
+        <p class="recognition__sub">Speaking</p>
+        <p class="recognition__text">SXSW, Iceland Airwaves, Tallinn Music Week, Tony Wilson&rsquo;s In The City, Primavera Pro, SoAlive (Sofia), Live At Leeds, New Zealand touring conference. Masterclasses at EEMA, BIMM, and ICMP.</p>
+
+        <p class="recognition__sub">Press &amp; Interviews</p>
+        <ul class="recognition__list">
+          <li><a href="https://www.huckmag.com/article/music-journalism-crisis-oblivion-salvation-save-association-editors-sean-adams-drowned-in-sound" target="_blank" rel="noopener">Huck Magazine Issue 82 &mdash; &ldquo;We Gotta Get Through This&rdquo;</a></li>
+          <li><a href="https://musicistheanswer.substack.com/p/sean-adams" target="_blank" rel="noopener">Music Is The Answer Q&amp;A &mdash; Marcus Barnes</a></li>
+          <li><a href="https://muckrack.com/sean-adams-3" target="_blank" rel="noopener">Verified journalist profile &mdash; Muck Rack</a></li>
         </ul>
-      </div>
 
-      <div class="recognition-group">
-        <p class="recognition-subhead">Speaking</p>
-        <ul class="recognition-list">
-          <li>SXSW, Iceland Airwaves, Tallinn Music Week, Tony Wilson's In The City, Primavera Pro, SoAlive (Sofia), Live At Leeds, New Zealand touring conference</li>
-          <li>Masterclasses at EEMA, BIMM, and ICMP</li>
-        </ul>
-      </div>
-
-      <div class="recognition-group">
-        <p class="recognition-subhead">Press &amp; interviews</p>
-        <ul class="recognition-list">
-          <li><a href="https://www.huckmag.com/article/music-journalism-crisis-oblivion-salvation-save-association-editors-sean-adams-drowned-in-sound" target="_blank" rel="noopener">Huck Magazine Issue 82 — "We Gotta Get Through This"</a></li>
-          <li><a href="https://musicistheanswer.substack.com/p/sean-adams" target="_blank" rel="noopener">Music Is The Answer Q&amp;A — Marcus Barnes</a></li>
-          <li><a href="https://muckrack.com/sean-adams-3" target="_blank" rel="noopener">Verified journalist profile — Muck Rack</a></li>
-        </ul>
-      </div>
-
-      <div class="press-quotes">
-        <blockquote class="press-quote">
-          "The discerning indie fan's first point of reference."
-          <cite>— The Observer</cite>
-        </blockquote>
-        <blockquote class="press-quote">
-          "For any rock misfit searching for an alternative to the mainstream music press, immersion in Drowned in Sound is a must."
-          <cite>— The Times</cite>
-        </blockquote>
       </div>
     </div>
   </section>
 
   <hr class="section-rule">
 
-  <!-- ══════════════════════════════════════
-       SECTION 8: THE LABEL
-       ══════════════════════════════════════ -->
-  <section id="label">
+  <!-- ========================================================
+       DiS IS... MANIFESTO
+       ======================================================== -->
+  <section id="dis-is" class="section section--dark dis-is">
     <div class="container">
-      <h2 class="section-heading">The Label</h2>
-
-      <p class="label-intro">DiS Recordings was founded in 2003 as an extension of the DiS editorial — releasing debuts and early records by artists championed on the site. Relaunched in 2023. Full catalogue on <a href="https://www.discogs.com/label/34377-Drowned-In-Sound-Recordings" target="_blank" rel="noopener">Discogs</a> and <a href="https://drownedinsound.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>.</p>
-
-      <!-- DiS Recordings — Albums -->
-      <h3 class="label-subhead">DiS Recordings — Albums</h3>
-      <ul class="discog-list">
-        <li><span class="discog-year">2004</span><span class="discog-artist">thisGIRL</span><span class="discog-title">Uno</span><span class="discog-format">CD</span></li>
-        <li><span class="discog-year">2005</span><span class="discog-artist">Martha Wainwright</span><span class="discog-title">Martha Wainwright</span><span class="discog-format">CD/LP</span><span class="discog-note">80,000 copies sold.</span></li>
-        <li><span class="discog-year">2005</span><span class="discog-artist">Redjetson</span><span class="discog-title">New General Catalogue</span><span class="discog-format">CD</span></li>
-        <li><span class="discog-year">2006</span><span class="discog-artist">Jeniferever</span><span class="discog-title">Choose A Bright Morning</span><span class="discog-format">CD</span></li>
-        <li><span class="discog-year">2006</span><span class="discog-artist">Metric</span><span class="discog-title">Live It Out</span><span class="discog-format">CD/LP</span><span class="discog-note">UK release.</span></li>
-        <li><span class="discog-year">2006</span><span class="discog-artist">The Stills</span><span class="discog-title">Without Feathers</span><span class="discog-format">CD</span></li>
-        <li><span class="discog-year">2007</span><span class="discog-artist">Brett Anderson</span><span class="discog-title">Brett Anderson</span><span class="discog-format">CD/LP</span><span class="discog-note">Solo debut from the Suede frontman.</span></li>
-        <li><span class="discog-year">2007</span><span class="discog-artist">Emily Haines &amp; The Soft Skeleton</span><span class="discog-title">Knives Don't Have Your Back</span><span class="discog-format">CD</span><span class="discog-note">Solo project from the Metric frontwoman.</span></li>
-        <li><span class="discog-year">2008</span><span class="discog-artist">Youthmovies</span><span class="discog-title">Good Nature</span><span class="discog-format">CD</span></li>
-        <li><span class="discog-year">2009</span><span class="discog-artist">Martha Wainwright</span><span class="discog-title">Sans Fusils, Ni Souliers, À Paris</span><span class="discog-format">CD</span><span class="discog-note">Licensed to V2.</span></li>
-        <li><span class="discog-year">2023</span><span class="discog-artist">The Anchoress</span><span class="discog-title">Versions</span><span class="discog-format">LP/CD</span><span class="discog-note">Label relaunch release.</span></li>
-      </ul>
-
-      <!-- DiS Recordings — Singles (collapsed) -->
-      <button class="toggle-btn" id="toggle-singles" aria-expanded="false" aria-controls="singles-list">
-        Show all singles &amp; EPs <span class="toggle-arrow">↓</span>
-      </button>
-      <ul class="discog-list discog-list--hidden" id="singles-list" aria-hidden="true">
-        <li><span class="discog-year">2003</span><span class="discog-artist">The Koreans</span><span class="discog-title">Machine Code</span><span class="discog-format">CD</span><span class="discog-note">First ever DiS Recordings release.</span></li>
-        <li><span class="discog-year">2003</span><span class="discog-artist">The Koreans</span><span class="discog-title">How Does It Feel?</span><span class="discog-format">CD</span></li>
-        <li><span class="discog-year">2004</span><span class="discog-artist">Kaiser Chiefs</span><span class="discog-title">Oh My God</span><span class="discog-format">CD/7"</span><span class="discog-note">Debut single.</span></li>
-        <li><span class="discog-year">2004</span><span class="discog-artist">thisGIRL</span><span class="discog-title">Hallelujah</span><span class="discog-format">CD</span></li>
-        <li><span class="discog-year">2004</span><span class="discog-artist">Redjetson / Youthmovie Soundtrack Strategies</span><span class="discog-title">Split Single</span><span class="discog-format">7"</span></li>
-        <li><span class="discog-year">2004</span><span class="discog-artist">thisGIRL</span><span class="discog-title">Master Blaster</span><span class="discog-format">CD</span></li>
-        <li><span class="discog-year">2004</span><span class="discog-artist">Martha Wainwright</span><span class="discog-title">Bloody Mother Fucking Asshole</span><span class="discog-format">CD EP</span></li>
-        <li><span class="discog-year">2005</span><span class="discog-artist">Martha Wainwright</span><span class="discog-title">When The Day Is Short</span><span class="discog-format">CD</span></li>
-        <li><span class="discog-year">2005</span><span class="discog-artist">Komakino</span><span class="discog-title">Say Something</span><span class="discog-format">CD</span><span class="discog-note">Limited, numbered.</span></li>
-        <li><span class="discog-year">2005</span><span class="discog-artist">Redjetson</span><span class="discog-title">This, Every Day, For The Rest Of Your Life</span><span class="discog-format">7"</span></li>
-        <li><span class="discog-year">2005</span><span class="discog-artist">Martha Wainwright</span><span class="discog-title">Far Away</span><span class="discog-format">CD</span></li>
-        <li><span class="discog-year">2005</span><span class="discog-artist">Blood Red Shoes</span><span class="discog-title">Victory for the Magpie / Stitch Me Up</span><span class="discog-format">7"</span></li>
-        <li><span class="discog-year">2005</span><span class="discog-artist">Les Incompetents</span><span class="discog-title">Reunion / How To Create A Monster</span><span class="discog-format">Single</span></li>
-        <li><span class="discog-year">2006</span><span class="discog-artist">Jeniferever</span><span class="discog-title">From Across The Sea</span><span class="discog-format">7"</span></li>
-        <li><span class="discog-year">2006</span><span class="discog-artist">Bat for Lashes</span><span class="discog-title">The Wizard</span><span class="discog-format">Digital/CD</span><span class="discog-note">DiS Digital Singles Club. Helped launch her career prior to signing with Echo.</span></li>
-        <li><span class="discog-year">2006</span><span class="discog-artist">Metric</span><span class="discog-title">Poster Of A Girl</span><span class="discog-format">7"</span></li>
-        <li><span class="discog-year">2006</span><span class="discog-artist">Metric</span><span class="discog-title">Monster Hospital</span><span class="discog-format">CD/7"</span></li>
-        <li><span class="discog-year">2006</span><span class="discog-artist">Emmy The Great</span><span class="discog-title">Secret Circus / The Hypnotist's Son</span><span class="discog-format">CDr</span></li>
-        <li><span class="discog-year">2006</span><span class="discog-artist">Blood Red Shoes</span><span class="discog-title">You Bring Me Down</span><span class="discog-format">CDr</span></li>
-        <li><span class="discog-year">2007</span><span class="discog-artist">Brett Anderson</span><span class="discog-title">Love Is Dead</span><span class="discog-format">CD/7"</span></li>
-        <li><span class="discog-year">2007</span><span class="discog-artist">Brett Anderson</span><span class="discog-title">Back To You</span><span class="discog-format">CD EP</span></li>
-        <li><span class="discog-year">2007</span><span class="discog-artist">Metric</span><span class="discog-title">Empty</span><span class="discog-format">7"</span><span class="discog-note">Limited.</span></li>
-        <li><span class="discog-year">2007</span><span class="discog-artist">Emily Haines &amp; The Soft Skeleton</span><span class="discog-title">Doctor Blind</span><span class="discog-format">CDr</span></li>
-        <li><span class="discog-year">2008</span><span class="discog-artist">Youthmovies</span><span class="discog-title">The Naughtiest Girl Is A Monitor</span><span class="discog-format">7"</span><span class="discog-note">Limited.</span></li>
-        <li><span class="discog-year">2008</span><span class="discog-artist">Martha Wainwright</span><span class="discog-title">Bleeding All Over You</span><span class="discog-format">7"</span></li>
-        <li><span class="discog-year">2008</span><span class="discog-artist">Martha Wainwright</span><span class="discog-title">Comin' Tonight</span><span class="discog-format">Single</span></li>
-        <li><span class="discog-year">2008</span><span class="discog-artist">Martha Wainwright</span><span class="discog-title">You Cheated Me</span><span class="discog-format">Single</span></li>
-      </ul>
-
-      <!-- CCCLX Music -->
-      <h3 class="label-subhead">CCCLX Music</h3>
-      <p class="label-sublabel-desc">Established 2013 as a management/label hybrid for Ed Harcourt's independent material.</p>
-      <ul class="discog-list">
-        <li><span class="discog-year">2013</span><span class="discog-artist">Ed Harcourt</span><span class="discog-title">Back Into The Woods</span><span class="discog-format">Album (CD/LP)</span></li>
-        <li><span class="discog-year">2013</span><span class="discog-artist">Ed Harcourt</span><span class="discog-title">The Pretty Girls</span><span class="discog-format">Single</span></li>
-        <li><span class="discog-year">2013</span><span class="discog-artist">Ed Harcourt</span><span class="discog-title">Hey Little Bruiser</span><span class="discog-format">Single</span></li>
-        <li><span class="discog-year">2014</span><span class="discog-artist">Ed Harcourt</span><span class="discog-title">Time Of Dust</span><span class="discog-format">Mini-Album (12"/CD)</span></li>
-        <li><span class="discog-year">2014</span><span class="discog-artist">Ed Harcourt</span><span class="discog-title">In My Time Of Dust</span><span class="discog-format">Single</span></li>
-      </ul>
-
-      <!-- Hiraeth Records -->
-      <h3 class="label-subhead">Hiraeth Records</h3>
-      <p class="label-sublabel-desc">The Anchoress's own imprint, co-established with Sean Adams. Full-length albums released through Kscope.</p>
-      <ul class="discog-list">
-        <li><span class="discog-year">2014</span><span class="discog-artist">The Anchoress</span><span class="discog-title">What Goes Around</span><span class="discog-format">Single (Digital/7")</span></li>
-        <li><span class="discog-year">2014</span><span class="discog-artist">The Anchoress</span><span class="discog-title">One For Sorrow</span><span class="discog-format">EP (12"/CD)</span></li>
-        <li><span class="discog-year">2022</span><span class="discog-artist">The Anchoress</span><span class="discog-title">Versions / EP1</span><span class="discog-format">CD (Limited)</span></li>
-        <li><span class="discog-year">2022</span><span class="discog-artist">The Anchoress</span><span class="discog-title">Versions / EP2</span><span class="discog-format">CD (Limited)</span></li>
-        <li><span class="discog-year">2023</span><span class="discog-artist">The Anchoress</span><span class="discog-title">Versions / EP3</span><span class="discog-format">CD (Limited)</span></li>
-        <li><span class="discog-year">2024</span><span class="discog-artist">The Anchoress</span><span class="discog-title">Versions / EP4</span><span class="discog-format">CD (Limited)</span></li>
-        <li><span class="discog-year">2024</span><span class="discog-artist">The Anchoress</span><span class="discog-title">Versions: Encore</span><span class="discog-format">EP (12" Vinyl)</span></li>
-      </ul>
-
-      <!-- What Happened Next -->
-      <h3 class="label-subhead label-subhead--impact">What Happened Next</h3>
-      <div class="impact-grid">
-        <div class="impact-item">
-          <span class="impact-artist">Kaiser Chiefs</span>
-          <span class="impact-release">Oh My God (2004)</span>
-          <span class="impact-trajectory">Multi-platinum albums, arena headliners</span>
-        </div>
-        <div class="impact-item">
-          <span class="impact-artist">Bat for Lashes</span>
-          <span class="impact-release">The Wizard (2006)</span>
-          <span class="impact-trajectory">Signed to Echo/Parlophone, Mercury Prize nominations, global critical acclaim</span>
-        </div>
-        <div class="impact-item">
-          <span class="impact-artist">Martha Wainwright</span>
-          <span class="impact-release">Debut album (2005)</span>
-          <span class="impact-trajectory">80,000 CDs sold, sustained international career</span>
-        </div>
-        <div class="impact-item">
-          <span class="impact-artist">Blood Red Shoes</span>
-          <span class="impact-release">Early singles (2005–06)</span>
-          <span class="impact-trajectory">Signed to V2/Jazz Life, multiple albums, extensive touring</span>
-        </div>
-        <div class="impact-item">
-          <span class="impact-artist">Emmy the Great</span>
-          <span class="impact-release">Secret Circus (2006)</span>
-          <span class="impact-trajectory">Signed to Close Harbour, acclaimed debut album</span>
-        </div>
-        <div class="impact-item">
-          <span class="impact-artist">Metric</span>
-          <span class="impact-release">UK releases (2006–07)</span>
-          <span class="impact-trajectory">Major international success, Juno Awards, festival headliners</span>
-        </div>
-        <div class="impact-item">
-          <span class="impact-artist">Brett Anderson</span>
-          <span class="impact-release">Solo album + live series (2007)</span>
-          <span class="impact-trajectory">Suede reunion, continued solo career</span>
-        </div>
-        <div class="impact-item">
-          <span class="impact-artist">Emily Haines</span>
-          <span class="impact-release">Knives Don't Have Your Back (2007)</span>
-          <span class="impact-trajectory">Continued success with Metric, solo career</span>
-        </div>
-        <div class="impact-item">
-          <span class="impact-artist">Ed Harcourt</span>
-          <span class="impact-release">Back Into The Woods (2013)</span>
-          <span class="impact-trajectory">Produced Sophie Ellis-Bextor's comeback album, wrote for Paloma Faith and James Bay, Burberry campaign</span>
-        </div>
-        <div class="impact-item">
-          <span class="impact-artist">The Anchoress</span>
-          <span class="impact-release">Versions (2023)</span>
-          <span class="impact-trajectory">PROG Award winner, Manic Street Preachers collaborator, new album forthcoming</span>
+      <div class="dis-is__inner">
+        <div class="dis-is__text">
+          <p>DiS is that hopeful vision in your mind&rsquo;s eye the Monday morning after Glastonbury.</p>
+          <p>It&rsquo;s the goosebumps you got when you first heard Bj&ouml;rk, Billie Eilish, Aurora, ANOHNI or Brian Eno speak about the environment in ways that felt far too close to home and made global change feel urgent.</p>
+          <p>It&rsquo;s that realisation that your speakers were distorting when you turned Rage Against The Machine beyond eleven.</p>
+          <p>It&rsquo;s that moment you truly understood what Dead Prez, Kathleen Hanna or Kendrick Lamar meant about injustice.</p>
+          <p>It&rsquo;s not just believing that a new world is possible, it&rsquo;s working together to make it real.</p>
         </div>
       </div>
-
     </div>
   </section>
 
   <hr class="section-rule">
 
-  <!-- ══════════════════════════════════════
-       SECTION 9: DiS IS…
-       ══════════════════════════════════════ -->
-  <section id="dis-is">
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="footer">
     <div class="container">
-      <blockquote class="dis-quote">
-        <p>DiS is that hopeful vision in your mind's eye the Monday morning after Glastonbury.</p>
-        <p>It's the goosebumps you got when you first heard Björk, Billie Eilish, Aurora, ANOHNI or Brian Eno speak about the environment in ways that felt far too close to home and made global change feel urgent.</p>
-        <p>It's that realisation that your speakers were distorting when you turned Rage Against The Machine beyond eleven.</p>
-        <p>It's that moment you truly understood what Dead Prez, Kathleen Hanna or Kendrick Lamar meant about injustice.</p>
-        <p>It's not just believing that a new world is possible, it's working together to make it real.</p>
-      </blockquote>
-    </div>
-  </section>
+      <a class="footer__email" href="mailto:sean@drownedinsound.org">sean@drownedinsound.org</a>
 
-  <hr class="section-rule">
-
-  <!-- ══════════════════════════════════════
-       SECTION 9: FOOTER
-       ══════════════════════════════════════ -->
-  <footer>
-    <div class="container">
-      <p class="footer-contact">
-        <a href="mailto:sean@drownedinsound.org">sean@drownedinsound.org</a>
-      </p>
-
-      <div class="footer-social social-row" aria-label="Social profiles">
-        <a href="https://linkedin.com/in/seaninsound" class="social-icon" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
+      <div class="footer__socials" aria-label="Social profiles">
+        <a class="footer__social-link" href="https://linkedin.com/in/seaninsound" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
-        <a href="https://bsky.app/profile/drownedinsound.bsky.social" class="social-icon" target="_blank" rel="noopener" aria-label="Bluesky">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.299-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/>
-          </svg>
+        <a class="footer__social-link" href="https://bsky.app/profile/drownedinsound.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.299-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg>
         </a>
-        <a href="https://instagram.com/seaninsound" class="social-icon" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-          </svg>
+        <a class="footer__social-link" href="https://instagram.com/seaninsound" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
         </a>
-        <a href="https://tiktok.com/@drownedinsoundorg" class="social-icon" target="_blank" rel="noopener" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
-          </svg>
+        <a class="footer__social-link" href="https://tiktok.com/@drownedinsoundorg" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
         </a>
       </div>
 
-      <p class="footer-meta">Photo by Jen McCord / SheSaidSo · Site content © Sean Adams 2026</p>
-      <p class="footer-quote">"It is better to be a flamboyant failure than any kind of benign success." — Malcolm McLaren</p>
+      <p class="footer__credit">Photo by Jen McCord / SheSaidSo &middot; Site content &copy; Sean Adams 2026</p>
+      <p class="footer__quote">&ldquo;It is better to be a flamboyant failure than any kind of benign success.&rdquo; &mdash; Malcolm McLaren</p>
+
     </div>
   </footer>
 
+  <!-- ========================================================
+       JAVASCRIPT
+       ======================================================== -->
   <script>
     var btn = document.getElementById('toggle-singles');
     var list = document.getElementById('singles-list');
-    btn.addEventListener('click', function () {
-      var expanded = btn.getAttribute('aria-expanded') === 'true';
-      expanded = !expanded;
-      btn.setAttribute('aria-expanded', expanded);
-      list.setAttribute('aria-hidden', !expanded);
-      list.classList.toggle('discog-list--hidden', !expanded);
-      btn.querySelector('.toggle-arrow').textContent = expanded ? '↑' : '↓';
-      btn.firstChild.textContent = expanded ? 'Hide singles & EPs ' : 'Show all singles & EPs ';
-    });
+    if (btn && list) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        expanded = !expanded;
+        btn.setAttribute('aria-expanded', expanded);
+        list.setAttribute('aria-hidden', String(!expanded));
+        list.classList.toggle('discog-list--hidden', !expanded);
+        btn.querySelector('.toggle-arrow').textContent = expanded ? '\u2191' : '\u2193';
+        btn.firstChild.textContent = expanded ? 'Hide singles & EPs ' : 'Show all singles & EPs ';
+      });
+    }
   </script>
+
 </body>
 </html>

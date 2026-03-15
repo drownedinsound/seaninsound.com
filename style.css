@@ -1,945 +1,1005 @@
-/* =============================================
-   seaninsound.com — style.css
-   Dark music venue energy. No fluff.
-   ============================================= */
+/* ============================================================
+   SEANINSOUND.COM — STYLE.CSS
+   Design: Dark music venue, poster energy, bold typography
+   ============================================================ */
 
+/* ------------------------------------------------------------
+   GOOGLE FONTS
+   ------------------------------------------------------------ */
 @import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
 
-/* ─── Reset & Base ─── */
+/* ------------------------------------------------------------
+   RESET & BASE
+   ------------------------------------------------------------ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-:root {
-  --black: #0A0A0A;
-  --white: #FFFFFF;
-  --pink: #FF1493;
-  --grey: #CCCCCC;
-  --max-width: 680px;
-}
-
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: #0A0A0A;
+  color: #FFFFFF;
   font-family: 'Cardo', Georgia, serif;
-  font-size: 18px;
-  line-height: 1.65;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── Typography ─── */
-h1, h2, h3, .section-heading {
-  font-family: 'Francois One', Impact, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  line-height: 1.1;
+img {
+  max-width: 100%;
+  display: block;
 }
 
 a {
-  color: var(--white);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.15s ease;
+  color: #FF1493;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
 }
 
 a:hover {
-  color: var(--pink);
+  opacity: 0.75;
 }
 
-em {
-  font-style: italic;
+ul {
+  list-style: none;
 }
 
-/* ─── Layout ─── */
+/* ------------------------------------------------------------
+   LAYOUT UTILITIES
+   ------------------------------------------------------------ */
 .container {
-  max-width: var(--max-width);
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-section {
-  padding: 72px 0;
-}
-
+/* ------------------------------------------------------------
+   SECTION RULES (pink horizontal rules between sections)
+   ------------------------------------------------------------ */
 .section-rule {
   border: none;
-  border-top: 1px solid var(--pink);
+  border-top: 2px solid #FF1493;
   margin: 0;
 }
 
-/* ─── Section Headings ─── */
+/* ------------------------------------------------------------
+   SECTION BASE STYLES
+   ------------------------------------------------------------ */
+.section {
+  padding: 96px 0;
+}
+
+.section--alt {
+  background-color: #111111;
+}
+
+.section--dark {
+  background-color: #0A0A0A;
+}
+
+/* ------------------------------------------------------------
+   SECTION HEADINGS
+   ------------------------------------------------------------ */
 .section-heading {
-  font-size: clamp(1.5rem, 5vw, 2rem);
-  color: var(--pink);
-  margin-bottom: 40px;
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  color: #FF1493;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin-bottom: 48px;
 }
 
-/* ─── Body text ─── */
-p {
-  margin-bottom: 1.2em;
-  color: var(--white);
+.section-subheading {
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: #FF1493;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 28px;
+  margin-top: 48px;
 }
 
-p:last-child {
-  margin-bottom: 0;
+/* ------------------------------------------------------------
+   HERO SECTION
+   ------------------------------------------------------------ */
+.hero {
+  background: linear-gradient(160deg, #111 0%, #0A0A0A 60%);
+  padding: 80px 0 72px;
+  text-align: center;
 }
 
-/* ─── Block quotes ─── */
-blockquote {
-  font-family: 'Cardo', Georgia, serif;
-  font-style: italic;
-  color: var(--white);
-  border: none;
-  padding: 0;
-  margin: 0 0 1.2em 0;
-}
-
-/* ═══════════════════════════════════════════
-   SECTION 1: HERO / LINKTREE
-   ═══════════════════════════════════════════ */
-
-#hero {
-  min-height: 100dvh;
+.hero__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 60px 24px 48px;
-  position: relative;
 }
 
-.hero-photo-wrap {
-  margin-bottom: 24px;
+.hero__photo-wrap {
+  margin-bottom: 28px;
 }
 
-.hero-photo {
-  width: 150px;
-  height: 150px;
+.hero__photo {
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center top;
+  box-shadow:
+    0 0 0 3px #0A0A0A,
+    0 0 0 5px rgba(255, 20, 147, 0.7),
+    0 0 40px rgba(255, 20, 147, 0.2);
   display: block;
+  margin: 0 auto;
 }
 
-.hero-name {
-  font-family: 'Francois One', Impact, sans-serif;
-  text-transform: uppercase;
-  font-size: clamp(2rem, 8vw, 3rem);
-  color: var(--white);
+.hero__photo-credit {
+  font-size: 0.7rem;
+  color: #555;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.hero__name {
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(3rem, 12vw, 5rem);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   line-height: 1;
-  margin-bottom: 10px;
-}
-
-.hero-title {
-  font-family: 'Cardo', Georgia, serif;
-  font-size: clamp(0.95rem, 3vw, 1.1rem);
-  color: var(--grey);
+  color: #FFFFFF;
   margin-bottom: 16px;
-  line-height: 1.5;
 }
 
-.hero-quote {
+.hero__title {
+  font-family: 'Cardo', Georgia, serif;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: #CCCCCC;
+  letter-spacing: 0.02em;
+  margin-bottom: 32px;
+  max-width: 560px;
+}
+
+.hero__quote {
   font-family: 'Cardo', Georgia, serif;
   font-style: italic;
-  color: var(--pink);
-  font-size: clamp(0.95rem, 3vw, 1.1rem);
-  margin-bottom: 36px;
+  font-size: clamp(1.4rem, 5vw, 2.2rem);
+  color: #FF1493;
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.4;
 }
 
-/* Link buttons */
-.link-buttons {
+.hero__links {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto 32px;
-}
-
-.link-btn {
-  display: block;
-  padding: 12px 24px;
-  border: 1px solid var(--pink);
-  border-radius: 999px;
-  color: var(--white);
-  text-decoration: none;
-  font-family: 'Cardo', Georgia, serif;
-  font-size: 1rem;
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.link-btn:hover {
-  background-color: var(--pink);
-  color: var(--white);
-}
-
-/* Podcast sub-links */
-.link-btn-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.podcast-platforms {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
   flex-wrap: wrap;
-  font-size: 0.75rem;
-  color: var(--grey);
-  opacity: 0.7;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
-.podcast-platforms a {
-  color: var(--grey);
-  text-decoration: none;
-  font-family: 'Cardo', Georgia, serif;
+.hero__link-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  font-family: 'Francois One', sans-serif;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+  background: transparent;
+  border: 2px solid #FF1493;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
 }
 
-.podcast-platforms a:hover {
-  color: var(--pink);
+.hero__link-btn:hover {
+  background: #FF1493;
+  color: #0A0A0A;
+  opacity: 1;
 }
 
-.platform-sep {
-  color: var(--grey);
-  opacity: 0.4;
+.hero__link-btn--primary {
+  background: #FF1493;
+  color: #0A0A0A;
 }
 
-/* Social icons row */
-.social-row {
+.hero__link-btn--primary:hover {
+  background: transparent;
+  color: #FF1493;
+}
+
+.hero__socials {
   display: flex;
   gap: 24px;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
-.social-icon {
+.hero__social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  color: var(--grey);
+  width: 40px;
+  height: 40px;
+  color: #CCCCCC;
   transition: color 0.15s ease;
 }
 
-.social-icon:hover {
-  color: var(--pink);
+.hero__social-link:hover {
+  color: #FF1493;
+  opacity: 1;
 }
 
-.social-icon svg {
-  width: 22px;
-  height: 22px;
+.hero__social-link svg {
+  width: 24px;
+  height: 24px;
   fill: currentColor;
 }
 
-.photo-credit {
-  font-size: 0.72rem;
-  color: var(--grey);
-  opacity: 0.6;
-  margin-bottom: 32px;
-}
-
-/* Scroll indicator */
-.scroll-hint {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  color: var(--grey);
-  opacity: 0.5;
-  font-family: 'Cardo', Georgia, serif;
-  font-size: 0.75rem;
+.hero__scroll-hint {
+  display: inline-block;
+  color: #FF1493;
+  font-size: 1.5rem;
+  line-height: 1;
   text-decoration: none;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  animation: bounce 2s ease-in-out infinite;
 }
 
-.scroll-hint svg {
-  width: 18px;
-  height: 18px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  animation: bounce 2s ease-in-out infinite;
+.hero__scroll-hint:hover {
+  opacity: 0.7;
 }
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(5px); }
+  50%       { transform: translateY(8px); }
 }
 
-/* ═══════════════════════════════════════════
-   SECTION 2: THE ARGUMENT
-   ═══════════════════════════════════════════ */
-
-#argument .pull-quote {
-  font-size: clamp(1.15rem, 3.5vw, 1.4rem);
-  line-height: 1.6;
-  color: var(--white);
-  margin-bottom: 32px;
-  font-style: italic;
+/* ------------------------------------------------------------
+   STATS BAND
+   ------------------------------------------------------------ */
+.stats {
+  background-color: #111111;
+  padding: 56px 0;
 }
 
-#argument p {
-  color: var(--grey);
-}
-
-/* ═══════════════════════════════════════════
-   SECTION 3: NOW — Stats infographic
-   ═══════════════════════════════════════════ */
-
-.stats-grid {
+.stats__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  border: 1px solid rgba(255, 20, 147, 0.2);
-  margin-bottom: 56px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
 }
 
-.stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 12px;
+.stats__item {
+  padding: 32px 20px;
   text-align: center;
   border: 1px solid rgba(255, 20, 147, 0.1);
 }
 
-.stat-number {
-  font-family: 'Francois One', Impact, sans-serif;
-  font-size: clamp(1.6rem, 5vw, 2.4rem);
-  color: var(--pink);
+.stats__number {
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(2.8rem, 8vw, 4.5rem);
+  color: #FF1493;
   line-height: 1;
   display: block;
-  margin-bottom: 6px;
-  letter-spacing: 0.02em;
+  margin-bottom: 8px;
 }
 
-.stat-label {
-  font-family: 'Cardo', Georgia, serif;
-  font-size: 0.72rem;
-  color: var(--grey);
-  opacity: 0.7;
+.stats__label {
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  line-height: 1.3;
+  letter-spacing: 0.1em;
+  color: #CCCCCC;
   display: block;
 }
 
-/* Now items */
-.now-item {
-  margin-bottom: 36px;
+/* ------------------------------------------------------------
+   WHY MUSIC MATTERS
+   ------------------------------------------------------------ */
+.argument__body {
+  max-width: 720px;
 }
 
-.now-item:last-child {
+.argument__body p {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  line-height: 1.85;
+  color: #CCCCCC;
+  margin-bottom: 1.6em;
+}
+
+.argument__body p:last-child {
   margin-bottom: 0;
 }
 
-.now-title {
-  font-family: 'Cardo', Georgia, serif;
-  font-weight: 700;
-  color: var(--pink);
-  font-size: 1.05rem;
-  margin-bottom: 4px;
-  display: block;
+/* ------------------------------------------------------------
+   NOW SECTION
+   ------------------------------------------------------------ */
+.now__list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 760px;
 }
 
-.now-item p {
-  color: var(--grey);
-  margin-bottom: 0;
-  font-size: 0.97rem;
+.now__item-title {
+  font-family: 'Francois One', sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #FF1493;
+  margin-bottom: 8px;
 }
 
-/* ═══════════════════════════════════════════
-   SECTION 4: TRACK RECORD
-   ═══════════════════════════════════════════ */
-
-#track-record .intro-quote {
-  font-style: italic;
-  color: var(--grey);
-  font-size: 1.15rem;
-  margin-bottom: 28px;
-}
-
-#track-record .body-intro {
-  color: var(--grey);
-  margin-bottom: 24px;
-}
-
-#track-record .inset-quote {
-  font-style: italic;
-  color: var(--white);
+.now__item-desc {
   font-size: 1rem;
-  margin: 24px 0;
-  padding-left: 20px;
-  border-left: 2px solid var(--pink);
+  color: #CCCCCC;
+  line-height: 1.75;
 }
 
-.track-item-block {
+.now__item-desc a {
+  color: #FF1493;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 20, 147, 0.4);
+}
+
+/* ------------------------------------------------------------
+   TRACK RECORD SECTION
+   ------------------------------------------------------------ */
+.track-record__intro-quote {
+  font-style: italic;
+  color: #888;
+  font-size: 1.05rem;
   margin-bottom: 28px;
 }
 
-.track-item-block:last-child {
-  margin-bottom: 0;
+.track-record__body {
+  font-size: 1rem;
+  color: #CCCCCC;
+  line-height: 1.8;
+  margin-bottom: 28px;
+  max-width: 720px;
 }
 
-.track-label {
-  font-family: 'Cardo', Georgia, serif;
-  font-weight: 700;
-  color: var(--pink);
-  display: inline;
+.track-record__inset {
+  border-left: 4px solid #FF1493;
+  padding: 16px 24px;
+  font-style: italic;
+  color: #CCCCCC;
+  font-size: 1rem;
+  margin-bottom: 48px;
+  max-width: 640px;
+  background: rgba(255, 20, 147, 0.04);
 }
 
-.track-item-block p {
-  color: var(--grey);
-  margin: 0;
+.track-card {
+  border-left: 4px solid #FF1493;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.02);
+  margin-bottom: 20px;
 }
 
-/* ═══════════════════════════════════════════
-   SECTION 5: TIMELINE
-   ═══════════════════════════════════════════ */
-
-#timeline {
-  padding-bottom: 56px;
-}
-
-/* Category tags */
-.tag {
-  display: inline-block;
-  font-family: 'Francois One', Impact, sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
+.track-card__title {
+  font-family: 'Francois One', sans-serif;
+  font-size: 1rem;
   text-transform: uppercase;
-  padding: 2px 7px;
-  border-radius: 3px;
-  line-height: 1.6;
-  vertical-align: middle;
-  text-decoration: none;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  margin-bottom: 10px;
 }
 
-.tag-publication { background: #FF1493; color: #fff; }
-.tag-label       { background: #9B1060; color: #fff; }
-.tag-live        { background: #FF69B4; color: #111; }
-.tag-media       { background: #555555; color: #ddd; }
-.tag-management  { background: #2a2a2a; color: #aaa; border: 1px solid #555; }
-.tag-political   { background: #CC0033; color: #fff; }
-.tag-network     { background: #FF1493; color: #fff; }
+.track-card__desc {
+  font-size: 0.95rem;
+  color: #CCCCCC;
+  line-height: 1.75;
+}
 
-/* Era groupings */
-.timeline-era {
+.track-card__desc a {
+  color: #FF1493;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 20, 147, 0.4);
+}
+
+.artist-name {
+  color: #FF1493;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------
+   RELEASES / DISCOGRAPHY
+   ------------------------------------------------------------ */
+.releases__intro {
+  font-size: 1rem;
+  color: #CCCCCC;
+  line-height: 1.75;
+  max-width: 680px;
+  margin-bottom: 40px;
+}
+
+.releases__intro a {
+  color: #FF1493;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 20, 147, 0.4);
+}
+
+.albums-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
   margin-bottom: 48px;
 }
 
-.timeline-era:last-of-type {
-  margin-bottom: 24px;
+@media (min-width: 800px) {
+  .albums-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
-.timeline-era-heading {
-  font-family: 'Francois One', Impact, sans-serif;
+.release-card {
+  border-top: 2px solid rgba(255, 20, 147, 0.3);
+  padding: 20px 16px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.release-card__artist {
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  color: #FF1493;
   text-transform: uppercase;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  color: var(--grey);
-  opacity: 0.5;
-  margin-bottom: 20px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 6px;
 }
 
-/* Timeline entries */
-.timeline-entries {
-  position: relative;
-  padding-left: 28px;
-}
-
-/* The vertical line */
-.timeline-entries::before {
-  content: '';
-  position: absolute;
-  left: 6px;
-  top: 6px;
-  bottom: 6px;
-  width: 1px;
-  background: rgba(255, 20, 147, 0.3);
-}
-
-.timeline-entry {
-  position: relative;
-  margin-bottom: 28px;
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-.timeline-entry:last-child {
-  margin-bottom: 0;
-}
-
-/* Dots */
-.timeline-dot {
-  position: absolute;
-  left: -28px;
-  top: 5px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: var(--black);
-  border: 1px solid rgba(255, 20, 147, 0.5);
-  flex-shrink: 0;
-}
-
-.timeline-dot--major {
-  background: var(--pink);
-  border-color: var(--pink);
-  width: 13px;
-  height: 13px;
-  box-shadow: 0 0 8px rgba(255, 20, 147, 0.5);
-}
-
-/* Content */
-.timeline-content {
-  flex: 1;
-}
-
-.timeline-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 2px;
-}
-
-.timeline-year {
-  font-family: 'Francois One', Impact, sans-serif;
-  font-size: 0.78rem;
-  color: var(--grey);
-  letter-spacing: 0.06em;
-  opacity: 0.6;
-}
-
-.timeline-title {
+.release-card__title {
   font-family: 'Cardo', Georgia, serif;
-  font-weight: 700;
-  color: var(--white);
-  font-size: 0.97rem;
-  margin-bottom: 2px;
-  line-height: 1.4;
-}
-
-.timeline-entry--major .timeline-title {
-  color: var(--white);
-}
-
-.timeline-desc {
-  font-size: 0.88rem;
-  color: var(--grey);
-  opacity: 0.75;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* Legend */
-.timeline-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 40px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.07);
-}
-
-/* ═══════════════════════════════════════════
-   SECTION 6: BEYOND MUSIC
-   ═══════════════════════════════════════════ */
-
-.beyond-list {
-  list-style: none;
-  padding: 0;
-}
-
-.beyond-list li {
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  color: var(--grey);
-  font-size: 0.97rem;
-  line-height: 1.5;
-}
-
-.beyond-list li:last-child {
-  border-bottom: none;
-}
-
-.beyond-label {
-  font-family: 'Cardo', Georgia, serif;
-  font-weight: 700;
-  color: var(--pink);
-}
-
-/* ═══════════════════════════════════════════
-   SECTION 7: RECOGNITION
-   ═══════════════════════════════════════════ */
-
-.recognition-group {
-  margin-bottom: 36px;
-}
-
-.recognition-group:last-of-type {
-  margin-bottom: 0;
-}
-
-.recognition-subhead {
-  font-family: 'Francois One', Impact, sans-serif;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  color: var(--grey);
-  opacity: 0.6;
-  margin-bottom: 12px;
-}
-
-.recognition-list {
-  list-style: none;
-  padding: 0;
-}
-
-.recognition-list li {
-  color: var(--grey);
-  font-size: 0.97rem;
-  padding: 4px 0;
-  line-height: 1.5;
-}
-
-.press-quotes {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.press-quote {
   font-style: italic;
-  font-size: clamp(1.05rem, 3vw, 1.25rem);
-  color: var(--white);
-  line-height: 1.5;
+  font-size: 1rem;
+  color: #FFFFFF;
+  margin-bottom: 4px;
 }
 
-.press-quote cite {
-  display: block;
-  font-style: normal;
-  font-size: 0.82rem;
-  color: var(--grey);
-  margin-top: 4px;
+.release-card__meta {
+  font-size: 0.78rem;
+  color: #888;
+  text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-/* ═══════════════════════════════════════════
-   SECTION 8: THE LABEL
-   ═══════════════════════════════════════════ */
-
-.label-intro {
-  color: var(--grey);
-  margin-bottom: 40px;
-  font-size: 0.97rem;
-}
-
-.label-subhead {
-  font-family: 'Francois One', Impact, sans-serif;
-  text-transform: uppercase;
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  color: var(--white);
-  margin: 40px 0 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 20, 147, 0.25);
-}
-
-.label-subhead:first-of-type {
-  margin-top: 0;
-}
-
-.label-subhead--impact {
-  color: var(--pink);
-  border-bottom-color: rgba(255, 20, 147, 0.5);
-  margin-top: 56px;
-}
-
-.label-sublabel-desc {
-  font-size: 0.85rem;
-  color: var(--grey);
-  opacity: 0.65;
-  margin-bottom: 12px;
+.release-card__note {
+  font-size: 0.8rem;
+  color: #666;
   font-style: italic;
+  margin-top: 4px;
 }
 
-/* Discography list */
+/* Singles toggle button */
+.toggle-singles-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-family: 'Francois One', sans-serif;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #FF1493;
+  background: transparent;
+  border: 2px solid #FF1493;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.toggle-singles-btn:hover {
+  background: #FF1493;
+  color: #0A0A0A;
+}
+
+.toggle-arrow {
+  display: inline-block;
+}
+
 .discog-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 48px;
 }
 
 .discog-list--hidden {
   display: none;
 }
 
-.discog-list li {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+.discog-list__item {
   font-size: 0.9rem;
-  line-height: 1.4;
+  color: #CCCCCC;
+  line-height: 1.6;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-.discog-list li:last-child {
-  border-bottom: none;
-}
-
-.discog-year {
-  font-family: 'Francois One', Impact, sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  color: var(--grey);
-  opacity: 0.45;
-  flex-shrink: 0;
-  width: 2.8em;
-}
-
-.discog-artist {
-  color: var(--pink);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.discog-title {
-  color: var(--white);
-  flex: 1;
-  min-width: 120px;
-}
-
-.discog-format {
-  font-size: 0.72rem;
-  color: var(--grey);
-  opacity: 0.5;
-  flex-shrink: 0;
-  font-family: 'Francois One', Impact, sans-serif;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.discog-note {
-  font-size: 0.78rem;
-  color: var(--grey);
-  opacity: 0.55;
-  font-style: italic;
-  width: 100%;
-  padding-left: calc(2.8em + 10px);
-  margin-top: -2px;
-}
-
-/* Toggle button */
-.toggle-btn {
-  background: none;
-  border: 1px solid rgba(255, 20, 147, 0.4);
-  color: var(--grey);
-  font-family: 'Cardo', Georgia, serif;
+.discog-list__item .year {
+  color: #FF1493;
+  font-family: 'Francois One', sans-serif;
   font-size: 0.85rem;
-  padding: 8px 18px;
-  margin: 16px 0 0;
-  cursor: pointer;
-  border-radius: 3px;
-  transition: border-color 0.15s, color 0.15s;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
+  margin-right: 6px;
 }
 
-.toggle-btn:hover {
-  border-color: var(--pink);
-  color: var(--white);
+.discog-list__item .note {
+  color: #666;
+  font-style: italic;
+  font-size: 0.82rem;
 }
 
-/* What Happened Next grid */
-.impact-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px 32px;
-  margin-top: 8px;
+/* Sub-label sections */
+.sub-label {
+  margin-top: 56px;
 }
 
-.impact-item {
+.sub-label__heading {
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: #FF1493;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.sub-label__desc {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.sub-label__list {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-}
-
-.impact-artist {
-  font-family: 'Francois One', Impact, sans-serif;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 0.04em;
-  color: var(--pink);
-  line-height: 1.1;
-}
-
-.impact-release {
-  font-size: 0.72rem;
-  font-family: 'Cardo', Georgia, serif;
-  color: var(--grey);
-  opacity: 0.5;
-  font-style: italic;
-}
-
-.impact-trajectory {
-  font-size: 0.88rem;
-  color: var(--grey);
-  line-height: 1.45;
-}
-
-@media (max-width: 480px) {
-  .impact-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .discog-note {
-    padding-left: 0;
-  }
-}
-
-/* ═══════════════════════════════════════════
-   SECTION 9: DiS IS…
-   ═══════════════════════════════════════════ */
-
-#dis-is {
-  text-align: center;
-  padding: 72px 0;
-}
-
-#dis-is .dis-quote {
-  font-style: italic;
-  font-size: clamp(1.1rem, 3.5vw, 1.4rem);
-  line-height: 1.75;
-  color: var(--white);
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-#dis-is .dis-quote p {
-  margin-bottom: 1.4em;
-  color: var(--white);
-}
-
-#dis-is .dis-quote p:last-child {
-  margin-bottom: 0;
-}
-
-/* ═══════════════════════════════════════════
-   FOOTER
-   ═══════════════════════════════════════════ */
-
-footer {
-  padding: 48px 0 40px;
-  text-align: center;
-}
-
-.footer-contact {
-  font-size: 1.05rem;
+  gap: 2px;
   margin-bottom: 24px;
 }
 
-.footer-contact a {
-  color: var(--white);
+.sub-label__item {
+  font-size: 0.9rem;
+  color: #CCCCCC;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-.footer-social {
-  margin-bottom: 28px;
+.sub-label__item .year {
+  color: #FF1493;
+  font-family: 'Francois One', sans-serif;
+  font-size: 0.85rem;
+  margin-right: 6px;
 }
 
-.footer-meta {
-  font-size: 0.72rem;
-  color: var(--grey);
-  opacity: 0.5;
-  margin-bottom: 14px;
+.sub-label__item .note {
+  color: #666;
+  font-style: italic;
+  font-size: 0.82rem;
+}
+
+/* What Happened Next */
+.what-next {
+  margin-top: 64px;
+}
+
+.what-next__heading {
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2.4rem);
+  color: #FF1493;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 32px;
+}
+
+.what-next__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .what-next__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.what-next__card {
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 2px solid rgba(255, 20, 147, 0.3);
+  padding: 20px;
+}
+
+.what-next__artist {
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: #FF1493;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.what-next__release {
+  font-style: italic;
+  font-size: 0.82rem;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.what-next__trajectory {
+  font-size: 0.9rem;
+  color: #CCCCCC;
   line-height: 1.6;
 }
 
-.footer-quote {
-  font-style: italic;
-  color: var(--pink);
-  font-size: 0.85rem;
-  opacity: 0.8;
+/* ------------------------------------------------------------
+   TIMELINE — A QUARTER CENTURY
+   ------------------------------------------------------------ */
+.timeline__era {
+  margin-bottom: 56px;
 }
 
-/* ═══════════════════════════════════════════
-   MOBILE
-   ═══════════════════════════════════════════ */
+.timeline__era-heading {
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 14px 20px;
+  border-left: 6px solid #FF1493;
+  background: rgba(255, 20, 147, 0.06);
+  margin-bottom: 28px;
+}
 
-@media (max-width: 480px) {
-  body {
-    font-size: 17px;
-  }
+.timeline__entries {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 8px;
+}
 
-  section {
-    padding: 56px 0;
-  }
+.timeline__entry {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
 
-  #hero {
-    padding: 48px 20px 44px;
-  }
+.timeline__dot-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+  flex-shrink: 0;
+  width: 16px;
+}
 
-  .hero-photo {
-    width: 120px;
-    height: 120px;
-  }
+.timeline__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FF1493;
+  flex-shrink: 0;
+}
 
-  .link-buttons {
-    gap: 10px;
-  }
+.timeline__dot--major {
+  width: 14px;
+  height: 14px;
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
 
-  .link-btn {
-    padding: 11px 20px;
-    font-size: 0.95rem;
-  }
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 20, 147, 0.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(255, 20, 147, 0); }
+}
 
-  .container {
-    padding: 0 20px;
-  }
+.timeline__content {
+  flex: 1;
+  padding-bottom: 4px;
+}
 
-  .stat {
-    padding: 18px 10px;
-  }
+.timeline__year {
+  font-family: 'Francois One', sans-serif;
+  font-size: 0.85rem;
+  color: #FF1493;
+  letter-spacing: 0.08em;
+  margin-bottom: 3px;
+}
 
-  .stat-number {
-    font-size: 1.5rem;
-  }
+.timeline__entry-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
 
-  #dis-is .dis-quote {
-    font-size: 1.05rem;
-  }
+.timeline__entry-desc {
+  font-size: 0.88rem;
+  color: #999;
+  line-height: 1.6;
+}
 
-  .timeline-entries {
-    padding-left: 22px;
-  }
+/* Timeline tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
 
-  .timeline-dot,
-  .timeline-dot--major {
-    left: -22px;
-    width: 11px;
-    height: 11px;
+.tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  font-family: 'Francois One', sans-serif;
+}
+
+.tag--publication { background: #FF1493; color: #fff; }
+.tag--label       { background: #9B1060; color: #fff; }
+.tag--live        { background: #FF69B4; color: #111; }
+.tag--media       { background: #555555; color: #ddd; }
+.tag--management  { background: #2a2a2a; color: #aaa; border: 1px solid #555; }
+.tag--political   { background: #CC0033; color: #fff; }
+.tag--network     { background: #FF1493; color: #fff; }
+
+.timeline__legend {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 20, 147, 0.2);
+}
+
+.timeline__legend-title {
+  font-family: 'Francois One', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.timeline__legend-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ------------------------------------------------------------
+   BEYOND MUSIC GRID
+   ------------------------------------------------------------ */
+.beyond-music__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .beyond-music__grid {
+    grid-template-columns: 1fr 1fr;
   }
+}
+
+.beyond-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 20, 147, 0.2);
+  padding: 24px;
+}
+
+.beyond-card__label {
+  font-family: 'Francois One', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #FF1493;
+  margin-bottom: 10px;
+}
+
+.beyond-card__desc {
+  font-size: 0.92rem;
+  color: #CCCCCC;
+  line-height: 1.7;
+}
+
+/* ------------------------------------------------------------
+   RECOGNITION SECTION
+   ------------------------------------------------------------ */
+.recognition__quotes {
+  margin-bottom: 64px;
+}
+
+.press-quote {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.press-quote:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.press-quote__text {
+  font-family: 'Cardo', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.press-quote__citation {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #888;
+  font-style: normal;
+  font-family: 'Francois One', sans-serif;
+}
+
+.recognition__awards {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(255, 20, 147, 0.2);
+}
+
+.recognition__sub {
+  font-family: 'Francois One', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888;
+  margin-bottom: 16px;
+  margin-top: 40px;
+}
+
+.recognition__sub:first-child {
+  margin-top: 0;
+}
+
+.recognition__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 640px;
+  margin-bottom: 8px;
+}
+
+.recognition__list li {
+  font-size: 0.92rem;
+  color: #CCCCCC;
+  line-height: 1.6;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.recognition__list li a {
+  color: #FF1493;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 20, 147, 0.4);
+}
+
+.recognition__text {
+  font-size: 0.92rem;
+  color: #CCCCCC;
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* ------------------------------------------------------------
+   DiS IS... MANIFESTO
+   ------------------------------------------------------------ */
+.dis-is {
+  padding: 96px 0;
+}
+
+.dis-is__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dis-is__text {
+  font-family: 'Cardo', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.25rem, 4vw, 1.8rem);
+  line-height: 1.9;
+  color: #FFFFFF;
+}
+
+.dis-is__text p {
+  margin-bottom: 2.5em;
+}
+
+.dis-is__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   FOOTER
+   ------------------------------------------------------------ */
+.footer {
+  background-color: #111111;
+  padding: 56px 0;
+  text-align: center;
+}
+
+.footer__email {
+  font-family: 'Francois One', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FF1493;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.footer__email:hover {
+  opacity: 0.75;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #888;
+  transition: color 0.15s ease;
+}
+
+.footer__social-link:hover {
+  color: #FF1493;
+  opacity: 1;
+}
+
+.footer__social-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.footer__credit {
+  font-size: 0.72rem;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.footer__quote {
+  font-family: 'Cardo', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #FF1493;
+  max-width: 440px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------
+   UTILITY
+   ------------------------------------------------------------ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
