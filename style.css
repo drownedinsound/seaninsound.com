@@ -1705,13 +1705,10 @@ ul {
 
 .dis-is__inner {
   max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
 }
 
 .dis-is__text {
   font-family: 'Cardo', Georgia, serif;
-  font-style: italic;
   font-size: clamp(1.25rem, 3.5vw, 1.5rem);
   line-height: 1.9;
   color: #FFFFFF;
