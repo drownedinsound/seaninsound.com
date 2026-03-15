@@ -647,12 +647,187 @@ blockquote {
 }
 
 /* ═══════════════════════════════════════════
-   SECTION 8: DiS IS…
+   SECTION 8: THE LABEL
+   ═══════════════════════════════════════════ */
+
+.label-intro {
+  color: var(--grey);
+  margin-bottom: 40px;
+  font-size: 0.97rem;
+}
+
+.label-subhead {
+  font-family: 'Francois One', Impact, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  margin: 40px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 20, 147, 0.25);
+}
+
+.label-subhead:first-of-type {
+  margin-top: 0;
+}
+
+.label-subhead--impact {
+  color: var(--pink);
+  border-bottom-color: rgba(255, 20, 147, 0.5);
+  margin-top: 56px;
+}
+
+.label-sublabel-desc {
+  font-size: 0.85rem;
+  color: var(--grey);
+  opacity: 0.65;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Discography list */
+.discog-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.discog-list--hidden {
+  display: none;
+}
+
+.discog-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.discog-list li:last-child {
+  border-bottom: none;
+}
+
+.discog-year {
+  font-family: 'Francois One', Impact, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--grey);
+  opacity: 0.45;
+  flex-shrink: 0;
+  width: 2.8em;
+}
+
+.discog-artist {
+  color: var(--pink);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.discog-title {
+  color: var(--white);
+  flex: 1;
+  min-width: 120px;
+}
+
+.discog-format {
+  font-size: 0.72rem;
+  color: var(--grey);
+  opacity: 0.5;
+  flex-shrink: 0;
+  font-family: 'Francois One', Impact, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.discog-note {
+  font-size: 0.78rem;
+  color: var(--grey);
+  opacity: 0.55;
+  font-style: italic;
+  width: 100%;
+  padding-left: calc(2.8em + 10px);
+  margin-top: -2px;
+}
+
+/* Toggle button */
+.toggle-btn {
+  background: none;
+  border: 1px solid rgba(255, 20, 147, 0.4);
+  color: var(--grey);
+  font-family: 'Cardo', Georgia, serif;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+  margin: 16px 0 0;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: border-color 0.15s, color 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.toggle-btn:hover {
+  border-color: var(--pink);
+  color: var(--white);
+}
+
+/* What Happened Next grid */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 32px;
+  margin-top: 8px;
+}
+
+.impact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.impact-artist {
+  font-family: 'Francois One', Impact, sans-serif;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--pink);
+  line-height: 1.1;
+}
+
+.impact-release {
+  font-size: 0.72rem;
+  font-family: 'Cardo', Georgia, serif;
+  color: var(--grey);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.impact-trajectory {
+  font-size: 0.88rem;
+  color: var(--grey);
+  line-height: 1.45;
+}
+
+@media (max-width: 480px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .discog-note {
+    padding-left: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   SECTION 9: DiS IS…
    ═══════════════════════════════════════════ */
 
 #dis-is {
   text-align: center;
-  padding: 80px 0;
+  padding: 72px 0;
 }
 
 #dis-is .dis-quote {
