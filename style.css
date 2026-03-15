@@ -1964,6 +1964,21 @@ ul {
   display: block;
 }
 
+.now__learn-more {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: 'Francois One', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FF1493;
+  transition: opacity 0.15s ease;
+}
+
+.now__learn-more:hover {
+  opacity: 0.75;
+}
+
 /* ------------------------------------------------------------
    PODCAST EMBED
    ------------------------------------------------------------ */
