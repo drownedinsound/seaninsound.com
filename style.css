@@ -304,6 +304,35 @@ ul {
 }
 
 /* ------------------------------------------------------------
+   BIO
+   ------------------------------------------------------------ */
+.bio__body {
+  max-width: 740px;
+}
+
+.bio__body p {
+  font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+  line-height: 1.8;
+  color: #CCCCCC;
+  margin-bottom: 1.5em;
+}
+
+.bio__body p:first-child {
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  color: #FFFFFF;
+  line-height: 1.65;
+}
+
+.bio__body p:last-child {
+  margin-bottom: 0;
+}
+
+.bio__body strong {
+  color: #FF1493;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------
    WHY MUSIC MATTERS
    ------------------------------------------------------------ */
 .argument__body {
