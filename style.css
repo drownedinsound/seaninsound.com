@@ -44,7 +44,7 @@ img {
 }
 
 a {
-  color: #FF1493;
+  color: #F307B0;
   text-decoration: none;
   transition: color 0.2s ease, opacity 0.2s ease;
 }
@@ -90,7 +90,7 @@ ul {
   font-family: 'Francois One', sans-serif;
   font-size: 1rem;
   letter-spacing: 0.08em;
-  color: #FF1493;
+  color: #F307B0;
   text-decoration: none;
   flex-shrink: 0;
 }
@@ -120,18 +120,18 @@ ul {
 }
 
 .site-nav__links a:hover {
-  color: #FF1493;
+  color: #F307B0;
   opacity: 1;
 }
 
 .site-nav__cta {
-  color: #FF1493 !important;
+  color: #F307B0 !important;
   border: 1px solid rgba(255, 20, 147, 0.5);
   padding: 6px 14px;
 }
 
 .site-nav__cta:hover {
-  background: #FF1493;
+  background: #F307B0;
   color: #0A0A0A !important;
 }
 
@@ -251,7 +251,7 @@ ul {
 .section-heading {
   font-family: 'Francois One', sans-serif;
   font-size: clamp(2rem, 6vw, 2.5rem);
-  color: #FF1493;
+  color: #F307B0;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   line-height: 1.1;
@@ -261,7 +261,7 @@ ul {
 .section-subheading {
   font-family: 'Francois One', sans-serif;
   font-size: clamp(1.2rem, 4vw, 1.8rem);
-  color: #FF1493;
+  color: #F307B0;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   margin-bottom: 28px;
@@ -344,7 +344,7 @@ ul {
   font-style: normal;
   text-transform: uppercase;
   font-size: clamp(2.2rem, 6vw, 2.75rem);
-  color: #FF1493;
+  color: #F307B0;
   max-width: 580px;
   margin: 0 auto 40px;
   line-height: 1.2;
@@ -367,26 +367,26 @@ ul {
   letter-spacing: 0.04em;
   color: #FFFFFF;
   background: transparent;
-  border: 2px solid #FF1493;
+  border: 2px solid #F307B0;
   transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
   white-space: nowrap;
 }
 
 .hero__link-btn:hover {
-  background: #FF1493;
+  background: #F307B0;
   color: #0A0A0A;
   opacity: 1;
   transform: scale(1.02);
 }
 
 .hero__link-btn--primary {
-  background: #FF1493;
+  background: #F307B0;
   color: #0A0A0A;
 }
 
 .hero__link-btn--primary:hover {
   background: transparent;
-  color: #FF1493;
+  color: #F307B0;
 }
 
 .hero__socials {
@@ -407,7 +407,7 @@ ul {
 }
 
 .hero__social-link:hover {
-  color: #FF1493;
+  color: #F307B0;
   opacity: 1;
 }
 
@@ -419,7 +419,7 @@ ul {
 
 .hero__scroll-hint {
   display: inline-block;
-  color: #FF1493;
+  color: #F307B0;
   font-size: 1.5rem;
   line-height: 1;
   text-decoration: none;
@@ -477,7 +477,7 @@ ul {
   font-family: 'Francois One', sans-serif;
   font-size: clamp(3.5rem, 10vw, 4rem);
   letter-spacing: -0.02em;
-  color: #FF1493;
+  color: #F307B0;
   line-height: 1;
   display: block;
   margin-bottom: 8px;
@@ -524,7 +524,7 @@ ul {
 .bio__press-quote {
   margin-top: 2em;
   padding-left: 1.25em;
-  border-left: 3px solid #FF1493;
+  border-left: 3px solid #F307B0;
   font-family: 'Cardo', Georgia, serif;
   font-style: italic;
   font-size: clamp(1rem, 2.5vw, 1.15rem);
@@ -541,7 +541,7 @@ ul {
 .bio__statement {
   font-family: 'Francois One', sans-serif;
   font-size: clamp(1.6rem, 5vw, 2.2rem);
-  color: #FF1493;
+  color: #F307B0;
   text-transform: uppercase;
   line-height: 1.2;
   margin-bottom: 40px;
@@ -549,7 +549,7 @@ ul {
 }
 
 .bio__body strong {
-  color: #FF1493;
+  color: #F307B0;
   font-weight: 700;
 }
 
@@ -605,7 +605,7 @@ ul {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #FF1493;
+  color: #F307B0;
 }
 
 .featured-client__stats {
@@ -636,7 +636,7 @@ ul {
   display: block;
   font-family: 'Francois One', sans-serif;
   font-size: clamp(1.4rem, 4vw, 2rem);
-  color: #FF1493;
+  color: #F307B0;
   margin-bottom: 6px;
   line-height: 1;
 }
@@ -690,7 +690,7 @@ ul {
   content: '✓';
   position: absolute;
   left: 0;
-  color: #FF1493;
+  color: #F307B0;
   font-size: 0.8rem;
 }
 
@@ -744,7 +744,7 @@ ul {
 .featured-client__teaser {
   padding: 20px 24px;
   background: rgba(255, 20, 147, 0.04);
-  border-left: 4px solid #FF1493;
+  border-left: 4px solid #F307B0;
 }
 
 .featured-client__teaser p {
@@ -755,7 +755,7 @@ ul {
 }
 
 .featured-client__teaser strong {
-  color: #FF1493;
+  color: #F307B0;
 }
 
 /* ------------------------------------------------------------
@@ -884,7 +884,7 @@ ul {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #FF1493;
+  color: #F307B0;
   padding-right: 0;
   white-space: nowrap;
 }
@@ -923,7 +923,7 @@ ul {
 }
 
 .now__item {
-  border-left: 3px solid #FF1493;
+  border-left: 3px solid #F307B0;
   padding: 20px 20px 20px 24px;
   background: #111111;
 }
@@ -933,7 +933,7 @@ ul {
   font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #FF1493;
+  color: #F307B0;
   margin-bottom: 8px;
 }
 
@@ -944,7 +944,7 @@ ul {
 }
 
 .now__item-desc a {
-  color: #FF1493;
+  color: #F307B0;
   text-decoration: underline;
   text-decoration-color: rgba(255, 20, 147, 0.4);
 }
@@ -968,7 +968,7 @@ ul {
 }
 
 .track-record__inset {
-  border-left: 4px solid #FF1493;
+  border-left: 4px solid #F307B0;
   padding: 16px 24px;
   font-style: italic;
   color: #CCCCCC;
@@ -979,7 +979,7 @@ ul {
 }
 
 .track-card {
-  border-left: 4px solid #FF1493;
+  border-left: 4px solid #F307B0;
   padding: 20px 24px;
   background: rgba(255, 255, 255, 0.02);
   margin-bottom: 20px;
@@ -1002,13 +1002,13 @@ ul {
 }
 
 .track-card__desc a {
-  color: #FF1493;
+  color: #F307B0;
   text-decoration: underline;
   text-decoration-color: rgba(255, 20, 147, 0.4);
 }
 
 .artist-name {
-  color: #FF1493;
+  color: #F307B0;
   font-weight: 700;
 }
 
@@ -1024,7 +1024,7 @@ ul {
 }
 
 .releases__intro a {
-  color: #FF1493;
+  color: #F307B0;
   text-decoration: underline;
   text-decoration-color: rgba(255, 20, 147, 0.4);
 }
@@ -1056,7 +1056,7 @@ ul {
 .release-card__artist {
   font-family: 'Francois One', sans-serif;
   font-size: clamp(0.95rem, 2.5vw, 1.2rem);
-  color: #FF1493;
+  color: #F307B0;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   line-height: 1.2;
@@ -1095,16 +1095,16 @@ ul {
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #FF1493;
+  color: #F307B0;
   background: transparent;
-  border: 2px solid #FF1493;
+  border: 2px solid #F307B0;
   cursor: pointer;
   margin-bottom: 24px;
   transition: background 0.15s ease, color 0.15s ease;
 }
 
 .toggle-singles-btn:hover {
-  background: #FF1493;
+  background: #F307B0;
   color: #0A0A0A;
 }
 
@@ -1132,7 +1132,7 @@ ul {
 }
 
 .discog-list__item .year {
-  color: #FF1493;
+  color: #F307B0;
   font-family: 'Francois One', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
@@ -1153,7 +1153,7 @@ ul {
 .sub-label__heading {
   font-family: 'Francois One', sans-serif;
   font-size: clamp(1.1rem, 3vw, 1.5rem);
-  color: #FF1493;
+  color: #F307B0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 8px;
@@ -1180,7 +1180,7 @@ ul {
 }
 
 .sub-label__item .year {
-  color: #FF1493;
+  color: #F307B0;
   font-family: 'Francois One', sans-serif;
   font-size: 0.85rem;
   margin-right: 6px;
@@ -1200,7 +1200,7 @@ ul {
 .what-next__heading {
   font-family: 'Francois One', sans-serif;
   font-size: clamp(1.5rem, 5vw, 2.4rem);
-  color: #FF1493;
+  color: #F307B0;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: 32px;
@@ -1231,7 +1231,7 @@ ul {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  color: #FF1493;
+  color: #F307B0;
   font-size: 1.2rem;
   opacity: 0;
   transform: translateX(-8px);
@@ -1246,7 +1246,7 @@ ul {
 .what-next__artist {
   font-family: 'Francois One', sans-serif;
   font-size: clamp(1rem, 3vw, 1.2rem);
-  color: #FF1493;
+  color: #F307B0;
   text-transform: uppercase;
   margin-bottom: 4px;
 }
@@ -1278,7 +1278,7 @@ ul {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 14px 20px;
-  border-left: 6px solid #FF1493;
+  border-left: 6px solid #F307B0;
   background: rgba(255, 20, 147, 0.06);
   margin-bottom: 28px;
 }
@@ -1314,7 +1314,7 @@ ul {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #FF1493;
+  background: #F307B0;
   flex-shrink: 0;
 }
 
@@ -1337,7 +1337,7 @@ ul {
 .timeline__year {
   font-family: 'Francois One', sans-serif;
   font-size: 0.85rem;
-  color: #FF1493;
+  color: #F307B0;
   letter-spacing: 0.08em;
   margin-bottom: 3px;
 }
@@ -1373,13 +1373,13 @@ ul {
   font-family: 'Francois One', sans-serif;
 }
 
-.tag--publication { background: #FF1493; color: #fff; }
+.tag--publication { background: #F307B0; color: #fff; }
 .tag--label       { background: #9B1060; color: #fff; }
 .tag--live        { background: #FF69B4; color: #111; }
 .tag--media       { background: #555555; color: #ddd; }
 .tag--management  { background: #2a2a2a; color: #aaa; border: 1px solid #555; }
 .tag--political   { background: #CC0033; color: #fff; }
-.tag--network     { background: #FF1493; color: #fff; }
+.tag--network     { background: #F307B0; color: #fff; }
 
 .timeline__legend {
   margin-top: 48px;
@@ -1420,7 +1420,7 @@ ul {
   text-align: left;
   background: rgba(255, 20, 147, 0.06);
   border: none;
-  border-left: 6px solid #FF1493;
+  border-left: 6px solid #F307B0;
   padding: 14px 20px;
   font-family: 'Francois One', sans-serif;
   font-size: clamp(1.2rem, 4vw, 1.8rem);
@@ -1446,7 +1446,7 @@ ul {
 
 .timeline__era-chevron {
   font-size: 1.2rem;
-  color: #FF1493;
+  color: #F307B0;
   transition: transform 0.25s ease;
   flex-shrink: 0;
   margin-left: 12px;
@@ -1481,16 +1481,16 @@ ul {
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #FF1493;
+  color: #F307B0;
   background: transparent;
-  border: 2px solid #FF1493;
+  border: 2px solid #F307B0;
   cursor: pointer;
   margin-bottom: 32px;
   transition: background 0.15s ease, color 0.15s ease;
 }
 
 .accordion-toggle:hover {
-  background: #FF1493;
+  background: #F307B0;
   color: #0A0A0A;
 }
 
@@ -1537,7 +1537,7 @@ ul {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #FF1493;
+  color: #F307B0;
   margin-bottom: 10px;
 }
 
@@ -1657,7 +1657,7 @@ ul {
 }
 
 .recognition__list li a {
-  color: #FF1493;
+  color: #F307B0;
   text-decoration: underline;
   text-decoration-color: rgba(255, 20, 147, 0.4);
 }
@@ -1712,7 +1712,7 @@ ul {
 
 /* Pink phrase spans */
 .pink-phrase {
-  color: #FF1493;
+  color: #F307B0;
 }
 
 /* ------------------------------------------------------------
@@ -1773,7 +1773,7 @@ ul {
   font-family: 'Cardo', Georgia, serif;
   font-style: italic;
   font-size: 1.1rem;
-  color: #FF1493;
+  color: #F307B0;
   text-decoration: underline;
   text-decoration-color: rgba(255, 20, 147, 0.4);
 }
@@ -1792,7 +1792,7 @@ ul {
   display: block;
   width: 48px;
   height: 1px;
-  background: #FF1493;
+  background: #F307B0;
   margin: 0 auto 40px;
 }
 
@@ -1801,7 +1801,7 @@ ul {
   display: block;
   width: 48px;
   height: 1px;
-  background: #FF1493;
+  background: #F307B0;
   margin: 40px auto 0;
 }
 
@@ -1820,7 +1820,7 @@ ul {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #FF1493;
+  color: #F307B0;
 }
 
 /* ------------------------------------------------------------
@@ -1837,7 +1837,7 @@ ul {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #FF1493;
+  color: #F307B0;
   margin-bottom: 24px;
   display: inline-block;
 }
@@ -1864,7 +1864,7 @@ ul {
 }
 
 .footer__social-link:hover {
-  color: #FF1493;
+  color: #F307B0;
   opacity: 1;
 }
 
@@ -1959,7 +1959,7 @@ ul {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #FF1493;
+  color: #F307B0;
   transition: opacity 0.15s ease;
 }
 
