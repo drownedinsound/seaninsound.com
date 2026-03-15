@@ -1716,6 +1716,28 @@ ul {
 }
 
 /* ------------------------------------------------------------
+   FEATURED EPISODE
+   ------------------------------------------------------------ */
+.section--featured-episode {
+  padding-top: 0;
+}
+
+.featured-episode__label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  opacity: 0.5;
+}
+
+.featured-episode__caption {
+  font-size: 13px;
+  margin-top: 10px;
+  opacity: 0.6;
+}
+
+/* ------------------------------------------------------------
    WATCH SECTION
    ------------------------------------------------------------ */
 .section--watch {
