@@ -339,9 +339,224 @@ ul {
   margin-bottom: 0;
 }
 
+.bio__statement {
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: #FF1493;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 40px;
+  letter-spacing: 0.02em;
+}
+
 .bio__body strong {
   color: #FF1493;
   font-weight: 700;
+}
+
+/* ------------------------------------------------------------
+   FEATURED CLIENT — THE ANCHORESS
+   ------------------------------------------------------------ */
+.featured-client__wrapper {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .featured-client__wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.featured-client__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 0 2px rgba(255, 20, 147, 0.3);
+}
+
+.featured-client__name-block {
+  text-align: left;
+}
+
+.featured-client__name {
+  font-family: 'Francois One', sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.featured-client__aka {
+  font-family: 'Cardo', Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.featured-client__link {
+  font-family: 'Francois One', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #FF1493;
+}
+
+.featured-client__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-bottom: 36px;
+  border: 1px solid rgba(255, 20, 147, 0.1);
+}
+
+@media (max-width: 600px) {
+  .featured-client__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.featured-client__stat-item {
+  text-align: center;
+  padding: 20px 12px;
+  border-right: 1px solid rgba(255, 20, 147, 0.1);
+}
+
+.featured-client__stat-item:last-child {
+  border-right: none;
+}
+
+.featured-client__stat-number {
+  display: block;
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: #FF1493;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.featured-client__stat-label {
+  display: block;
+  font-size: 0.72rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+.featured-client__stat-label em {
+  font-style: italic;
+  color: #CCCCCC;
+  text-transform: none;
+}
+
+.featured-client__sub-label {
+  font-family: 'Francois One', sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.featured-client__accolades {
+  margin-bottom: 28px;
+}
+
+.featured-client__accolade-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.featured-client__accolade-list li {
+  font-size: 1rem;
+  color: #CCCCCC;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.featured-client__accolade-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #FF1493;
+  font-size: 0.8rem;
+}
+
+.featured-client__collaborators {
+  margin-bottom: 28px;
+}
+
+.featured-client__collab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.collab-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 20, 147, 0.25);
+  color: #CCCCCC;
+  padding: 6px 14px;
+  font-family: 'Cardo', Georgia, serif;
+  font-size: 0.9rem;
+}
+
+.featured-client__quotes {
+  margin-bottom: 28px;
+}
+
+.featured-client__quote-item {
+  margin-bottom: 16px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 20, 147, 0.3);
+}
+
+.featured-client__quote-text {
+  font-family: 'Cardo', Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.featured-client__quote-source {
+  font-size: 0.8rem;
+  color: #888;
+  font-family: 'Francois One', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.featured-client__teaser {
+  padding: 20px 24px;
+  background: rgba(255, 20, 147, 0.04);
+  border-left: 4px solid #FF1493;
+}
+
+.featured-client__teaser p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #CCCCCC;
+  margin: 0;
+}
+
+.featured-client__teaser strong {
+  color: #FF1493;
 }
 
 /* ------------------------------------------------------------
@@ -1011,6 +1226,113 @@ ul {
     flex-direction: column;
   }
   .timeline__dot-col { display: none; }
+}
+
+/* ------------------------------------------------------------
+   TIMELINE INTRO & COLLAPSIBLE ERAS
+   ------------------------------------------------------------ */
+.timeline__intro {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  color: #CCCCCC;
+  line-height: 1.75;
+  max-width: 680px;
+  margin-bottom: 40px;
+}
+
+.timeline__era-toggle {
+  width: 100%;
+  text-align: left;
+  background: rgba(255, 20, 147, 0.06);
+  border: none;
+  border-left: 6px solid #FF1493;
+  padding: 14px 20px;
+  font-family: 'Francois One', sans-serif;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  transition: background 0.2s ease;
+}
+
+.timeline__era-toggle:hover {
+  background: rgba(255, 20, 147, 0.12);
+}
+
+.timeline__era-toggle[aria-expanded="true"] {
+  background: rgba(255, 20, 147, 0.1);
+  margin-bottom: 0;
+}
+
+.timeline__era-chevron {
+  font-size: 1.2rem;
+  color: #FF1493;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.timeline__era-toggle[aria-expanded="true"] .timeline__era-chevron {
+  transform: rotate(180deg);
+}
+
+.timeline__era-body {
+  padding-top: 20px;
+  padding-bottom: 8px;
+}
+
+/* ------------------------------------------------------------
+   ACCORDION TOGGLE (Releases, Recognition)
+   ------------------------------------------------------------ */
+.section-teaser {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  color: #CCCCCC;
+  line-height: 1.75;
+  max-width: 680px;
+  margin-bottom: 24px;
+}
+
+.accordion-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-family: 'Francois One', sans-serif;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #FF1493;
+  background: transparent;
+  border: 2px solid #FF1493;
+  cursor: pointer;
+  margin-bottom: 32px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.accordion-toggle:hover {
+  background: #FF1493;
+  color: #0A0A0A;
+}
+
+.accordion-toggle:hover .accordion-chevron {
+  color: #0A0A0A;
+}
+
+.accordion-chevron {
+  font-size: 1rem;
+  transition: transform 0.25s ease;
+}
+
+.accordion-toggle[aria-expanded="true"] .accordion-chevron {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  margin-top: 0;
 }
 
 /* ------------------------------------------------------------
