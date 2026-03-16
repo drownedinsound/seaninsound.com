@@ -501,6 +501,31 @@ ul {
 /* ------------------------------------------------------------
    BIO
    ------------------------------------------------------------ */
+.bio__grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 56px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .bio__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .bio__photo-col {
+    order: -1;
+  }
+}
+
+.bio__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
 .bio__body {
   max-width: 740px;
 }
@@ -1975,6 +2000,24 @@ ul {
 
 .now__learn-more:hover {
   opacity: 0.75;
+}
+
+/* ------------------------------------------------------------
+   PODCAST GUESTS
+   ------------------------------------------------------------ */
+.podcast-guests {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 28px 0 0;
+}
+
+.podcast-guests img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
 }
 
 /* ------------------------------------------------------------
