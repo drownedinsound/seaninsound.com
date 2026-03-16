@@ -476,6 +476,7 @@ ul {
 .stats__number {
   font-family: 'Francois One', sans-serif;
   font-size: clamp(3.5rem, 10vw, 4rem);
+  white-space: nowrap;
   letter-spacing: -0.02em;
   color: #F307B0;
   line-height: 1;
@@ -501,31 +502,6 @@ ul {
 /* ------------------------------------------------------------
    BIO
    ------------------------------------------------------------ */
-.bio__grid {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 56px;
-  align-items: start;
-}
-
-@media (max-width: 768px) {
-  .bio__grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .bio__photo-col {
-    order: -1;
-  }
-}
-
-.bio__photo {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 2px;
-}
-
 .bio__body {
   max-width: 740px;
 }
@@ -1819,6 +1795,34 @@ ul {
   background: #000;
   padding: 80px 0;
   text-align: center;
+}
+
+.quote-photo {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 56px;
+  align-items: center;
+  text-align: left;
+}
+
+.quote-photo__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
+.quote-photo .closing-quote__text {
+  margin: 0 0 16px;
+}
+
+@media (max-width: 680px) {
+  .quote-photo {
+    grid-template-columns: 1fr;
+  }
+  .quote-photo__image {
+    display: none;
+  }
 }
 
 .closing-quote::before {
