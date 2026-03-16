@@ -602,7 +602,7 @@ ul {
 
 .featured-client__link {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: #F307B0;
@@ -1079,7 +1079,7 @@ ul {
 }
 
 .release-card__note {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #666;
   font-style: italic;
   margin-top: 4px;
@@ -1628,7 +1628,7 @@ ul {
 
 .recognition__sub {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #888;
@@ -1978,7 +1978,7 @@ ul {
   display: inline-block;
   margin-top: 14px;
   font-family: 'Francois One', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #F307B0;
@@ -1997,6 +1997,12 @@ ul {
   background: #111;
   border-radius: 12px;
   padding: 16px;
+}
+
+.podcast-diversity {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid #1e1e1e;
 }
 
 /* ------------------------------------------------------------
