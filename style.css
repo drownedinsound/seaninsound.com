@@ -490,10 +490,11 @@ ul {
 }
 
 .stats__label {
+  font-family: 'Francois One', sans-serif;
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #888;
+  color: #AAAAAA;
   display: block;
 }
 
@@ -521,22 +522,6 @@ ul {
   margin-bottom: 0;
 }
 
-.bio__press-quote {
-  margin-top: 2em;
-  padding-left: 1.25em;
-  border-left: 3px solid #F307B0;
-  font-family: 'Cardo', Georgia, serif;
-  font-style: italic;
-  font-size: clamp(1rem, 2.5vw, 1.15rem);
-  color: #888;
-  line-height: 1.7;
-}
-
-.bio__press-quote cite {
-  font-style: normal;
-  font-size: 0.85em;
-  color: #555;
-}
 
 .bio__statement {
   font-family: 'Francois One', sans-serif;
@@ -596,7 +581,7 @@ ul {
   font-family: 'Cardo', Georgia, serif;
   font-style: italic;
   font-size: 1rem;
-  color: #888;
+  color: #CCCCCC;
   margin-bottom: 12px;
 }
 
@@ -643,8 +628,9 @@ ul {
 
 .featured-client__stat-label {
   display: block;
+  font-family: 'Francois One', sans-serif;
   font-size: 0.72rem;
-  color: #888;
+  color: #AAAAAA;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   line-height: 1.4;
@@ -661,7 +647,7 @@ ul {
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #666;
+  color: #AAAAAA;
   margin-bottom: 12px;
 }
 
@@ -735,7 +721,7 @@ ul {
 
 .featured-client__quote-source {
   font-size: 0.8rem;
-  color: #888;
+  color: #AAAAAA;
   font-family: 'Francois One', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1072,15 +1058,16 @@ ul {
 }
 
 .release-card__meta {
+  font-family: 'Francois One', sans-serif;
   font-size: 0.78rem;
-  color: #888;
+  color: #AAAAAA;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .release-card__note {
   font-size: 0.9rem;
-  color: #666;
+  color: #CCCCCC;
   font-style: italic;
   margin-top: 4px;
 }
@@ -1140,7 +1127,7 @@ ul {
 }
 
 .discog-list__item .note {
-  color: #666;
+  color: #CCCCCC;
   font-style: italic;
   font-size: 0.82rem;
 }
@@ -1187,7 +1174,7 @@ ul {
 }
 
 .sub-label__item .note {
-  color: #666;
+  color: #CCCCCC;
   font-style: italic;
   font-size: 0.82rem;
 }
@@ -1352,7 +1339,7 @@ ul {
 
 .timeline__entry-desc {
   font-size: 0.95rem;
-  color: #999;
+  color: #CCCCCC;
   line-height: 1.6;
 }
 
@@ -1392,7 +1379,7 @@ ul {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #555;
+  color: #AAAAAA;
   margin-bottom: 12px;
 }
 
@@ -1631,7 +1618,7 @@ ul {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #888;
+  color: #AAAAAA;
   margin-bottom: 16px;
   margin-top: 40px;
 }
@@ -1897,8 +1884,9 @@ ul {
 }
 
 .footer__credit {
+  font-family: 'Francois One', sans-serif;
   font-size: 0.72rem;
-  color: #444;
+  color: #777;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 20px;
@@ -2027,5 +2015,25 @@ ul {
 @media (max-width: 767px) {
   .timeline__scroll-hint {
     display: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   MOBILE FONT MINIMUMS
+   ------------------------------------------------------------ */
+@media (max-width: 600px) {
+  .stats__label {
+    font-size: 0.8rem;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+  }
+
+  .release-card__meta,
+  .featured-client__stat-label,
+  .timeline__legend-title,
+  .footer__credit {
+    font-size: 0.78rem;
   }
 }
