@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drowned in Sound — Impact Report 2025–2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dis-bg:       #0A0A0A;
+      --dis-panel:    #111111;
+      --dis-panel-2:  #1A1A1A;
+      --dis-accent:   #F307B0;
+      --dis-white:    #FFFFFF;
+      --dis-divider:  #1E1E1E;
+      --dis-headline: 'Francois One', sans-serif;
+      --dis-body:     'Cardo', serif;
+    }
+
+    body {
+      background: var(--dis-bg);
+      color: var(--dis-white);
+      font-family: var(--dis-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 64px 48px 80px;
+    }
+
+    /* ---- HEADER ---- */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--dis-divider);
+      margin-bottom: 48px;
+      gap: 24px;
+    }
+
+    .header-eyebrow {
+      font-family: var(--dis-headline);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--dis-accent);
+      margin-bottom: 14px;
+    }
+
+    .header-title {
+      font-family: var(--dis-headline);
+      font-size: clamp(48px, 7vw, 80px);
+      text-transform: uppercase;
+      line-height: 0.92;
+      color: var(--dis-white);
+    }
+
+    .header-title span {
+      color: var(--dis-accent);
+    }
+
+    .header-meta {
+      text-align: right;
+    }
+
+    .header-period {
+      font-family: var(--dis-headline);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dis-accent);
+      margin-bottom: 6px;
+    }
+
+    .header-sub {
+      font-family: var(--dis-body);
+      font-size: 14px;
+      color: var(--dis-white);
+      line-height: 1.5;
+      max-width: 200px;
+      margin-left: auto;
+    }
+
+    /* ---- LEAD STATEMENT ---- */
+    .lead {
+      background: var(--dis-panel);
+      border-left: 3px solid var(--dis-accent);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+
+    .lead p {
+      font-family: var(--dis-body);
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--dis-white);
+    }
+
+    /* ---- SECTION LABEL ---- */
+    .section-label {
+      font-family: var(--dis-headline);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--dis-accent);
+      margin-bottom: 20px;
+    }
+
+    /* ---- STAT GRID ---- */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-bottom: 48px;
+      background: var(--dis-divider);
+    }
+
+    .stat-cell {
+      background: var(--dis-panel);
+      padding: 24px 20px;
+    }
+
+    .stat-cell-label {
+      font-family: var(--dis-headline);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--dis-accent);
+      margin-bottom: 10px;
+    }
+
+    .stat-cell-number {
+      font-family: var(--dis-headline);
+      font-size: 42px;
+      text-transform: uppercase;
+      line-height: 0.9;
+      color: var(--dis-white);
+      margin-bottom: 8px;
+    }
+
+    .stat-cell-desc {
+      font-family: var(--dis-body);
+      font-size: 13px;
+      color: var(--dis-white);
+      line-height: 1.45;
+    }
+
+    /* ---- TWO COL LAYOUT ---- */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    /* ---- INFOGRAPHIC: GENDER BARS ---- */
+    .infographic-block {
+      background: var(--dis-panel);
+      padding: 32px;
+    }
+
+    .infographic-title {
+      font-family: var(--dis-headline);
+      font-size: 20px;
+      text-transform: uppercase;
+      color: var(--dis-white);
+      margin-bottom: 8px;
+    }
+
+    .infographic-sub {
+      font-family: var(--dis-body);
+      font-size: 14px;
+      color: var(--dis-white);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .hero-stat {
+      font-family: var(--dis-headline);
+      font-size: 72px;
+      text-transform: uppercase;
+      line-height: 0.9;
+      color: var(--dis-white);
+      margin-bottom: 6px;
+    }
+
+    .hero-stat-label {
+      font-family: var(--dis-body);
+      font-size: 15px;
+      color: var(--dis-white);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .bar-row {
+      margin-bottom: 16px;
+    }
+
+    .bar-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 7px;
+    }
+
+    .bar-name {
+      font-family: var(--dis-headline);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--dis-white);
+    }
+
+    .bar-val {
+      font-family: var(--dis-headline);
+      font-size: 14px;
+      color: var(--dis-white);
+    }
+
+    .bar-track {
+      height: 8px;
+      background: var(--dis-panel-2);
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--dis-accent);
+      transition: width 1s ease;
+    }
+
+    .bar-fill.muted {
+      background: #333;
+    }
+
+    .bar-multiplier {
+      font-family: var(--dis-body);
+      font-size: 12px;
+      font-style: italic;
+      color: var(--dis-white);
+      margin-top: 5px;
+    }
+
+    /* ---- GROWTH CHART ---- */
+    .growth-chart {
+      background: var(--dis-panel);
+      padding: 32px;
+    }
+
+    .chart-area {
+      position: relative;
+      height: 140px;
+      margin: 24px 0 12px;
+    }
+
+    .chart-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .chart-labels {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .chart-label {
+      font-family: var(--dis-headline);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--dis-white);
+    }
+
+    .chart-annotation {
+      font-family: var(--dis-body);
+      font-size: 12px;
+      font-style: italic;
+      color: var(--dis-white);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    /* ---- PLATFORM GRID ---- */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--dis-divider);
+      margin-bottom: 48px;
+    }
+
+    .platform-cell {
+      background: var(--dis-panel);
+      padding: 24px 20px;
+    }
+
+    .platform-name {
+      font-family: var(--dis-headline);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dis-accent);
+      margin-bottom: 12px;
+    }
+
+    .platform-num {
+      font-family: var(--dis-headline);
+      font-size: 32px;
+      text-transform: uppercase;
+      line-height: 0.9;
+      color: var(--dis-white);
+      margin-bottom: 8px;
+    }
+
+    .platform-detail {
+      font-family: var(--dis-body);
+      font-size: 13px;
+      color: var(--dis-white);
+      line-height: 1.5;
+    }
+
+    /* ---- CAMPAIGN TIMELINE ---- */
+    .campaign-section {
+      margin-bottom: 48px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 0;
+    }
+
+    .timeline-track {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2px;
+      background: var(--dis-divider);
+    }
+
+    .timeline-item {
+      background: var(--dis-panel);
+      padding: 20px 16px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      background: var(--dis-accent);
+      margin-bottom: 12px;
+    }
+
+    .timeline-date {
+      font-family: var(--dis-headline);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--dis-accent);
+      margin-bottom: 8px;
+    }
+
+    .timeline-campaign {
+      font-family: var(--dis-headline);
+      font-size: 13px;
+      text-transform: uppercase;
+      color: var(--dis-white);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .timeline-outcome {
+      font-family: var(--dis-body);
+      font-size: 12px;
+      color: var(--dis-white);
+      line-height: 1.45;
+    }
+
+    /* ---- QUALITY SIGNALS ---- */
+    .quality-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--dis-divider);
+      margin-bottom: 48px;
+    }
+
+    .quality-cell {
+      background: var(--dis-panel-2);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .quality-num {
+      font-family: var(--dis-headline);
+      font-size: 56px;
+      text-transform: uppercase;
+      line-height: 0.9;
+      color: var(--dis-white);
+      flex-shrink: 0;
+    }
+
+    .quality-text {}
+
+    .quality-label {
+      font-family: var(--dis-headline);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dis-accent);
+      margin-bottom: 6px;
+    }
+
+    .quality-desc {
+      font-family: var(--dis-body);
+      font-size: 14px;
+      color: var(--dis-white);
+      line-height: 1.5;
+    }
+
+    /* ---- DIVIDER ---- */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--dis-divider);
+      margin: 48px 0;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      border-top: 1px solid var(--dis-divider);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-left {}
+
+    .footer-title {
+      font-family: var(--dis-headline);
+      font-size: 18px;
+      text-transform: uppercase;
+      color: var(--dis-white);
+      margin-bottom: 6px;
+    }
+
+    .footer-detail {
+      font-family: var(--dis-body);
+      font-size: 13px;
+      color: var(--dis-white);
+      line-height: 1.6;
+    }
+
+    .footer-partner {
+      text-align: right;
+    }
+
+    .footer-partner-label {
+      font-family: var(--dis-headline);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--dis-accent);
+      margin-bottom: 4px;
+    }
+
+    .footer-partner-name {
+      font-family: var(--dis-headline);
+      font-size: 16px;
+      text-transform: uppercase;
+      color: var(--dis-white);
+    }
+
+    .source-note {
+      font-family: var(--dis-body);
+      font-size: 12px;
+      font-style: italic;
+      color: var(--dis-white);
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--dis-divider);
+      line-height: 1.6;
+    }
+
+    @media print {
+      body { background: #0A0A0A; }
+      .page { padding: 40px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="header-eyebrow">Impact Report</div>
+      <div class="header-title">Drowned<br>in <span>Sound</span></div>
+    </div>
+    <div class="header-meta">
+      <div class="header-period">Oct 2025 — Apr 2026</div>
+      <div class="header-sub">Six months since our 25th anniversary</div>
+    </div>
+  </div>
+
+  <!-- LEAD -->
+  <div class="lead">
+    <p>In six months, DiS reached over 2 million people across six platforms — without compromising on editorial independence, advertiser values, or guest diversity. This is the strongest period in the podcast's history by every measurable metric.</p>
+  </div>
+
+  <!-- TOP STATS -->
+  <div class="section-label">01 — Scale</div>
+  <div class="stat-grid">
+    <div class="stat-cell">
+      <div class="stat-cell-label">Combined reach</div>
+      <div class="stat-cell-number">2M+</div>
+      <div class="stat-cell-desc">Impressions across podcast, newsletter, YouTube, Instagram, TikTok</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">Podcast downloads</div>
+      <div class="stat-cell-number">30.7K</div>
+      <div class="stat-cell-desc">Jul 2025–Apr 2026, all platforms</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">Instagram views</div>
+      <div class="stat-cell-number">1.3M</div>
+      <div class="stat-cell-desc">+176% on the previous period. 660K reach.</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">Episodes / Guests</div>
+      <div class="stat-cell-number">27/44</div>
+      <div class="stat-cell-desc">27 episodes, 44 unique guests, 6 platforms</div>
+    </div>
+  </div>
+
+  <!-- TWO COL: GENDER + GROWTH -->
+  <div class="section-label">02 — Who We Talk To &amp; How We're Growing</div>
+  <div class="two-col">
+
+    <!-- GENDER INFOGRAPHIC -->
+    <div class="infographic-block">
+      <div class="infographic-title">Guest Diversity</div>
+      <div class="infographic-sub">Oct 2025–Apr 2026 · 44 unique guests</div>
+
+      <div class="hero-stat">68.2%</div>
+      <div class="hero-stat-label">of guests are female or non-binary</div>
+
+      <div class="bar-row">
+        <div class="bar-label-row">
+          <span class="bar-name">Drowned in Sound</span>
+          <span class="bar-val">68.2%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:68.2%"></div></div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-label-row">
+          <span class="bar-name">Industry average</span>
+          <span class="bar-val">27.2%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill muted" style="width:27.2%"></div></div>
+        <div class="bar-multiplier">2.3× the podcast industry average</div>
+      </div>
+
+      <div class="bar-row">
+        <div class="bar-label-row">
+          <span class="bar-name">Joe Rogan Experience</span>
+          <span class="bar-val">11%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill muted" style="width:11%"></div></div>
+        <div class="bar-multiplier">5.8× the most-listened-to podcast in the world</div>
+      </div>
+
+      <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--dis-divider);">
+        <div style="font-family:var(--dis-body); font-size:13px; font-style:italic; color:var(--dis-white); line-height:1.5;">All-time across full podcast run: 63.4% female/NB across 93 unique guests. Source: USC Annenberg Podcast Gender Study, Nov 2025.</div>
+      </div>
+    </div>
+
+    <!-- GROWTH CHART -->
+    <div class="growth-chart">
+      <div class="infographic-title">Follower Growth</div>
+      <div class="infographic-sub">Apple Podcasts · Feb 2023 – Apr 2026</div>
+
+      <div class="chart-area">
+        <svg class="chart-svg" viewBox="0 0 400 140" preserveAspectRatio="none">
+          <!-- Grid lines -->
+          <line x1="0" y1="35" x2="400" y2="35" stroke="#1E1E1E" stroke-width="1"/>
+          <line x1="0" y1="70" x2="400" y2="70" stroke="#1E1E1E" stroke-width="1"/>
+          <line x1="0" y1="105" x2="400" y2="105" stroke="#1E1E1E" stroke-width="1"/>
+
+          <!-- Y axis labels -->
+          <text x="4" y="32" font-family="'Francois One'" font-size="10" fill="#F307B0" text-anchor="start">1,325</text>
+          <text x="4" y="73" font-family="'Francois One'" font-size="10" fill="#555" text-anchor="start">766</text>
+          <text x="4" y="108" font-family="'Francois One'" font-size="10" fill="#555" text-anchor="start">281</text>
+
+          <!-- The growth line: nearly flat then steep upturn -->
+          <!-- Points: launch(Feb23)=281, Oct23=454, Jan25=622, Oct25=766, Nov25=1109, Apr26=1325 -->
+          <!-- Normalized to viewBox: x=0-400, y=140 at bottom, 0 at top -->
+          <!-- y = 140 - ((val - 281) / (1325 - 281)) * 125 -->
+          <!-- Feb 2023 x=0:   281 -> y=140 -->
+          <!-- Oct 2023 x=80:  454 -> y=119.3 -->
+          <!-- Jan 2025 x=220: 622 -> y=99.3 -->
+          <!-- Sep 2025 x=305: 729 -> y=86.6 -->
+          <!-- Oct 2025 x=318: 766 -> y=82.1 -->
+          <!-- Nov 2025 x=330: 1109 -> y=40.9 -->
+          <!-- Apr 2026 x=400: 1325 -> y=15 -->
+
+          <!-- Shaded area -->
+          <path d="M0,140 L0,140 L80,119 L220,99 L305,87 L318,82 L330,41 L400,15 L400,140 Z"
+                fill="#F307B0" fill-opacity="0.08"/>
+
+          <!-- Main line -->
+          <polyline
+            points="0,140 80,119 220,99 305,87 318,82 330,41 400,15"
+            fill="none"
+            stroke="#F307B0"
+            stroke-width="2.5"
+            stroke-linejoin="round"
+            stroke-linecap="round"/>
+
+          <!-- Inflection point dot - Oct 2025 -->
+          <circle cx="318" cy="82" r="4" fill="#F307B0"/>
+
+          <!-- Final point -->
+          <circle cx="400" cy="15" r="4" fill="#F307B0"/>
+
+          <!-- Annotation line at Oct 2025 -->
+          <line x1="318" y1="82" x2="318" y2="140" stroke="#F307B0" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+        </svg>
+      </div>
+
+      <div class="chart-labels">
+        <span class="chart-label">Feb 2023</span>
+        <span class="chart-label">Oct 2025</span>
+        <span class="chart-label">Apr 2026</span>
+      </div>
+
+      <div class="chart-annotation">The six months since October 2025 added more followers than the entire first two years combined.</div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px; padding-top:20px; border-top:1px solid var(--dis-divider);">
+        <div>
+          <div style="font-family:var(--dis-headline); font-size:10px; text-transform:uppercase; letter-spacing:0.12em; color:var(--dis-accent); margin-bottom:6px;">First 2 years</div>
+          <div style="font-family:var(--dis-headline); font-size:28px; text-transform:uppercase; color:var(--dis-white); line-height:0.9;">+341</div>
+          <div style="font-family:var(--dis-body); font-size:13px; color:var(--dis-white); margin-top:6px;">followers gained</div>
+        </div>
+        <div>
+          <div style="font-family:var(--dis-headline); font-size:10px; text-transform:uppercase; letter-spacing:0.12em; color:var(--dis-accent); margin-bottom:6px;">Last 6 months</div>
+          <div style="font-family:var(--dis-headline); font-size:28px; text-transform:uppercase; color:var(--dis-white); line-height:0.9;">+559</div>
+          <div style="font-family:var(--dis-body); font-size:13px; color:var(--dis-white); margin-top:6px;">followers gained</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUALITY SIGNALS -->
+  <div class="section-label">03 — Audience Quality</div>
+  <div class="quality-row">
+    <div class="quality-cell">
+      <div class="quality-num">44%</div>
+      <div class="quality-text">
+        <div class="quality-label">Newsletter open rate</div>
+        <div class="quality-desc">Double the industry average of 22%. 6,673 active subscribers across 8,648 Ghost members.</div>
+      </div>
+    </div>
+    <div class="quality-cell">
+      <div class="quality-num">57%</div>
+      <div class="quality-text">
+        <div class="quality-label">Avg listen-through rate</div>
+        <div class="quality-desc">More than half a 50-minute episode listened to on average. 1,325 Apple Podcasts followers.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLATFORM BREAKDOWN -->
+  <div class="section-label">04 — Platform Reach</div>
+  <div class="platform-grid">
+    <div class="platform-cell">
+      <div class="platform-name">Podcast</div>
+      <div class="platform-num">30.7K</div>
+      <div class="platform-detail">Downloads. Apple 49%, Spotify 16%. UK 43%, US 18%.</div>
+    </div>
+    <div class="platform-cell">
+      <div class="platform-name">Newsletter</div>
+      <div class="platform-num">6,673</div>
+      <div class="platform-detail">Active subscribers. 44% open rate. 42K web visitors in 12 months.</div>
+    </div>
+    <div class="platform-cell">
+      <div class="platform-name">Instagram</div>
+      <div class="platform-num">1.3M</div>
+      <div class="platform-detail">Views. 660K reach. 48.5K interactions. +248% on prior period.</div>
+    </div>
+    <div class="platform-cell">
+      <div class="platform-name">YouTube</div>
+      <div class="platform-num">336K</div>
+      <div class="platform-detail">Views. 1,919hrs long-form watch time. 1,391 subscribers.</div>
+    </div>
+    <div class="platform-cell">
+      <div class="platform-name">Apple Podcasts</div>
+      <div class="platform-num">1,325</div>
+      <div class="platform-detail">Followers. +73% growth in 6 months. 22K all-time plays.</div>
+    </div>
+    <div class="platform-cell">
+      <div class="platform-name">Spotify</div>
+      <div class="platform-num">1,553</div>
+      <div class="platform-detail">Followers. 12,478 all-time plays. Strongest plays period on record.</div>
+    </div>
+  </div>
+
+  <!-- CAMPAIGN TIMELINE -->
+  <div class="section-label">05 — Campaigns Platformed</div>
+  <div class="campaign-section">
+    <div class="timeline-track">
+      <div class="timeline-item">
+        <div class="timeline-date">Oct 2025</div>
+        <div class="timeline-campaign">Spotify Boycott</div>
+        <div class="timeline-outcome">#CutOffTheSpigot. All-time highest episode downloads.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Oct 2025</div>
+        <div class="timeline-campaign">Music Industry Misconduct</div>
+        <div class="timeline-outcome">On Wednesdays We Wear Black. Why systems protect abusers.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Nov 2025</div>
+        <div class="timeline-campaign">Ticket Resale Cap</div>
+        <div class="timeline-outcome">FanFair Alliance. UK legislation passed capping resale at face value.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Jan 2026</div>
+        <div class="timeline-campaign">The Ticket Bank</div>
+        <div class="timeline-outcome">1 million+ free gig tickets distributed. TikTok video: 77.5K views.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Feb 2026</div>
+        <div class="timeline-campaign">GIRLI &amp; Youth Music</div>
+        <div class="timeline-outcome">Safeguarding, activism, and artist safety in the industry.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 2026</div>
+        <div class="timeline-campaign">UK Artist Touring Fund</div>
+        <div class="timeline-outcome">FAC two-part series. UKAT fund launched. £5M raised via ticket levy.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">
+      <div class="footer-title">Drowned in Sound Podcast</div>
+      <div class="footer-detail">drownedinsound.org · sean@drownedinsound.org<br>Recorded at The Shure Experience Centre, London · Edited by tell.studio</div>
+    </div>
+    <div class="footer-partner">
+      <div class="footer-partner-label">Presenting partner</div>
+      <div class="footer-partner-name">Qobuz</div>
+    </div>
+  </div>
+
+  <div class="source-note">Data covers October 2025–April 2026 unless stated. Podcast downloads: Podbean. Apple Podcasts: follower and play data all-time from launch. YouTube includes paid promotion on selected videos; organic long-form watch time 1,919 hours. Instagram/Facebook: Meta Insights. Gender representation verified through Episode 78, March 2026. Industry comparison: USC Annenberg Podcast Gender Study, November 2025.</div>
+
+</div>
+</body>
+</html>
