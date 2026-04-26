@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tori Tsui — Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #F0C040;
+    --gold-dark: #C49A20;
+    --gold-pale: rgba(240,192,64,0.12);
+    --black: #000000;
+    --surface: #0d0d0d;
+    --surface2: #161616;
+    --border: rgba(240,192,64,0.2);
+    --text: #f0ece0;
+    --text-muted: rgba(240,236,224,0.5);
+    --text-dim: rgba(240,236,224,0.3);
+    --cat-edu: #4CAF94;
+    --cat-act: #E06B3A;
+    --cat-med: #7B8FD4;
+    --cat-rec: #F0C040;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Merriweather', Georgia, serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .hero {
+    padding: 80px 40px 60px;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Francois One', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Francois One', sans-serif;
+    font-size: clamp(36px, 6vw, 72px);
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 580px;
+  }
+
+  /* ── FILTERS ── */
+  .filter-bar {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .filter-label {
+    font-family: 'Francois One', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-right: 4px;
+  }
+
+  .filter-btn {
+    font-family: 'Francois One', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  .filter-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+  }
+
+  .filter-btn[data-cat="edu"].active { background: var(--cat-edu); border-color: var(--cat-edu); }
+  .filter-btn[data-cat="act"].active { background: var(--cat-act); border-color: var(--cat-act); }
+  .filter-btn[data-cat="med"].active { background: var(--cat-med); border-color: var(--cat-med); }
+  .filter-btn[data-cat="rec"].active { background: var(--cat-rec); border-color: var(--cat-rec); }
+
+  /* ── LEGEND ── */
+  .legend {
+    max-width: 860px;
+    margin: 16px auto 0;
+    padding: 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .leg {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+
+  .leg-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    max-width: 860px;
+    margin: 48px auto 80px;
+    padding: 0 40px;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: calc(40px + 110px);
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--gold) 0%, rgba(240,192,64,0.3) 60%, transparent 100%);
+  }
+
+  /* Year group */
+  .yr-group { margin-bottom: 4px; }
+
+  .yr-group.hidden { display: none; }
+
+  .yr-marker {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 16px;
+    margin-top: 40px;
+    position: relative;
+  }
+
+  .yr-group:first-child .yr-marker { margin-top: 0; }
+
+  .yr-label {
+    font-family: 'Francois One', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    width: 110px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 28px;
+    text-transform: uppercase;
+  }
+
+  .yr-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Event */
+  .evt {
+    display: flex;
+    gap: 0;
+    margin-bottom: 10px;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .evt.visible { opacity: 1; transform: translateY(0); }
+  .evt.hidden { display: none !important; }
+
+  .evt-left {
+    width: 110px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    padding-top: 12px;
+  }
+
+  .evt-dot {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    margin-top: 1px;
+  }
+
+  .evt-dot::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    opacity: 0.3;
+  }
+
+  .cat-edu .evt-dot { background: var(--cat-edu); color: var(--cat-edu); }
+  .cat-act .evt-dot { background: var(--cat-act); color: var(--cat-act); }
+  .cat-med .evt-dot { background: var(--cat-med); color: var(--cat-med); }
+  .cat-rec .evt-dot { background: var(--cat-rec); color: var(--cat-rec); }
+
+  .evt-connector {
+    width: 20px;
+    height: 1px;
+    background: var(--border);
+    margin-top: 17px;
+    flex-shrink: 0;
+  }
+
+  .evt-body {
+    flex: 1;
+    background: var(--surface);
+    border-radius: 4px;
+    padding: 14px 18px;
+    border-left: 3px solid;
+    transition: background 0.2s;
+    position: relative;
+  }
+
+  .evt-body:hover { background: var(--surface2); }
+
+  .cat-edu .evt-body { border-color: var(--cat-edu); }
+  .cat-act .evt-body { border-color: var(--cat-act); }
+  .cat-med .evt-body { border-color: var(--cat-med); }
+  .cat-rec .evt-body { border-color: var(--cat-rec); }
+
+  .evt-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+
+  .evt-title {
+    font-family: 'Francois One', sans-serif;
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+
+  .evt-title a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(240,192,64,0.3);
+    transition: border-color 0.2s;
+  }
+
+  .evt-title a:hover { border-color: var(--gold); }
+
+  .evt-tag {
+    font-family: 'Francois One', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .cat-edu .evt-tag { background: rgba(76,175,148,0.15); color: var(--cat-edu); }
+  .cat-act .evt-tag { background: rgba(224,107,58,0.15); color: var(--cat-act); }
+  .cat-med .evt-tag { background: rgba(123,143,212,0.15); color: var(--cat-med); }
+  .cat-rec .evt-tag { background: rgba(240,192,64,0.15); color: var(--cat-rec); }
+
+  .evt-sub {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .evt-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-family: 'Francois One', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .evt-link:hover { opacity: 1; }
+  .evt-link::after { content: ' →'; }
+
+  /* Stat callout */
+  .evt-stat {
+    display: inline-block;
+    font-family: 'Francois One', sans-serif;
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 2px;
+    line-height: 1;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--border);
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .footer-note {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer-links a {
+    font-family: 'Francois One', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+
+  .footer-links a:hover { opacity: 1; }
+
+  @media (max-width: 600px) {
+    .hero, .filter-bar, .legend, .timeline, .footer { padding-left: 20px; padding-right: 20px; }
+    .timeline::before { left: calc(20px + 72px); }
+    .yr-label { width: 72px; font-size: 11px; }
+    .evt-left { width: 72px; }
+    .hero h1 { font-size: 36px; }
+    .footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">A life in activism, media & impact</div>
+  <h1>Tori <span>Tsui</span></h1>
+  <div class="hero-sub">Climate justice activist · Author · Host · Advisor</div>
+  <p class="hero-desc">From growing up in a fishing town in northeast Hong Kong where typhoons closed her school, to organising a benefit concert at Wembley Arena — a timeline of how Tori Tsui built one of the most remarkable activist careers of her generation.</p>
+</div>
+
+<div class="filter-bar">
+  <span class="filter-label">Filter</span>
+  <button class="filter-btn active" data-cat="all" onclick="filter('all',this)">All</button>
+  <button class="filter-btn" data-cat="edu" onclick="filter('edu',this)">Education & Career</button>
+  <button class="filter-btn" data-cat="act" onclick="filter('act',this)">Campaigns & Activism</button>
+  <button class="filter-btn" data-cat="med" onclick="filter('med',this)">Media & Publications</button>
+  <button class="filter-btn" data-cat="rec" onclick="filter('rec',this)">Recognition & Awards</button>
+</div>
+
+<div class="legend">
+  <div class="leg"><div class="leg-dot" style="background:var(--cat-edu)"></div>Education & Career</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--cat-act)"></div>Campaigns & Activism</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--cat-med)"></div>Media & Publications</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--cat-rec)"></div>Recognition & Awards</div>
+</div>
+
+<div class="timeline" id="timeline">
+
+  <!-- 1994 -->
+  <div class="yr-group" data-cats="edu">
+    <div class="yr-marker"><div class="yr-label">1994</div><div class="yr-rule"></div></div>
+    <div class="evt cat-edu">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Born in Auckland, New Zealand</div>
+          <div class="evt-tag">Origin</div>
+        </div>
+        <div class="evt-sub">Grew up in a small fishing community in northeast Hong Kong. Eurasian heritage spanning Cantonese, Taiwanese, Macanese, Vietnamese, English, Welsh, Finnish and Turkish ancestry. Typhoons regularly prevented her from attending school — she didn't connect this to climate change until age 14 in the classroom.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2010s -->
+  <div class="yr-group" data-cats="edu">
+    <div class="yr-marker"><div class="yr-label">2010s</div><div class="yr-rule"></div></div>
+    <div class="evt cat-edu">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">University of Oxford</div>
+          <div class="evt-tag">Education</div>
+        </div>
+        <div class="evt-sub">Initially studied medicine; switched to Natural Sciences. First engagement with climate science in the classroom connected the dots on Hong Kong's pollution, typhoons and the wider crisis.</div>
+      </div>
+    </div>
+    <div class="evt cat-edu">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">MRes, Ecology, Evolution & Conservation — Imperial College London</div>
+          <div class="evt-tag">Education</div>
+        </div>
+        <div class="evt-sub">2015–16. Accepted a PhD place but deferred it, relocating to Bristol to work in natural history documentary production. "I just thought, you know what? Screw my career. There's a climate crisis."</div>
+        <a class="evt-link" href="https://www.imperial.ac.uk" target="_blank">Imperial College London</a>
+      </div>
+    </div>
+    <div class="evt cat-edu">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">BBC presenter & production team</div>
+          <div class="evt-tag">Career</div>
+        </div>
+        <div class="evt-sub">2017–19, including BBC Springwatch. Natural history documentary work across two years before the tension between the industry's constraints and her values became untenable.</div>
+        <a class="evt-link" href="https://www.bbc.co.uk/programmes/b007r3n8" target="_blank">BBC Springwatch</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2019 -->
+  <div class="yr-group" data-cats="act med">
+    <div class="yr-marker"><div class="yr-label">2019</div><div class="yr-rule"></div></div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Extinction Rebellion — scouted at protest</div>
+          <div class="evt-tag">Activism</div>
+        </div>
+        <div class="evt-sub">Creating films on the biodiversity crisis at XR protests. Stella McCartney's creative director spotted her and invited her into the brand's world — a chance encounter that changed the trajectory of her public career.</div>
+      </div>
+    </div>
+    <div class="evt cat-med">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://www.stellamccartney.com" target="_blank">Stella McCartney FW19 — 'Agents of Change' campaign</a></div>
+          <div class="evt-tag">Media</div>
+        </div>
+        <div class="evt-sub">Global campaign narrated by Jane Goodall, written by Jonathan Safran Foer, featuring Amber Valletta. Tori named an Agent of Change alongside major figures in sustainability — the campaign directly funded her voyage to COP25.</div>
+      </div>
+    </div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://www.sailthecop.com" target="_blank">Sailed Atlantic to COP25 — Sail to the COP</a></div>
+          <div class="evt-tag">Landmark</div>
+        </div>
+        <div class="evt-sub">Sponsored by Stella McCartney. Joined 36 young delegates aboard. COP25 was relocated from Santiago, Chile to Madrid due to civil unrest; the crew participated remotely from Martinique and docked in Cartagena, Colombia — undeterred, Tori spent the following four months working with Latin American and Caribbean youth on the ground.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2020 -->
+  <div class="yr-group" data-cats="act med">
+    <div class="yr-marker"><div class="yr-label">2020</div><div class="yr-rule"></div></div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Stella McCartney Paris Fashion Week roundtable</div>
+          <div class="evt-tag">Activism</div>
+        </div>
+        <div class="evt-sub">1 March 2020, eve of the AW20 show at Palais Garnier, Paris. Spoke alongside Amber Valletta and Jonathan Safran Foer; Christiana Figueres (former UNFCCC Executive Secretary) as guest of honour. A gathering of fashion, climate policy and activism.</div>
+      </div>
+    </div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://www.unite4climateaction.com" target="_blank">Unite for Climate Action (U4CA) — co-founded</a></div>
+          <div class="evt-tag">Campaign</div>
+        </div>
+        <div class="evt-sub">Spent four months in Colombia facilitating access for Latin American, Indigenous and Caribbean youth to UN climate intersessionals. The sailing project evolved into a transatlantic coalition. Collaborated with the German Ministry of the Environment.</div>
+      </div>
+    </div>
+    <div class="evt cat-med">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://www.badactivistcollective.com" target="_blank">Bad Activist Collective & podcast — co-founded</a></div>
+          <div class="evt-tag">Media</div>
+        </div>
+        <div class="evt-sub">Co-founded with Kisjonah Roos and Julia Gentner via Climate Control Projects. The podcast ran to 16 episodes across two seasons. Named after Roxane Gay's Bad Feminist — "you are inherently imperfect by virtue of being human, but that doesn't mean you don't try to be better."</div>
+        <a class="evt-link" href="https://podcasts.apple.com/gb/podcast/bad-activist-podcast/id1456912145" target="_blank">Listen on Apple Podcasts</a>
+      </div>
+    </div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">#PassTheMic — Attenborough Instagram campaign</div>
+          <div class="evt-tag">Campaign</div>
+        </div>
+        <div class="evt-sub">November 2020. Led a global campaign urging David Attenborough to hand his 6.1M-follower Instagram (which had accumulated 45 million video plays in record time) to frontline climate activists. Covered by BBC My World (executive produced by Angelina Jolie), Euronews, and outlets across 15+ countries.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2021 -->
+  <div class="yr-group" data-cats="act med rec">
+    <div class="yr-marker"><div class="yr-label">2021</div><div class="yr-rule"></div></div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://www.climatelive.org" target="_blank">Climate Live — organiser</a></div>
+          <div class="evt-tag">Campaign</div>
+        </div>
+        <div class="evt-sub">Youth-led climate concert movement officially launched 24 April 2021, simultaneously in 60+ countries. Co-founder Frances Fox is a close collaborator; Tori involved as organiser from launch.</div>
+      </div>
+    </div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Pass the Mic initiative — formally launched</div>
+          <div class="evt-tag">Campaign</div>
+        </div>
+        <div class="evt-sub">Co-launched with Dominique Palmer, Frances Fox, George Steedman Jones and Elijah McKenzie-Jackson. Targeted brands, celebrities and NGOs to spotlight MAPA (Most Affected People and Areas) activists, including the 'Reclaiming Our Time' campaign during Black History Month.</div>
+      </div>
+    </div>
+    <div class="evt cat-med">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Billie Eilish's <em>Overheated</em> documentary</div>
+          <div class="evt-tag">Media</div>
+        </div>
+        <div class="evt-sub">Featured speaking on mental health and the climate crisis. Directed by Yassa Khan. Cast includes Vivienne Westwood, Vanessa Nakate, Girl in Red, Yungblud, Arlo Parks, Sofía Jannok and Finneas O'Connell — distributed to Billie Eilish's then 100M+ global audience.</div>
+      </div>
+    </div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">#StopCambo protest — TED Countdown, Edinburgh</div>
+          <div class="evt-tag">Activism</div>
+        </div>
+        <div class="evt-sub">Led protest against Shell CEO Ben van Beurden at TED Countdown in Edinburgh, as part of the campaign against North Sea oil and gas expansion ahead of COP26 in Glasgow. A precursor to her later Stop Rosebank work.</div>
+      </div>
+    </div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">COP26, Glasgow — NYT Climate Hub panel</div>
+          <div class="evt-tag">Landmark</div>
+        </div>
+        <div class="evt-sub">November 2021. Attended as activist. Invited by Emma Watson to speak at the New York Times Climate Hub panel alongside <strong>Greta Thunberg, Malala Yousafzai, Amanda Gorman, Vanessa Nakate, Dominique Palmer and Mya-Rose Craig</strong> — filmed and distributed globally by the New York Times. The last COP she attended; she has since declined COP27, 28, 29 and 30, citing the UN's loss of credibility.</div>
+      </div>
+    </div>
+    <div class="evt cat-rec">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Cosmopolitan Positivity Index 2021</div>
+          <div class="evt-tag">Recognition</div>
+        </div>
+        <div class="evt-sub">Named in Cosmopolitan UK's annual Positivity Index (May 2021 issue), in partnership with Instagram.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2022 -->
+  <div class="yr-group" data-cats="edu act rec">
+    <div class="yr-marker"><div class="yr-label">2022</div><div class="yr-rule"></div></div>
+    <div class="evt cat-edu">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://earthpercent.org" target="_blank">EarthPercent — Lead Climate Advisor / Climate Justice Lead</a></div>
+          <div class="evt-tag">Career</div>
+        </div>
+        <div class="evt-sub">Brian Eno's music and climate organisation, directing a percentage of music streaming revenue to frontline climate projects. An ongoing advisory role bridging climate justice and the music industry — the partnership that later led to Together for Palestine.</div>
+      </div>
+    </div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://fossilfueltreaty.org" target="_blank">Fossil Fuel Non-Proliferation Treaty — Treaty Champion</a></div>
+          <div class="evt-tag">Campaign</div>
+        </div>
+        <div class="evt-sub">Joined from September 2022. The initiative calls for a global treaty to manage the phase-out of fossil fuels in line with 1.5°C. Role later upgraded to Senior Advisor in 2024, overseeing comms and champions strategy globally — including trips to the G20 in Brazil.</div>
+      </div>
+    </div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Palestine advocacy — early and consistent</div>
+          <div class="evt-tag">Activism</div>
+        </div>
+        <div class="evt-sub">Bad Activist Collective posts about Angela Davis, Sheikh Jarrah and Israeli apartheid from 2022 onwards drew significant backlash within the climate space — predating October 7th by years. "One of our pillars was a free Palestine. It always has been."</div>
+      </div>
+    </div>
+    <div class="evt cat-rec">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Marie Claire Future Shapers — 'Eco Warrior' 2022</div>
+          <div class="evt-tag">Recognition</div>
+        </div>
+        <div class="evt-sub">Named in Marie Claire UK's Future Shapers 2022 list, celebrated as the issue's Eco Warrior, recognising her intersectional approach to climate activism.</div>
+        <a class="evt-link" href="https://www.marieclaire.co.uk" target="_blank">Marie Claire UK</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jan 2023 -->
+  <div class="yr-group" data-cats="med rec">
+    <div class="yr-marker"><div class="yr-label">Jan 2023</div><div class="yr-rule"></div></div>
+    <div class="evt cat-med">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">British Vogue digital cover with Billie Eilish</div>
+          <div class="evt-tag">Media</div>
+        </div>
+        <div class="evt-sub">Billie Eilish chose Tori to appear on her Vogue digital cover alongside Quannah Chasinghorse, Xiye Bastida, Isaias Hernandez and four other climate activists. Vogue cover reveals routinely generate tens of millions of social media impressions — the collaboration confirmed Tori's place at the intersection of music culture and climate activism.</div>
+        <a class="evt-link" href="https://www.vogue.co.uk" target="_blank">Vogue UK</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mar 2023 -->
+  <div class="yr-group" data-cats="rec">
+    <div class="yr-marker"><div class="yr-label">Mar 2023</div><div class="yr-rule"></div></div>
+    <div class="evt cat-rec">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Green Carpet Fashion Awards — Young Leader</div>
+          <div class="evt-tag">Recognition</div>
+        </div>
+        <div class="evt-sub">9 March 2023, NeueHouse Hollywood, Los Angeles. Presented by Annie Lennox alongside Quannah Chasinghorse, Nalleli Cobo, Vanessa Nakate, Leah Thomas and nine other young leaders — recognised "for inspirational activism at the intersection of environment, civil rights and global feminism."</div>
+        <a class="evt-link" href="https://www.ecoage.com/gcfa" target="_blank">Green Carpet Fashion Awards</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aug 2023 -->
+  <div class="yr-group" data-cats="med rec">
+    <div class="yr-marker"><div class="yr-label">Aug 2023</div><div class="yr-rule"></div></div>
+    <div class="evt cat-med">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://uk.bookshop.org/books/it-s-not-just-you-how-to-navigate-eco-anxiety-and-the-climate-crisis/9781398524897" target="_blank">It's Not Just You — published (UK, Simon & Schuster)</a></div>
+          <div class="evt-tag">Book</div>
+        </div>
+        <div class="evt-sub">13 August 2023. Debut book reframes eco-anxiety as a structural mental health crisis rather than an individual failing. Features interviews with Greta Thunberg, Vanessa Nakate and Mikaela Loach. Received immediate critical acclaim on publication.</div>
+        <a class="evt-link" href="https://uk.bookshop.org/books/it-s-not-just-you-how-to-navigate-eco-anxiety-and-the-climate-crisis/9781398524897" target="_blank">Buy the book</a>
+      </div>
+    </div>
+    <div class="evt cat-rec">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">British Vogue 25 — 2023</div>
+          <div class="evt-tag">Recognition</div>
+        </div>
+        <div class="evt-sub">22 August 2023. Named in Vogue's annual list of 25 women shaping Britain, alongside Raye, Raine Allen-Miller and Alice Oseman — recognised for It's Not Just You bringing climate's impact on mental health "to the fore."</div>
+        <a class="evt-link" href="https://www.vogue.co.uk/article/the-vogue-25-list-2023" target="_blank">Vogue 25 list</a>
+      </div>
+    </div>
+    <div class="evt cat-rec">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Waterstones Book of the Year 2023 · Town & Country Future Leaders · ELLE Green List</div>
+          <div class="evt-tag">Recognition</div>
+        </div>
+        <div class="evt-sub">It's Not Just You named a Waterstones Book of the Year (Popular Science). Also named in Town & Country House Future Leaders and the inaugural ELLE UK Green List in the same year — recognition across mainstream media, literary and fashion spheres simultaneously.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2024 -->
+  <div class="yr-group" data-cats="edu act rec med">
+    <div class="yr-marker"><div class="yr-label">2024</div><div class="yr-rule"></div></div>
+    <div class="evt cat-edu">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://fossilfueltreaty.org" target="_blank">FFNPT — Senior Advisor (role upgraded)</a></div>
+          <div class="evt-tag">Career</div>
+        </div>
+        <div class="evt-sub">Full Senior Advisor role, overseeing comms and champions strategy globally. Represented the Treaty Initiative at the G20 in Brazil — and later on stage with Massive Attack at Co-op Live.</div>
+      </div>
+    </div>
+    <div class="evt cat-rec">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">ELLE Big Green List 2024</div>
+          <div class="evt-tag">Recognition</div>
+        </div>
+        <div class="evt-sub">Named in ELLE Magazine's Big Green List 2024. Self-confirmed on LinkedIn: "Somehow I missed this but what an honour to be included alongside some wonderful people."</div>
+      </div>
+    </div>
+    <div class="evt cat-rec">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Wainwright Prize 2024 — shortlisted</div>
+          <div class="evt-tag">Recognition</div>
+        </div>
+        <div class="evt-sub">Shortlisted in the Writing on Conservation category. Shortlist announced 15 August 2024; winners' ceremony at Camley Street Natural Park, London, 11 September 2024. Shortlisted only — Fire Weather by John Vaillant won — but a significant literary recognition for a debut author.</div>
+        <a class="evt-link" href="https://wainwrightprize.com" target="_blank">Wainwright Prize</a>
+      </div>
+    </div>
+    <div class="evt cat-med">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://climatefictionprize.co.uk" target="_blank">Climate Fiction Prize — inaugural judge</a></div>
+          <div class="evt-tag">Media</div>
+        </div>
+        <div class="evt-sub">Joined the judging panel for the inaugural Climate Fiction Prize (launched June 2024, Hay Festival), run by Climate Spring. Fellow judges: Madeleine Bunting (chair), David Lindo, Nicola Chester and Andy Fryers. Winner announced May 2025: Abi Daré's And So I Roar.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jan 2025 -->
+  <div class="yr-group" data-cats="act med">
+    <div class="yr-marker"><div class="yr-label">Jan 2025</div><div class="yr-rule"></div></div>
+    <div class="evt cat-med">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">The Tea with Dr Myriam François — Season 2 premiere</div>
+          <div class="evt-tag">Media</div>
+        </div>
+        <div class="evt-sub">A clip from the episode — covering California wildfires, racial capitalism, greenwashing and Trump's Paris Agreement withdrawal — generated <strong>12 million Instagram views</strong>. The largest single-clip social media reach of her career to date, demonstrating her ability to generate mass impact through others' platforms.</div>
+        <div class="evt-stat">12M views</div>
+      </div>
+    </div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://www.stopcambo.org.uk" target="_blank">Stop Rosebank — court victory</a></div>
+          <div class="evt-tag">Legal victory</div>
+        </div>
+        <div class="evt-sub">30 January 2025. The Court of Session in Edinburgh ruled that the UK government's approval of the Rosebank and Jackdaw oil fields was unlawful. Tori worked as Partnerships Consultant throughout the campaign against Ithaca Energy and Equinor. Backed by 90,000+ members of the public.</div>
+        <a class="evt-link" href="https://www.stopcambo.org.uk/courtcase" target="_blank">Stop Rosebank case</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jun 2025 -->
+  <div class="yr-group" data-cats="act edu">
+    <div class="yr-marker"><div class="yr-label">Jun 2025</div><div class="yr-rule"></div></div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">World Environment Day — Massive Attack & Andy Burnham sign FFNPT</div>
+          <div class="evt-tag">Landmark</div>
+        </div>
+        <div class="evt-sub">5 June 2025. The declaration was signed on the solarised rooftop of the Greater Manchester Combined Authority HQ. Tori was then invited on stage at Co-op Live — the UK's largest entertainment arena — to address <strong>15,000 fans</strong> as part of Massive Attack's sold-out show. Her words from the stage: <em>"The fossil fuel industry is a death machine, and we're all caught in its gears. The time for waiting is over."</em></div>
+        <div class="evt-stat">15,000</div>
+        <a class="evt-link" href="https://fossilfueltreaty.org" target="_blank">FFNPT Treaty</a>
+      </div>
+    </div>
+    <div class="evt cat-edu">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://www.ecoage.com" target="_blank">Eco Age — advisory board member</a></div>
+          <div class="evt-tag">Career</div>
+        </div>
+        <div class="evt-sub">Joined the advisory board of Eco Age (the sustainability consultancy behind the Green Carpet Fashion Awards) on its relaunch under new ownership, June 2025. Completing a circle that began at the GCFA Young Leaders ceremony in 2023.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sep 2025 -->
+  <div class="yr-group" data-cats="act">
+    <div class="yr-marker"><div class="yr-label">Sep 2025</div><div class="yr-rule"></div></div>
+    <div class="evt cat-act">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title">Together for Palestine — OVO Wembley Arena, London</div>
+          <div class="evt-tag">Landmark</div>
+        </div>
+        <div class="evt-sub">17 September 2025. Involved in organising Brian Eno's landmark benefit concert at OVO Wembley Arena — art directed by Palestinian painter Malak Mattar. Performers included PinkPantheress, James Blake, Jamie xx, Damon Albarn, Bastille and Sampha. Raised <strong>£1.5 million</strong> for Palestinian-led organisations, with 200,000+ livestream viewers alongside the sold-out 12,500-capacity arena.</div>
+        <div class="evt-stat">£1.5M raised</div>
+        <a class="evt-link" href="https://www.togetherforpalestine.com" target="_blank">Together for Palestine</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apr 2026 -->
+  <div class="yr-group" data-cats="med">
+    <div class="yr-marker"><div class="yr-label">Apr 2026</div><div class="yr-rule"></div></div>
+    <div class="evt cat-med">
+      <div class="evt-left"><div class="evt-dot"></div></div>
+      <div class="evt-connector"></div>
+      <div class="evt-body">
+        <div class="evt-header">
+          <div class="evt-title"><a href="https://thenewpress.org/books/its-not-just-you/" target="_blank">It's Not Just You — US edition (The New Press)</a></div>
+          <div class="evt-tag">Book</div>
+        </div>
+        <div class="evt-sub">7 April 2026 — timed for Earth Day. US paperback edition published by The New Press, a non-profit public-interest publisher. Includes a new foreword by <strong>Leah Thomas</strong> (founder of Intersectional Environmentalist, TIME100 Next). Now available across the United States.</div>
+        <a class="evt-link" href="https://thenewpress.org/books/its-not-just-you/" target="_blank">The New Press</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /timeline -->
+
+<div class="footer">
+  <div class="footer-note">Research compiled April 2026. Sources include Wikipedia, LinkedIn, press coverage and primary interviews.</div>
+  <div class="footer-links">
+    <a href="https://www.toritsui.com" target="_blank">toritsui.com</a>
+    <a href="https://fossilfueltreaty.org" target="_blank">FFNPT</a>
+    <a href="https://earthpercent.org" target="_blank">EarthPercent</a>
+    <a href="https://thenewpress.org/books/its-not-just-you/" target="_blank">Buy the book</a>
+  </div>
+</div>
+
+<script>
+  // Filter
+  function filter(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.yr-group').forEach(g => {
+      if (cat === 'all') {
+        g.classList.remove('hidden');
+        g.querySelectorAll('.evt').forEach(e => e.classList.remove('hidden'));
+      } else {
+        const cats = (g.dataset.cats || '').split(' ');
+        const hasMatch = cats.includes(cat);
+        g.classList.toggle('hidden', !hasMatch);
+        g.querySelectorAll('.evt').forEach(e => {
+          e.classList.toggle('hidden', !e.classList.contains('cat-' + cat));
+        });
+      }
+    });
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.evt').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
