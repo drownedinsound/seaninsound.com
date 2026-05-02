@@ -148,12 +148,12 @@
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-charcoal-mid);
+    color: var(--color-lavender);
     margin-right: 4px;
   }
 
   .filter-btn {
-    font-family: 'Fraunces', serif;
+    font-family: 'Barlow', sans-serif;
     font-size: 14px;
     border: 1.5px solid var(--color-divider);
     border-radius: 3px;
@@ -180,32 +180,6 @@
   .filter-btn[data-cat="med"].active { background: var(--cat-med); border-color: var(--cat-med); }
   .filter-btn[data-cat="rec"].active { background: var(--cat-rec); border-color: var(--cat-rec); color: var(--color-charcoal); }
 
-  /* ── LEGEND ── */
-  .legend {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px 40px 8px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .leg {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Fraunces', serif;
-    font-size: 13px;
-    color: var(--color-charcoal-mid);
-  }
-
-  .leg-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
   /* ── TIMELINE ── */
   .timeline {
     max-width: 1100px;
@@ -217,7 +191,7 @@
   .timeline::before {
     content: '';
     position: absolute;
-    left: calc(40px + 140px);
+    left: calc(40px + 170px);
     top: 0;
     bottom: 0;
     width: 1px;
@@ -244,11 +218,12 @@
     font-weight: 700;
     color: var(--color-lavender);
     letter-spacing: 0.02em;
-    width: 140px;
+    width: 170px;
     flex-shrink: 0;
     text-align: right;
     padding-right: 28px;
     line-height: 1;
+    white-space: nowrap;
   }
 
   .yr-rule {
@@ -262,16 +237,12 @@
     display: flex;
     margin-bottom: 12px;
     align-items: flex-start;
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
-  .evt.visible { opacity: 1; transform: translateY(0); }
   .evt.hidden { display: none !important; }
 
   .evt-left {
-    width: 140px;
+    width: 170px;
     flex-shrink: 0;
     display: flex;
     justify-content: flex-end;
@@ -347,7 +318,7 @@
   .evt-title {
     font-family: 'Fraunces', serif;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 700;
     color: var(--color-charcoal);
     line-height: 1.3;
     flex: 1;
@@ -505,6 +476,12 @@
     margin-bottom: 12px;
   }
 
+  /* Landmark entries */
+  .evt-lmk .evt-body {
+    border-left-width: 4px;
+    background: rgba(183,157,196,0.06);
+  }
+
   /* ── FOOTER ── */
   .site-footer {
     background: var(--color-footer-bg);
@@ -515,7 +492,7 @@
   .site-footer p {
     font-family: 'Barlow', sans-serif;
     font-size: 13px;
-    color: rgba(245,243,238,0.7);
+    color: rgba(245,243,238,0.55);
     margin-bottom: 14px;
   }
 
@@ -567,15 +544,16 @@
       padding: 0 20px;
       margin-top: 24px;
     }
-    .timeline::before { left: calc(20px + 90px); }
+    .timeline::before { left: calc(20px + 100px); }
 
     .yr-label {
-      font-size: 22px;
-      width: 90px;
-      padding-right: 20px;
+      font-size: 20px;
+      width: 100px;
+      padding-right: 16px;
+      white-space: nowrap;
     }
 
-    .evt-left { width: 90px; padding-right: 14px; }
+    .evt-left { width: 100px; padding-right: 12px; }
     .evt-connector { width: 14px; }
     .evt-title { font-size: 17px; }
 
@@ -614,7 +592,8 @@
         src="https://static.wixstatic.com/media/a09fac_0787dc24907245299296757891a39a7e~mv2.jpg/v1/fill/w_500,q_90/a09fac_0787dc24907245299296757891a39a7e~mv2.jpg"
         alt="Tori Tsui"
         width="260"
-        onerror="this.parentElement.style.display='none'">
+        referrerpolicy="no-referrer"
+        onerror="this.style.display='none'">
     </div>
     <div class="hero-text">
       <div class="hero-eyebrow">A LIFE IN ACTIVISM, MEDIA &amp; IMPACT</div>
@@ -634,13 +613,6 @@
     <button class="filter-btn" data-cat="med" onclick="filter('med',this)">Media &amp; Publications</button>
     <button class="filter-btn" data-cat="rec" onclick="filter('rec',this)">Recognition &amp; Awards</button>
   </div>
-</div>
-
-<div class="legend">
-  <div class="leg"><div class="leg-dot" style="background:var(--cat-edu)"></div>Education &amp; Career</div>
-  <div class="leg"><div class="leg-dot" style="background:var(--cat-act)"></div>Campaigns &amp; Activism</div>
-  <div class="leg"><div class="leg-dot" style="background:var(--cat-med)"></div>Media &amp; Publications</div>
-  <div class="leg"><div class="leg-dot" style="background:var(--cat-rec)"></div>Recognition &amp; Awards</div>
 </div>
 
 <div class="timeline" id="timeline">
@@ -745,7 +717,7 @@
         </a>
       </div>
     </div>
-    <div class="evt cat-act">
+    <div class="evt cat-act evt-lmk">
       <div class="evt-left"><div class="evt-dot"></div></div>
       <div class="evt-connector"></div>
       <div class="evt-body">
@@ -868,7 +840,7 @@
         <p class="evt-sub">Led protest against Shell CEO Ben van Beurden at TED Countdown in Edinburgh, as part of the campaign against North Sea oil and gas expansion ahead of COP26 in Glasgow. A precursor to her later Stop Rosebank work.</p>
       </div>
     </div>
-    <div class="evt cat-act">
+    <div class="evt cat-act evt-lmk">
       <div class="evt-left"><div class="evt-dot"></div></div>
       <div class="evt-connector"></div>
       <div class="evt-body">
@@ -1140,7 +1112,7 @@
   <!-- Jun 2025 -->
   <div class="yr-group" data-cats="act edu">
     <div class="yr-marker"><div class="yr-label">Jun 2025</div><div class="yr-rule"></div></div>
-    <div class="evt cat-act">
+    <div class="evt cat-act evt-lmk">
       <div class="evt-left"><div class="evt-dot"></div></div>
       <div class="evt-connector"></div>
       <div class="evt-body">
@@ -1169,7 +1141,7 @@
   <!-- Sep 2025 -->
   <div class="yr-group" data-cats="act">
     <div class="yr-marker"><div class="yr-label">Sep 2025</div><div class="yr-rule"></div></div>
-    <div class="evt cat-act">
+    <div class="evt cat-act evt-lmk">
       <div class="evt-left"><div class="evt-dot"></div></div>
       <div class="evt-connector"></div>
       <div class="evt-body">
@@ -1236,16 +1208,6 @@
     });
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.evt').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
