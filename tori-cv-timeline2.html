@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tori Tsui — On Impact CV Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:     #f3ece1;
+    --blue:      #2323e6;
+    --blue-dark: #1818b3;
+    --highlight: #c8c5ff;
+    --black:     #0a0a0a;
+    --white:     #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: var(--cream);
+    font-family: 'Inter', sans-serif;
+    color: var(--black);
+    overflow: hidden;
+  }
+
+  /* Fixed canvas for clean screenshot capture: 2800 x 1100 */
+  .canvas {
+    width: 2800px;
+    height: 1100px;
+    position: relative;
+    background: var(--cream);
+  }
+
+  /* ── Vertical rail label on left ── */
+  .rail {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .rail span {
+    font-family: 'Archivo Black', 'Inter', sans-serif;
+    font-size: 110px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 0.88;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+  }
+
+  /* ── Title block (top, blue panel + cream right) ── */
+  .title {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    right: 0;
+    height: 240px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: stretch;
+  }
+  .title-block {
+    background: var(--blue);
+    color: var(--white);
+    padding: 36px 60px 36px 60px;
+    display: flex;
+    align-items: center;
+  }
+  .title-block h1 {
+    font-family: 'Archivo Black', 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 160px;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--white);
+    white-space: nowrap;
+    margin: 0;
+  }
+  .title-right {
+    background: var(--cream);
+    padding: 36px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+  }
+  .title-sub {
+    display: inline-block;
+    background: var(--highlight);
+    padding: 8px 14px;
+    font-family: 'Archivo Black', 'Inter', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--blue-dark);
+    align-self: flex-start;
+  }
+  .title-lead {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--black);
+    max-width: 1400px;
+    font-weight: 400;
+  }
+
+  /* ── Timeline ── */
+  .timeline {
+    position: absolute;
+    left: 160px;
+    right: 60px;
+    top: 280px;
+    bottom: 60px;
+  }
+
+  .spine {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 3px;
+    background: var(--blue);
+    transform: translateY(-1.5px);
+  }
+
+  .entries {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 8px;
+  }
+
+  .entry {
+    flex: 1 1 0;
+    min-width: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 4px;
+  }
+
+  .entry.above {
+    justify-content: flex-end;
+    padding-bottom: 36px;
+    height: 50%;
+  }
+
+  .entry.below {
+    justify-content: flex-start;
+    padding-top: 36px;
+    height: 50%;
+    margin-top: auto;
+  }
+
+  /* Tick mark on spine — square block in deck style */
+  .entry::before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: var(--blue);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .entry.above::before { bottom: -8px; }
+  .entry.below::before { top: -10px; }
+
+  /* Connector line from block to content */
+  .entry::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    background: var(--blue);
+    opacity: 0.5;
+    left: 50%;
+  }
+  .entry.above::after {
+    bottom: 0;
+    height: 30px;
+  }
+  .entry.below::after {
+    top: 0;
+    height: 30px;
+  }
+
+  /* Year label — bold blue, uppercase */
+  .entry-year {
+    display: inline-block;
+    align-self: flex-start;
+    font-family: 'Archivo Black', 'Inter', sans-serif;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    background: var(--blue);
+    padding: 6px 10px 5px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .entry-photo {
+    width: 100%;
+    height: 130px;
+    object-fit: contain;
+    margin-bottom: 12px;
+    background: var(--white);
+  }
+
+  /* Title in heavy uppercase, blue */
+  .entry-title {
+    font-family: 'Archivo Black', 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.18;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--blue-dark);
+  }
+
+  /* Body text on periwinkle highlight box */
+  .entry-body {
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--black);
+    background: var(--highlight);
+    padding: 8px 10px;
+    font-weight: 400;
+  }
+
+  .entry-stat {
+    display: inline-block;
+    align-self: flex-start;
+    font-family: 'Archivo Black', 'Inter', sans-serif;
+    font-size: 22px;
+    line-height: 1;
+    margin-top: 8px;
+    color: var(--white);
+    background: var(--blue);
+    padding: 6px 10px 5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="canvas">
+
+  <!-- Vertical rail label -->
+  <div class="rail"><span>ON&nbsp;IMPACT</span></div>
+
+  <!-- Title block: blue panel + cream right -->
+  <div class="title">
+    <div class="title-block">
+      <h1>Tori Tsui</h1>
+    </div>
+    <div class="title-right">
+      <div class="title-sub">A career in activism, media &amp; impact</div>
+      <p class="title-lead">From a fishing town in northeast Hong Kong to organising a benefit concert at Wembley Arena, twelve milestones in one of the most remarkable activist careers of her generation.</p>
+    </div>
+  </div>
+
+  <!-- Timeline (spine + alternating entries) -->
+  <div class="timeline">
+    <div class="spine"></div>
+    <div class="entries">
+
+    <!-- 2019 Stella — above -->
+    <div class="entry above">
+      <div class="entry-year">2019</div>
+      <img class="entry-photo" src="assets/tori/stellamccartney.jpg" alt="Stella McCartney FW19 campaign" onerror="this.style.display='none'">
+      <div class="entry-title">Stella McCartney 'Agents of Change'</div>
+      <p class="entry-body">Named an Agent of Change in the FW19 campaign narrated by Jane Goodall, written by Jonathan Safran Foer.</p>
+    </div>
+
+    <!-- Sail to COP25 — below -->
+    <div class="entry below">
+      <div class="entry-year">2019</div>
+      <img class="entry-photo" src="assets/tori/sail-to-cop.jpeg" alt="Tori on the Sail to the COP boat" onerror="this.style.display='none'">
+      <div class="entry-title">Sailed Atlantic to COP25</div>
+      <p class="entry-body">Joined 36 young delegates on a transatlantic crossing, then spent four months in Latin America after COP25 was relocated.</p>
+    </div>
+
+    <!-- 2020 #PassTheMic — above -->
+    <div class="entry above">
+      <div class="entry-year">2020</div>
+      <img class="entry-photo" src="assets/tori/passthemic.jpg" alt="Pass the Mic — BBC My World" onerror="this.style.display='none'">
+      <div class="entry-title">#PassTheMic — Attenborough campaign</div>
+      <p class="entry-body">Led a global campaign asking David Attenborough to hand his 6.1M-follower Instagram to frontline activists. Covered by BBC My World, Euronews and 15+ countries.</p>
+    </div>
+
+    <!-- 2021 Overheated + COP26 — below -->
+    <div class="entry below">
+      <div class="entry-year">2021</div>
+      <img class="entry-photo" src="assets/tori/cop26-nyt-panel.jpg" alt="COP26 NYT Climate Hub panel with Emma Watson, Greta Thunberg, Vanessa Nakate" onerror="this.style.display='none'">
+      <div class="entry-title">Billie Eilish's <em>Overheated</em> &amp; COP26 NYT panel</div>
+      <p class="entry-body">Featured in Billie Eilish's climate documentary. Invited by Emma Watson to the NYT Climate Hub with Greta Thunberg, Malala Yousafzai, Amanda Gorman, Vanessa Nakate.</p>
+    </div>
+
+    <!-- 2022 FFNPT + EarthPercent — above -->
+    <div class="entry above">
+      <div class="entry-year">2022</div>
+      <img class="entry-photo" src="assets/tori/tori1.jpeg" alt="Tori Tsui" onerror="this.style.display='none'">
+      <div class="entry-title">FFNPT Treaty Champion · EarthPercent</div>
+      <p class="entry-body">Joined the Fossil Fuel Non-Proliferation Treaty Initiative. Began advisory role with Brian Eno's EarthPercent, bridging climate justice and the music industry.</p>
+    </div>
+
+    <!-- Jan 2023 British Vogue cover — below -->
+    <div class="entry below">
+      <div class="entry-year">Jan 2023</div>
+      <img class="entry-photo" src="assets/tori/vogue.jpg" alt="Vogue cover with Billie Eilish and 8 climate activists" onerror="this.style.display='none'">
+      <div class="entry-title">British Vogue digital cover with Billie Eilish</div>
+      <p class="entry-body">Chosen by Billie Eilish to appear on the Vogue cover alongside seven other climate activists, at the intersection of music and climate.</p>
+    </div>
+
+    <!-- Aug 2023 It's Not Just You — above -->
+    <div class="entry above">
+      <div class="entry-year">Aug 2023</div>
+      <img class="entry-photo" src="assets/tori/its-not-just-you-2023.jpg" alt="It's Not Just You — UK book cover" onerror="this.style.display='none'" style="object-fit: contain; background: var(--bg);">
+      <div class="entry-title">It's Not Just You — published</div>
+      <p class="entry-body">Debut book reframes eco-anxiety as a structural mental health crisis. Waterstones Book of the Year. British Vogue 25. ELLE Green List.</p>
+    </div>
+
+    <!-- 2024 FFNPT Senior Advisor + Wainwright — below -->
+    <div class="entry below">
+      <div class="entry-year">2024</div>
+      <img class="entry-photo" src="assets/tori/wainwright-prize.jpg" alt="Wainwright Prize 2024 Conservation Writing — It's Not Just You featured" onerror="this.style.display='none'">
+      <div class="entry-title">FFNPT Senior Advisor · Wainwright Prize shortlist</div>
+      <p class="entry-body">Promoted to Senior Advisor at FFNPT, overseeing comms and champions strategy globally. Shortlisted for the Wainwright Prize. Inaugural Climate Fiction Prize judge.</p>
+    </div>
+
+    <!-- Jan 2025 Stop Rosebank / 12M — above -->
+    <div class="entry above">
+      <div class="entry-year">Jan 2025</div>
+      <img class="entry-photo" src="assets/tori/thetea.png" alt="The Tea with Myriam François — viral clip" onerror="this.style.display='none'">
+      <div class="entry-title">Stop Rosebank court victory · The Tea goes viral</div>
+      <p class="entry-body">The Court of Session ruled the UK government's approval of the Rosebank oil field unlawful. A clip from Tori's appearance on The Tea with Dr Myriam François generated 12 million Instagram views.</p>
+      <div class="entry-stat">12M views</div>
+    </div>
+
+    <!-- Jun 2025 Co-op Live Massive Attack — below -->
+    <div class="entry below">
+      <div class="entry-year">Jun 2025</div>
+      <img class="entry-photo" src="assets/tori/massiveattack.png" alt="Tori on stage at Co-op Live with Massive Attack" onerror="this.style.display='none'">
+      <div class="entry-title">On stage with Massive Attack</div>
+      <p class="entry-body">Invited on stage at Co-op Live to address 15,000 fans on World Environment Day, after Andy Burnham signed the Treaty Declaration that morning.</p>
+    </div>
+
+    <!-- Sep 2025 Together for Palestine — above -->
+    <div class="entry above">
+      <div class="entry-year">Sep 2025</div>
+      <img class="entry-photo" src="assets/tori/together-for-palestine.jpeg" alt="Brian Eno and Together for Palestine — OVO Arena Wembley" onerror="this.style.display='none'">
+      <div class="entry-title">Together for Palestine — Wembley</div>
+      <p class="entry-body">Helped organise Brian Eno's benefit concert at OVO Arena Wembley. Performers: PinkPantheress, James Blake, Jamie xx, Damon Albarn, Bastille, Sampha.</p>
+      <div class="entry-stat">£1.5M raised</div>
+    </div>
+
+    <!-- Apr 2026 US edition — below -->
+    <div class="entry below">
+      <div class="entry-year">Apr 2026</div>
+      <img class="entry-photo" src="assets/tori/its-not-just-you-US-edition-2026.jpg" alt="It's Not Just You — US edition" onerror="this.style.display='none'" style="object-fit: contain; background: var(--bg);">
+      <div class="entry-title">It's Not Just You — US edition</div>
+      <p class="entry-body">US paperback published by The New Press, timed for Earth Day, with a new foreword by Leah Thomas, founder of Intersectional Environmentalist.</p>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+</body>
+</html>
