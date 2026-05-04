@@ -29,70 +29,51 @@
     padding: 60px 60px;
   }
 
-  /* ── Title block ── */
+  /* ── Title block (across the top) ── */
   .title {
     position: absolute;
     top: 60px;
     left: 60px;
-    width: 360px;
+    right: 60px;
+    height: 180px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 80px;
+    align-items: end;
   }
   .title h1 {
     font-weight: 900;
-    font-size: 64px;
-    line-height: 0.92;
-    letter-spacing: -0.03em;
+    font-size: 150px;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .title-right {
+    padding-bottom: 18px;
+    max-width: 1200px;
   }
   .title-sub {
     font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.08em;
+    font-size: 16px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
   .title-lead {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.5;
-    color: rgba(31,58,42,0.75);
-    max-width: 320px;
-  }
-
-  /* ── Anchor (1994) ── */
-  .anchor {
-    position: absolute;
-    top: 60px;
-    left: 60px;
-    width: 380px;
-    height: 980px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    pointer-events: none;
-  }
-  .anchor-photo {
-    width: 240px;
-    height: 320px;
-    object-fit: cover;
-    margin-bottom: 16px;
-    align-self: flex-start;
-    margin-left: 30px;
-  }
-  .anchor-year {
-    font-weight: 900;
-    font-size: 140px;
-    line-height: 0.85;
-    letter-spacing: -0.04em;
-    margin-bottom: 30px;
+    color: rgba(31,58,42,0.78);
   }
 
   /* ── Timeline ── */
   .timeline {
     position: absolute;
-    left: 460px;
+    left: 60px;
     right: 60px;
-    top: 60px;
-    height: 980px;
+    top: 280px;
+    bottom: 60px;
   }
 
   .spine {
@@ -220,17 +201,13 @@
 
 <div class="canvas">
 
-  <!-- Title block (top-left, above anchor) -->
+  <!-- Title block across the top -->
   <div class="title">
-    <h1>Tori<br>Tsui</h1>
-    <div class="title-sub">A career in activism,<br>media &amp; impact</div>
-    <p class="title-lead">From a fishing town in northeast Hong Kong to organising a benefit concert at Wembley Arena, twelve milestones in one of the most remarkable activist careers of her generation.</p>
-  </div>
-
-  <!-- Anchor: 1994 birth year with portrait -->
-  <div class="anchor">
-    <img class="anchor-photo" src="assets/tori/tori2.jpeg" alt="Tori Tsui" onerror="this.style.display='none'">
-    <div class="anchor-year">1994</div>
+    <h1>Tori Tsui</h1>
+    <div class="title-right">
+      <div class="title-sub">A career in activism, media &amp; impact</div>
+      <p class="title-lead">From a fishing town in northeast Hong Kong to organising a benefit concert at Wembley Arena, twelve milestones in one of the most remarkable activist careers of her generation.</p>
+    </div>
   </div>
 
   <!-- Timeline (spine + alternating entries) -->
@@ -294,9 +271,10 @@
       <p class="entry-body">Debut book reframes eco-anxiety as a structural mental health crisis. Waterstones Book of the Year. British Vogue 25. ELLE Green List.</p>
     </div>
 
-    <!-- 2024 FFNPT Senior Advisor — below -->
+    <!-- 2024 FFNPT Senior Advisor + Wainwright — below -->
     <div class="entry below">
       <div class="entry-year">2024</div>
+      <img class="entry-photo" src="assets/tori/wainwright-prize.jpg" alt="Wainwright Prize 2024 Conservation Writing — It's Not Just You featured" onerror="this.style.display='none'">
       <div class="entry-title">FFNPT Senior Advisor · Wainwright Prize shortlist</div>
       <p class="entry-body">Promoted to Senior Advisor at FFNPT, overseeing comms and champions strategy globally. Shortlisted for the Wainwright Prize. Inaugural Climate Fiction Prize judge.</p>
     </div>
@@ -316,7 +294,6 @@
       <img class="entry-photo" src="assets/tori/massiveattack.png" alt="Tori on stage at Co-op Live with Massive Attack" onerror="this.style.display='none'">
       <div class="entry-title">On stage with Massive Attack</div>
       <p class="entry-body">Invited on stage at Co-op Live to address 15,000 fans on World Environment Day, after Andy Burnham signed the Treaty Declaration that morning.</p>
-      <div class="entry-stat">15,000</div>
     </div>
 
     <!-- Sep 2025 Together for Palestine — above -->
