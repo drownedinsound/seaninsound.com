@@ -90,7 +90,7 @@
 <body>
 
 <div class="page-header">
-  <span class="page-title">DiS — Spotify Royalty Pool · 11 slides · 1080 × 1350px</span>
+  <span class="page-title">DiS — Spotify Royalty Pool · 12 slides · 1080 × 1350px</span>
   <span class="page-sub">← → arrow keys to navigate</span>
 </div>
 
@@ -122,42 +122,54 @@
            02  THE POOL — SPOTIFY'S OWN WORDS
       ═══════════════════════════════════════ -->
       <div class="slide">
-        <div class="slide__content">
+        <div class="slide__content" style="justify-content:center;">
           <p class="eyebrow">Step 1 — The pool</p>
-          <h2 class="h-md" style="margin-bottom:32px; max-width:860px;">Every subscription goes into one global pot</h2>
+          <h2 class="h-md" style="margin-bottom:52px; max-width:860px;">Every subscription goes into one global pot</h2>
 
-          <div style="border-left:4px solid #F307B0; padding-left:28px; margin-bottom:52px;">
-            <p style="font-family:'Cardo',serif; font-style:italic; font-size:36px; color:#ccc; line-height:1.55; margin-bottom:14px;">
+          <div style="border-left:4px solid #F307B0; padding-left:28px; margin-bottom:60px;">
+            <p style="font-family:'Cardo',serif; font-style:italic; font-size:38px; color:#ccc; line-height:1.55; margin-bottom:18px;">
               "This kind of transparency is awesome. Just to share info from our side — none of the streaming services actually pay out per stream. We all pay out based on something called 'streamshare.' That means we take about 70% of all the money we make and put it in a royalty pool, and if you get 1% of the streams, you get 1% of the royalty pool... we try to keep your fans streaming!"
             </p>
             <p class="note">— Spotify for Artists, replying to Los Campesinos! streaming transparency post</p>
           </div>
 
-          <p style="font-family:'Francois One',sans-serif; font-size:26px; color:#F307B0; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:28px;">Where that 70% goes</p>
+          <p class="swipe-hint">Swipe to see where that money goes →</p>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
 
-          <div style="margin-bottom:22px;">
-            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
-              <span style="font-family:'Francois One',sans-serif; font-size:30px; color:#fff; text-transform:uppercase; letter-spacing:0.05em;">Recording rights</span>
-              <span style="font-family:'Francois One',sans-serif; font-size:44px; color:#F307B0;">~55%</span>
-            </div>
-            <div style="height:54px; background:#1e1e1e; border-radius:2px; overflow:hidden;">
-              <div style="height:100%; width:79%; background:#F307B0;"></div>
-            </div>
-            <p class="note" style="margin-top:8px;">Labels or distributors — then to artists via their individual contract</p>
-          </div>
+
+      <!-- ═══════════════════════════════════════
+           03  WHERE THAT 70% GOES — BARS
+      ═══════════════════════════════════════ -->
+      <div class="slide">
+        <div class="slide__content" style="justify-content:center;">
+          <p class="eyebrow">Step 1 — The split</p>
+          <h2 class="h-md" style="margin-bottom:52px; max-width:860px;">Where that 70% goes</h2>
 
           <div style="margin-bottom:44px;">
-            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
-              <span style="font-family:'Francois One',sans-serif; font-size:30px; color:#ccc; text-transform:uppercase; letter-spacing:0.05em;">Publishing rights</span>
-              <span style="font-family:'Francois One',sans-serif; font-size:44px; color:#ccc;">~15%</span>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px;">
+              <span style="font-family:'Francois One',sans-serif; font-size:32px; color:#fff; text-transform:uppercase; letter-spacing:0.05em;">Recording rights</span>
+              <span style="font-family:'Francois One',sans-serif; font-size:52px; color:#F307B0;">~55%</span>
             </div>
-            <div style="height:54px; background:#1e1e1e; border-radius:2px; overflow:hidden;">
-              <div style="height:100%; width:21%; background:#bbb;"></div>
+            <div style="height:64px; background:#1e1e1e; border-radius:2px; overflow:hidden;">
+              <div style="height:100%; width:79%; background:#F307B0;"></div>
             </div>
-            <p class="note" style="margin-top:8px;">Songwriters and publishers</p>
+            <p class="note" style="margin-top:12px;">Labels or distributors, then to artists via their individual contract</p>
           </div>
 
-          <p class="small" style="border-left:3px solid #222; padding-left:20px;">This explainer focuses on that recording rights pot. That's where most artists see — or don't see — their money.</p>
+          <div style="margin-bottom:64px;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px;">
+              <span style="font-family:'Francois One',sans-serif; font-size:32px; color:#ccc; text-transform:uppercase; letter-spacing:0.05em;">Publishing rights</span>
+              <span style="font-family:'Francois One',sans-serif; font-size:52px; color:#ccc;">~15%</span>
+            </div>
+            <div style="height:64px; background:#1e1e1e; border-radius:2px; overflow:hidden;">
+              <div style="height:100%; width:21%; background:#bbb;"></div>
+            </div>
+            <p class="note" style="margin-top:12px;">Songwriters and publishers</p>
+          </div>
+
+          <p class="small" style="border-left:3px solid #222; padding-left:20px;">This explainer focuses on that recording rights pot. That's where most artists see, or don't see, their money.</p>
         </div>
         <div class="slide-bar"></div>
       </div>
@@ -552,7 +564,7 @@
 
 <script>
 /* ── Carousel ── */
-const TOTAL = 11;
+const TOTAL = 12;
 let current = 0;
 const inner      = document.getElementById('slidesInner');
 const prevBtn    = document.getElementById('prevBtn');
