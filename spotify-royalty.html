@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiS — How Spotify Really Pays Artists</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0A0A0A;
+      font-family: 'Francois One', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 20px 80px;
+    }
+
+    .page-header {
+      width: 1080px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding: 0 4px;
+    }
+    .page-title { font-size: 11px; letter-spacing: 0.22em; color: #F307B0; text-transform: uppercase; }
+    .page-sub   { font-family: 'Cardo', serif; font-size: 13px; color: #555; font-style: italic; }
+
+    .viewer { width: 1080px; }
+    .slides-track { width: 1080px; overflow: hidden; }
+    .slides-inner { display: flex; transition: transform 0.42s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+    .nav {
+      width: 1080px; display: flex; align-items: center;
+      justify-content: space-between; margin-top: 22px; padding: 0 4px;
+    }
+    .nav__btn {
+      background: #1a1a1a; border: 1px solid #333; color: #fff;
+      font-family: 'Francois One', sans-serif; font-size: 11px;
+      letter-spacing: 0.15em; padding: 13px 28px; cursor: pointer;
+      text-transform: uppercase; transition: background 0.2s, border-color 0.2s;
+    }
+    .nav__btn:hover { background: #F307B0; border-color: #F307B0; }
+    .nav__btn:disabled { opacity: 0.22; cursor: default; pointer-events: none; }
+    .nav__counter { font-family: 'Cardo', serif; font-size: 14px; color: #777; letter-spacing: 0.1em; }
+    .nav__counter em { color: #F307B0; font-style: normal; }
+    .nav__dots { display: flex; gap: 8px; align-items: center; margin-top: 10px; }
+    .nav__dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #2a2a2a;
+      cursor: pointer; transition: background 0.2s, transform 0.2s; border: 1px solid #333;
+    }
+    .nav__dot.active { background: #F307B0; border-color: #F307B0; transform: scale(1.45); }
+
+    .slide {
+      flex-shrink: 0; width: 1080px; height: 1350px;
+      position: relative; overflow: hidden; background: #0A0A0A;
+    }
+    .slide-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 5px; background: #F307B0; z-index: 80;
+    }
+    .slide__content {
+      position: absolute; inset: 0; padding: 72px 80px 80px;
+      display: flex; flex-direction: column; z-index: 70;
+    }
+
+    /* TYPE */
+    .eyebrow {
+      font-family: 'Francois One', sans-serif;
+      font-size: 26px; letter-spacing: 0.2em;
+      color: #F307B0; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .h-xl  { font-family:'Francois One',sans-serif; font-size:96px;  line-height:0.97; color:#fff; text-transform:uppercase; letter-spacing:-0.02em; }
+    .h-lg  { font-family:'Francois One',sans-serif; font-size:68px;  line-height:1.05; color:#fff; text-transform:uppercase; }
+    .h-md  { font-family:'Francois One',sans-serif; font-size:54px;  line-height:1.08; color:#fff; text-transform:uppercase; }
+    .h-sm  { font-family:'Francois One',sans-serif; font-size:44px;  line-height:1.1;  color:#fff; text-transform:uppercase; }
+    .body  { font-family:'Cardo',serif; font-size:44px; line-height:1.45; color:#fff; }
+    .body-i{ font-family:'Cardo',serif; font-style:italic; font-size:44px; line-height:1.45; color:#ccc; }
+    .small { font-family:'Cardo',serif; font-size:36px; line-height:1.5; color:#bbb; }
+    .note  { font-family:'Cardo',serif; font-style:italic; font-size:28px; line-height:1.45; color:#777; }
+    .pink  { color: #F307B0; }
+    .divider { width: 60px; height: 3px; background: #F307B0; margin: 20px 0; }
+    .swipe-hint { font-family:'Francois One',sans-serif; font-size:24px; letter-spacing:0.2em; color:rgba(255,255,255,0.28); text-transform:uppercase; }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <span class="page-title">DiS — Spotify Royalty Pool · 11 slides · 1080 × 1350px</span>
+  <span class="page-sub">← → arrow keys to navigate</span>
+</div>
+
+<div class="viewer">
+  <div class="slides-track">
+    <div class="slides-inner" id="slidesInner">
+
+
+      <!-- ═══════════════════════════════════════
+           01  HOOK
+      ═══════════════════════════════════════ -->
+      <div class="slide">
+        <div class="slide__content" style="justify-content:center;">
+          <p class="eyebrow">Streaming explained</p>
+          <div class="divider"></div>
+          <h1 class="h-xl" style="margin-bottom:52px; line-height:0.95;">
+            YOUR<br>£11.99<br>DOESN'T GO<br>TO THE<br>ARTISTS YOU<br>LISTEN TO
+          </h1>
+          <p class="body-i" style="max-width:800px; margin-bottom:68px;">
+            Here's where it actually goes, and why it puts every independent artist in direct competition with Taylor Swift.
+          </p>
+          <p class="swipe-hint">Swipe for the breakdown →</p>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════
+           02  THE POOL — SPOTIFY'S OWN WORDS
+      ═══════════════════════════════════════ -->
+      <div class="slide">
+        <div class="slide__content">
+          <p class="eyebrow">Step 1 — The pool</p>
+          <h2 class="h-md" style="margin-bottom:32px; max-width:860px;">Every subscription goes into one global pot</h2>
+
+          <div style="border-left:4px solid #F307B0; padding-left:28px; margin-bottom:52px;">
+            <p style="font-family:'Cardo',serif; font-style:italic; font-size:36px; color:#ccc; line-height:1.55; margin-bottom:14px;">
+              "This kind of transparency is awesome. Just to share info from our side — none of the streaming services actually pay out per stream. We all pay out based on something called 'streamshare.' That means we take about 70% of all the money we make and put it in a royalty pool, and if you get 1% of the streams, you get 1% of the royalty pool... we try to keep your fans streaming!"
+            </p>
+            <p class="note">— Spotify for Artists, replying to Los Campesinos! streaming transparency post</p>
+          </div>
+
+          <p style="font-family:'Francois One',sans-serif; font-size:26px; color:#F307B0; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:28px;">Where that 70% goes</p>
+
+          <div style="margin-bottom:22px;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+              <span style="font-family:'Francois One',sans-serif; font-size:30px; color:#fff; text-transform:uppercase; letter-spacing:0.05em;">Recording rights</span>
+              <span style="font-family:'Francois One',sans-serif; font-size:44px; color:#F307B0;">~55%</span>
+            </div>
+            <div style="height:54px; background:#1e1e1e; border-radius:2px; overflow:hidden;">
+              <div style="height:100%; width:79%; background:#F307B0;"></div>
+            </div>
+            <p class="note" style="margin-top:8px;">Labels or distributors — then to artists via their individual contract</p>
+          </div>
+
+          <div style="margin-bottom:44px;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+              <span style="font-family:'Francois One',sans-serif; font-size:30px; color:#ccc; text-transform:uppercase; letter-spacing:0.05em;">Publishing rights</span>
+              <span style="font-family:'Francois One',sans-serif; font-size:44px; color:#ccc;">~15%</span>
+            </div>
+            <div style="height:54px; background:#1e1e1e; border-radius:2px; overflow:hidden;">
+              <div style="height:100%; width:21%; background:#bbb;"></div>
+            </div>
+            <p class="note" style="margin-top:8px;">Songwriters and publishers</p>
+          </div>
+
+          <p class="small" style="border-left:3px solid #222; padding-left:20px;">This explainer focuses on that recording rights pot. That's where most artists see — or don't see — their money.</p>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════
+           03  YOUR MONEY'S JOURNEY — FLOW DIAGRAM
+      ═══════════════════════════════════════ -->
+      <div class="slide">
+        <div class="slide__content" style="justify-content:center;">
+          <p class="eyebrow">Step 2 — The journey</p>
+          <div class="divider"></div>
+          <h2 class="h-md" style="margin-bottom:44px; max-width:900px;">Your money doesn't go to who you chose</h2>
+
+          <!-- Flow diagram SVG -->
+          <div style="margin-bottom:44px;">
+            <svg viewBox="0 0 920 360" width="920" height="360" style="display:block; overflow:visible;">
+              <defs>
+                <marker id="ah-pink" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z" fill="#F307B0"/>
+                </marker>
+                <marker id="ah-mid" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z" fill="#555"/>
+                </marker>
+                <marker id="ah-dim" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z" fill="#2a2a2a"/>
+                </marker>
+                <marker id="ah-white" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z" fill="#444"/>
+                </marker>
+              </defs>
+
+              <!-- LEFT — listener boxes -->
+              <rect x="0" y="30"  width="180" height="56" rx="3" fill="#111" stroke="#F307B0" stroke-width="1.5"/>
+              <text x="90" y="65" text-anchor="middle" font-family="'Francois One',sans-serif" font-size="22" fill="#F307B0" letter-spacing="1">YOUR £11.99</text>
+
+              <rect x="0" y="110" width="180" height="56" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+              <text x="90" y="145" text-anchor="middle" font-family="'Cardo',serif" font-size="20" fill="#bbb" font-style="italic">+300M other subscribers</text>
+
+              <!-- Arrows into pool -->
+              <line x1="180" y1="58"  x2="316" y2="158" stroke="#F307B0" stroke-width="2" marker-end="url(#ah-pink)"/>
+              <line x1="180" y1="138" x2="316" y2="172" stroke="#555"    stroke-width="1.5" marker-end="url(#ah-white)"/>
+
+              <!-- CENTER — pool circle -->
+              <circle cx="380" cy="180" r="100" fill="#111" stroke="#333" stroke-width="1.5"/>
+              <text x="380" y="162" text-anchor="middle" font-family="'Francois One',sans-serif" font-size="18" fill="#bbb" letter-spacing="2" text-transform="uppercase">GLOBAL</text>
+              <text x="380" y="184" text-anchor="middle" font-family="'Francois One',sans-serif" font-size="18" fill="#bbb" letter-spacing="2">ROYALTY</text>
+              <text x="380" y="210" text-anchor="middle" font-family="'Francois One',sans-serif" font-size="26" fill="#F307B0" letter-spacing="1">POOL</text>
+
+              <!-- RIGHT — output arrows, sized by share -->
+              <!-- Taylor Swift — fat arrow -->
+              <line x1="480" y1="155" x2="630" y2="90"  stroke="#F307B0" stroke-width="9" marker-end="url(#ah-pink)"/>
+              <text x="638" y="82"  font-family="'Francois One',sans-serif" font-size="22" fill="#F307B0" letter-spacing="0.5">TAYLOR SWIFT</text>
+              <text x="638" y="106" font-family="'Cardo',serif" font-size="20" fill="#F307B0">~4% of the pool</text>
+
+              <!-- Other top artists — medium arrow -->
+              <line x1="480" y1="175" x2="630" y2="185" stroke="#660040" stroke-width="5" marker-end="url(#ah-mid)"/>
+              <text x="638" y="180" font-family="'Francois One',sans-serif" font-size="19" fill="#bbb" letter-spacing="0.5">OTHER TOP ARTISTS</text>
+              <text x="638" y="200" font-family="'Cardo',serif" font-size="18" fill="#bbb">~16% of the pool</text>
+
+              <!-- Los Campesinos — hair-thin arrow -->
+              <line x1="480" y1="200" x2="630" y2="272" stroke="#2a2a2a" stroke-width="1" marker-end="url(#ah-dim)"/>
+              <text x="638" y="268" font-family="'Cardo',serif" font-size="19" fill="#bbb" font-style="italic">Los Campesinos!</text>
+              <text x="638" y="290" font-family="'Cardo',serif" font-size="18" fill="#777">~0.001% of the pool</text>
+
+              <!-- "NOT DIRECT" crossed arrow -->
+              <line x1="100" y1="86"  x2="638" y2="268" stroke="#F307B0" stroke-width="1" stroke-dasharray="8,6" opacity="0.18"/>
+              <text x="310" y="195" font-family="'Francois One',sans-serif" font-size="16" fill="#F307B0" opacity="0.35" transform="rotate(-22,310,195)">NOT HOW IT WORKS</text>
+            </svg>
+          </div>
+
+          <div style="border-left:4px solid #F307B0; padding-left:28px;">
+            <p class="body" style="margin-bottom:12px;">Your listening choices are irrelevant to where your money goes.</p>
+            <p class="body-i">Global stream share decides everything.</p>
+          </div>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════
+           04  STREAM SHARE FORMULA
+      ═══════════════════════════════════════ -->
+      <div class="slide">
+        <div class="slide__content" style="justify-content:center;">
+          <p class="eyebrow">Step 3 — The formula</p>
+          <div class="divider"></div>
+          <h2 class="h-lg" style="margin-bottom:52px; max-width:900px;">The pool is divided by who gets the most streams globally</h2>
+
+          <div style="background:#0f0f0f; border:1px solid #1e1e1e; padding:60px 52px; margin-bottom:52px; text-align:center;">
+            <p style="font-family:'Cardo',serif; font-size:28px; color:#777; text-transform:uppercase; letter-spacing:0.18em; margin-bottom:24px;">Spotify's own formula</p>
+            <p style="font-family:'Francois One',sans-serif; font-size:72px; color:#F307B0; text-transform:uppercase; line-height:1.0; margin-bottom:24px;">1% of streams<br>= 1% of pool</p>
+            <p style="font-family:'Cardo',serif; font-style:italic; font-size:40px; color:#ccc; line-height:1.4;">Every artist. Every month. Globally.</p>
+          </div>
+
+          <div style="border-left:4px solid #F307B0; padding-left:28px; margin-bottom:48px;">
+            <p class="body" style="color:#fff; margin-bottom:14px;">Taylor Swift's fans stream her music around the world 24 hours a day.</p>
+            <p class="body-i" style="color:#ccc;">That is money moving away from every other artist on the platform. Including whoever you actually chose to listen to.</p>
+          </div>
+
+          <p class="small">It doesn't matter that you never played a Taylor Swift song this month. She still got a share of your subscription.</p>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════
+           05  WHAT A STREAM ACTUALLY PAYS
+      ═══════════════════════════════════════ -->
+      <div class="slide">
+        <div class="slide__content" style="justify-content:center;">
+          <p class="eyebrow">Step 4 — The numbers</p>
+          <div class="divider"></div>
+          <h2 class="h-md" style="margin-bottom:52px; max-width:900px;">What 2 million plays actually earns</h2>
+
+          <!-- The arithmetic -->
+          <div style="margin-bottom:52px;">
+
+            <div style="display:flex; align-items:center; gap:32px; padding:32px 0; border-bottom:1px solid #1a1a1a;">
+              <p style="font-family:'Francois One',sans-serif; font-size:80px; color:#F307B0; line-height:1; min-width:280px; letter-spacing:-0.02em;">~£0.003</p>
+              <p class="body-i" style="color:#ccc; line-height:1.4;">Approximate per-stream rate on Spotify, after platform cut</p>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:32px; padding:32px 0; border-bottom:1px solid #1a1a1a;">
+              <p style="font-family:'Francois One',sans-serif; font-size:80px; color:#fff; line-height:1; min-width:280px; letter-spacing:-0.02em;">×2M</p>
+              <p class="body-i" style="color:#ccc; line-height:1.4;">Approximate streams for Los Campesinos! in their peak album release month</p>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:32px; padding:32px 0; background:#111; padding-left:28px; border-left:4px solid #F307B0;">
+              <p style="font-family:'Francois One',sans-serif; font-size:80px; color:#F307B0; line-height:1; min-width:280px; letter-spacing:-0.02em;">= £6,000</p>
+              <p class="body" style="color:#fff; line-height:1.4;">Received in month one.<br>Before label, distributor, and publisher take their share.</p>
+            </div>
+
+          </div>
+
+          <p class="small">Two million individual times someone pressed play on an album that took years to make. £6,000. Gareth from Los Campesinos! published this figure himself.</p>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════
+           06  THE COMPETITION EFFECT — TWO SCENARIOS
+      ═══════════════════════════════════════ -->
+      <div class="slide">
+        <div class="slide__content">
+          <p class="eyebrow">Step 5 — The competition</p>
+          <h2 class="h-md" style="margin-bottom:14px; max-width:900px; line-height:1.0;">When a superstar releases, your share of the pool shrinks</h2>
+          <p class="small" style="margin-bottom:36px; color:#bbb;">Two versions of the same month. Same pool. Different distribution.</p>
+
+          <!-- Two mini pie canvases -->
+          <div style="display:flex; gap:32px; margin-bottom:40px; justify-content:center;">
+
+            <div style="flex:1; text-align:center;">
+              <p style="font-family:'Francois One',sans-serif; font-size:26px; color:#bbb; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:16px;">Normal month</p>
+              <canvas id="pieNormal" width="400" height="400" style="display:block; margin:0 auto;"></canvas>
+            </div>
+
+            <div style="display:flex; align-items:center; padding:0 8px;">
+              <p style="font-family:'Francois One',sans-serif; font-size:48px; color:#F307B0;">→</p>
+            </div>
+
+            <div style="flex:1; text-align:center;">
+              <p style="font-family:'Francois One',sans-serif; font-size:26px; color:#F307B0; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:16px;">Taylor Swift drops</p>
+              <canvas id="pieSwift" width="400" height="400" style="display:block; margin:0 auto;"></canvas>
+            </div>
+
+          </div>
+
+          <!-- Legend -->
+          <div style="display:flex; gap:28px; margin-bottom:36px; justify-content:center; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:16px; height:16px; background:#F307B0; border-radius:2px;"></div>
+              <span class="small" style="color:#fff;">Taylor Swift</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:16px; height:16px; background:#550038; border-radius:2px;"></div>
+              <span class="small" style="color:#ccc;">Other top 10</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:16px; height:16px; background:#252525; border:1px solid #3a3a3a; border-radius:2px;"></div>
+              <span class="small" style="color:#ccc;">Everyone else</span>
+            </div>
+          </div>
+
+          <div style="background:#0f0f0f; border-left:4px solid #F307B0; padding:24px 28px;">
+            <p class="small" style="color:#fff; line-height:1.55;">Her fans stream her new album on repeat for weeks. Her pool share grows. Everyone else's shrinks. You did nothing wrong. The system put you in competition with the world's biggest artists.</p>
+          </div>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════
+           07  LOS CAMPESINOS! EARNINGS BAR CHART
+      ═══════════════════════════════════════ -->
+      <div class="slide">
+        <div class="slide__content">
+          <p class="eyebrow">The real numbers</p>
+          <h2 class="h-md" style="margin-bottom:12px; max-width:860px; line-height:1.0;">Los Campesinos! streaming income after album release</h2>
+          <p class="small" style="margin-bottom:40px; color:#bbb;">Their own figures, shared publicly</p>
+
+          <!-- Bar chart -->
+          <div style="display:flex; align-items:flex-end; gap:28px; height:380px; border-bottom:2px solid #222;">
+
+            <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
+              <p style="font-family:'Francois One',sans-serif; font-size:44px; color:#F307B0; margin-bottom:14px;">£6,000</p>
+              <div style="width:100%; height:380px; background:#F307B0; border-radius:3px 3px 0 0;"></div>
+            </div>
+
+            <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
+              <p style="font-family:'Francois One',sans-serif; font-size:44px; color:#ccc; margin-bottom:14px;">£3,000</p>
+              <div style="width:100%; height:190px; background:#555; border-radius:3px 3px 0 0;"></div>
+            </div>
+
+            <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
+              <p style="font-family:'Francois One',sans-serif; font-size:44px; color:#bbb; margin-bottom:14px;">£2,000</p>
+              <div style="width:100%; height:126px; background:#3a3a3a; border-radius:3px 3px 0 0;"></div>
+            </div>
+
+            <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
+              <p style="font-family:'Francois One',sans-serif; font-size:52px; color:#555; margin-bottom:14px;">↓</p>
+              <div style="width:100%; height:60px; background:#222; border-radius:3px 3px 0 0;"></div>
+            </div>
+
+          </div>
+
+          <div style="display:flex; gap:28px; padding-top:16px; margin-bottom:36px;">
+            <div style="flex:1; text-align:center;">
+              <p style="font-family:'Francois One',sans-serif; font-size:26px; color:#fff; text-transform:uppercase; letter-spacing:0.06em;">Month 1</p>
+              <p class="note" style="margin-top:4px;">Album release</p>
+            </div>
+            <div style="flex:1; text-align:center;">
+              <p style="font-family:'Francois One',sans-serif; font-size:26px; color:#ccc; text-transform:uppercase; letter-spacing:0.06em;">Month 2</p>
+            </div>
+            <div style="flex:1; text-align:center;">
+              <p style="font-family:'Francois One',sans-serif; font-size:26px; color:#bbb; text-transform:uppercase; letter-spacing:0.06em;">Month 3</p>
+            </div>
+            <div style="flex:1; text-align:center;">
+              <p style="font-family:'Francois One',sans-serif; font-size:26px; color:#777; text-transform:uppercase; letter-spacing:0.06em;">Month 4+</p>
+            </div>
+          </div>
+
+          <div style="background:#0f0f0f; border-left:4px solid #F307B0; padding:24px 28px; margin-bottom:18px;">
+            <p class="small" style="color:#fff; line-height:1.55;">"If you release your album the same day as Taylor Swift — never mind your chances of a UK chart number one — it's actually going to impact the amount of money you're going to earn from streaming."</p>
+          </div>
+          <p class="note">— Gareth David, Los Campesinos!, DiS Podcast 2026</p>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════
+           08  THE DOT GRID — 1,000 DOTS
+      ═══════════════════════════════════════ -->
+      <div class="slide">
+        <div class="slide__content">
+          <p class="eyebrow">The result</p>
+          <h2 class="h-md" style="margin-bottom:16px;">1,000 dots = 100% of the global stream pool</h2>
+          <p class="small" style="margin-bottom:32px; color:#bbb;">Each dot = 0.1% of all Spotify streams</p>
+
+          <div style="display:flex; justify-content:center; margin-bottom:28px;">
+            <canvas id="dotGrid" width="920" height="368" style="display:block;"></canvas>
+          </div>
+
+          <!-- Legend -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px 32px; margin-bottom:28px;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:16px; height:16px; background:#F307B0; border-radius:50%; flex-shrink:0;"></div>
+              <span class="small" style="color:#fff;">Taylor Swift — <span style="color:#F307B0;">42 dots (4.2%)</span></span>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:16px; height:16px; background:#cc0096; border-radius:50%; flex-shrink:0;"></div>
+              <span class="small" style="color:#ccc;">Bad Bunny — 29 dots</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:16px; height:16px; background:#990070; border-radius:50%; flex-shrink:0;"></div>
+              <span class="small" style="color:#ccc;">The Weeknd — 24 dots</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:16px; height:16px; background:#770052; border-radius:50%; flex-shrink:0;"></div>
+              <span class="small" style="color:#ccc;">Drake + Ed Sheeran — 46 dots</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:16px; height:16px; background:#330020; border-radius:50%; flex-shrink:0;"></div>
+              <span class="small" style="color:#ccc;">Other top 10 artists — 59 dots</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:16px; height:16px; background:#252525; border:1px solid #3a3a3a; border-radius:50%; flex-shrink:0;"></div>
+              <span class="small" style="color:#fff;">Everyone else — <span style="color:#F307B0;">800 dots, 11M artists</span></span>
+            </div>
+          </div>
+
+          <p class="small" style="color:#bbb;">Los Campesinos! would be a fraction of one dot. Swipe to zoom in →</p>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════
+           09  THE ZOOM
+      ═══════════════════════════════════════ -->
+      <div class="slide">
+        <div class="slide__content" style="justify-content:center;">
+          <p class="eyebrow">Zooming into those 800 dots</p>
+          <div class="divider"></div>
+
+          <div style="text-align:center; margin-bottom:56px;">
+            <p style="font-family:'Francois One',sans-serif; font-size:180px; color:#F307B0; line-height:0.85; text-transform:uppercase; letter-spacing:-0.03em;">80%</p>
+            <p style="font-family:'Cardo',serif; font-size:44px; color:#ccc; margin-top:20px; line-height:1.35;">of the pool. Shared between<br><strong style="color:#fff; font-style:normal;">11 million artists.</strong></p>
+          </div>
+
+          <!-- The bar -->
+          <div style="margin-bottom:44px;">
+            <p style="font-family:'Francois One',sans-serif; font-size:24px; color:#ccc; text-transform:uppercase; letter-spacing:0.16em; margin-bottom:14px;">Los Campesinos! share of all Spotify streams</p>
+            <div style="position:relative; height:76px; background:#111; border-radius:2px; border:1px solid #222; overflow:hidden;">
+              <div style="position:absolute; left:0; top:0; bottom:0; width:4px; background:#F307B0;"></div>
+              <p style="position:absolute; left:20px; top:50%; transform:translateY(-50%); font-family:'Cardo',serif; font-size:36px; color:#F307B0; white-space:nowrap;">← Los Campesinos!&nbsp;&nbsp;&nbsp;~0.001%</p>
+            </div>
+            <p class="note" style="margin-top:10px; text-align:right;">The remaining 99.999% of that bar is everyone else in the "everyone else" segment.</p>
+          </div>
+
+          <div style="border-left:4px solid #2a2a2a; padding-left:28px; margin-bottom:36px;">
+            <p class="body-i" style="color:#ccc; font-size:40px; margin-bottom:16px; line-height:1.4;">That's every stream of every Los Campesinos! album. Every fan who pressed play this year.</p>
+            <p class="body-i" style="color:#bbb; font-size:40px; line-height:1.4;">Less than a crumb.</p>
+          </div>
+
+          <p class="small" style="color:#bbb; line-height:1.5;">And they're one of the most-loved cult bands in UK music, with twenty years of records and a devoted fanbase. Imagine what this looks like for artists in year three.</p>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════
+           10  VIDEO PLACEHOLDER
+      ═══════════════════════════════════════ -->
+      <div class="slide" style="background:#0D0D0D;">
+        <div class="slide__content" style="justify-content:center; align-items:center; text-align:center;">
+          <p class="eyebrow" style="margin-bottom:40px;">Video clip · 30–60s</p>
+          <svg width="130" height="130" viewBox="0 0 130 130" style="margin-bottom:52px;" aria-hidden="true">
+            <circle cx="65" cy="65" r="60" fill="none" stroke="#F307B0" stroke-width="3"/>
+            <polygon points="52,42 98,65 52,88" fill="#F307B0"/>
+          </svg>
+          <h2 style="font-family:'Francois One',sans-serif; font-size:68px; color:#fff; text-transform:uppercase; margin-bottom:8px;">Gareth David</h2>
+          <p style="font-family:'Cardo',serif; font-style:italic; font-size:40px; color:#bbb; margin-bottom:56px;">Los Campesinos!</p>
+          <div style="border:1px solid #1e1e1e; padding:40px 44px; max-width:880px;">
+            <p style="font-family:'Cardo',serif; font-style:italic; font-size:48px; color:#ccc; line-height:1.4; margin-bottom:20px;">
+              "It is truly putting artists in competition with each other."
+            </p>
+            <p class="note" style="text-align:left;">— Gareth David, DiS Podcast, 2026</p>
+          </div>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════
+           11  CTA
+      ═══════════════════════════════════════ -->
+      <div class="slide">
+        <div class="slide__content" style="justify-content:center;">
+          <p class="eyebrow">The DiS Podcast</p>
+          <div class="divider"></div>
+          <h2 class="h-lg" style="margin-bottom:32px;">Hear the full conversation</h2>
+          <p class="body-i" style="margin-bottom:56px; max-width:840px; line-height:1.5;">
+            Gareth from Los Campesinos! on streaming, solidarity, and why he'll never begrudge fans for using Spotify, even if it's probably taking money from his pocket.
+          </p>
+          <div style="border:2px solid #F307B0; padding:40px 44px; margin-bottom:44px;">
+            <p style="font-family:'Francois One',sans-serif; font-size:26px; color:#F307B0; text-transform:uppercase; letter-spacing:0.16em; margin-bottom:18px;">Listen now</p>
+            <p style="font-family:'Cardo',serif; font-size:44px; color:#fff; line-height:1.25; margin-bottom:16px;">Search "Drowned in Sound"<br>wherever you listen</p>
+            <p style="font-family:'Cardo',serif; font-size:36px; color:#bbb;">drownedinsound.org/podcasts</p>
+          </div>
+          <p class="small" style="color:#bbb;">New episodes every Tuesday. Conversations about music, power, and what comes next.</p>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+
+    </div><!-- /slides-inner -->
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+  <button class="nav__btn" id="prevBtn" onclick="move(-1)" disabled>← Prev</button>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:12px;">
+    <span class="nav__counter">Slide <em id="currentNum">1</em> of 11</span>
+    <div class="nav__dots" id="navDots"></div>
+  </div>
+  <button class="nav__btn" id="nextBtn" onclick="move(1)">Next →</button>
+</div>
+
+<script>
+/* ── Carousel ── */
+const TOTAL = 11;
+let current = 0;
+const inner      = document.getElementById('slidesInner');
+const prevBtn    = document.getElementById('prevBtn');
+const nextBtn    = document.getElementById('nextBtn');
+const currentNum = document.getElementById('currentNum');
+const dotsEl     = document.getElementById('navDots');
+
+for (let i = 0; i < TOTAL; i++) {
+  const d = document.createElement('div');
+  d.className = 'nav__dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => goTo(i);
+  dotsEl.appendChild(d);
+}
+function goTo(n) {
+  current = Math.max(0, Math.min(TOTAL - 1, n));
+  inner.style.transform = `translateX(-${current * 1080}px)`;
+  currentNum.textContent = current + 1;
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = current === TOTAL - 1;
+  document.querySelectorAll('.nav__dot').forEach((d, i) => d.classList.toggle('active', i === current));
+}
+function move(dir) { goTo(current + dir); }
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') move(1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   move(-1);
+});
+
+
+/* ── Mini pie helper ── */
+function drawMiniPie(canvasId, segments) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const cx = canvas.width / 2;
+  const cy = canvas.height / 2;
+  const r  = Math.min(cx, cy) - 10;
+  let angle = -Math.PI / 2;
+  for (const seg of segments) {
+    const sweep = (seg.pct / 100) * 2 * Math.PI;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, angle, angle + sweep);
+    ctx.closePath();
+    ctx.fillStyle = seg.color;
+    ctx.fill();
+    ctx.strokeStyle = '#0A0A0A';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    angle += sweep;
+  }
+  // Label inside each named slice
+  angle = -Math.PI / 2;
+  for (const seg of segments) {
+    const sweep = (seg.pct / 100) * 2 * Math.PI;
+    if (seg.pct >= 4) {
+      const mid = angle + sweep / 2;
+      const lx  = cx + r * 0.62 * Math.cos(mid);
+      const ly  = cy + r * 0.62 * Math.sin(mid);
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = seg.labelColor || '#fff';
+      ctx.font = 'bold 28px "Francois One", sans-serif';
+      ctx.fillText(seg.pct + '%', lx, ly);
+    }
+    angle += sweep;
+  }
+}
+
+/* Slide 6 — competition pies */
+const normalSegs = [
+  { pct: 4.2,  color: '#F307B0', labelColor: '#fff' },
+  { pct: 15.8, color: '#550038', labelColor: '#ccc' },
+  { pct: 80.0, color: '#252525', labelColor: '#777' },
+];
+const swiftSegs = [
+  { pct: 8.0,  color: '#F307B0', labelColor: '#fff' },
+  { pct: 15.8, color: '#550038', labelColor: '#ccc' },
+  { pct: 76.2, color: '#1e1e1e', labelColor: '#555' },
+];
+
+
+/* ── Dot grid (slide 8) ── */
+function drawDotGrid() {
+  const canvas = document.getElementById('dotGrid');
+  if (!canvas) return;
+  const ctx  = canvas.getContext('2d');
+  const cols = 50;
+  const rows = 20;
+  const dot  = 13;
+  const gap  = 5;
+  const unit = dot + gap;
+  const offX = (canvas.width  - cols * unit + gap) / 2;
+  const offY = (canvas.height - rows * unit + gap) / 2;
+
+  const colors = [];
+  for (let i = 0;  i < 42;  i++) colors.push('#F307B0'); // Taylor Swift
+  for (let i = 0;  i < 29;  i++) colors.push('#cc0096'); // Bad Bunny
+  for (let i = 0;  i < 24;  i++) colors.push('#990070'); // The Weeknd
+  for (let i = 0;  i < 46;  i++) colors.push('#770052'); // Drake + Ed Sheeran
+  for (let i = 0;  i < 59;  i++) colors.push('#440030'); // Others top 10
+  while (colors.length < 1000) colors.push('#2a2a2a');   // Everyone else
+
+  for (let i = 0; i < 1000; i++) {
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    const x   = offX + col * unit;
+    const y   = offY + row * unit;
+    ctx.beginPath();
+    ctx.arc(x + dot / 2, y + dot / 2, dot / 2, 0, Math.PI * 2);
+    ctx.fillStyle = colors[i];
+    ctx.fill();
+  }
+}
+
+document.fonts.ready.then(() => {
+  drawMiniPie('pieNormal', normalSegs);
+  drawMiniPie('pieSwift',  swiftSegs);
+  drawDotGrid();
+});
+</script>
+
+</body>
+</html>
