@@ -227,18 +227,18 @@ These rules apply to ALL visual output: HTML slides, Instagram carousels, infogr
 
 **Primary palette**
 - Background: `#0A0A0A` (near-black)
-- Accent / highlight: `#F307B0` (DiS pink)
+- Accent / highlight: `#FF2E95` (DiS pink, ruled canonical July 2026, supersedes the old `#F307B0`)
 - Primary text on dark background: `#FFFFFF` (white) - not off-white, not light grey, actual white
 
 **The recurring contrast problem - read this carefully**
 - NEVER use grey text on a dark or black background. It will be unreadable at small sizes and fail accessibility.
 - Light grey (#999, #aaa, #ccc, etc.) on `#0A0A0A` is not acceptable for any text below 24px.
 - If you want to create hierarchy between headline and supporting text, use font size and weight - not colour.
-- The only acceptable text colours on `#0A0A0A` are: `#FFFFFF`, `#F307B0`, or a colour light enough to pass WCAG AA contrast (4.5:1 ratio minimum for body text).
+- The only acceptable text colours on `#0A0A0A` are: `#FFFFFF`, `#FF2E95`, or a colour light enough to pass WCAG AA contrast (4.5:1 ratio minimum for body text).
 - When in doubt: use white. Add pink for emphasis. Never use grey as a shortcut for "secondary" information.
 
 **Accent usage**
-- Pink (`#F307B0`) is for highlights, labels, key data points, slide numbers, and emphasis - not for large blocks of body text.
+- Pink (`#FF2E95`) is for highlights, labels, key data points, slide numbers, and emphasis - not for large blocks of body text.
 - Use pink sparingly so it retains impact.
 
 ### Canvas Spec
