@@ -231,10 +231,11 @@ ul {
    ------------------------------------------------------------ */
 .section {
   padding: 100px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .section--alt {
-  background-color: #0A0A0A;
+  background-color: #141414;
 }
 
 .section--dark {
@@ -287,31 +288,11 @@ ul {
   align-items: center;
 }
 
-.hero__photo-wrap {
-  margin-bottom: 28px;
-  position: relative;
-}
-
-.hero__photo {
-  width: 220px;
-  height: 220px;
-  border-radius: 0;
-  object-fit: cover;
-  border: 2px solid #FF2E95;
-  box-shadow: 6px 6px 0 rgba(255, 46, 149, 0.4);
-  display: block;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.hero__photo-credit {
-  font-family: 'Francois One', sans-serif;
-  font-size: 0.75rem;
-  color: #FF2E95;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-top: 16px;
+.hero__quote-photo {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 48px;
+  text-align: left;
 }
 
 .hero__name {
@@ -446,6 +427,7 @@ ul {
 .stats {
   background-color: #111111;
   padding: 56px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .stats__grid {
@@ -513,7 +495,7 @@ ul {
 }
 
 .bio__body p {
-  font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+  font-size: 1.15rem;
   line-height: 1.8;
   color: #CCCCCC;
   margin-bottom: 1.5em;
@@ -741,7 +723,7 @@ ul {
 }
 
 .featured-client__teaser p {
-  font-size: 1rem;
+  font-size: 1.15rem;
   line-height: 1.7;
   color: #CCCCCC;
   margin: 0;
@@ -890,57 +872,153 @@ ul {
 /* ------------------------------------------------------------
    WHY MUSIC MATTERS
    ------------------------------------------------------------ */
-.argument__body {
-  max-width: 720px;
+.argument-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: flex-start;
 }
 
-.argument__body p {
-  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+@media (min-width: 680px) {
+  .argument-wrapper {
+    grid-template-columns: 260px 1fr;
+    gap: 48px;
+  }
+}
+
+.argument-wrapper__text p {
+  font-size: 1.15rem;
   line-height: 1.85;
   color: #CCCCCC;
   margin-bottom: 1.6em;
 }
 
-.argument__body p:last-child {
+.argument-wrapper__text p:last-child {
   margin-bottom: 0;
 }
 
+.argument-wrapper__text a {
+  color: #FF2E95;
+}
+
+.argument-wrapper__image {
+  border: 2px solid #FF2E95;
+  box-shadow: 6px 6px 0 rgba(255, 46, 149, 0.4);
+}
+
+.argument-wrapper__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.argument-wrapper__image figcaption {
+  padding: 16px;
+  background: #111111;
+  font-family: 'Cardo', Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #CCCCCC;
+}
+
+.argument-wrapper__image figcaption a {
+  color: #FF2E95;
+}
+
 /* ------------------------------------------------------------
-   NOW SECTION
+   CURRENT PROJECTS GRID
    ------------------------------------------------------------ */
-.now__list {
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 700px) {
+  .project-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-card--featured {
+    grid-column: 1 / -1;
+  }
+}
+
+.project-card {
+  border: 2px solid #FF2E95;
+  box-shadow: 6px 6px 0 rgba(255, 46, 149, 0.4);
+  background: #111111;
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  max-width: 760px;
 }
 
-.now__item {
-  border-left: 3px solid #FF2E95;
-  padding: 20px 20px 20px 24px;
-  background: #111111;
+.project-card--media {
+  padding: 0;
+  overflow: hidden;
 }
 
-.now__item-title {
+.project-card__media {
+  width: 100%;
+  line-height: 0;
+}
+
+.project-card__media img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card--media .project-card__body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card__eyebrow {
   font-family: 'Francois One', sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.2em;
   color: #FF2E95;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
-.now__item-desc {
-  font-size: 1.05rem;
+.project-card__title {
+  font-family: 'Francois One', sans-serif;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.project-card__title a {
+  color: inherit;
+}
+
+.project-card__desc {
+  font-size: 1.15rem;
   color: #CCCCCC;
   line-height: 1.75;
   max-width: 560px;
 }
 
-.now__item-desc a {
+.project-card__desc a {
   color: #FF2E95;
   text-decoration: underline;
   text-decoration-color: rgba(255, 20, 147, 0.4);
+}
+
+.project-card__image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin-top: 20px;
 }
 
 .underline-highlight {
@@ -952,30 +1030,32 @@ ul {
 }
 
 /* The Sounding card — pink-wash treatment borrowed from thesounding.org */
-.now__item--sounding {
+.project-card--sounding {
   background: #FFE6EF;
-  border-left-color: #B0006B;
+  border-color: #B0006B;
+  box-shadow: 6px 6px 0 rgba(176, 0, 107, 0.3);
 }
 
-.now__item--sounding .now__item-title,
-.now__item--sounding .now__item-title a {
+.project-card--sounding .project-card__eyebrow,
+.project-card--sounding .project-card__title,
+.project-card--sounding .project-card__title a {
   color: #B0006B;
 }
 
-.now__item--sounding .now__item-title span {
+.project-card--sounding .project-card__title span {
   color: #7A5468;
 }
 
-.now__item--sounding .now__item-desc {
+.project-card--sounding .project-card__desc {
   color: #241420;
 }
 
-.now__item--sounding .now__item-desc a {
+.project-card--sounding .project-card__desc a {
   color: #B0006B;
   text-decoration-color: rgba(176, 0, 107, 0.4);
 }
 
-.now__item--sounding .now__learn-more {
+.project-card--sounding .now__learn-more {
   color: #B0006B;
 }
 
@@ -1002,7 +1082,7 @@ ul {
 }
 
 .press-item__desc {
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: #CCCCCC;
   line-height: 1.7;
   margin-bottom: 6px;
@@ -1022,7 +1102,7 @@ ul {
 .track-record__intro-quote {
   font-style: italic;
   color: #888;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   margin-bottom: 28px;
 }
 
@@ -1083,7 +1163,7 @@ ul {
    RELEASES / DISCOGRAPHY
    ------------------------------------------------------------ */
 .releases__intro {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: #CCCCCC;
   line-height: 1.75;
   max-width: 680px;
@@ -1419,7 +1499,7 @@ ul {
 }
 
 .timeline__entry-desc {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   color: #CCCCCC;
   line-height: 1.7;
   max-width: 520px;
@@ -1477,7 +1557,7 @@ ul {
    TIMELINE INTRO & COLLAPSIBLE ERAS
    ------------------------------------------------------------ */
 .timeline__intro {
-  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-size: 1.15rem;
   color: #CCCCCC;
   line-height: 1.75;
   max-width: 680px;
@@ -1534,7 +1614,7 @@ ul {
    ACCORDION TOGGLE (Releases, Recognition)
    ------------------------------------------------------------ */
 .section-teaser {
-  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-size: 1.15rem;
   color: #CCCCCC;
   line-height: 1.75;
   max-width: 680px;
@@ -1581,18 +1661,130 @@ ul {
 }
 
 /* ------------------------------------------------------------
-   BEYOND MUSIC GRID
+   BEYOND MUSIC CAROUSEL
    ------------------------------------------------------------ */
-.beyond-music__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+.beyond-carousel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
 }
 
-@media (min-width: 600px) {
-  .beyond-music__grid {
-    grid-template-columns: 1fr 1fr;
-  }
+.beyond-carousel-head .section-heading {
+  margin-bottom: 0;
+}
+
+.beyond-carousel-controls {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.carousel-arrow {
+  width: 44px;
+  height: 44px;
+  border: 2px solid #FF2E95;
+  background: transparent;
+  color: #FF2E95;
+  font-family: 'Francois One', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.carousel-arrow:hover {
+  background: #FF2E95;
+  color: #0A0A0A;
+}
+
+.beyond-carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.beyond-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.beyond-slide {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  background: #111111;
+  border-left: 3px solid #FF2E95;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.beyond-slide--photo {
+  flex: 0 0 300px;
+  padding: 0;
+  border-left: none;
+  border: 2px solid #FF2E95;
+  box-shadow: 6px 6px 0 rgba(255, 46, 149, 0.4);
+}
+
+.beyond-slide--photo img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.beyond-slide--photo .beyond-slide__body {
+  padding: 20px;
+}
+
+.beyond-slide__logo-badge {
+  background: #FFFFFF;
+  display: inline-block;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+.beyond-slide__logo-badge img {
+  display: block;
+  height: 24px;
+  width: auto;
+}
+
+.beyond-slide__logo-plain {
+  display: block;
+  height: 28px;
+  width: auto;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+.beyond-slide__year {
+  font-family: 'Francois One', sans-serif;
+  font-size: 2rem;
+  color: #FFFFFF;
+  text-shadow: 3px 3px 0 #FF2E95;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.beyond-slide__label {
+  font-family: 'Francois One', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #FF2E95;
+  margin-bottom: 10px;
+}
+
+.beyond-slide__desc {
+  font-size: 1.15rem;
+  color: #CCCCCC;
+  line-height: 1.7;
 }
 
 .beyond-card {
@@ -1611,9 +1803,41 @@ ul {
 }
 
 .beyond-card__desc {
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: #CCCCCC;
   line-height: 1.7;
+}
+
+/* ------------------------------------------------------------
+   CONTACT ROUTES (quick reference)
+   ------------------------------------------------------------ */
+.contact-routes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 46, 149, 0.2);
+}
+
+.contact-routes li {
+  font-size: 1.15rem;
+  color: #FFFFFF;
+}
+
+.contact-routes__label {
+  font-family: 'Francois One', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #CCCCCC;
+  margin-right: 10px;
+}
+
+.contact-routes a {
+  color: #FF2E95;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 46, 149, 0.4);
 }
 
 /* ------------------------------------------------------------
@@ -1658,6 +1882,7 @@ ul {
 .work-band {
   background: #FF2E95;
   padding: 48px 0;
+  border-top: 1px solid rgba(10, 10, 10, 0.25);
 }
 
 .work-band__inner {
@@ -1792,7 +2017,7 @@ ul {
 }
 
 .recognition__text {
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: #CCCCCC;
   line-height: 1.75;
   max-width: 560px;
@@ -1826,7 +2051,7 @@ ul {
 
 .dis-is__text {
   font-family: 'Cardo', Georgia, serif;
-  font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+  font-size: 1.15rem;
   line-height: 1.9;
   color: #241420;
 }
@@ -1870,6 +2095,36 @@ ul {
   flex-direction: column;
 }
 
+/* ------------------------------------------------------------
+   READ GRID (asymmetric)
+   ------------------------------------------------------------ */
+.read-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .read-grid {
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 64px;
+    align-items: start;
+  }
+
+  .read-item {
+    grid-column: span 5;
+  }
+
+  .read-item--lead {
+    grid-column: span 7;
+  }
+
+  .read-item--offset {
+    margin-top: 72px;
+  }
+}
+
 .video-wrap {
   position: relative;
   width: 100%;
@@ -1891,7 +2146,7 @@ ul {
 
 .video-label {
   font-family: 'Cardo', Georgia, serif;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: #CCCCCC;
   line-height: 1.5;
   max-width: 560px;
@@ -1900,6 +2155,33 @@ ul {
 
 .watch-more {
   margin-top: 8px;
+}
+
+.watch-item--more {
+  display: none;
+}
+
+.watch-more-inline {
+  font-family: 'Cardo', Georgia, serif;
+  font-style: italic;
+  font-size: 2.2rem;
+  color: #FF2E95;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 46, 149, 0.4);
+  line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+  .watch-item--more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .watch-more {
+    display: none;
+  }
 }
 
 .watch-more a {
@@ -2066,10 +2348,11 @@ ul {
    ------------------------------------------------------------ */
 @media (prefers-reduced-motion: no-preference) {
   .timeline__entry,
-  .now__item,
+  .project-card,
   .track-card,
   .release-card,
   .beyond-card,
+  .beyond-slide,
   .what-next__card,
   .press-quote,
   .watch-item {
@@ -2138,8 +2421,9 @@ ul {
 .podcast-guests {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 16px;
   margin: 28px 0 0;
+  align-items: start;
 }
 
 .podcast-guests img {
@@ -2151,6 +2435,7 @@ ul {
   box-shadow: 4px 4px 0 rgba(255, 46, 149, 0.4);
   display: block;
 }
+
 
 /* ------------------------------------------------------------
    PODCAST EMBED
