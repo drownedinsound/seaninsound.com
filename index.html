@@ -13,6 +13,32 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://seaninsound.com/assets/sean-headshot.jpg">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sean Adams",
+    "url": "https://seaninsound.com",
+    "image": "https://seaninsound.com/assets/sean-headshot.jpg",
+    "jobTitle": "Podcast Host, Artist Manager, Founder",
+    "description": "Sean Adams founded Drowned in Sound in 2000. He hosts the Drowned in Sound podcast, manages The Anchoress, co-founded The Sounding, and founded the Association of Music Editors.",
+    "sameAs": [
+      "https://linkedin.com/in/seaninsound",
+      "https://bsky.app/profile/drownedinsound.bsky.social",
+      "https://instagram.com/seaninsound",
+      "https://tiktok.com/@drownedinsoundorg",
+      "https://www.youtube.com/@DrownedinSound"
+    ],
+    "worksFor": [
+      { "@type": "Organization", "name": "Drowned in Sound", "url": "https://drownedinsound.org" },
+      { "@type": "Organization", "name": "The Sounding", "url": "https://thesounding.org" }
+    ],
+    "founder": [
+      { "@type": "Organization", "name": "Drowned in Sound", "foundingDate": "2000" },
+      { "@type": "Organization", "name": "Association of Music Editors", "url": "https://music-editors.com", "foundingDate": "2025" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -25,9 +51,8 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="site-nav__links" id="nav-links" role="list">
-        <li><a href="#bio">About</a></li>
+        <li><a href="#timeline-strip">Timeline</a></li>
         <li><a href="#now">Current Projects</a></li>
-        <li><a href="#timeline">Timeline</a></li>
         <li><a href="#press">Press</a></li>
         <li><a class="site-nav__cta" href="#work-with-me">Work With Me</a></li>
       </ul>
@@ -42,8 +67,7 @@
       <div class="hero__inner">
 
         <h1 class="hero__name">SEAN ADAMS</h1>
-        <p class="hero__tagline">Music is upstream from politics.</p>
-        <p class="hero__title">Founder, Drowned in Sound &middot; Podcast Host &middot; Artist Manager &middot; Consultant</p>
+        <p class="hero__statement">Sean Adams has spent 25 years a few steps ahead of music&rsquo;s zeitgeist. What he&rsquo;s building now is his answer to what comes next.</p>
 
         <nav class="hero__links" aria-label="Key links">
           <a class="hero__link-btn hero__link-btn--primary" href="https://drownedinsound.org" target="_blank" rel="noopener">Subscribe to the DiS Newsletter</a>
@@ -69,6 +93,27 @@
           </a>
         </div>
 
+        <div class="hero__stats stats" aria-label="Key numbers">
+          <div class="stats__grid">
+            <div class="stats__item">
+              <span class="stats__number" data-value="25">25</span>
+              <span class="stats__label">Years of DiS</span>
+            </div>
+            <div class="stats__item">
+              <span class="stats__number" data-value="300K">300K</span>
+              <span class="stats__label">Podcast impressions/month</span>
+            </div>
+            <div class="stats__item">
+              <span class="stats__number" data-value="2–3M">2&ndash;3M</span>
+              <span class="stats__label">Forum pageviews/month</span>
+            </div>
+            <div class="stats__item">
+              <span class="stats__number" data-value="200K">200K</span>
+              <span class="stats__label">Social followers</span>
+            </div>
+          </div>
+        </div>
+
         <div class="hero__quote-photo quote-photo">
           <div class="quote-photo__text">
             <p class="closing-quote__text">&ldquo;For any rock misfit searching for an alternative to the mainstream music press, immersion in Drowned in Sound is a must.&rdquo;</p>
@@ -84,195 +129,94 @@
   </header>
 
   <!-- ========================================================
-       MANIFESTO
+       TIMELINE STRIP (signature element)
        ======================================================== -->
-  <section id="manifesto" class="section section--manifesto">
+  <section id="timeline-strip" class="section section--dark timeline-strip">
     <div class="container">
-      <div class="dis-is__inner">
-        <h2 class="section-heading">Sean Adams founded Drowned in Sound in October 2000</h2>
-        <div class="dis-is__text">
-          <p>DiS is that hopeful vision in your mind&rsquo;s eye the Monday morning after Glastonbury.</p>
-          <p>It&rsquo;s the goosebumps you got when you first heard Bj&ouml;rk, Billie Eilish, Aurora, ANOHNI or Brian Eno speak about the environment in ways that felt far too close to home and made global change feel urgent.</p>
-          <p>It&rsquo;s that realisation that your speakers were distorting when you turned <span class="pink-phrase">Rage Against The Machine beyond eleven</span>.</p>
-          <p>It&rsquo;s that moment you truly understood what Dead Prez, Kathleen Hanna or Kendrick Lamar meant about injustice.</p>
-          <p>It&rsquo;s not just believing that a new world is possible, it&rsquo;s <span class="pink-phrase">working together to make it real</span>.</p>
-        </div>
-      </div>
+      <h2 class="section-heading">25 Years, Briefly</h2>
+      <ol class="timeline-strip__list">
+
+        <li class="timeline-strip__entry">
+          <span class="timeline-strip__year">1998</span>
+          <span class="timeline-strip__label">Curation</span>
+          <span class="timeline-strip__text">Reviews first demos by Muse and Coldplay</span>
+        </li>
+
+        <li class="timeline-strip__entry">
+          <span class="timeline-strip__year">2000</span>
+          <span class="timeline-strip__label">Community</span>
+          <span class="timeline-strip__text">Launches Drowned in Sound and its community forums, still gathering 26 years later</span>
+        </li>
+
+        <li class="timeline-strip__entry">
+          <span class="timeline-strip__year">2003</span>
+          <span class="timeline-strip__label">Curation</span>
+          <span class="timeline-strip__text">Releases debut singles by Kaiser Chiefs and Bat for Lashes on DiS Recordings</span>
+        </li>
+
+        <li class="timeline-strip__entry">
+          <span class="timeline-strip__year">2005</span>
+          <span class="timeline-strip__label">Broadcast</span>
+          <span class="timeline-strip__text">Starts one of the UK&rsquo;s first music podcasts</span>
+        </li>
+
+        <li class="timeline-strip__entry">
+          <span class="timeline-strip__year">2007</span>
+          <span class="timeline-strip__label">Curation</span>
+          <span class="timeline-strip__text">Recommends a new artist called Adele after seeing her first gig</span>
+        </li>
+
+        <li class="timeline-strip__entry">
+          <span class="timeline-strip__year">2008</span>
+          <span class="timeline-strip__label">Publishing</span>
+          <span class="timeline-strip__text">The Quietus launches out of DiS&rsquo; joint venture with BSkyB</span>
+        </li>
+
+        <li class="timeline-strip__entry">
+          <span class="timeline-strip__year">2012</span>
+          <span class="timeline-strip__label">Management</span>
+          <span class="timeline-strip__text">Launches CCCLX, a 360&deg; artist management company (the Roman numerals give it away)</span>
+        </li>
+
+        <li class="timeline-strip__entry">
+          <span class="timeline-strip__year">2016</span>
+          <span class="timeline-strip__label">Broadcast</span>
+          <span class="timeline-strip__text">Joins the BBC to work the new frontier of social video, at 6 Music and Radio 2</span>
+        </li>
+
+        <li class="timeline-strip__entry">
+          <span class="timeline-strip__year">2019</span>
+          <span class="timeline-strip__label">Community</span>
+          <span class="timeline-strip__text">DiS pauses publishing; the community doesn&rsquo;t</span>
+        </li>
+
+        <li class="timeline-strip__entry">
+          <span class="timeline-strip__year">2024</span>
+          <span class="timeline-strip__label">Campaign</span>
+          <span class="timeline-strip__text">Runs strategic comms for a tactical voting campaign that reached 1.75 million people</span>
+        </li>
+
+        <li class="timeline-strip__entry">
+          <span class="timeline-strip__year">2026</span>
+          <span class="timeline-strip__label">Broadcast</span>
+          <span class="timeline-strip__text">Launches the DiS Podcast Network, doubling in six months</span>
+        </li>
+
+      </ol>
     </div>
   </section>
 
   <!-- ========================================================
-       READ
+       WHAT COMES NEXT (pivot)
        ======================================================== -->
-  <section class="section section--alt">
+  <section id="pivot" class="section section--alt pivot">
     <div class="container">
-      <h2 class="section-heading">Read</h2>
-      <div class="read-grid">
-
-        <div class="watch-item read-item read-item--lead">
-          <a class="now__screenshot-link" href="https://www.drownedinsound.org/predictably-the-right-wing-culture-war-is-wrong-about-the-brits/" target="_blank" rel="noopener">
-            <img class="now__screenshot" src="assets/brits-article.jpg" alt="Predictably, the right-wing culture war is wrong about the BRITs" width="760" height="auto" loading="lazy">
-          </a>
-          <a class="now__learn-more" href="https://www.drownedinsound.org/predictably-the-right-wing-culture-war-is-wrong-about-the-brits/" target="_blank" rel="noopener">Read &rarr;</a>
-        </div>
-
-        <div class="watch-item read-item read-item--offset">
-          <a class="now__screenshot-link" href="https://www.drownedinsound.org/nine-inch-nails-still-sound-like-the-future/" target="_blank" rel="noopener">
-            <img class="now__screenshot" src="assets/nine-inch-nails-article.jpg" alt="Nine Inch Nails still sound like the future" width="760" height="auto" loading="lazy">
-          </a>
-          <a class="now__learn-more" href="https://www.drownedinsound.org/nine-inch-nails-still-sound-like-the-future/" target="_blank" rel="noopener">Read &rarr;</a>
-        </div>
-
-        <div class="watch-item read-item">
-          <a class="now__screenshot-link" href="https://www.drownedinsound.org/the-internet-is-furious-at-spotify-and-not-because-of-royalties-this-time/" target="_blank" rel="noopener">
-            <img class="now__screenshot" src="assets/spotify-article.jpg" alt="The internet is furious at Spotify, and not because of royalties this time" width="760" height="auto" loading="lazy">
-          </a>
-          <a class="now__learn-more" href="https://www.drownedinsound.org/the-internet-is-furious-at-spotify-and-not-because-of-royalties-this-time/" target="_blank" rel="noopener">Read &rarr;</a>
-        </div>
-
-        <div class="watch-item read-item read-item--lead read-item--offset">
-          <a class="now__screenshot-link" href="https://www.drownedinsound.org/decoding-hayley-williams-17-song-masterpiece/" target="_blank" rel="noopener">
-            <img class="now__screenshot" src="assets/hayley-williams-article.jpg" alt="Decoding Hayley Williams' 17-song masterpiece" width="760" height="auto" loading="lazy">
-          </a>
-          <a class="now__learn-more" href="https://www.drownedinsound.org/decoding-hayley-williams-17-song-masterpiece/" target="_blank" rel="noopener">Read &rarr;</a>
-        </div>
-
-      </div>
+      <p class="pivot__text">The bet I&rsquo;m making now is the same one I&rsquo;ve been making since the forums opened: music fans have more collective power than they realise, they just don&rsquo;t have anywhere to point it yet. Everything below is an attempt to build that somewhere, and it&rsquo;s the work I&rsquo;ve always done, curating and convening, pointed at a bigger problem. A podcast network having solutions-focused conversations about music and power. A weekly newsletter recommending music and investigating the systems behind it. A print magazine for grassroots venues, arriving this autumn. And a collective voice for the people still editing music publications, because someone has to.</p>
     </div>
   </section>
 
   <!-- ========================================================
-       WHY MUSIC MATTERS
-       ======================================================== -->
-  <section id="argument" class="section section--dark">
-    <div class="container">
-      <h2 class="section-heading">Why Music Matters</h2>
-      <div class="argument-wrapper">
-        <figure class="argument-wrapper__image">
-          <img src="assets/sean-another-world-possible.jpg" alt="Sean Adams in his home studio, pointing at his t-shirt which reads 'Another World Is Possible'" width="801" height="1000" loading="lazy">
-          <figcaption>Not a slogan. A t-shirt from <a href="https://musicdeclares.shop/collection/new-hope-over-fear/" target="_blank" rel="noopener">Music Declares Emergency&rsquo;s shop</a>, and the whole argument in four words.</figcaption>
-        </figure>
-        <div class="argument-wrapper__text">
-          <p>I used to think DiS was a music site that occasionally got political. I don&rsquo;t think that anymore.</p>
-          <p>Andrew Breitbart built a media empire on the idea that politics is downstream from culture, and the far right spent two decades proving him right while most of the media treated culture as the entertainment pages. I want to flip that around: culture, and the millions of working people who make and love it, are upstream of the 3000 billionaires now trying to own it.</p>
-          <p>Corporate power has consolidated across the music industry in ways most fans never see. The same private equity funds buying up festivals are invested in fossil fuel. Spotify&rsquo;s Daniel Ek has poured money into the military AI company Helsing. Deezer&rsquo;s Len Blavatnik, who also holds a large stake in Warner Music, is under Ukrainian sanctions while backing Netanyahu.</p>
-          <p>Music fans have more collective power than they realise, they just don&rsquo;t have anywhere to point it yet. Everything I&rsquo;ve built, the records, the grassroots shows, the tactical voting campaigns, has been an attempt to build that somewhere. The <a href="https://drownedinsound.org" target="_blank" rel="noopener">newsletter</a>, podcast, and forthcoming magazine is the current version of that vision.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       WATCH
-       ======================================================== -->
-  <section id="watch" class="section section--watch">
-    <div class="container">
-      <h2 class="section-heading">Watch</h2>
-      <p class="section-teaser">Video production is its own skill set, separate from the podcast itself, and I edit and produce nearly all of these myself.</p>
-      <div class="watch-grid">
-
-        <div class="watch-item">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/YUO2KEU0lxI" title="Kelly Lee Owens: Record Shops to Depeche Mode Stadium Shows - Drowned in Sound Podcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="video-label">Kelly Lee Owens: Record Shops to Depeche Mode Stadium Shows</p>
-        </div>
-
-        <div class="watch-item">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/8UlmjoEzSq4" title="My current music obsession: Sofia Isella" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="video-label">My current music obsession: Sofia Isella</p>
-        </div>
-
-        <div class="watch-item">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/nHT-5nGNtok" title="A food bank for tickets: how Tickets for Good is changing live music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="video-label">A food bank for tickets: how Tickets for Good is changing live music</p>
-        </div>
-
-        <div class="watch-item">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/KbWUegJLMAs" title="Our guide to ethical alternatives to Spotify" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="video-label">Our guide to ethical alternatives to Spotify</p>
-        </div>
-
-        <div class="watch-item">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/Jtsnq-VkX9o" title="Gazelle Twin on when boycotts work" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="video-label">Gazelle Twin on when boycotts work</p>
-        </div>
-
-        <div class="watch-item">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/RXeytHEVYXw" title="Video produced for Studio Richter Mahr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="video-label">Produced for Studio Richter Mahr</p>
-        </div>
-
-        <div class="watch-item">
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/LqS5W14crX8" title="Video produced by Sean Adams for the BBC" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="video-label">Produced for the BBC</p>
-        </div>
-
-        <div class="watch-item watch-item--more">
-          <a class="watch-more-inline" href="https://www.youtube.com/@DrownedinSound/videos" target="_blank" rel="noopener">More on YouTube &rarr;</a>
-        </div>
-
-      </div>
-      <p class="watch-more"><a href="https://www.youtube.com/@DrownedinSound/videos" target="_blank" rel="noopener">More on YouTube &rarr;</a></p>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       BIO
-       ======================================================== -->
-  <section id="bio" class="section section--alt">
-    <div class="container">
-      <p class="bio__statement">Music is upstream from politics.</p>
-      <div class="bio__body">
-        <p>I've spent just under three decades building, posting, releasing and experimenting in music - usually a few steps ahead of the zeitgeist.</p>
-        <p>Back in 1998, I started out reviewing demos by <strong>Muse</strong> and <strong>Coldplay</strong>, then launched one of the UK's first music blogs, <a href="https://drownedinsound.org" target="_blank" rel="noopener">Drowned in Sound</a>, ran its record label that released debut singles by <strong>Kaiser Chiefs</strong> and <strong>Bat for Lashes</strong> (<a href="#releases">the full discography's further down the page</a>), and promoted hundreds of grassroots shows.</p>
-        <p>I've worked with artists from <strong>Ed Harcourt</strong> to <strong>Max Richter</strong>, written a fortnightly column for <strong>The Sunday Times</strong>, and created viral content reaching millions at <strong>BBC Radio 6 Music</strong> (<a href="#beyond-music">more on all of that here</a>), and ran the strategic comms for a tactical voting campaign that reached 1.75 million people. <a href="#recognition">The Times once named me one of its Top 30 Power Players Under 30</a>, which still feels like it happened to someone else.</p>
-        <p>Today, I host the Drowned in Sound podcast and am developing a podcast network, you can hear how I think about all this in <a href="#press">recent interviews for CounterPunch, Music Week and The Drum</a>. I also co-run <a href="https://thesounding.org" target="_blank" rel="noopener">The Sounding</a> - the media production company behind DiS and a growing network of shows - and founded the <a href="https://music-editors.com" target="_blank" rel="noopener">Association of Music Editors</a>.</p>
-        <p>I currently manage <strong><a href="https://www.theanchoress.co.uk" target="_blank" rel="noopener">The Anchoress</a></strong> (Catherine Anne Davies), one of the most compelling self-producing artists working in music today.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       STATS BAND
-       ======================================================== -->
-  <section id="stats" class="stats">
-    <div class="container">
-      <div class="stats__grid">
-        <div class="stats__item">
-          <span class="stats__number" data-value="25">25</span>
-          <span class="stats__label">Years of DiS</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__number" data-value="300K">300K</span>
-          <span class="stats__label">Podcast impressions/month</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__number" data-value="2–3M">2&ndash;3M</span>
-          <span class="stats__label">Forum pageviews/month</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__number" data-value="200K">200K</span>
-          <span class="stats__label">Social followers</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       NOW
+       NOW / CURRENT PROJECTS
        ======================================================== -->
   <section id="now" class="section section--dark">
     <div class="container">
@@ -282,7 +226,7 @@
         <div class="project-card project-card--featured">
           <p class="project-card__eyebrow">Podcast</p>
           <h3 class="project-card__title">Drowned in Sound Podcast</h3>
-          <p class="project-card__desc">Conversations about music, power, and what comes next. Recent guests include Enter Shikari, Faithless, Kelly Lee Owens, Gazelle Twin, and Lord Kevin Brennan. 300,000 impressions/month. 50,000 downloads/year. +100% growth in the last 6 months. Sponsored by <a href="https://www.qobuz.com" target="_blank" rel="noopener">Qobuz</a>.</p>
+          <p class="project-card__desc">Conversations about music, power, and what comes next. Recent guests include Enter Shikari, Faithless, Kelly Lee Owens, Gazelle Twin, and Lord Kevin Brennan. 300,000 impressions/month. 50,000 downloads/year. +100% growth in the last 6 months. Joined more recently by co-host Helena Wadia. Sponsored by <a href="https://www.qobuz.com" target="_blank" rel="noopener">Qobuz</a>.</p>
           <div class="podcast-guests">
             <img src="assets/podcast-art-school-girlfriend.jpg" alt="Art School Girlfriend - DiS Podcast" loading="lazy">
             <img src="assets/podcast-kwes.jpg" alt="Kwes - DiS Podcast" loading="lazy">
@@ -407,6 +351,174 @@
   </section>
 
   <!-- ========================================================
+       WHY MUSIC MATTERS
+       ======================================================== -->
+  <section id="argument" class="section section--dark">
+    <div class="container">
+      <p class="epigraph">Music is upstream from politics.</p>
+      <h2 class="section-heading">Why Music Matters</h2>
+      <div class="argument-wrapper">
+        <figure class="argument-wrapper__image">
+          <img src="assets/sean-another-world-possible.jpg" alt="Sean Adams in his home studio, pointing at his t-shirt which reads 'Another World Is Possible'" width="801" height="1000" loading="lazy">
+          <figcaption>Not a slogan. A t-shirt from <a href="https://musicdeclares.shop/collection/new-hope-over-fear/" target="_blank" rel="noopener">Music Declares Emergency&rsquo;s shop</a>, and the whole argument in four words.</figcaption>
+        </figure>
+        <div class="argument-wrapper__text">
+          <p>I used to think DiS was a music site that occasionally got political. I don&rsquo;t think that anymore.</p>
+          <p>Andrew Breitbart built a media empire on the idea that politics is downstream from culture, and the far right spent two decades proving him right while most of the media treated culture as the entertainment pages. I want to flip that around: culture, and the millions of working people who make and love it, are upstream of the 3000 billionaires now trying to own it.</p>
+          <p>Corporate power has consolidated across the music industry in ways most fans never see. The same private equity funds buying up festivals are invested in fossil fuel. Spotify&rsquo;s Daniel Ek has poured money into the military AI company Helsing. Deezer&rsquo;s Len Blavatnik, who also holds a large stake in Warner Music, is under Ukrainian sanctions while backing Netanyahu.</p>
+          <p>Music fans have more collective power than they realise, they just don&rsquo;t have anywhere to point it yet. Everything I&rsquo;ve built, the records, the grassroots shows, the tactical voting campaigns, has been an attempt to build that somewhere. The <a href="https://drownedinsound.org" target="_blank" rel="noopener">newsletter</a>, podcast, and forthcoming magazine is the current version of that vision.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       READ
+       ======================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="section-heading">Read</h2>
+      <div class="read-grid">
+
+        <div class="watch-item read-item read-item--lead">
+          <a class="now__screenshot-link" href="https://www.drownedinsound.org/predictably-the-right-wing-culture-war-is-wrong-about-the-brits/" target="_blank" rel="noopener">
+            <img class="now__screenshot" src="assets/brits-article.jpg" alt="Predictably, the right-wing culture war is wrong about the BRITs" width="760" height="auto" loading="lazy">
+          </a>
+          <a class="now__learn-more" href="https://www.drownedinsound.org/predictably-the-right-wing-culture-war-is-wrong-about-the-brits/" target="_blank" rel="noopener">Read &rarr;</a>
+        </div>
+
+        <div class="watch-item read-item read-item--offset">
+          <a class="now__screenshot-link" href="https://www.drownedinsound.org/nine-inch-nails-still-sound-like-the-future/" target="_blank" rel="noopener">
+            <img class="now__screenshot" src="assets/nine-inch-nails-article.jpg" alt="Nine Inch Nails still sound like the future" width="760" height="auto" loading="lazy">
+          </a>
+          <a class="now__learn-more" href="https://www.drownedinsound.org/nine-inch-nails-still-sound-like-the-future/" target="_blank" rel="noopener">Read &rarr;</a>
+        </div>
+
+        <div class="watch-item read-item">
+          <a class="now__screenshot-link" href="https://www.drownedinsound.org/the-internet-is-furious-at-spotify-and-not-because-of-royalties-this-time/" target="_blank" rel="noopener">
+            <img class="now__screenshot" src="assets/spotify-article.jpg" alt="The internet is furious at Spotify, and not because of royalties this time" width="760" height="auto" loading="lazy">
+          </a>
+          <a class="now__learn-more" href="https://www.drownedinsound.org/the-internet-is-furious-at-spotify-and-not-because-of-royalties-this-time/" target="_blank" rel="noopener">Read &rarr;</a>
+        </div>
+
+        <div class="watch-item read-item read-item--lead read-item--offset">
+          <a class="now__screenshot-link" href="https://www.drownedinsound.org/decoding-hayley-williams-17-song-masterpiece/" target="_blank" rel="noopener">
+            <img class="now__screenshot" src="assets/hayley-williams-article.jpg" alt="Decoding Hayley Williams' 17-song masterpiece" width="760" height="auto" loading="lazy">
+          </a>
+          <a class="now__learn-more" href="https://www.drownedinsound.org/decoding-hayley-williams-17-song-masterpiece/" target="_blank" rel="noopener">Read &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       WATCH
+       ======================================================== -->
+  <section id="watch" class="section section--watch">
+    <div class="container">
+      <h2 class="section-heading">Watch</h2>
+      <p class="section-teaser">Video production is its own skill set, separate from the podcast itself, and I edit and produce nearly all of these myself.</p>
+      <div class="watch-grid">
+
+        <div class="watch-item">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/YUO2KEU0lxI" title="Kelly Lee Owens: Record Shops to Depeche Mode Stadium Shows - Drowned in Sound Podcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="video-label">Kelly Lee Owens: Record Shops to Depeche Mode Stadium Shows</p>
+        </div>
+
+        <div class="watch-item">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/8UlmjoEzSq4" title="My current music obsession: Sofia Isella" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="video-label">My current music obsession: Sofia Isella</p>
+        </div>
+
+        <div class="watch-item">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/nHT-5nGNtok" title="A food bank for tickets: how Tickets for Good is changing live music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="video-label">A food bank for tickets: how Tickets for Good is changing live music</p>
+        </div>
+
+        <div class="watch-item">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/Jtsnq-VkX9o" title="Gazelle Twin on when boycotts work" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="video-label">Gazelle Twin on when boycotts work</p>
+        </div>
+
+        <div class="watch-item watch-item--more">
+          <a class="watch-more-inline" href="https://www.youtube.com/@DrownedinSound/videos" target="_blank" rel="noopener">More on YouTube &rarr;</a>
+        </div>
+
+      </div>
+      <p class="watch-more"><a href="https://www.youtube.com/@DrownedinSound/videos" target="_blank" rel="noopener">More on YouTube &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       PRESS & INTERVIEWS
+       ======================================================== -->
+  <section id="press" class="section section--dark">
+    <div class="container">
+      <h2 class="section-heading">Press &amp; Interviews</h2>
+      <ul class="press-list">
+
+        <li class="press-item">
+          <p class="press-item__title"><a href="https://www.thedrum.com/podcast/as-social-marketing-tactics-for-music-become-headline-news-is-the-band-geese-a-psy-op" target="_blank" rel="noopener">The Drum: &ldquo;Is the band Geese a &lsquo;psy-op&rsquo;?&rdquo;</a></p>
+          <p class="press-item__desc">A conversation with Sam Anderson about whether paid social marketing dressed up as authentic fan content, using the indie band Geese as the case study, counts as deception, and what music marketing actually looks like in 2026.</p>
+          <p class="press-item__meta">The Drum Podcast &middot; July 2026</p>
+        </li>
+
+        <li class="press-item">
+          <p class="press-item__title"><a href="https://www.musicweek.com/interviews/read/in-pod-we-trust-drowned-in-sound/094301" target="_blank" rel="noopener">Music Week: &ldquo;In Pod We Trust: Drowned In Sound&rdquo;</a></p>
+          <p class="press-item__desc">On relaunching the DiS podcast and co-hosting with Helena Wadia.</p>
+          <p class="press-item__meta">Music Week &middot; June 2026</p>
+        </li>
+
+        <li class="press-item">
+          <p class="press-item__title"><a href="https://www.counterpunch.org/2026/05/15/musics-collective-power-w-sean-adams/" target="_blank" rel="noopener">CounterPunch Radio: &ldquo;The Collective Power of Music&rdquo;</a></p>
+          <p class="press-item__desc">Tori Tsui hosts a conversation about music&rsquo;s collective power, ranging across Spotify, AI, militarism and capitalism, and what independent music can still do about all of it.</p>
+          <p class="press-item__meta">CounterPunch, interview by Tori Tsui &middot; May 2026</p>
+        </li>
+
+        <li class="press-item">
+          <p class="press-item__title"><a href="https://youtu.be/21A6AI1_8-4" target="_blank" rel="noopener">Sounds Like Change: &ldquo;What&rsquo;s Broken Collectively Can Be Fixed Collectively&rdquo;</a></p>
+          <p class="press-item__desc">A conversation with Ariana Alexander-Sefre that starts with J&oacute;hann J&oacute;hannsson&rsquo;s &lsquo;Fordlandia&rsquo; and ends up covering ADHD, the wellness industry&rsquo;s blind spots, and the StopTheTories campaign. Recorded as a pilot episode Ariana decided was too good not to publish.</p>
+          <p class="press-item__meta">Sounds Like Change, interview by Ariana Alexander-Sefre</p>
+        </li>
+
+        <li class="press-item">
+          <p class="press-item__title"><a href="https://www.huckmag.com/article/music-journalism-crisis-oblivion-salvation-save-association-editors-sean-adams-drowned-in-sound" target="_blank" rel="noopener">Huck Magazine: &ldquo;We Gotta Get Through This&rdquo;</a></p>
+          <p class="press-item__desc">A feature on the crisis in music journalism and the founding of the Association of Music Editors.</p>
+          <p class="press-item__meta">Huck Magazine, Issue 82 &middot; 2025</p>
+          <a class="now__screenshot-link" href="https://www.huckmag.com/article/music-journalism-crisis-oblivion-salvation-save-association-editors-sean-adams-drowned-in-sound" target="_blank" rel="noopener" style="display:block;margin-top:16px;max-width:400px;">
+            <img class="now__screenshot" src="assets/huck-article-screenshot.jpg" alt="Huck Magazine Issue 82 - As music journalism marches towards oblivion, a plea for salvation" width="400" height="auto" loading="lazy">
+          </a>
+        </li>
+
+        <li class="press-item">
+          <p class="press-item__title">ICMP: &ldquo;Sounds Like These&rdquo;</p>
+          <p class="press-item__meta">ICMP Sounds Like These podcast <!-- TODO(Sean): add episode URL --></p>
+        </li>
+
+        <li class="press-item">
+          <p class="press-item__title"><a href="https://musicistheanswer.substack.com/p/sean-adams" target="_blank" rel="noopener">Music Is The Answer: Q&amp;A with Marcus Barnes</a></p>
+          <p class="press-item__meta">Music Is The Answer</p>
+        </li>
+
+        <li class="press-item">
+          <p class="press-item__title"><a href="https://muckrack.com/sean-adams-3" target="_blank" rel="noopener">Verified journalist profile</a></p>
+          <p class="press-item__meta">Muck Rack</p>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================
        THE ANCHORESS - FEATURED CLIENT
        ======================================================== -->
   <section id="featured-client" class="section section--dark featured-client">
@@ -484,10 +596,6 @@
               <p class="featured-client__quote-text">&ldquo;Wales&rsquo;s much more explicitly feminist answer to Lana Del Rey.&rdquo;</p>
               <p class="featured-client__quote-source">&mdash; Ann Powers, NPR</p>
             </div>
-            <div class="featured-client__quote-item">
-              <p class="featured-client__quote-text">A long-time fan who personally invited her to headline his Meltdown Festival.</p>
-              <p class="featured-client__quote-source">&mdash; Robert Smith, The Cure</p>
-            </div>
           </div>
 
           <div class="featured-client__teaser">
@@ -500,10 +608,59 @@
   </section>
 
   <!-- ========================================================
-       WHY MUSIC MATTERS
+       WORK BAND
        ======================================================== -->
+  <section class="work-band">
+    <div class="container work-band__inner">
+      <h2 class="work-band__heading">Work With Me</h2>
+      <div class="work-band__actions">
+        <a class="work-band__btn work-band__btn--dark" href="mailto:sean@drownedinsound.org?subject=Speaking%20enquiry">Book a Talk</a>
+        <a class="work-band__btn work-band__btn--light" href="mailto:tom@drownedinsound.org?subject=Partnership%20enquiry">Partnership Enquiry</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ========================================================
-       A QUARTER CENTURY - TIMELINE
+       WORK WITH ME
+       ======================================================== -->
+  <section id="work-with-me" class="section section--alt">
+    <div class="container">
+      <ul class="contact-routes">
+        <li><span class="contact-routes__label">Press, podcast guests, speaking</span> <a href="mailto:sean@drownedinsound.org">sean@drownedinsound.org</a></li>
+        <li><span class="contact-routes__label">Partnerships &amp; consultancy</span> <a href="https://thesounding.org" target="_blank" rel="noopener">thesounding.org</a></li>
+      </ul>
+      <div class="work-with-me__grid">
+
+        <div class="beyond-card work-with-me__card">
+          <p class="beyond-card__label">Speaking &amp; masterclasses</p>
+          <p class="beyond-card__desc">I speak about music, power, platform ethics, and the future of independent culture. Past talks at SXSW, Iceland Airwaves, Primavera Pro, Tallinn Music Week, and Tony Wilson&rsquo;s In The City. I also run masterclasses at BIMM, EEMA, and ICMP, available to book for music industry education programmes.</p>
+          <a class="hero__link-btn hero__link-btn--primary work-with-me__cta" href="mailto:sean@drownedinsound.org?subject=Speaking%20enquiry">Book a talk or masterclass</a>
+        </div>
+
+        <div class="beyond-card work-with-me__card">
+          <p class="beyond-card__label">Podcast guest</p>
+          <p class="beyond-card__desc">I&rsquo;ve been hosting and making podcasts since 2005. I can talk about music journalism, streaming &amp; creator economics, climate justice, independent culture, platform ethics, broligarchy, tactical voting, and the politics of music fandom.</p>
+          <a class="hero__link-btn hero__link-btn--primary work-with-me__cta" href="mailto:sean@drownedinsound.org?subject=Podcast%20guest%20enquiry">Get in touch</a>
+        </div>
+
+        <div class="beyond-card work-with-me__card">
+          <p class="beyond-card__label">Media &amp; Consultancy (The Sounding)</p>
+          <p class="beyond-card__desc">Content strategy, campaigns, and media production for purpose-driven organisations in music and beyond. Co-run with Tom Venvell.</p>
+          <a class="hero__link-btn hero__link-btn--primary work-with-me__cta" href="https://thesounding.org" target="_blank" rel="noopener">Visit The Sounding</a>
+        </div>
+
+        <div class="beyond-card work-with-me__card">
+          <p class="beyond-card__label">DiS partnership</p>
+          <p class="beyond-card__desc">8,000+ newsletter subscribers. 48% open rate (industry average: ~20%). 300K podcast impressions/month. An audience that actually cares - about music, ethics, and what comes next.</p>
+          <a class="hero__link-btn hero__link-btn--primary work-with-me__cta" href="mailto:tom@drownedinsound.org?subject=Partnership%20enquiry">Talk to us</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       A QUARTER CENTURY - DEEP TIMELINE (collapsed by default)
        ======================================================== -->
   <section id="timeline" class="section section--alt">
     <div class="container">
@@ -617,9 +774,21 @@
               </div>
               <div class="timeline__content">
                 <p class="timeline__year">2008</p>
-                <p class="timeline__entry-title">The Quietus launched from DiS</p>
-                <p class="timeline__entry-desc timeline__entry-desc--collapsible">Spawned and funded from a DiS ad revenue advance.</p>
+                <p class="timeline__entry-title">The Quietus launches out of DiS&rsquo; joint venture with BSkyB</p>
+                <p class="timeline__entry-desc timeline__entry-desc--collapsible">Founded by John Doran and Luke Turner. <a href="https://thequietus.com" target="_blank" rel="noopener">thequietus.com</a></p>
                 <div class="tags"><span class="tag tag--publication">publication</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry" data-expanded="false">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2008</p>
+                <p class="timeline__entry-title">DiS partners with Summer Sundae festival</p>
+                <p class="timeline__entry-desc timeline__entry-desc--collapsible">Festival curation partnership through 2010, when DiS&rsquo;s 10th anniversary lineup was headlined by The Futureheads and Frightened Rabbit.</p>
+                <div class="tags"><span class="tag tag--live">live</span></div>
               </div>
             </div>
 
@@ -650,9 +819,9 @@
                 <div class="timeline__dot"></div>
               </div>
               <div class="timeline__content">
-                <p class="timeline__year">2009</p>
+                <p class="timeline__year">2009&ndash;2012</p>
                 <p class="timeline__entry-title">Sunday Times &ldquo;My Generation&rdquo; column</p>
-                <p class="timeline__entry-desc timeline__entry-desc--collapsible">Fortnightly column on music &times; technology &times; commerce, Culture section (to 2012).</p>
+                <p class="timeline__entry-desc timeline__entry-desc--collapsible">Wrote on music and technology as the industry went through its great transition, alternating with fellow columnists including Lily Allen and Sophie Herdman, who went on to become Acast&rsquo;s UK content director.</p>
                 <div class="tags"><span class="tag tag--media">media</span></div>
               </div>
             </div>
@@ -664,7 +833,7 @@
               <div class="timeline__content">
                 <p class="timeline__year">2010</p>
                 <p class="timeline__entry-title">Spotify playlist curator</p>
-                <p class="timeline__entry-desc timeline__entry-desc--collapsible">Monthly playlists for Spotify&rsquo;s official blog (to 2011). Best Publication, Record of the Day 2010.</p>
+                <p class="timeline__entry-desc timeline__entry-desc--collapsible">Monthly playlists for Spotify&rsquo;s official blog, beginning while Spotify was still in beta (to 2011). Best Publication, Record of the Day 2010.</p>
                 <div class="tags"><span class="tag tag--publication">publication</span></div>
               </div>
             </div>
@@ -750,7 +919,6 @@
               </div>
             </div>
 
-
             <div class="timeline__entry" data-expanded="false">
               <div class="timeline__dot-col">
                 <div class="timeline__dot"></div>
@@ -760,6 +928,29 @@
                 <p class="timeline__entry-title">The Trawl - podcast editor &amp; engineer</p>
                 <p class="timeline__entry-desc timeline__entry-desc--collapsible">Political podcast with Marina Purkiss &amp; Jemma Forte. Subsequently joined Goalhanger (Gary Lineker) family.</p>
                 <div class="tags"><span class="tag tag--media">media</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry" data-expanded="false">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2022</p>
+                <p class="timeline__entry-title">Regains full ownership of Drowned in Sound</p>
+                <p class="timeline__entry-desc timeline__entry-desc--collapsible">After years of the site and label being part-owned by Silentway Ltd and briefly BSkyB.</p>
+                <div class="tags"><span class="tag tag--publication">publication</span></div>
+              </div>
+            </div>
+
+            <div class="timeline__entry" data-expanded="false">
+              <div class="timeline__dot-col">
+                <div class="timeline__dot"></div>
+              </div>
+              <div class="timeline__content">
+                <p class="timeline__year">2022</p>
+                <p class="timeline__entry-title">Begins managing Charlotte Church (to 2025)</p>
+                <div class="tags"><span class="tag tag--management">management</span></div>
               </div>
             </div>
 
@@ -781,7 +972,7 @@
               </div>
               <div class="timeline__content">
                 <p class="timeline__year">2024</p>
-                <p class="timeline__entry-title">StopTheTories.vote - strategic comms</p>
+                <p class="timeline__entry-title"><a href="https://stopthetories.vote" target="_blank" rel="noopener">StopTheTories.vote</a> - strategic comms</p>
                 <p class="timeline__entry-desc timeline__entry-desc--collapsible">Tactical voting campaign with Carol Vorderman. Reached 1.75 million people.</p>
                 <div class="tags"><span class="tag tag--political">political</span></div>
               </div>
@@ -793,7 +984,7 @@
               </div>
               <div class="timeline__content">
                 <p class="timeline__year">2025</p>
-                <p class="timeline__entry-title">Music Fans Voice survey</p>
+                <p class="timeline__entry-title"><a href="https://musicfansvoice.uk/" target="_blank" rel="noopener">Music Fans Voice</a> survey</p>
                 <p class="timeline__entry-desc timeline__entry-desc--collapsible">8,000 participants. Helped drive UK government fan-led review of live music.</p>
                 <div class="tags"><span class="tag tag--political">political</span></div>
               </div>
@@ -883,216 +1074,6 @@
 
           </div>
           </div>
-        </div>
-
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       PRESS & INTERVIEWS
-       ======================================================== -->
-  <section id="press" class="section section--dark">
-    <div class="container">
-      <h2 class="section-heading">Press &amp; Interviews</h2>
-      <ul class="press-list">
-
-        <li class="press-item">
-          <p class="press-item__title"><a href="https://www.thedrum.com/podcast/as-social-marketing-tactics-for-music-become-headline-news-is-the-band-geese-a-psy-op" target="_blank" rel="noopener">The Drum: &ldquo;Is the band Geese a &lsquo;psy-op&rsquo;?&rdquo;</a></p>
-          <p class="press-item__desc">A conversation with Sam Anderson about whether paid social marketing dressed up as authentic fan content, using the indie band Geese as the case study, counts as deception, and what music marketing actually looks like in 2026.</p>
-          <p class="press-item__meta">The Drum Podcast &middot; July 2026</p>
-        </li>
-
-        <li class="press-item">
-          <p class="press-item__title"><a href="https://www.musicweek.com/interviews/read/in-pod-we-trust-drowned-in-sound/094301" target="_blank" rel="noopener">Music Week: &ldquo;In Pod We Trust: Drowned In Sound&rdquo;</a></p>
-          <p class="press-item__desc">On relaunching the DiS podcast and co-hosting with Helena Wadia.</p>
-          <p class="press-item__meta">Music Week &middot; June 2026</p>
-        </li>
-
-        <li class="press-item">
-          <p class="press-item__title"><a href="https://www.counterpunch.org/2026/05/15/musics-collective-power-w-sean-adams/" target="_blank" rel="noopener">CounterPunch Radio: &ldquo;The Collective Power of Music&rdquo;</a></p>
-          <p class="press-item__desc">Tori Tsui hosts a conversation about music&rsquo;s collective power, ranging across Spotify, AI, militarism and capitalism, and what independent music can still do about all of it.</p>
-          <p class="press-item__meta">CounterPunch, interview by Tori Tsui &middot; May 2026</p>
-        </li>
-
-        <li class="press-item">
-          <p class="press-item__title"><a href="https://youtu.be/21A6AI1_8-4" target="_blank" rel="noopener">Sounds Like Change: &ldquo;What&rsquo;s Broken Collectively Can Be Fixed Collectively&rdquo;</a></p>
-          <p class="press-item__desc">A conversation with Ariana Alexander-Sefre that starts with J&oacute;hann J&oacute;hannsson&rsquo;s &lsquo;Fordlandia&rsquo; and ends up covering ADHD, the wellness industry&rsquo;s blind spots, and the StopTheTories campaign. Recorded as a pilot episode Ariana decided was too good not to publish.</p>
-          <p class="press-item__meta">Sounds Like Change, interview by Ariana Alexander-Sefre</p>
-        </li>
-
-        <li class="press-item">
-          <p class="press-item__title"><a href="https://www.huckmag.com/article/music-journalism-crisis-oblivion-salvation-save-association-editors-sean-adams-drowned-in-sound" target="_blank" rel="noopener">Huck Magazine: &ldquo;We Gotta Get Through This&rdquo;</a></p>
-          <p class="press-item__desc">A feature on the crisis in music journalism and the founding of the Association of Music Editors.</p>
-          <p class="press-item__meta">Huck Magazine, Issue 82 &middot; 2025</p>
-          <a class="now__screenshot-link" href="https://www.huckmag.com/article/music-journalism-crisis-oblivion-salvation-save-association-editors-sean-adams-drowned-in-sound" target="_blank" rel="noopener" style="display:block;margin-top:16px;max-width:400px;">
-            <img class="now__screenshot" src="assets/huck-article-screenshot.jpg" alt="Huck Magazine Issue 82 - As music journalism marches towards oblivion, a plea for salvation" width="400" height="auto" loading="lazy">
-          </a>
-        </li>
-
-        <li class="press-item">
-          <p class="press-item__title"><a href="https://musicistheanswer.substack.com/p/sean-adams" target="_blank" rel="noopener">Music Is The Answer: Q&amp;A with Marcus Barnes</a></p>
-          <p class="press-item__meta">Music Is The Answer</p>
-        </li>
-
-        <li class="press-item">
-          <p class="press-item__title"><a href="https://muckrack.com/sean-adams-3" target="_blank" rel="noopener">Verified journalist profile</a></p>
-          <p class="press-item__meta">Muck Rack</p>
-        </li>
-
-      </ul>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       BEYOND MUSIC
-       ======================================================== -->
-  <section id="beyond-music" class="section section--dark">
-    <div class="container">
-      <div class="beyond-carousel-head">
-        <h2 class="section-heading">Beyond Music</h2>
-        <div class="beyond-carousel-controls">
-          <button class="carousel-arrow" data-carousel-dir="prev" aria-label="Previous">&larr;</button>
-          <button class="carousel-arrow" data-carousel-dir="next" aria-label="Next">&rarr;</button>
-        </div>
-      </div>
-
-      <div class="beyond-carousel" id="beyond-carousel">
-
-        <div class="beyond-slide beyond-slide--photo">
-          <img src="assets/sean-no-music-dead-planet.jpg" alt="Sean Adams wearing a Music Declares Emergency 'No Music On A Dead Planet' hoodie" loading="lazy">
-          <div class="beyond-slide__body">
-            <p class="beyond-slide__label">Campaigning</p>
-            <p class="beyond-slide__desc">DiS has worked with Love Music Hate Racism, Music Declares Emergency, Amnesty, and a range of other orgs.</p>
-          </div>
-        </div>
-
-        <div class="beyond-slide">
-          <p class="beyond-slide__year">2024</p>
-          <p class="beyond-slide__label">Tactical Voting</p>
-          <p class="beyond-slide__desc">Oversaw strategic comms for StopTheTories.vote alongside Carol Vorderman, reaching 1.75 million people during the 2024 UK general election.</p>
-        </div>
-
-        <div class="beyond-slide">
-          <div class="beyond-slide__logo-badge">
-            <img src="assets/bbc-6music-logo-v2.png" alt="BBC Radio 6 Music logo">
-          </div>
-          <p class="beyond-slide__year">2016&ndash;21</p>
-          <p class="beyond-slide__label">BBC Radio 6 Music</p>
-          <p class="beyond-slide__desc">Social Media Producer for 4+ years, managing the station&rsquo;s social strategy and creating viral content.</p>
-        </div>
-
-        <div class="beyond-slide">
-          <p class="beyond-slide__year">2021&ndash;22</p>
-          <p class="beyond-slide__label">Max Richter / UN Human Rights</p>
-          <p class="beyond-slide__desc">Digital consultant for Studio Richter Mahr, running three album campaigns and helping launch the studio, alongside Richter&rsquo;s work with UN Human Rights.</p>
-        </div>
-
-        <div class="beyond-slide">
-          <img class="beyond-slide__logo-plain" src="assets/the-trawl-logo.png" alt="The Trawl logo">
-          <p class="beyond-slide__year">2022</p>
-          <p class="beyond-slide__label">The Trawl</p>
-          <p class="beyond-slide__desc">Edited and engineered the political podcast hosted by Marina Purkiss and Jemma Forte. It subsequently joined Gary Lineker&rsquo;s Goalhanger family of podcasts.</p>
-        </div>
-
-        <div class="beyond-slide">
-          <p class="beyond-slide__year">2009&ndash;12</p>
-          <p class="beyond-slide__label">The Sunday Times</p>
-          <p class="beyond-slide__desc">&ldquo;My Generation&rdquo; columnist in the Culture section.</p>
-        </div>
-
-        <div class="beyond-slide">
-          <p class="beyond-slide__year">2015&ndash;21</p>
-          <p class="beyond-slide__label">Soho Radio</p>
-          <p class="beyond-slide__desc">Host for nearly six years.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       RECOGNITION
-       ======================================================== -->
-  <section id="recognition" class="section section--alt">
-    <div class="container">
-      <h2 class="section-heading">Recognition</h2>
-
-      <button class="accordion-toggle" aria-expanded="false" aria-controls="recognition-body">
-        Awards, judging, speaking &amp; press <span class="accordion-chevron" aria-hidden="true">&#8964;</span>
-      </button>
-      <div id="recognition-body" hidden>
-      <!-- Awards, judging, speaking, press — press quotes moved to #press-quotes above -->
-      <div class="recognition__awards" style="margin-top:0; padding-top:0; border-top:none;">
-
-        <p class="recognition__sub">Awards</p>
-        <ul class="recognition__list">
-          <li><a href="https://archive.is/2021.10.02-052723/https://www.thetimes.co.uk/article/the-top-30-power-players-under-30-79hnqksf6gw" target="_blank" rel="noopener">The Times: Top 30 Power Players Under 30</a></li>
-          <li>Record of the Day: Best Podcast (2006), Best Online Music Publication (2007), Best Publication (2010)</li>
-          <li>The Observer: DiS ranked 9th in Top 25 Websites (2006)</li>
-          <li>Nominated: NME Best Website, BT Digital Music Awards, PLUG Awards (2007)</li>
-        </ul>
-
-        <p class="recognition__sub">Judging</p>
-        <p class="recognition__text">BRITs Critics&rsquo; Choice, AIM Awards, BBC Sound of&hellip;, BT Music Awards, Music Producers Guild Awards, Scottish Album of the Year (SAY Award)</p>
-
-        <p class="recognition__sub">Speaking</p>
-        <p class="recognition__text">SXSW, Iceland Airwaves, Tallinn Music Week, Tony Wilson&rsquo;s In The City, Primavera Pro, SoAlive (Sofia), Live At Leeds, New Zealand touring conference. Masterclasses at EEMA, BIMM, and ICMP.</p>
-
-        <p class="recognition__text"><a href="#press">Full press &amp; interviews list &rarr;</a></p>
-
-      </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       WORK BAND
-       ======================================================== -->
-  <section class="work-band">
-    <div class="container work-band__inner">
-      <h2 class="work-band__heading">Work With Me</h2>
-      <div class="work-band__actions">
-        <a class="work-band__btn work-band__btn--dark" href="mailto:sean@drownedinsound.org?subject=Speaking%20enquiry">Book a Talk</a>
-        <a class="work-band__btn work-band__btn--light" href="mailto:tom@drownedinsound.org?subject=Partnership%20enquiry">Partnership Enquiry</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       WORK WITH ME
-       ======================================================== -->
-  <section id="work-with-me" class="section section--alt">
-    <div class="container">
-      <ul class="contact-routes">
-        <li><span class="contact-routes__label">Press, podcast guests, speaking</span> <a href="mailto:sean@drownedinsound.org">sean@drownedinsound.org</a></li>
-        <li><span class="contact-routes__label">Partnerships &amp; consultancy</span> <a href="https://thesounding.org" target="_blank" rel="noopener">thesounding.org</a></li>
-      </ul>
-      <div class="work-with-me__grid">
-
-        <div class="beyond-card work-with-me__card">
-          <p class="beyond-card__label">Speaking &amp; masterclasses</p>
-          <p class="beyond-card__desc">I speak about music, power, platform ethics, and the future of independent culture. Past talks at SXSW, Iceland Airwaves, Primavera Pro, Tallinn Music Week, and Tony Wilson&rsquo;s In The City. I also run masterclasses at BIMM, EEMA, and ICMP, available to book for music industry education programmes.</p>
-          <a class="hero__link-btn hero__link-btn--primary work-with-me__cta" href="mailto:sean@drownedinsound.org?subject=Speaking%20enquiry">Book a talk or masterclass</a>
-        </div>
-
-        <div class="beyond-card work-with-me__card">
-          <p class="beyond-card__label">Podcast guest</p>
-          <p class="beyond-card__desc">I&rsquo;ve been hosting and making podcasts since 2005. I can talk about music journalism, streaming &amp; creator economics, climate justice, independent culture, platform ethics, broligarchy, tactical voting, and the politics of music fandom.</p>
-          <a class="hero__link-btn hero__link-btn--primary work-with-me__cta" href="mailto:sean@drownedinsound.org?subject=Podcast%20guest%20enquiry">Get in touch</a>
-        </div>
-
-        <div class="beyond-card work-with-me__card">
-          <p class="beyond-card__label">Media &amp; Consultancy (The Sounding)</p>
-          <p class="beyond-card__desc">Content strategy, campaigns, and media production for purpose-driven organisations in music and beyond. Co-run with Tom Venvell.</p>
-          <a class="hero__link-btn hero__link-btn--primary work-with-me__cta" href="https://thesounding.org" target="_blank" rel="noopener">Visit The Sounding</a>
-        </div>
-
-        <div class="beyond-card work-with-me__card">
-          <p class="beyond-card__label">DiS partnership</p>
-          <p class="beyond-card__desc">8,000+ newsletter subscribers. 48% open rate (industry average: ~20%). 300K podcast impressions/month. An audience that actually cares - about music, ethics, and what comes next.</p>
-          <a class="hero__link-btn hero__link-btn--primary work-with-me__cta" href="mailto:tom@drownedinsound.org?subject=Partnership%20enquiry">Talk to us</a>
         </div>
 
       </div>
@@ -1335,6 +1316,108 @@
   </section>
 
   <!-- ========================================================
+       BEYOND MUSIC
+       ======================================================== -->
+  <section id="beyond-music" class="section section--dark">
+    <div class="container">
+      <div class="beyond-carousel-head">
+        <h2 class="section-heading">Beyond Music</h2>
+        <div class="beyond-carousel-controls">
+          <button class="carousel-arrow" data-carousel-dir="prev" aria-label="Previous">&larr;</button>
+          <button class="carousel-arrow" data-carousel-dir="next" aria-label="Next">&rarr;</button>
+        </div>
+      </div>
+
+      <div class="beyond-carousel" id="beyond-carousel">
+
+        <div class="beyond-slide beyond-slide--photo">
+          <img src="assets/sean-no-music-dead-planet.jpg" alt="Sean Adams wearing a Music Declares Emergency 'No Music On A Dead Planet' hoodie" loading="lazy">
+          <div class="beyond-slide__body">
+            <p class="beyond-slide__label">Campaigning</p>
+            <p class="beyond-slide__desc">DiS has worked with Love Music Hate Racism, Music Declares Emergency, Amnesty, and a range of other orgs.</p>
+          </div>
+        </div>
+
+        <div class="beyond-slide">
+          <p class="beyond-slide__year">2024</p>
+          <p class="beyond-slide__label">Tactical Voting</p>
+          <p class="beyond-slide__desc">Oversaw strategic comms for StopTheTories.vote alongside Carol Vorderman, reaching 1.75 million people during the 2024 UK general election.</p>
+        </div>
+
+        <div class="beyond-slide">
+          <div class="beyond-slide__logo-badge">
+            <img src="assets/bbc-6music-logo-v2.png" alt="BBC Radio 6 Music logo">
+          </div>
+          <p class="beyond-slide__year">2016&ndash;21</p>
+          <p class="beyond-slide__label">BBC Radio 6 Music</p>
+          <p class="beyond-slide__desc">Social Media Producer for 4+ years, managing the station&rsquo;s social strategy and creating viral content.</p>
+        </div>
+
+        <div class="beyond-slide">
+          <p class="beyond-slide__year">2021&ndash;22</p>
+          <p class="beyond-slide__label">Max Richter / UN Human Rights</p>
+          <p class="beyond-slide__desc">Digital consultant for Studio Richter Mahr, running three album campaigns and helping launch the studio, alongside Richter&rsquo;s work with UN Human Rights.</p>
+        </div>
+
+        <div class="beyond-slide">
+          <img class="beyond-slide__logo-plain" src="assets/the-trawl-logo.png" alt="The Trawl logo">
+          <p class="beyond-slide__year">2022</p>
+          <p class="beyond-slide__label">The Trawl</p>
+          <p class="beyond-slide__desc">Edited and engineered the political podcast hosted by Marina Purkiss and Jemma Forte. It subsequently joined Gary Lineker&rsquo;s Goalhanger family of podcasts.</p>
+        </div>
+
+        <div class="beyond-slide">
+          <p class="beyond-slide__year">2009&ndash;12</p>
+          <p class="beyond-slide__label">The Sunday Times</p>
+          <p class="beyond-slide__desc">&ldquo;My Generation&rdquo; columnist in the Culture section.</p>
+        </div>
+
+        <div class="beyond-slide">
+          <p class="beyond-slide__year">2015&ndash;21</p>
+          <p class="beyond-slide__label">Soho Radio</p>
+          <p class="beyond-slide__desc">Host for nearly six years.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       RECOGNITION
+       ======================================================== -->
+  <section id="recognition" class="section section--alt">
+    <div class="container">
+      <h2 class="section-heading">Recognition</h2>
+
+      <button class="accordion-toggle" aria-expanded="false" aria-controls="recognition-body">
+        Awards, judging, speaking &amp; press <span class="accordion-chevron" aria-hidden="true">&#8964;</span>
+      </button>
+      <div id="recognition-body" hidden>
+      <!-- Awards, judging, speaking, press — press quotes moved to #press-quotes above -->
+      <div class="recognition__awards" style="margin-top:0; padding-top:0; border-top:none;">
+
+        <p class="recognition__sub">Awards</p>
+        <ul class="recognition__list">
+          <li><a href="https://archive.is/2021.10.02-052723/https://www.thetimes.co.uk/article/the-top-30-power-players-under-30-79hnqksf6gw" target="_blank" rel="noopener">The Times: Top 30 Power Players Under 30</a></li>
+          <li>Record of the Day: Best Podcast (2006), Best Online Music Publication (2007), Best Publication (2010)</li>
+          <li>The Observer: DiS ranked 9th in Top 25 Websites (2006)</li>
+          <li>Nominated: NME Best Website, BT Digital Music Awards, PLUG Awards (2007)</li>
+        </ul>
+
+        <p class="recognition__sub">Judging</p>
+        <p class="recognition__text">BRITs Critics&rsquo; Choice, AIM Awards, BBC Sound of&hellip;, BT Music Awards, Music Producers Guild Awards, Scottish Album of the Year (SAY Award)</p>
+
+        <p class="recognition__sub">Speaking</p>
+        <p class="recognition__text">SXSW, Iceland Airwaves, Tallinn Music Week, Tony Wilson&rsquo;s In The City, Primavera Pro, SoAlive Music Conference (Sofia), Live At Leeds, New Zealand touring conference. Masterclasses at EEMA, BIMM, and ICMP.</p>
+
+        <p class="recognition__text"><a href="#press">Full press &amp; interviews list &rarr;</a></p>
+
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
        AS SEEN IN / WORKED WITH
        ======================================================== -->
   <div class="logos-strip section section--dark">
@@ -1407,7 +1490,7 @@
         btn.setAttribute('aria-expanded', expanded);
         list.setAttribute('aria-hidden', String(!expanded));
         list.classList.toggle('discog-list--hidden', !expanded);
-        btn.querySelector('.toggle-arrow').textContent = expanded ? '\u2191' : '\u2193';
+        btn.querySelector('.toggle-arrow').textContent = expanded ? '↑' : '↓';
         btn.firstChild.textContent = expanded ? 'Hide singles & EPs ' : 'Show all singles & EPs ';
       });
     }
@@ -1415,7 +1498,7 @@
     // Fade-in scroll animations
     if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
       var fadeEls = document.querySelectorAll(
-        '.timeline__entry, .project-card, .track-card, .release-card, .beyond-card, .beyond-slide, .what-next__card, .press-quote, .watch-item'
+        '.timeline__entry, .timeline-strip__entry, .project-card, .track-card, .release-card, .beyond-card, .beyond-slide, .what-next__card, .press-quote, .watch-item'
       );
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(el) {
@@ -1429,7 +1512,7 @@
 
       // Stats count-up
       function countUp(el, target, duration) {
-        var isRange = target.includes('\u2013') || target.includes('-');
+        var isRange = target.includes('–') || target.includes('-');
         if (isRange || isNaN(parseFloat(target.replace(/[^0-9.]/g, '')))) return;
         var end = parseFloat(target.replace(/[^0-9.]/g, ''));
         var suffix = target.replace(/[0-9.]/g, '');
