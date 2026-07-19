@@ -1469,16 +1469,6 @@ ul, ol {
 }
 
 /* ------------------------------------------------------------
-   WHAT COMES NEXT — pivot paragraph
-   ------------------------------------------------------------ */
-.pivot__text {
-  font-size: clamp(1.1rem, 2.6vw, 1.3rem);
-  line-height: 1.8;
-  color: #EEEEEE;
-  max-width: 700px;
-}
-
-/* ------------------------------------------------------------
    EPIGRAPH — "Music is upstream from politics", single use
    ------------------------------------------------------------ */
 .epigraph {
