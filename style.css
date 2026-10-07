@@ -1,5 +1,5 @@
 /* ============================================================
-   SEANINSOUND.COM — STYLE.CSS
+   SEANINSOUND.COM - STYLE.CSS
    Design: Dark music venue, poster energy, bold typography
    ============================================================ */
 
@@ -110,10 +110,10 @@ ul, ol {
 
 .site-nav__links a {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #CCCCCC;
+  color: #FFFFFF;
   text-decoration: none;
   transition: color 0.15s ease;
   white-space: nowrap;
@@ -199,7 +199,7 @@ ul, ol {
   .site-nav__links a {
     display: block;
     padding: 14px 24px;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
   }
 
   .site-nav__cta {
@@ -220,7 +220,7 @@ ul, ol {
 }
 
 /* ------------------------------------------------------------
-   SECTION RULES — invisible, alternating backgrounds do the work
+   SECTION RULES - invisible, alternating backgrounds do the work
    ------------------------------------------------------------ */
 .section-rule {
   display: none;
@@ -372,7 +372,7 @@ ul, ol {
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: #CCCCCC;
+  color: #FFFFFF;
   transition: color 0.15s ease;
 }
 
@@ -414,7 +414,7 @@ ul, ol {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Stat strip folded into the hero — overrides standalone .stats chrome */
+/* Stat strip folded into the hero - overrides standalone .stats chrome */
 .hero__stats.stats {
   background: transparent;
   border-top: none;
@@ -478,15 +478,15 @@ ul, ol {
 
 .stats__label {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #AAAAAA;
+  color: #FFFFFF;
   display: block;
 }
 
 /* ------------------------------------------------------------
-   FEATURED CLIENT — THE ANCHORESS
+   FEATURED CLIENT - THE ANCHORESS
    ------------------------------------------------------------ */
 .featured-client__wrapper {
   display: grid;
@@ -528,7 +528,7 @@ ul, ol {
   font-family: 'Cardo', Georgia, serif;
   font-style: italic;
   font-size: 1rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   margin-bottom: 12px;
 }
 
@@ -576,8 +576,8 @@ ul, ol {
 .featured-client__stat-label {
   display: block;
   font-family: 'Francois One', sans-serif;
-  font-size: 0.72rem;
-  color: #AAAAAA;
+  font-size: 0.875rem;
+  color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   line-height: 1.4;
@@ -585,16 +585,16 @@ ul, ol {
 
 .featured-client__stat-label em {
   font-style: italic;
-  color: #CCCCCC;
+  color: #FFFFFF;
   text-transform: none;
 }
 
 .featured-client__sub-label {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #AAAAAA;
+  color: #FFFFFF;
   margin-bottom: 12px;
 }
 
@@ -613,7 +613,7 @@ ul, ol {
 
 .featured-client__accolade-list li {
   font-size: 1rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   padding-left: 20px;
   position: relative;
   line-height: 1.6;
@@ -624,7 +624,7 @@ ul, ol {
   position: absolute;
   left: 0;
   color: #FF2E95;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
 }
 
 .featured-client__collaborators {
@@ -641,7 +641,7 @@ ul, ol {
   display: inline-block;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 20, 147, 0.25);
-  color: #CCCCCC;
+  color: #FFFFFF;
   padding: 6px 14px;
   font-family: 'Cardo', Georgia, serif;
   font-size: 0.9rem;
@@ -667,8 +667,8 @@ ul, ol {
 }
 
 .featured-client__quote-source {
-  font-size: 0.8rem;
-  color: #AAAAAA;
+  font-size: 0.875rem;
+  color: #FFFFFF;
   font-family: 'Francois One', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -683,7 +683,7 @@ ul, ol {
 .featured-client__teaser p {
   font-size: 1.15rem;
   line-height: 1.7;
-  color: #CCCCCC;
+  color: #FFFFFF;
   margin: 0;
 }
 
@@ -700,7 +700,7 @@ ul, ol {
 
 .logos-strip__label {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: #555;
@@ -718,10 +718,10 @@ ul, ol {
 
 .logo-item {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #CCCCCC;
+  color: #FFFFFF;
   opacity: 0.55;
   transition: opacity 0.2s ease, border-color 0.2s ease;
   white-space: nowrap;
@@ -761,10 +761,10 @@ ul, ol {
 }
 
 #press-quotes .press-quote__citation {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #888;
+  color: #FFFFFF;
   font-style: normal;
   font-family: 'Francois One', sans-serif;
 }
@@ -814,7 +814,7 @@ ul, ol {
 .ticker__inner {
   display: inline-block;
   font-family: 'Francois One', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #FF2E95;
@@ -847,7 +847,7 @@ ul, ol {
 .argument-wrapper__text p {
   font-size: 1.15rem;
   line-height: 1.85;
-  color: #CCCCCC;
+  color: #FFFFFF;
   margin-bottom: 1.6em;
 }
 
@@ -876,7 +876,7 @@ ul, ol {
   font-family: 'Cardo', Georgia, serif;
   font-style: italic;
   font-size: 1rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
 }
 
 .argument-wrapper__image figcaption a {
@@ -937,7 +937,7 @@ ul, ol {
 
 .project-card__eyebrow {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: #FF2E95;
@@ -960,7 +960,7 @@ ul, ol {
 
 .project-card__desc {
   font-size: 1.15rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.75;
   max-width: 560px;
 }
@@ -987,7 +987,7 @@ ul, ol {
   text-underline-offset: 4px;
 }
 
-/* The Sounding card — pink-wash treatment borrowed from thesounding.org */
+/* The Sounding card - pink-wash treatment borrowed from thesounding.org */
 .project-card--sounding {
   background: #FFE6EF;
   border-color: #B0006B;
@@ -1041,7 +1041,7 @@ ul, ol {
 
 .press-item__desc {
   font-size: 1.15rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.7;
   margin-bottom: 6px;
   max-width: 560px;
@@ -1051,7 +1051,7 @@ ul, ol {
   font-family: 'Cardo', Georgia, serif;
   font-style: italic;
   font-size: 0.9rem;
-  color: #888888;
+  color: #FFFFFF;
 }
 
 /* ------------------------------------------------------------
@@ -1059,14 +1059,14 @@ ul, ol {
    ------------------------------------------------------------ */
 .track-record__intro-quote {
   font-style: italic;
-  color: #888;
+  color: #FFFFFF;
   font-size: 1.15rem;
   margin-bottom: 28px;
 }
 
 .track-record__body {
   font-size: 1rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.8;
   margin-bottom: 28px;
   max-width: 720px;
@@ -1076,7 +1076,7 @@ ul, ol {
   border-left: 4px solid #FF2E95;
   padding: 16px 24px;
   font-style: italic;
-  color: #CCCCCC;
+  color: #FFFFFF;
   font-size: 1rem;
   margin-bottom: 48px;
   max-width: 640px;
@@ -1102,7 +1102,7 @@ ul, ol {
 
 .track-card__desc {
   font-size: 1rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.75;
 }
 
@@ -1122,7 +1122,7 @@ ul, ol {
    ------------------------------------------------------------ */
 .releases__intro {
   font-size: 1.15rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.75;
   max-width: 680px;
   margin-bottom: 40px;
@@ -1178,15 +1178,15 @@ ul, ol {
 
 .release-card__meta {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.78rem;
-  color: #AAAAAA;
+  font-size: 0.875rem;
+  color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .release-card__note {
   font-size: 0.9rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   font-style: italic;
   margin-top: 4px;
 }
@@ -1231,7 +1231,7 @@ ul, ol {
 
 .discog-list__item {
   font-size: 1rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.6;
   padding: 8px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
@@ -1240,15 +1240,15 @@ ul, ol {
 .discog-list__item .year {
   color: #FF2E95;
   font-family: 'Francois One', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   letter-spacing: 0.05em;
   margin-right: 6px;
 }
 
 .discog-list__item .note {
-  color: #CCCCCC;
+  color: #FFFFFF;
   font-style: italic;
-  font-size: 0.82rem;
+  font-size: 0.875rem;
 }
 
 /* Sub-label sections */
@@ -1267,7 +1267,7 @@ ul, ol {
 
 .sub-label__desc {
   font-size: 0.95rem;
-  color: #888;
+  color: #FFFFFF;
   margin-bottom: 20px;
 }
 
@@ -1280,7 +1280,7 @@ ul, ol {
 
 .sub-label__item {
   font-size: 1rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   padding: 6px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
@@ -1288,14 +1288,14 @@ ul, ol {
 .sub-label__item .year {
   color: #FF2E95;
   font-family: 'Francois One', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   margin-right: 6px;
 }
 
 .sub-label__item .note {
-  color: #CCCCCC;
+  color: #FFFFFF;
   font-style: italic;
-  font-size: 0.82rem;
+  font-size: 0.875rem;
 }
 
 /* What Happened Next */
@@ -1359,19 +1359,19 @@ ul, ol {
 
 .what-next__release {
   font-style: italic;
-  font-size: 0.82rem;
-  color: #888;
+  font-size: 0.875rem;
+  color: #FFFFFF;
   margin-bottom: 8px;
 }
 
 .what-next__trajectory {
   font-size: 1rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.6;
 }
 
 /* ------------------------------------------------------------
-   TIMELINE STRIP — signature element, always visible
+   TIMELINE STRIP - signature element, always visible
    ------------------------------------------------------------ */
 .timeline-strip__list {
   list-style: none;
@@ -1426,10 +1426,10 @@ ul, ol {
   grid-row: 1;
   display: block;
   font-family: 'Francois One', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: #888888;
+  color: #FFFFFF;
   margin-bottom: 6px;
 }
 
@@ -1438,7 +1438,7 @@ ul, ol {
   grid-row: 2;
   display: block;
   font-size: 1.05rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.55;
   max-width: 480px;
 }
@@ -1469,7 +1469,7 @@ ul, ol {
 }
 
 /* ------------------------------------------------------------
-   EPIGRAPH — "Music is upstream from politics", single use
+   EPIGRAPH - "Music is upstream from politics", single use
    ------------------------------------------------------------ */
 .epigraph {
   font-family: 'Francois One', sans-serif;
@@ -1482,7 +1482,7 @@ ul, ol {
 }
 
 /* ------------------------------------------------------------
-   TIMELINE — A QUARTER CENTURY
+   TIMELINE - A QUARTER CENTURY
    ------------------------------------------------------------ */
 .timeline__era {
   margin-bottom: 56px;
@@ -1553,7 +1553,7 @@ ul, ol {
 
 .timeline__year {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: #FF2E95;
   letter-spacing: 0.08em;
   margin-bottom: 3px;
@@ -1569,7 +1569,7 @@ ul, ol {
 
 .timeline__entry-desc {
   font-size: 1.15rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.7;
   max-width: 520px;
 }
@@ -1584,7 +1584,7 @@ ul, ol {
 
 .tag {
   display: inline-block;
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 3px 8px;
@@ -1594,8 +1594,8 @@ ul, ol {
 .tag--publication { background: #FF2E95; color: #fff; }
 .tag--label       { background: #9B1060; color: #fff; }
 .tag--live        { background: #FF69B4; color: #111; }
-.tag--media       { background: #555555; color: #ddd; }
-.tag--management  { background: #2a2a2a; color: #aaa; border: 1px solid #555; }
+.tag--media       { background: #555555; color: #FFFFFF; }
+.tag--management  { background: #2a2a2a; color: #FFFFFF; border: 1px solid #555; }
 .tag--political   { background: #CC0033; color: #fff; }
 .tag--network     { background: #FF2E95; color: #fff; }
 
@@ -1607,10 +1607,10 @@ ul, ol {
 
 .timeline__legend-title {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #AAAAAA;
+  color: #FFFFFF;
   margin-bottom: 12px;
 }
 
@@ -1627,7 +1627,7 @@ ul, ol {
    ------------------------------------------------------------ */
 .timeline__intro {
   font-size: 1.15rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.75;
   max-width: 680px;
   margin-bottom: 40px;
@@ -1684,7 +1684,7 @@ ul, ol {
    ------------------------------------------------------------ */
 .section-teaser {
   font-size: 1.15rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.75;
   max-width: 680px;
   margin-bottom: 24px;
@@ -1852,7 +1852,7 @@ ul, ol {
 
 .beyond-slide__desc {
   font-size: 1.15rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.7;
 }
 
@@ -1873,7 +1873,7 @@ ul, ol {
 
 .beyond-card__desc {
   font-size: 1.15rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.7;
 }
 
@@ -1896,10 +1896,10 @@ ul, ol {
 
 .contact-routes__label {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #CCCCCC;
+  color: #FFFFFF;
   margin-right: 10px;
 }
 
@@ -1940,7 +1940,7 @@ ul, ol {
 
 .work-with-me__cta {
   align-self: flex-start;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   padding: 10px 20px;
   white-space: nowrap;
 }
@@ -2035,10 +2035,10 @@ ul, ol {
 }
 
 .press-quote__citation {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #888;
+  color: #FFFFFF;
   font-style: normal;
   font-family: 'Francois One', sans-serif;
 }
@@ -2054,7 +2054,7 @@ ul, ol {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #AAAAAA;
+  color: #FFFFFF;
   margin-bottom: 16px;
   margin-top: 40px;
 }
@@ -2073,7 +2073,7 @@ ul, ol {
 
 .recognition__list li {
   font-size: 1rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.6;
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
@@ -2087,7 +2087,7 @@ ul, ol {
 
 .recognition__text {
   font-size: 1.15rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.75;
   max-width: 560px;
 }
@@ -2169,7 +2169,7 @@ ul, ol {
 .video-label {
   font-family: 'Cardo', Georgia, serif;
   font-size: 1.15rem;
-  color: #CCCCCC;
+  color: #FFFFFF;
   line-height: 1.5;
   max-width: 560px;
   margin-top: 16px;
@@ -2284,7 +2284,7 @@ ul, ol {
 
 .closing-quote__attr {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #FF2E95;
@@ -2326,7 +2326,7 @@ ul, ol {
   justify-content: center;
   width: 36px;
   height: 36px;
-  color: #888;
+  color: #FFFFFF;
   transition: color 0.15s ease;
 }
 
@@ -2343,8 +2343,8 @@ ul, ol {
 
 .footer__credit {
   font-family: 'Francois One', sans-serif;
-  font-size: 0.72rem;
-  color: #777;
+  font-size: 0.875rem;
+  color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 20px;
@@ -2481,7 +2481,7 @@ ul, ol {
 .timeline__scroll-hint {
   display: none;
   font-family: 'Francois One', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #555;
@@ -2505,17 +2505,17 @@ ul, ol {
    ------------------------------------------------------------ */
 @media (max-width: 600px) {
   .stats__label {
-    font-size: 0.8rem;
+    font-size: 0.875rem;
   }
 
   .tag {
-    font-size: 0.72rem;
+    font-size: 0.875rem;
   }
 
   .release-card__meta,
   .featured-client__stat-label,
   .timeline__legend-title,
   .footer__credit {
-    font-size: 0.78rem;
+    font-size: 0.875rem;
   }
 }
