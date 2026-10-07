@@ -47,6 +47,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <div id="nav-sentinel" aria-hidden="true" style="position:absolute;top:0;height:1px;width:100%;pointer-events:none;"></div>
 
@@ -133,6 +134,8 @@
       </div>
     </div>
   </header>
+
+  <main id="main">
 
   <!-- ========================================================
        TIMELINE STRIP (signature element)
@@ -237,12 +240,12 @@
 
           <div class="podcast-diversity">
             <p style="font-family:'Francois One',sans-serif;font-size:14px;letter-spacing:0.16em;color:#FF2E95;margin:0 0 10px;text-transform:uppercase;">Who We Platform</p>
-            <p style="font-family:'Cardo',serif;font-style:italic;font-size:18px;color:#CCCCCC;margin:0 0 28px;line-height:1.5;">A male-hosted podcast where 63% of our 93 guests are female or non-binary, more than double the industry average.</p>
+            <p style="font-family:'Cardo',serif;font-style:italic;font-size:18px;color:#FFFFFF;margin:0 0 28px;line-height:1.5;">A male-hosted podcast where 63% of our 93 guests are female or non-binary, more than double the industry average.</p>
 
             <div style="margin-bottom:18px;">
               <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
                 <span style="font-family:'Francois One',sans-serif;font-size:16px;color:#FF2E95;text-transform:uppercase;">Drowned in Sound</span>
-                <span style="font-family:'Cardo',serif;font-size:15px;color:#AAAAAA;">female &amp; non-binary guests</span>
+                <span style="font-family:'Cardo',serif;font-size:15px;color:#FFFFFF;">female &amp; non-binary guests</span>
               </div>
               <div style="height:44px;background:#1a1a1a;border-radius:2px;overflow:hidden;">
                 <div style="height:100%;width:91%;background:#FF2E95;display:flex;align-items:center;justify-content:flex-end;padding-right:14px;font-family:'Francois One',sans-serif;font-size:20px;color:#ffffff;">63.4%</div>
@@ -251,8 +254,8 @@
 
             <div style="margin-bottom:28px;">
               <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
-                <span style="font-family:'Francois One',sans-serif;font-size:16px;color:#555555;text-transform:uppercase;">Industry average</span>
-                <span style="font-family:'Cardo',serif;font-size:15px;color:#AAAAAA;">DiS is 2.3&times; this</span>
+                <span style="font-family:'Francois One',sans-serif;font-size:16px;color:#FFFFFF;text-transform:uppercase;">Industry average</span>
+                <span style="font-family:'Cardo',serif;font-size:15px;color:#FFFFFF;">DiS is 2.3&times; this</span>
               </div>
               <div style="height:44px;background:#1a1a1a;border-radius:2px;overflow:hidden;">
                 <div style="height:100%;width:39%;background:#444444;display:flex;align-items:center;justify-content:flex-end;padding-right:14px;font-family:'Francois One',sans-serif;font-size:20px;color:#ffffff;">27.2%</div>
@@ -261,7 +264,7 @@
 
             <div style="border-left:2px solid #FF2E95;padding-left:14px;margin-bottom:20px;">
               <p style="font-family:'Francois One',sans-serif;font-size:15px;color:#FFFFFF;margin:0 0 6px;text-transform:uppercase;letter-spacing:0.06em;">88% of our episodes feature at least one female or non-binary guest</p>
-              <p style="font-family:'Cardo',serif;font-size:16px;color:#CCCCCC;margin:0;">Industry average: 37.4%. Growing year on year - 70% in 2025, 77% in early 2026.</p>
+              <p style="font-family:'Cardo',serif;font-size:16px;color:#FFFFFF;margin:0;">Industry average: 37.4%. Growing year on year - 70% in 2025, 77% in early 2026.</p>
             </div>
 
             <p style="font-family:'Francois One',sans-serif;font-size:14px;color:#FFFFFF;margin:0;text-align:right;text-transform:uppercase;letter-spacing:0.08em;">DiS guest data (internal audit, 93 guests, 2015&ndash;2026) &middot; USC Annenberg Inclusion Initiative, Nov 2025</p>
@@ -666,8 +669,8 @@
 
         <!-- Era 1 -->
         <div class="timeline__era">
-          <button class="timeline__era-toggle" aria-expanded="false">1997&ndash;2000 &middot; The Dorset Years <span class="timeline__era-chevron" aria-hidden="true">&#8964;</span></button>
-          <div class="timeline__era-body" hidden>
+          <button class="timeline__era-toggle" aria-expanded="false" aria-controls="era-1">1997&ndash;2000 &middot; The Dorset Years <span class="timeline__era-chevron" aria-hidden="true">&#8964;</span></button>
+          <div class="timeline__era-body" id="era-1" hidden>
           <div class="timeline__entries">
 
             <div class="timeline__entry" data-expanded="false">
@@ -711,8 +714,8 @@
 
         <!-- Era 2 -->
         <div class="timeline__era">
-          <button class="timeline__era-toggle" aria-expanded="false">2000&ndash;2008 &middot; Building the Ecosystem <span class="timeline__era-chevron" aria-hidden="true">&#8964;</span></button>
-          <div class="timeline__era-body" hidden>
+          <button class="timeline__era-toggle" aria-expanded="false" aria-controls="era-2">2000&ndash;2008 &middot; Building the Ecosystem <span class="timeline__era-chevron" aria-hidden="true">&#8964;</span></button>
+          <div class="timeline__era-body" id="era-2" hidden>
           <div class="timeline__entries">
 
             <div class="timeline__entry" data-expanded="false">
@@ -805,8 +808,8 @@
 
         <!-- Era 3 -->
         <div class="timeline__era">
-          <button class="timeline__era-toggle" aria-expanded="false">2009&ndash;2019 &middot; Peak Reach and New Roles <span class="timeline__era-chevron" aria-hidden="true">&#8964;</span></button>
-          <div class="timeline__era-body" hidden>
+          <button class="timeline__era-toggle" aria-expanded="false" aria-controls="era-3">2009&ndash;2019 &middot; Peak Reach and New Roles <span class="timeline__era-chevron" aria-hidden="true">&#8964;</span></button>
+          <div class="timeline__era-body" id="era-3" hidden>
           <div class="timeline__entries">
 
             <div class="timeline__entry" data-expanded="false">
@@ -898,8 +901,8 @@
 
         <!-- Era 4 -->
         <div class="timeline__era">
-          <button class="timeline__era-toggle" aria-expanded="false">2020&ndash;2024 &middot; Rebuilding and Diversifying <span class="timeline__era-chevron" aria-hidden="true">&#8964;</span></button>
-          <div class="timeline__era-body" hidden>
+          <button class="timeline__era-toggle" aria-expanded="false" aria-controls="era-4">2020&ndash;2024 &middot; Rebuilding and Diversifying <span class="timeline__era-chevron" aria-hidden="true">&#8964;</span></button>
+          <div class="timeline__era-body" id="era-4" hidden>
           <div class="timeline__entries">
 
             <div class="timeline__entry" data-expanded="false">
@@ -991,8 +994,8 @@
 
         <!-- Era 5 -->
         <div class="timeline__era">
-          <button class="timeline__era-toggle" aria-expanded="false">2025&ndash;Now &middot; The Network Era <span class="timeline__era-chevron" aria-hidden="true">&#8964;</span></button>
-          <div class="timeline__era-body" hidden>
+          <button class="timeline__era-toggle" aria-expanded="false" aria-controls="era-5">2025&ndash;Now &middot; The Network Era <span class="timeline__era-chevron" aria-hidden="true">&#8964;</span></button>
+          <div class="timeline__era-body" id="era-5" hidden>
           <div class="timeline__entries">
 
             <div class="timeline__entry" data-expanded="false">
@@ -1444,6 +1447,8 @@
   <!-- ========================================================
        FOOTER
        ======================================================== -->
+  </main>
+
   <footer class="footer">
     <div class="container">
       <a class="footer__email" href="mailto:sean@drownedinsound.org">sean@drownedinsound.org</a>

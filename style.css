@@ -703,7 +703,7 @@ ul, ol {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #555;
+  color: #FFFFFF;
   margin-bottom: 24px;
   text-align: center;
 }
@@ -2484,7 +2484,7 @@ ul, ol {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #555;
+  color: #FFFFFF;
   margin-bottom: 24px;
 }
 
@@ -2518,4 +2518,32 @@ ul, ol {
   .footer__credit {
     font-size: 0.875rem;
   }
+}
+
+/* ------------------------------------------------------------
+   ACCESSIBILITY - skip link and keyboard focus
+   ------------------------------------------------------------ */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -80px;
+  z-index: 1000;
+  padding: 12px 20px;
+  background: #FF2E95;
+  color: #0A0A0A;
+  font-family: 'Francois One', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #FF2E95;
+  outline-offset: 3px;
 }
