@@ -68,7 +68,17 @@ h2{margin:0;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font
 .empty{max-width:1100px;margin:0 auto;opacity:.8}
 footer{padding:8px 16px 48px;text-align:center;font-size:15px;opacity:.8}
 footer a{color:var(--pink)}
-@media(max-width:480px){.logo{width:150px}.panel{top:12px;left:12px;right:12px;max-width:none}.leaflet-bar a{width:44px;height:44px;line-height:44px;font-size:22px}.leaflet-control-zoom{margin:0 12px 24px 0!important}.leaflet-popup-content{font-size:16px}#near{padding:0 14px}h2{font-size:30px}#stage{height:74vh;height:74svh}}
+@media(max-width:480px){
+.logo{width:150px}
+#stage{display:flex;flex-direction:column;height:90vh;height:90svh;min-height:520px;max-height:none}
+.panel{position:static;max-width:none;padding:12px;background:#000;border-bottom:1px solid var(--pink);order:0;flex:none;gap:8px}
+#map{position:relative;inset:auto;flex:1 1 auto;min-height:320px;order:1}
+.leaflet-bar a{width:44px;height:44px;line-height:44px;font-size:22px}
+.leaflet-control-zoom{margin:0 12px 24px 0!important}
+.leaflet-popup-content{font-size:16px}
+#near{padding:0 14px}
+h2{font-size:30px}
+}
 </style>
 </head>
 <body>
@@ -104,11 +114,12 @@ footer a{color:var(--pink)}
 <script src="venues.js?v=3"></script>
 <script>
 const phone=()=>window.innerWidth<=480;
-const topPad=()=>phone()?document.querySelector('.panel').offsetHeight+20:40;
-function home(){map.fitBounds(phone()?[[49.9,-7.2],[59.3,2.0]]:[[49.7,-6.5],[58.8,1.9]],{paddingTopLeft:[phone()?8:0,topPad()],paddingBottomRight:[phone()?8:0,phone()?8:0],animate:false})}
+const topPad=()=>phone()?16:40;
+function home(){map.fitBounds(phone()?[[49.2,-7.4],[59.4,2.2]]:[[49.7,-6.5],[58.8,1.9]],{paddingTopLeft:[phone()?8:0,topPad()],paddingBottomRight:[phone()?8:0,phone()?8:0],animate:false})}
 const map=L.map('map',{zoomControl:false,minZoom:5,maxZoom:13,zoomSnap:.25,maxBounds:[[47,-14],[61.5,4]],maxBoundsViscosity:.8});
 home();
 L.control.zoom({position:'bottomright'}).addTo(map);
+window.addEventListener('resize',()=>{map.invalidateSize();});
 L.geoJSON(window.ISLES,{style:f=>f.properties.ie
  ?{color:'#e95470',weight:.8,opacity:.35,fillColor:'#0a0a0a',fillOpacity:1}
  :{color:'#e95470',weight:1.2,opacity:.9,fillColor:'#0d0d0d',fillOpacity:1},interactive:false}).addTo(map);
@@ -132,7 +143,7 @@ function popupHtml(v){
 }
 const all=window.VENUES.map(v=>{
   const m=L.marker([v.la,v.ln],{icon:pinIcon,title:v.n,alt:v.n,keyboard:true});
-  m.bindPopup(()=>popupHtml(v),{maxWidth:300,autoPanPaddingTopLeft:[16,phone()?topPad():170],autoPanPaddingBottomRight:[16,24]});
+  m.bindPopup(()=>popupHtml(v),{maxWidth:300,autoPanPaddingTopLeft:[16,phone()?16:170],autoPanPaddingBottomRight:[16,24]});
   m.on('popupopen',()=>{openSlug=v.s;writeHash()});m.on('popupclose',()=>{if(openSlug===v.s){openSlug='';writeHash()}});
   return {v,m,t:(v.n+' '+v.c).toLowerCase()};
 });
