@@ -71,7 +71,9 @@ details{margin-top:8px}
 summary{cursor:pointer;color:var(--pink);font-size:15px}
 .more{margin:8px 0 0;font-size:16px;line-height:1.45;max-width:62ch;opacity:.92}
 .more q{quotes:none;display:block}
-.more cite{display:block;margin-top:6px;font-style:italic;opacity:.8}
+.more cite{display:block;margin-top:4px;font-style:italic;font-size:14px;opacity:.8}
+.more .abt{margin:0}
+.more .abt.gap{margin-top:14px}
 .empty{padding:40px 0;opacity:.85}
 .note{font-size:14px;opacity:.8;margin:28px 0 8px;max-width:62ch}
 footer{padding-bottom:56px;text-align:center;font-size:15px;opacity:.85}
@@ -113,7 +115,7 @@ footer{padding-bottom:56px;text-align:center;font-size:15px;opacity:.85}
   <button class="totop" id="totop" type="button" aria-label="Back to the filters">Back to top</button>
 </main>
 <footer><p>Something missing or wrong? <a href="mailto:shownotes@drownedinsound.org?subject=SHOWNOTES%20gigs">shownotes@drownedinsound.org</a></p></footer>
-<script src="gigs.js?v=6"></script>
+<script src="gigs.js?v=7"></script>
 <script>
 const G=window.GIGS;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -145,7 +147,7 @@ function row(g){
   const dd=dist(g);const dtxt=dd!==null?`<span class="dist">${dd<1?'under 1':Math.round(dd)} mi</span>`:'';
   const venue=g.s&&!g.x?`<a href="../#venue=${esc(g.s)}">${place}</a>`:place;
   const badge=g.x?`<span class="badge off">Postponed</span>`:g.ty==='Recommended'?`<span class="badge">Recommended${g.rb?' by '+esc(g.rb):''}</span>`:g.ty==='Gig of the month'?`<span class="badge">Gig of the month</span>`:g.ty==='Tour date'?`<span class="badge alt">On tour</span>`:g.ty==='Support slot'?`<span class="badge alt">Support slot</span>`:'';
-  const more=(g.rt||g.b)?`<details><summary>Read more</summary><div class="more">${g.rt?`<q>${esc(g.rt)}</q>`:''}${g.b?`<p style="margin:${g.rt?'8px':'0'} 0 0">${esc(g.b)}</p>`:''}</div></details>`:'';
+  const more=(g.rt||g.b)?`<details><summary>Read more</summary><div class="more">${g.rt?`<q>${esc(g.rt)}</q><cite>${g.rb?'Recommended by '+esc(g.rb):'Recommended in SHOWNOTES'}</cite>`:''}${g.b?`<p class="abt${g.rt?' gap':''}">${esc(g.b)}</p><cite>From the SHOWNOTES listings</cite>`:''}</div></details>`:'';
   return `<li class="g${g.ty==='Gig of the month'?' gotm':''}${g.x?' off':''}"><div class="dt"><span>${fmt(g)}</span>${circle}</div><div><h3 class="ar">${esc(g.a)}</h3><div class="vn">${venue}${st.r&&st.at?dtxt:''}</div>${g.s&&!g.x?'<p class="pu">Pick up SHOWNOTES here</p>':''}${badge}${more}</div></li>`;
 }
 function write(){const p=new URLSearchParams();if(st.m)p.set('m',st.m);if(st.k)p.set('k',st.k);if(st.r)p.set('r',st.r);if(st.name&&TW[st.name])p.set('town',st.name);const h=p.toString();history.replaceState(null,'',h?'#'+h:location.pathname+location.search)}

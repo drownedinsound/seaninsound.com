@@ -183,7 +183,7 @@ function popupHtml(v){
    <a class="rep" href="mailto:${MAILTO}?subject=${encodeURIComponent('SHOWNOTES map: '+v.n)}&body=${body}">Report a problem with this venue</a>`;
 }
 let gigsP,GG=null;
-function loadGigs(){return gigsP||(gigsP=new Promise(res=>{const sc=document.createElement('script');sc.src='gigs/gigs.js?v=6';sc.onload=()=>{GG=window.GIGS||[];res()};sc.onerror=()=>res();document.head.appendChild(sc)}))}
+function loadGigs(){return gigsP||(gigsP=new Promise(res=>{const sc=document.createElement('script');sc.src='gigs/gigs.js?v=7';sc.onload=()=>{GG=window.GIGS||[];res()};sc.onerror=()=>res();document.head.appendChild(sc)}))}
 function gigsHtml(v){
   if(!GG)return '';
   const n=new Date(),today=n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');
