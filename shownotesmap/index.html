@@ -57,7 +57,7 @@ input:focus,select:focus,button:focus-visible,a:focus-visible{outline:2px solid 
 .leaflet-bar a.leaflet-disabled{background:#000;color:#5a2a35;cursor:default}
 #list{padding:48px 16px 32px;border-top:2px solid var(--pink)}
 .lhead{max-width:1100px;margin:0 auto 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
-h2{margin:0;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font-size:34px;color:var(--pink);letter-spacing:.02em}
+h2{margin:0;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font-size:34px;color:var(--pink);letter-spacing:.04em;text-transform:uppercase}
 .sort{display:flex}
 .sort button{background:transparent;border:1px solid var(--pink);color:var(--paper);padding:10px 16px;font-size:16px;cursor:pointer;border-radius:0}
 .sort button+button{border-left:0}
@@ -71,15 +71,17 @@ h2{margin:0;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font
 .chip[aria-pressed="true"]{background:var(--pink);color:#000;font-weight:700}
 #venues li.gh{grid-column:1/-1;padding:28px 0 4px;border:0}
 #venues li.gh:first-child{padding-top:8px}
-#venues li.gh h3{margin:0;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font-size:28px;color:var(--pink);letter-spacing:.02em}
-#venues li.gh h3 span{font-family:'abril-text',serif;font-size:16px;color:var(--paper);opacity:.7;letter-spacing:0}
+#venues li.gh h3{margin:0;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font-size:28px;color:var(--pink);letter-spacing:.04em;text-transform:uppercase}
+#venues li.gh h3 .c{font-family:'abril-text',serif;font-size:16px;color:var(--paper);opacity:.7;letter-spacing:0}
 #venues{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));column-gap:32px}
 #venues li{padding:14px 0;border-bottom:1px dotted #555;display:grid;gap:2px}
 /* Venue names: Druk XX Cond Super capitals (web use confirmed). League Gothic Condensed is the fallback. */
 .vn{background:none;border:0;padding:0;text-align:left;font-family:'Druk XX Cond','league-gothic-condensed','league-gothic','Arial Narrow',Impact,sans-serif;font-weight:400;font-size:52px;line-height:.98;letter-spacing:.17em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;text-transform:uppercase;cursor:pointer;color:var(--paper)}
 .vn:hover{color:var(--pink)}
+.o{display:inline-block;width:.7em;height:.7em;border-radius:50%;background:currentColor;margin:0 .1em;vertical-align:0}
+#venues li.gh h3 .o{width:.66em;height:.66em;margin:0 .06em}
 .va{font-size:15px;opacity:.75}
-.vd{font-family:'ltc-flash','abril-text',sans-serif;color:var(--pink);font-size:17px}
+.vd{font-family:'ltc-flash','abril-text',sans-serif;color:var(--pink);font-size:17px;text-transform:uppercase;letter-spacing:.04em}
 .empty{max-width:1100px;margin:0 auto;opacity:.8}
 footer{padding:8px 16px 48px;text-align:center;font-size:15px;opacity:.8}
 footer a{color:var(--pink)}
@@ -147,6 +149,7 @@ L.geoJSON(window.ISLES,{style:f=>f.properties.ie
  ?{color:'#e95470',weight:.8,opacity:.35,fillColor:'#0a0a0a',fillOpacity:1}
  :{color:'#e95470',weight:1.2,opacity:.9,fillColor:'#0d0d0d',fillOpacity:1},interactive:false}).addTo(map);
 
+const oify=s=>String(s).split(/(o)/i).map(p=>/^o$/i.test(p)?'<span class="o" aria-hidden="true"></span>':esc(p)).join('');
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const pinIcon=L.divIcon({className:'',html:'<div class="pin"></div>',iconSize:[12,12],iconAnchor:[6,6],popupAnchor:[0,-8]});
 const cluster=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:38,spiderfyOnMaxZoom:true,
@@ -214,12 +217,12 @@ function render(fit){
   cnt.textContent=q.trim()?`${n} ${n===1?'venue':'venues'} found`:where?`${n} ${n===1?'venue':'venues'} in ${lab}`:'';
   let rows=h.map(x=>({x,d:me?miles(me,[x.v.la,x.v.ln]):null}));
   if(sort==='near'&&me) rows.sort((a,b)=>a.d-b.d); else rows.sort((a,b)=>a.x.v.n.replace(/^the\s+/i,'').localeCompare(b.x.v.n.replace(/^the\s+/i,''),'en',{sensitivity:'base'}));
-  const rowLi=({x,d})=>`<li><button class="vn" type="button" data-s="${esc(x.v.s)}">${esc(x.v.n)}</button><span class="va">${esc(x.v.a)}</span>${sort==='near'&&d!=null?`<span class="vd">${fmtMi(d)}</span>`:''}</li>`;
+  const rowLi=({x,d})=>`<li><button class="vn" type="button" data-s="${esc(x.v.s)}" aria-label="${esc(x.v.n)}">${oify(x.v.n)}</button><span class="va">${esc(x.v.a)}</span>${sort==='near'&&d!=null?`<span class="vd">${fmtMi(d)}</span>`:''}</li>`;
   const grouped=sort==='az'&&!q.trim()&&(where===''||where==='nat:England');
   if(!rows.length) list.innerHTML='<li class="empty">No venues match. Try a different search.</li>';
   else if(grouped){
     const spec=(where===''?NAT_ORDER.map(k=>[k,r=>r.x.v.nat===k]):[]).concat(REG.map(g=>[rl(g),r=>r.x.v.reg===g]),where===''?[['Channel Islands',r=>r.x.v.nat==='Channel Islands']]:[]);
-    list.innerHTML=spec.map(([label,fn])=>{const part=rows.filter(fn);return part.length?`<li class="gh"><h3>${esc(label)} <span>(${part.length})</span></h3></li>`+part.map(rowLi).join(''):''}).join('');
+    list.innerHTML=spec.map(([label,fn])=>{const part=rows.filter(fn);return part.length?`<li class="gh"><h3 aria-label="${esc(label)}">${oify(label)} <span class="c">(${part.length})</span></h3></li>`+part.map(rowLi).join(''):''}).join('');
   } else list.innerHTML=rows.map(rowLi).join('');
   chipsEl.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.w===where));
   sAZ.setAttribute('aria-pressed',sort==='az');sNear.setAttribute('aria-pressed',sort==='near');sNear.disabled=!me;
