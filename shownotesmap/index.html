@@ -8,7 +8,7 @@
 <title>SHOWNOTES Stockists</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
-<link rel="stylesheet" href="https://use.typekit.net/ulr4flt.css">
+<link rel="stylesheet" href="https://use.typekit.net/ulr4flt.css?v=2">
 <style>
 :root{--pink:#e95470;--paper:#f9fdf4;--black:#000;--land:#0d0d0d}
 *{box-sizing:border-box}
@@ -59,9 +59,20 @@ h2{margin:0;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font
 .sort button+button{border-left:0}
 .sort button[aria-pressed="true"]{background:var(--pink);color:#000;font-weight:700}
 .sort button[disabled]{opacity:.45;cursor:not-allowed}
+.chips{max-width:1100px;margin:0 auto 12px;display:flex;flex-direction:column;gap:10px}
+.chiprow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chiplabel{font-family:'ltc-flash','abril-text',sans-serif;color:var(--pink);font-size:19px;margin-right:4px;min-width:72px}
+.chip{background:transparent;border:1px solid var(--pink);color:var(--paper);padding:8px 14px;font-size:15px;cursor:pointer;border-radius:0}
+.chip:hover{border-color:var(--paper)}
+.chip[aria-pressed="true"]{background:var(--pink);color:#000;font-weight:700}
+#venues li.gh{grid-column:1/-1;padding:28px 0 4px;border:0}
+#venues li.gh:first-child{padding-top:8px}
+#venues li.gh h3{margin:0;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font-size:28px;color:var(--pink);letter-spacing:.02em}
+#venues li.gh h3 span{font-family:'abril-text',serif;font-size:16px;color:var(--paper);opacity:.7;letter-spacing:0}
 #venues{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));column-gap:32px}
 #venues li{padding:14px 0;border-bottom:1px dotted #555;display:grid;gap:2px}
-.vn{background:none;border:0;padding:0;text-align:left;font-weight:700;font-size:19px;line-height:1.2;cursor:pointer;color:var(--paper)}
+/* Venue names: a tall condensed capitals face. Stand-in for Druk XX Cond Super until a web licence for Druk is confirmed. */
+.vn{background:none;border:0;padding:0;text-align:left;font-family:'league-gothic-condensed','league-gothic','Arial Narrow',Impact,sans-serif;font-weight:400;font-size:34px;line-height:1.02;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;color:var(--paper)}
 .vn:hover{color:var(--pink)}
 .va{font-size:15px;opacity:.75}
 .vd{font-family:'ltc-flash','abril-text',sans-serif;color:var(--pink);font-size:17px}
@@ -78,6 +89,10 @@ footer a{color:var(--pink)}
 .leaflet-popup-content{font-size:16px}
 #near{padding:0 14px}
 h2{font-size:30px}
+.chiprow{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:2px 16px 4px}
+.chiprow::-webkit-scrollbar{display:none}
+.chip{flex:none;white-space:nowrap;padding:10px 14px}
+.chiplabel{flex:none;min-width:auto}
 }
 </style>
 </head>
@@ -105,6 +120,7 @@ h2{font-size:30px}
       <button id="sNear" type="button" aria-pressed="false" disabled>Nearest</button>
     </div>
   </div>
+  <div class="chips" id="chips" aria-label="Show venues in an area"></div>
   <ul id="venues"></ul>
 </section>
 <footer><p>See something wrong? <a href="mailto:shownotes@drownedinsound.org?subject=SHOWNOTES%20map">shownotes@drownedinsound.org</a></p></footer>
@@ -154,7 +170,8 @@ const bySlug=Object.fromEntries(all.map(x=>[x.v.s,x]));
 const sel=document.getElementById('where'),cnt=document.getElementById('count'),qi=document.getElementById('q'),note=document.getElementById('note');
 const tally=(f)=>{const o={};all.forEach(x=>{const k=f(x.v);if(k)o[k]=(o[k]||0)+1});return o};
 const NAT=['England','Scotland','Wales','Northern Ireland'];
-const REG=['London','South East','South West','Midlands','North East','North West','Yorkshire and the Humber','East of England'];
+const REG=['London','South West','South East','Midlands','North West','North East','Yorkshire and the Humber','East of England'];
+const NAT_ORDER=['Scotland','Wales','Northern Ireland'];
 const CITIES=['Manchester','Glasgow','Bristol','Brighton and Hove','Liverpool','Leeds','Newcastle','Birmingham','Edinburgh'];
 const nN=tally(v=>v.nat),nR=tally(v=>v.reg),nC=tally(v=>v.cg),nT=tally(v=>(v.cg||v.reg==='London')?'':v.c);
 function group(label,items){const g=document.createElement('optgroup');g.label=label;items.forEach(([val,text])=>g.appendChild(new Option(text,val)));sel.appendChild(g)}
@@ -163,6 +180,10 @@ group('Nations',NAT.map(k=>['nat:'+k,`${k} (${nN[k]})`]));
 group('Regions of England',REG.map(k=>['reg:'+k,`${k} (${nR[k]})`]));
 group('Cities',CITIES.map(k=>['city:'+k,`${k} (${nC[k]})`]));
 group('Other towns',Object.keys(nT).sort((a,b)=>a.localeCompare(b)).map(k=>['town:'+k,`${k} (${nT[k]})`]));
+const chipsEl=document.getElementById('chips');
+const chip=(label,val,n)=>`<button type="button" class="chip" data-w="${esc(val)}" aria-pressed="false">${esc(label)} (${n})</button>`;
+chipsEl.innerHTML=`<div class="chiprow">${chip('All','',all.length)}${NAT_ORDER.map(k=>chip(k,'nat:'+k,nN[k])).join('')}</div>`
+ +`<div class="chiprow"><span class="chiplabel">England</span>${chip('All England','nat:England',nN.England)}${REG.map(g=>chip(g,'reg:'+g,nR[g])).join('')}</div>`;
 const labelOf=val=>{const o=[...sel.options].find(o=>o.value===val);return o?o.textContent.replace(/\s*\(\d+\)$/,''):''};
 function inWhere(v,w){if(!w)return true;const i=w.indexOf(':'),k=w.slice(0,i),val=w.slice(i+1);
   return k==='nat'?v.nat===val:k==='reg'?v.reg===val:k==='city'?v.cg===val:v.c===val}
@@ -184,7 +205,14 @@ function render(fit){
   cnt.textContent=q.trim()?`${n} ${n===1?'venue':'venues'} found`:where?`${n} ${n===1?'venue':'venues'} in ${lab}`:`${n} venues across the UK`;
   let rows=h.map(x=>({x,d:me?miles(me,[x.v.la,x.v.ln]):null}));
   if(sort==='near'&&me) rows.sort((a,b)=>a.d-b.d); else rows.sort((a,b)=>a.x.v.n.replace(/^the\s+/i,'').localeCompare(b.x.v.n.replace(/^the\s+/i,''),'en',{sensitivity:'base'}));
-  list.innerHTML=rows.length?rows.map(({x,d})=>`<li><button class="vn" type="button" data-s="${esc(x.v.s)}">${esc(x.v.n)}</button><span class="va">${esc(x.v.a)}</span>${sort==='near'&&d!=null?`<span class="vd">${fmtMi(d)}</span>`:''}</li>`).join(''):'<li class="empty">No venues match. Try a different search.</li>';
+  const rowLi=({x,d})=>`<li><button class="vn" type="button" data-s="${esc(x.v.s)}">${esc(x.v.n)}</button><span class="va">${esc(x.v.a)}</span>${sort==='near'&&d!=null?`<span class="vd">${fmtMi(d)}</span>`:''}</li>`;
+  const grouped=sort==='az'&&!q.trim()&&(where===''||where==='nat:England');
+  if(!rows.length) list.innerHTML='<li class="empty">No venues match. Try a different search.</li>';
+  else if(grouped){
+    const spec=(where===''?NAT_ORDER.map(k=>[k,r=>r.x.v.nat===k]):[]).concat(REG.map(g=>[g,r=>r.x.v.reg===g]),where===''?[['Channel Islands',r=>r.x.v.nat==='Channel Islands']]:[]);
+    list.innerHTML=spec.map(([label,fn])=>{const part=rows.filter(fn);return part.length?`<li class="gh"><h3>${esc(label)} <span>(${part.length})</span></h3></li>`+part.map(rowLi).join(''):''}).join('');
+  } else list.innerHTML=rows.map(rowLi).join('');
+  chipsEl.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.w===where));
   sAZ.setAttribute('aria-pressed',sort==='az');sNear.setAttribute('aria-pressed',sort==='near');sNear.disabled=!me;
   if(fit){
     if(h.length===1){map.setView([h[0].v.la,h[0].v.ln],13,{animate:false})}
@@ -203,6 +231,7 @@ qi.addEventListener('input',(()=>{let t;return()=>{clearTimeout(t);t=setTimeout(
 sel.addEventListener('change',()=>{where=sel.value;q='';qi.value='';openSlug='';writeHash();render(true)});
 sAZ.addEventListener('click',()=>{sort='az';render(false)});
 sNear.addEventListener('click',()=>{if(me){sort='near';render(false)}});
+chipsEl.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;where=b.dataset.w;sel.value=where;q='';qi.value='';openSlug='';writeHash();render(true)});
 list.addEventListener('click',e=>{const b=e.target.closest('.vn');if(b)openVenue(b.dataset.s,true)});
 
 // ---------- near me ----------
