@@ -22,12 +22,17 @@ header{padding-top:20px}
 .legend{display:flex;align-items:center;gap:10px;margin:14px 0 6px;font-size:16px}
 .dot{display:inline-block;flex:none;width:.95em;height:.95em;border-radius:50%;background:var(--pink)}
 .nav{margin:6px 0 18px;font-size:15px}
-.controls{position:sticky;top:0;z-index:10;background:var(--black);padding:10px 0 12px;border-bottom:1px solid var(--pink);margin-bottom:8px}
+.controls{background:var(--black);padding:10px 0 12px;border-bottom:1px solid var(--pink);margin-bottom:8px}
 input[type=search]{width:100%;background:#000;color:var(--paper);border:1px solid var(--pink);border-radius:0;padding:12px 14px;font:inherit;font-size:16px}
 input::placeholder{color:rgba(249,253,244,.5)}
 .chips{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
 .chip{background:transparent;border:1px solid var(--pink);padding:8px 14px;font-size:15px;cursor:pointer;border-radius:0;white-space:nowrap}
 .chip[aria-pressed="true"]{background:var(--pink);color:#000;font-weight:700}
+.near{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.near .chips{margin-top:0}
+select{background:#000;color:var(--paper);border:1px solid var(--pink);border-radius:0;padding:8px 10px;font:inherit;font-size:15px;max-width:100%}
+.chip:disabled{opacity:.45;cursor:default}
+.dist{font-size:14px;opacity:.85;margin-left:8px;white-space:nowrap}
 .chip.cp{display:inline-flex;align-items:center;gap:8px}
 .chip.cp .dot{background:var(--pink)}
 .chip.cp[aria-pressed="true"] .dot{background:#000}
@@ -64,9 +69,8 @@ footer{padding-bottom:56px;text-align:center;font-size:15px;opacity:.85}
  .bigdot{width:22px;height:22px;margin-top:0}
  .ar{font-size:26px}
  h2{font-size:30px}
- .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:-16px;padding-right:16px}
- .chips::-webkit-scrollbar{display:none}
- .chip{flex:none}
+ .chip{padding:8px 11px;font-size:14px}
+ .near select{flex:1 1 140px}
 }
 </style>
 </head>
@@ -82,13 +86,19 @@ footer{padding-bottom:56px;text-align:center;font-size:15px;opacity:.85}
     <input id="q" type="search" placeholder="Search artist, venue or town" aria-label="Search artist, venue or town" autocomplete="off">
     <div class="chips" id="months" aria-label="Filter by month"></div>
     <div class="chips" id="kinds" aria-label="Filter by type"></div>
+    <div class="near">
+      <button class="chip" type="button" id="locate" aria-pressed="false">Near me</button>
+      <select id="town" aria-label="Or choose a town"><option value="">Or choose a town</option></select>
+      <div class="chips" id="miles" aria-label="Distance in miles"></div>
+    </div>
+    <p id="nearnote" class="note" style="margin:6px 0 0" aria-live="polite"></p>
   </div>
   <p id="count" aria-live="polite" class="note" style="margin:8px 0 0"></p>
   <div id="out"></div>
   <p class="note">Dates and venues are as printed in the first issue of SHOWNOTES. Tours and line-ups change, so check with the venue or ticket seller before you travel.</p>
 </main>
 <footer><p>Something missing or wrong? <a href="mailto:shownotes@drownedinsound.org?subject=SHOWNOTES%20gigs">shownotes@drownedinsound.org</a></p></footer>
-<script src="gigs.js?v=4"></script>
+<script src="gigs.js?v=5"></script>
 <script>
 const G=window.GIGS;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -98,8 +108,14 @@ const MONTH=['January','February','March','April','May','June','July','August','
 const parse=d=>new Date(d+'T12:00:00');
 const upcoming=G.filter(g=>(g.e||g.d)>=today).sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:a.a.localeCompare(b.a));
 const months=[...new Set(upcoming.map(g=>g.d.slice(0,7)))];
-const st={m:'',k:'',q:''};
+const st={m:'',k:'',q:'',r:0,at:null,name:''};
+const TW=window.TOWNS||{};
 const KINDS=[['','All gigs'],['copy','Pick up a copy'],['rec','Recommended']];
+const milesEl=document.getElementById('miles'),townEl=document.getElementById('town'),locEl=document.getElementById('locate'),noteEl=document.getElementById('nearnote');
+townEl.innerHTML+=Object.keys(TW).sort().map(t=>`<option value="${esc(t)}">${esc(t)}</option>`).join('');
+milesEl.innerHTML=[0,10,20,50,100].map(m=>`<button class="chip" type="button" data-r="${m}" aria-pressed="false">${m?'Within '+m+' miles':'Any distance'}</button>`).join('');
+const miles=(a,b,c,d)=>{const R=3958.8,t=x=>x*Math.PI/180,h=Math.sin(t(c-a)/2)**2+Math.cos(t(a))*Math.cos(t(c))*Math.sin(t(d-b)/2)**2;return 2*R*Math.asin(Math.sqrt(h))};
+const dist=g=>st.at&&g.la!=null?miles(st.at[0],st.at[1],g.la,g.ln):null;
 const monthsEl=document.getElementById('months'),kindsEl=document.getElementById('kinds'),outEl=document.getElementById('out'),cnt=document.getElementById('count'),qi=document.getElementById('q');
 monthsEl.innerHTML=`<button class="chip" type="button" data-m="" aria-pressed="true">All dates</button>`+months.map(m=>{const [y,mo]=m.split('-');return `<button class="chip" type="button" data-m="${m}" aria-pressed="false">${MONTH[+mo-1]}${+y!==+months[0].slice(0,4)?' '+y:''}</button>`}).join('');
 kindsEl.innerHTML=KINDS.map(([k,l])=>`<button class="chip${k==='copy'?' cp':''}" type="button" data-k="${k}" aria-pressed="false">${k==='copy'?'<span class="dot" aria-hidden="true"></span>':''}${l}</button>`).join('');
@@ -111,16 +127,21 @@ function fmt(g){
 function row(g){
   const circle=g.s?'<span class="bigdot" role="img" aria-label="SHOWNOTES is available at this venue"></span>':'';
   const place=esc(g.v)+(g.t&&g.t!==g.v?', '+esc(g.t):'');
+  const dd=dist(g);const dtxt=dd!==null?`<span class="dist">${dd<1?'under 1':Math.round(dd)} mi</span>`:'';
   const venue=g.s?`<a href="../#venue=${esc(g.s)}">${place}</a>`:place;
   const badge=g.ty==='Recommended'?`<span class="badge">Recommended${g.rb?' by '+esc(g.rb):''}</span>`:g.ty==='Gig of the month'?`<span class="badge">Gig of the month</span>`:g.ty==='Tour date'?`<span class="badge alt">On tour</span>`:g.ty==='Support slot'?`<span class="badge alt">Support slot</span>`:'';
   const more=(g.rt||g.b)?`<details><summary>Read more</summary><div class="more">${g.rt?`<q>${esc(g.rt)}</q>`:''}${g.b?`<p style="margin:${g.rt?'8px':'0'} 0 0">${esc(g.b)}</p>`:''}</div></details>`:'';
-  return `<li class="g${g.ty==='Gig of the month'?' gotm':''}"><div class="dt"><span>${fmt(g)}</span>${circle}</div><div><h3 class="ar">${esc(g.a)}</h3><div class="vn">${venue}</div>${g.s?'<p class="pu">Pick up SHOWNOTES here</p>':''}${badge}${more}</div></li>`;
+  return `<li class="g${g.ty==='Gig of the month'?' gotm':''}"><div class="dt"><span>${fmt(g)}</span>${circle}</div><div><h3 class="ar">${esc(g.a)}</h3><div class="vn">${venue}${st.r?dtxt:''}</div>${g.s?'<p class="pu">Pick up SHOWNOTES here</p>':''}${badge}${more}</div></li>`;
 }
-function write(){const p=new URLSearchParams();if(st.m)p.set('m',st.m);if(st.k)p.set('k',st.k);const h=p.toString();history.replaceState(null,'',h?'#'+h:location.pathname+location.search)}
+function write(){const p=new URLSearchParams();if(st.m)p.set('m',st.m);if(st.k)p.set('k',st.k);if(st.r)p.set('r',st.r);if(st.name&&TW[st.name])p.set('town',st.name);const h=p.toString();history.replaceState(null,'',h?'#'+h:location.pathname+location.search)}
 function render(){
   const q=st.q.trim().toLowerCase();
-  const list=upcoming.filter(g=>(!st.m||g.d.startsWith(st.m))&&(st.k===''||(st.k==='copy'?!!g.s:g.ty==='Recommended'))&&(!q||(g.a+' '+g.v+' '+g.t).toLowerCase().includes(q)));
-  cnt.textContent=`${list.length} ${list.length===1?'gig':'gigs'}${st.k==='copy'?' where you can pick up a copy':''}`;
+  const list=upcoming.filter(g=>(!st.m||g.d.startsWith(st.m))&&(st.k===''||(st.k==='copy'?!!g.s:g.ty==='Recommended'))&&(!q||(g.a+' '+g.v+' '+g.t).toLowerCase().includes(q))&&(!st.r||(st.at&&(d=>d!==null&&d<=st.r)(dist(g)))));
+  cnt.textContent=`${list.length} ${list.length===1?'gig':'gigs'}${st.k==='copy'?' where you can pick up a copy':''}${st.r&&st.at?` within ${st.r} miles of ${st.name}`:''}`;
+  milesEl.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.r===st.r));
+  locEl.setAttribute('aria-pressed',st.name==='you');
+  townEl.value=st.name&&TW[st.name]?st.name:'';
+  noteEl.textContent=st.r&&!st.at?'Choose "Near me" or a town to use the distance filter.':(st.r?'Distances are straight-line and measured to the venue, or the middle of the town if the venue is not on our list. Gigs in Ireland are not included.':'');
   let html='',cur='';
   for(const g of list){const m=g.d.slice(0,7);if(m!==cur){if(cur)html+='</ul>';cur=m;const [y,mo]=m.split('-');html+=`<h2 aria-label="${MONTH[+mo-1]+' '+y}">${oify(MONTH[+mo-1]+' '+y)}</h2><ul>`}html+=row(g)}
   if(cur)html+='</ul>';
@@ -131,7 +152,17 @@ function render(){
 monthsEl.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;st.m=b.dataset.m;write();render();window.scrollTo({top:document.querySelector('.controls').offsetTop,behavior:'smooth'})});
 kindsEl.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;st.k=b.dataset.k;write();render()});
 let t;qi.addEventListener('input',()=>{clearTimeout(t);t=setTimeout(()=>{st.q=qi.value;render()},250)});
-(function init(){const p=new URLSearchParams(location.hash.slice(1));if(months.includes(p.get('m')))st.m=p.get('m');if(['copy','rec'].includes(p.get('k')))st.k=p.get('k');render()})();
+(function init(){const p=new URLSearchParams(location.hash.slice(1));if(months.includes(p.get('m')))st.m=p.get('m');if(['copy','rec'].includes(p.get('k')))st.k=p.get('k');
+  if(TW[p.get('town')]){st.name=p.get('town');st.at=TW[st.name]}
+  if([10,20,50,100].includes(+p.get('r')))st.r=+p.get('r');render()})();
+function locate(after){
+  if(!navigator.geolocation){noteEl.textContent='Your browser cannot share its location. Choose a town instead.';return}
+  noteEl.textContent='Finding you...';
+  navigator.geolocation.getCurrentPosition(p=>{st.at=[p.coords.latitude,p.coords.longitude];st.name='you';if(after)after();write();render()},()=>{noteEl.textContent='Could not get your location. Choose a town instead.'},{timeout:12000,maximumAge:600000});
+}
+locEl.addEventListener('click',()=>{if(!st.r)st.r=20;locate()});
+townEl.addEventListener('change',()=>{if(!townEl.value){st.at=null;st.name='';st.r=0}else{st.name=townEl.value;st.at=TW[st.name];if(!st.r)st.r=20}write();render()});
+milesEl.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;st.r=+b.dataset.r;if(st.r&&!st.at){noteEl.textContent='Choose "Near me" or a town first.'}if(!st.r){st.at=st.name==='you'?st.at:st.at}write();render()});
 </script>
 </body>
 </html>
