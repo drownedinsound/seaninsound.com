@@ -6,6 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000000">
 <title>SHOWNOTES Stockists</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SHOWNOTES">
+<meta property="og:title" content="SHOWNOTES Stockists">
+<meta property="og:description" content="Find a venue near you where you can pick up a free copy of SHOWNOTES, the magazine obsessed with live music.">
+<meta property="og:image" content="https://seaninsound.com/shownotesmap/share.png">
+<meta property="og:url" content="https://seaninsound.com/shownotesmap/">
+<meta name="description" content="Find a venue near you where you can pick up a free copy of SHOWNOTES, the magazine obsessed with live music.">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
 <link rel="stylesheet" href="https://use.typekit.net/ulr4flt.css?v=2">
@@ -49,6 +58,10 @@ input:focus,select:focus,button:focus-visible,a:focus-visible{outline:2px solid 
 .leaflet-popup-content{margin:14px 16px;font-size:15px;line-height:1.4}
 .leaflet-popup-content b{display:block;font-family:'abril-text',serif;font-weight:700;font-size:20px;line-height:1.15;margin-bottom:4px}
 .leaflet-popup-content a{color:#b8284a}
+.gg{margin:10px 0 0;padding-top:8px;border-top:1px dotted #999;font-size:14px}
+.gg b{display:inline;font-size:14px;margin:0;font-family:inherit}
+.gg div{margin:3px 0}
+.gg .gh{font-family:'ltc-flash','abril-text',sans-serif;text-transform:uppercase;letter-spacing:.05em;color:#b8284a;margin-bottom:4px}
 .dir{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px}
 .rep{display:block;margin-top:10px;font-size:13px;opacity:.75}
 .leaflet-container a.leaflet-popup-close-button{color:#000}
@@ -166,12 +179,23 @@ function popupHtml(v){
    <div class="dir"><a href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">Google Maps</a>
    <a href="https://maps.apple.com/?q=${nm}&ll=${ll}" target="_blank" rel="noopener">Apple Maps</a>
    <a href="https://citymapper.com/directions?endcoord=${ll}&endname=${nm}" target="_blank" rel="noopener">Citymapper</a></div>
+   ${gigsHtml(v)}
    <a class="rep" href="mailto:${MAILTO}?subject=${encodeURIComponent('SHOWNOTES map: '+v.n)}&body=${body}">Report a problem with this venue</a>`;
+}
+let gigsP,GG=null;
+function loadGigs(){return gigsP||(gigsP=new Promise(res=>{const sc=document.createElement('script');sc.src='gigs/gigs.js?v=6';sc.onload=()=>{GG=window.GIGS||[];res()};sc.onerror=()=>res();document.head.appendChild(sc)}))}
+function gigsHtml(v){
+  if(!GG)return '';
+  const n=new Date(),today=n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');
+  const l=GG.filter(g=>g.s===v.s&&!g.x&&(g.e||g.d)>=today).sort((a,b)=>a.d<b.d?-1:1);
+  if(!l.length)return '';
+  const f=g=>new Date(g.d+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+  return '<div class="gg"><div class="gh">Coming up here</div>'+l.slice(0,3).map(g=>`<div><b>${f(g)}</b> ${esc(g.a)}</div>`).join('')+`<div><a href="gigs/#q=${encodeURIComponent(v.n)}">${l.length>3?'See all '+l.length+' gigs':'See on the gigs page'}</a></div></div>`;
 }
 const all=window.VENUES.map(v=>{
   const m=L.marker([v.la,v.ln],{icon:pinIcon,title:v.n,alt:v.n,keyboard:true});
   m.bindPopup(()=>popupHtml(v),{maxWidth:300,autoPanPaddingTopLeft:[16,phone()?16:170],autoPanPaddingBottomRight:[16,24]});
-  m.on('popupopen',()=>{openSlug=v.s;writeHash()});m.on('popupclose',()=>{if(openSlug===v.s){openSlug='';writeHash()}});
+  m.on('popupopen',e=>{openSlug=v.s;writeHash();if(!GG)loadGigs().then(()=>{if(e.popup.isOpen())e.popup.update()})});m.on('popupclose',()=>{if(openSlug===v.s){openSlug='';writeHash()}});
   return {v,m,t:(v.n+' '+v.c).toLowerCase()};
 });
 document.getElementById('tag').textContent=`A magazine obsessed with live music, available for free at ${all.length} venues across the UK`;

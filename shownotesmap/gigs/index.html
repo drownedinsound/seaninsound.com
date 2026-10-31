@@ -6,6 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000000">
 <title>SHOWNOTES Gigs</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SHOWNOTES">
+<meta property="og:title" content="SHOWNOTES Gigs">
+<meta property="og:description" content="Gigs from the pages of SHOWNOTES, in date order, with a pink circle where you can pick up a free copy.">
+<meta property="og:image" content="https://seaninsound.com/shownotesmap/share.png">
+<meta property="og:url" content="https://seaninsound.com/shownotesmap/gigs/">
+<meta name="description" content="Gigs from the pages of SHOWNOTES, in date order, with a pink circle where you can pick up a free copy.">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="stylesheet" href="https://use.typekit.net/ulr4flt.css?v=2">
 <style>
 @font-face{font-family:'Druk XX Cond';src:url(../fonts/Druk-XXCondSuper.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
@@ -34,6 +43,11 @@ select{-webkit-appearance:none;appearance:none;background:#000 url("data:image/s
 .btn[aria-pressed="true"]{background:var(--pink);color:#000;font-weight:700}
 .where select{flex:1 1 180px}
 .dist{font-size:14px;opacity:.85;margin-left:8px;white-space:nowrap}
+li.g.off .ar{text-decoration:line-through;text-decoration-thickness:2px;opacity:.55}
+li.g.off .vn,li.g.off .dt{opacity:.55}
+.badge.off{background:#fff;color:#000}
+.totop{position:fixed;right:16px;bottom:16px;z-index:20;background:var(--pink);color:#000;border:0;border-radius:0;padding:12px 16px;font-size:15px;font-weight:700;cursor:pointer;display:none;box-shadow:0 0 0 2px #000}
+.totop.show{display:block}
 h2{margin:36px 0 4px;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font-size:34px;color:var(--pink);letter-spacing:.04em;text-transform:uppercase}
 .o{display:inline-block;width:.66em;height:.66em;border-radius:50%;background:currentColor;margin:0 .06em}
 ul{list-style:none;margin:0;padding:0}
@@ -95,10 +109,11 @@ footer{padding-bottom:56px;text-align:center;font-size:15px;opacity:.85}
   </div>
   <p id="count" aria-live="polite" class="note" style="margin:8px 0 0"></p>
   <div id="out"></div>
-  <p class="note">Dates and venues are as printed in the first issue of SHOWNOTES. Tours and line-ups change, so check with the venue or ticket seller before you travel.</p>
+  <p class="note">Dates and venues are as printed in the first issue of SHOWNOTES, last checked on 31 October 2026. Tours and line-ups change, and postponed or cancelled gigs are marked, so check with the venue or ticket seller before you travel.</p>
+  <button class="totop" id="totop" type="button" aria-label="Back to the filters">Back to top</button>
 </main>
 <footer><p>Something missing or wrong? <a href="mailto:shownotes@drownedinsound.org?subject=SHOWNOTES%20gigs">shownotes@drownedinsound.org</a></p></footer>
-<script src="gigs.js?v=5"></script>
+<script src="gigs.js?v=6"></script>
 <script>
 const G=window.GIGS;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -125,18 +140,18 @@ function fmt(g){
   return f(a,{weekday:'short'})+' '+a.getDate()+' '+f(a,{month:'short'});
 }
 function row(g){
-  const circle=g.s?'<span class="bigdot" role="img" aria-label="SHOWNOTES is available at this venue"></span>':'';
+  const circle=g.s&&!g.x?'<span class="bigdot" role="img" aria-label="SHOWNOTES is available at this venue"></span>':'';
   const place=esc(g.v)+(g.t&&g.t!==g.v?', '+esc(g.t):'');
   const dd=dist(g);const dtxt=dd!==null?`<span class="dist">${dd<1?'under 1':Math.round(dd)} mi</span>`:'';
-  const venue=g.s?`<a href="../#venue=${esc(g.s)}">${place}</a>`:place;
-  const badge=g.ty==='Recommended'?`<span class="badge">Recommended${g.rb?' by '+esc(g.rb):''}</span>`:g.ty==='Gig of the month'?`<span class="badge">Gig of the month</span>`:g.ty==='Tour date'?`<span class="badge alt">On tour</span>`:g.ty==='Support slot'?`<span class="badge alt">Support slot</span>`:'';
+  const venue=g.s&&!g.x?`<a href="../#venue=${esc(g.s)}">${place}</a>`:place;
+  const badge=g.x?`<span class="badge off">Postponed</span>`:g.ty==='Recommended'?`<span class="badge">Recommended${g.rb?' by '+esc(g.rb):''}</span>`:g.ty==='Gig of the month'?`<span class="badge">Gig of the month</span>`:g.ty==='Tour date'?`<span class="badge alt">On tour</span>`:g.ty==='Support slot'?`<span class="badge alt">Support slot</span>`:'';
   const more=(g.rt||g.b)?`<details><summary>Read more</summary><div class="more">${g.rt?`<q>${esc(g.rt)}</q>`:''}${g.b?`<p style="margin:${g.rt?'8px':'0'} 0 0">${esc(g.b)}</p>`:''}</div></details>`:'';
-  return `<li class="g${g.ty==='Gig of the month'?' gotm':''}"><div class="dt"><span>${fmt(g)}</span>${circle}</div><div><h3 class="ar">${esc(g.a)}</h3><div class="vn">${venue}${st.r&&st.at?dtxt:''}</div>${g.s?'<p class="pu">Pick up SHOWNOTES here</p>':''}${badge}${more}</div></li>`;
+  return `<li class="g${g.ty==='Gig of the month'?' gotm':''}${g.x?' off':''}"><div class="dt"><span>${fmt(g)}</span>${circle}</div><div><h3 class="ar">${esc(g.a)}</h3><div class="vn">${venue}${st.r&&st.at?dtxt:''}</div>${g.s&&!g.x?'<p class="pu">Pick up SHOWNOTES here</p>':''}${badge}${more}</div></li>`;
 }
 function write(){const p=new URLSearchParams();if(st.m)p.set('m',st.m);if(st.k)p.set('k',st.k);if(st.r)p.set('r',st.r);if(st.name&&TW[st.name])p.set('town',st.name);const h=p.toString();history.replaceState(null,'',h?'#'+h:location.pathname+location.search)}
 function render(){
   const q=st.q.trim().toLowerCase(),useDist=st.r&&st.at;
-  const list=upcoming.filter(g=>(!st.m||g.d.startsWith(st.m))&&(st.k===''||(st.k==='copy'?!!g.s:g.ty==='Recommended'))&&(!q||(g.a+' '+g.v+' '+g.t).toLowerCase().includes(q))&&(!useDist||(d=>d!==null&&d<=st.r)(dist(g))));
+  const list=upcoming.filter(g=>(!st.m||g.d.startsWith(st.m))&&(st.k===''||(st.k==='copy'?(!!g.s&&!g.x):g.ty==='Recommended'))&&(!q||(g.a+' '+g.v+' '+g.t).toLowerCase().includes(q))&&(!useDist||(d=>d!==null&&d<=st.r)(dist(g))));
   cnt.textContent=`${list.length} ${list.length===1?'gig':'gigs'}${st.k==='copy'?' where you can pick up a copy':''}${useDist?` within ${st.r} miles of ${st.name==='you'?'you':st.name}`:''}`;
   fM.value=st.m;fK.value=st.k;fR.value=String(st.r);
   whereEl.hidden=!st.r;
@@ -161,9 +176,10 @@ fR.addEventListener('change',()=>{st.r=+fR.value;write();render();if(st.r&&!st.a
 locEl.addEventListener('click',locate);
 townEl.addEventListener('change',()=>{if(townEl.value){st.name=townEl.value;st.at=TW[st.name]}else{st.at=null;st.name=''}write();render()});
 let t;qi.addEventListener('input',()=>{clearTimeout(t);t=setTimeout(()=>{st.q=qi.value;render()},250)});
-(function init(){const p=new URLSearchParams(location.hash.slice(1));if(months.includes(p.get('m')))st.m=p.get('m');if(['copy','rec'].includes(p.get('k')))st.k=p.get('k');
+(function init(){const p=new URLSearchParams(location.hash.slice(1));if(months.includes(p.get('m')))st.m=p.get('m');if(p.get('q')){st.q=p.get('q');qi.value=st.q}if(['copy','rec'].includes(p.get('k')))st.k=p.get('k');
   if(TW[p.get('town')]){st.name=p.get('town');st.at=TW[st.name]}
   if([10,20,50,100].includes(+p.get('r')))st.r=+p.get('r');render()})();
+const tt=$('totop');addEventListener('scroll',()=>tt.classList.toggle('show',scrollY>900),{passive:true});tt.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 </script>
 </body>
 </html>
