@@ -128,9 +128,9 @@ const miles=(a,b,c,d)=>{const R=3958.8,t=x=>x*Math.PI/180,h=Math.sin(t(c-a)/2)**
 const dist=g=>st.at&&g.la!=null?miles(st.at[0],st.at[1],g.la,g.ln):null;
 const mM=document.getElementById('mMonth'),mK=document.getElementById('mKind'),mR=document.getElementById('mMiles');
 const monthsEl=document.getElementById('months'),kindsEl=document.getElementById('kinds'),outEl=document.getElementById('out'),cnt=document.getElementById('count'),qi=document.getElementById('q');
-monthsEl.innerHTML=`<button class="chip" type="button" data-m="" aria-pressed="true">All dates</button>`+months.map(m=>{const [y,mo]=m.split('-');return `<button class="chip" type="button" data-m="${m}" aria-pressed="false">${MONTH[+mo-1]}${+y!==+months[0].slice(0,4)?' '+y:''}</button>`}).join('');
+monthsEl.innerHTML=`<button class="chip" type="button" data-m="" aria-pressed="true">All dates</button>`+months.map(m=>{const [y,mo]=m.split('-');return `<button class="chip" type="button" data-m="${m}" aria-pressed="false">${MONTH[+mo-1]}${' '+y}</button>`}).join('');
 kindsEl.innerHTML=KINDS.map(([k,l])=>`<button class="chip${k==='copy'?' cp':''}" type="button" data-k="${k}" aria-pressed="false">${k==='copy'?'<span class="dot" aria-hidden="true"></span>':''}${l}</button>`).join('');
-mM.innerHTML='<option value="">All dates</option>'+months.map(m=>{const [y,mo]=m.split('-');return `<option value="${m}">${MONTH[+mo-1]}${+y!==+months[0].slice(0,4)?' '+y:''}</option>`}).join('');
+mM.innerHTML='<option value="">All dates</option>'+months.map(m=>{const [y,mo]=m.split('-');return `<option value="${m}">${MONTH[+mo-1]}${' '+y}</option>`}).join('');
 mK.innerHTML=KINDS.map(([k,l])=>`<option value="${k}">${l}</option>`).join('');
 mR.innerHTML=[0,10,20,50,100].map(m=>`<option value="${m}">${m?'Within '+m+' miles':'Any distance'}</option>`).join('');
 mM.addEventListener('change',()=>{st.m=mM.value;write();render()});
