@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHOWNOTES Stockists</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#e95470;--paper:#f9fdf4;--black:#000;--land:#0d0d0d}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--black);color:var(--paper);font-family:Inter,Helvetica,Arial,sans-serif;font-weight:300}
+#map{position:absolute;inset:0;background:var(--black)}
+.leaflet-container{background:var(--black);font-family:inherit}
+.leaflet-control-attribution{display:none}
+.panel{position:absolute;z-index:1000;top:16px;left:16px;right:16px;max-width:360px;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.panel>*{pointer-events:auto}
+h1{margin:0;font-family:'Abril Fatface',serif;font-weight:400;font-size:28px;letter-spacing:.02em;color:var(--pink)}
+.sub{margin:0 0 4px;font-size:13px;color:var(--paper);opacity:.8}
+input,select{width:100%;background:rgba(0,0,0,.85);color:var(--paper);border:1px solid var(--pink);border-radius:0;padding:10px 12px;font:inherit;font-size:14px}
+select{-webkit-appearance:none;appearance:none;padding-right:40px;cursor:pointer;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23e95470' stroke-width='2'/%3E%3C/svg%3E");
+ background-repeat:no-repeat;background-position:right 14px center;background-size:12px 8px}
+select option{background:#000;color:var(--paper)}
+input::placeholder{color:rgba(249,253,244,.5)}
+input:focus,select:focus{outline:2px solid var(--paper);outline-offset:1px}
+.pin{width:12px;height:12px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 3px rgba(233,84,112,.25),0 0 14px 3px rgba(233,84,112,.55)}
+.cl{display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--pink);color:#000;font-family:'Abril Fatface',serif;box-shadow:0 0 0 4px rgba(233,84,112,.25),0 0 22px 6px rgba(233,84,112,.5)}
+.leaflet-popup-content-wrapper{background:var(--paper);color:#000;border-radius:0;box-shadow:0 0 0 2px var(--pink)}
+.leaflet-popup-tip{background:var(--paper)}
+.leaflet-popup-content{margin:14px 16px;font-size:13px;line-height:1.4}
+.leaflet-popup-content b{display:block;font-family:'Abril Fatface',serif;font-weight:400;font-size:20px;line-height:1.15;margin-bottom:4px}
+.leaflet-popup-content a{color:#b8284a;font-weight:400}
+.leaflet-container a.leaflet-popup-close-button{color:#000}
+.leaflet-bar a{background:#000;color:var(--pink);border-color:var(--pink)}
+.leaflet-bar a:hover{background:var(--pink);color:#000}
+.logo{display:block;width:200px;max-width:60vw;height:auto}
+@media(max-width:480px){.logo{width:160px}}
+</style>
+</head>
+<body>
+<div id="map" role="application" aria-label="Map of SHOWNOTES stockists"></div>
+<div class="panel">
+  <h1><img src="shownotes-logo.png" alt="SHOWNOTES" class="logo"></h1>
+  <p class="sub" id="count"></p>
+  <input id="q" type="search" placeholder="Search venue or city" aria-label="Search venue or city" autocomplete="off">
+  <select id="city" aria-label="Filter by city"><option value="">All cities</option></select>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<script src="isles.js"></script>
+<script src="venues.js"></script>
+<script>
+const map=L.map('map',{zoomControl:false,minZoom:5,maxZoom:13,zoomSnap:.25,maxBounds:[[47,-14],[61.5,4]],maxBoundsViscosity:.8});
+map.fitBounds([[49.7,-6.5],[58.8,1.9]],{paddingTopLeft:[0,40]});
+L.control.zoom({position:'bottomright'}).addTo(map);
+L.geoJSON(window.ISLES,{style:f=>f.properties.ie
+ ?{color:'#e95470',weight:.8,opacity:.35,fillColor:'#0a0a0a',fillOpacity:1}
+ :{color:'#e95470',weight:1.2,opacity:.9,fillColor:'#0d0d0d',fillOpacity:1},interactive:false}).addTo(map);
+
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const icon=L.divIcon({className:'',html:'<div class="pin"></div>',iconSize:[12,12],iconAnchor:[6,6],popupAnchor:[0,-8]});
+const cluster=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:38,spiderfyOnMaxZoom:true,
+ iconCreateFunction:c=>{const n=c.getChildCount(),s=n<10?26:n<50?34:44;
+  return L.divIcon({className:'',html:`<div class="cl" style="width:${s}px;height:${s}px;font-size:${s<30?13:16}px">${n}</div>`,iconSize:[s,s]});}});
+map.addLayer(cluster);
+
+const all=window.VENUES.map(v=>{
+  const m=L.marker([v.la,v.ln],{icon,title:v.n,alt:v.n,keyboard:true});
+  const q=encodeURIComponent(v.n+', '+v.a);
+  m.bindPopup(`<b>${esc(v.n)}</b>${esc(v.a)}<br><a href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">Open in Google Maps</a>`);
+  return {v,m,t:(v.n+' '+v.c).toLowerCase()};
+});
+const cities=[...new Set(all.map(x=>x.v.c))].sort((a,b)=>a.localeCompare(b));
+const sel=document.getElementById('city');
+cities.forEach(c=>sel.add(new Option(c,c)));
+const cnt=document.getElementById('count'),qi=document.getElementById('q');
+function render(){
+  const q=qi.value.trim().toLowerCase(),c=sel.value;
+  const hit=all.filter(x=>(!c||x.v.c===c)&&(!q||x.t.includes(q)));
+  cluster.clearLayers();cluster.addLayers(hit.map(x=>x.m));
+  const n=hit.length;
+  cnt.textContent=(c||q)?`${n} ${n===1?'venue':'venues'} found`:`${n} venues across the UK`;
+  if((c||q)&&n===1){map.setView([hit[0].v.la,hit[0].v.ln],13,{animate:false});hit[0].m.openPopup();}
+  else if((c||q)&&n){map.fitBounds(L.latLngBounds(hit.map(x=>[x.v.la,x.v.ln])),{padding:[60,60],maxZoom:13,animate:false});}
+  else if(!c&&!q){map.fitBounds([[49.7,-6.5],[58.8,1.9]],{paddingTopLeft:[0,40],animate:false});}
+}
+let t;qi.addEventListener('input',()=>{clearTimeout(t);t=setTimeout(()=>{sel.value='';render()},250)});
+sel.addEventListener('change',()=>{qi.value='';render()});
+render();
+</script>
+</body>
+</html>
