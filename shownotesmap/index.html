@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
 <link rel="stylesheet" href="https://use.typekit.net/ulr4flt.css?v=2">
 <style>
+@font-face{font-family:'Druk XX Cond';src:url(fonts/Druk-XXCondSuper.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
 :root{--pink:#e95470;--paper:#f9fdf4;--black:#000;--land:#0d0d0d}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--black);color:var(--paper);font-family:'abril-text',Georgia,'Times New Roman',serif;font-weight:400}
@@ -71,8 +72,8 @@ h2{margin:0;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font
 #venues li.gh h3 span{font-family:'abril-text',serif;font-size:16px;color:var(--paper);opacity:.7;letter-spacing:0}
 #venues{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));column-gap:32px}
 #venues li{padding:14px 0;border-bottom:1px dotted #555;display:grid;gap:2px}
-/* Venue names: a tall condensed capitals face. Stand-in for Druk XX Cond Super until a web licence for Druk is confirmed. */
-.vn{background:none;border:0;padding:0;text-align:left;font-family:'league-gothic-condensed','league-gothic','Arial Narrow',Impact,sans-serif;font-weight:400;font-size:34px;line-height:1.02;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;color:var(--paper)}
+/* Venue names: Druk XX Cond Super capitals (web use confirmed). League Gothic Condensed is the fallback. */
+.vn{background:none;border:0;padding:0;text-align:left;font-family:'Druk XX Cond','league-gothic-condensed','league-gothic','Arial Narrow',Impact,sans-serif;font-weight:400;font-size:46px;line-height:.98;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;color:var(--paper)}
 .vn:hover{color:var(--pink)}
 .va{font-size:15px;opacity:.75}
 .vd{font-family:'ltc-flash','abril-text',sans-serif;color:var(--pink);font-size:17px}
@@ -89,6 +90,7 @@ footer a{color:var(--pink)}
 .leaflet-popup-content{font-size:16px}
 #near{padding:0 14px}
 h2{font-size:30px}
+.vn{font-size:40px}
 .chiprow{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:2px 16px 4px}
 .chiprow::-webkit-scrollbar{display:none}
 .chip{flex:none;white-space:nowrap;padding:10px 14px}
@@ -128,7 +130,7 @@ h2{font-size:30px}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
 <script src="isles.js"></script>
-<script src="venues.js?v=3"></script>
+<script src="venues.js?v=4"></script>
 <script>
 const phone=()=>window.innerWidth<=480;
 const topPad=()=>phone()?16:40;
