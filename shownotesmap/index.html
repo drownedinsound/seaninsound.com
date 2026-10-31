@@ -24,6 +24,9 @@ button{font:inherit;color:inherit}
 h1{margin:0}
 .logo{display:block;width:200px;max-width:60vw;height:auto}
 .sub{margin:0 0 4px;font-size:15px;color:var(--paper);opacity:.85}
+.tag{font-size:16px;line-height:1.3;opacity:.95;margin:0 0 2px}
+.found{margin:0;font-size:15px}
+.found:empty{display:none}
 .note{margin:0;font-size:14px;color:var(--paper);opacity:.85;min-height:0}
 .note:empty{display:none}
 input,select{width:100%;background:rgba(0,0,0,.88);color:var(--paper);border:1px solid var(--pink);border-radius:0;padding:12px 14px;font:inherit;font-size:16px}
@@ -82,7 +85,7 @@ footer{padding:8px 16px 48px;text-align:center;font-size:15px;opacity:.8}
 footer a{color:var(--pink)}
 @media(max-width:480px){
 .logo{width:150px}
-#stage{display:flex;flex-direction:column;height:90vh;height:90svh;min-height:520px;max-height:none}
+#stage{display:flex;flex-direction:column;height:96vh;height:96svh;min-height:560px;max-height:none}
 .panel{position:static;max-width:none;padding:12px;background:#000;border-bottom:1px solid var(--pink);order:0;flex:none;gap:8px}
 #map{position:relative;inset:auto;flex:1 1 auto;min-height:320px;order:1}
 .leaflet-bar a{width:44px;height:44px;line-height:44px;font-size:22px}
@@ -103,12 +106,13 @@ h2{font-size:30px}
   <div id="map" role="application" aria-label="Map of SHOWNOTES stockists"></div>
   <div class="panel">
     <h1><img class="logo" src="shownotes-logo.png" alt="SHOWNOTES"></h1>
-    <p class="sub" id="count" aria-live="polite"></p>
+    <p class="sub tag" id="tag"></p>
     <input id="q" type="search" placeholder="Search venue or town" aria-label="Search venue or town" autocomplete="off">
     <div class="row">
       <select id="where" aria-label="Filter by place"></select>
       <button id="near" type="button">Near me</button>
     </div>
+    <p class="sub found" id="count" aria-live="polite"></p>
     <p class="note" id="note" aria-live="polite"></p>
   </div>
 </div>
@@ -134,7 +138,7 @@ h2{font-size:30px}
 <script>
 const phone=()=>window.innerWidth<=480;
 const topPad=()=>phone()?16:40;
-function home(){map.fitBounds(phone()?[[49.2,-7.4],[59.4,2.2]]:[[49.7,-6.5],[58.8,1.9]],{paddingTopLeft:[phone()?8:0,topPad()],paddingBottomRight:[phone()?8:0,phone()?8:0],animate:false})}
+function home(){map.fitBounds(phone()?[[48.9,-7.4],[59.5,2.2]]:[[49.7,-6.5],[58.8,1.9]],{paddingTopLeft:[phone()?8:0,topPad()],paddingBottomRight:[phone()?8:0,phone()?8:0],animate:false})}
 const map=L.map('map',{zoomControl:false,minZoom:5,maxZoom:13,zoomSnap:.25,maxBounds:[[47,-14],[61.5,4]],maxBoundsViscosity:.8});
 home();
 L.control.zoom({position:'bottomright'}).addTo(map);
@@ -166,6 +170,7 @@ const all=window.VENUES.map(v=>{
   m.on('popupopen',()=>{openSlug=v.s;writeHash()});m.on('popupclose',()=>{if(openSlug===v.s){openSlug='';writeHash()}});
   return {v,m,t:(v.n+' '+v.c).toLowerCase()};
 });
+document.getElementById('tag').textContent=`A magazine obsessed with live music, available for free at ${all.length} venues across the UK`;
 const bySlug=Object.fromEntries(all.map(x=>[x.v.s,x]));
 
 // ---------- places: nations, regions, cities, other towns ----------
@@ -206,7 +211,7 @@ function hits(){const s=q.trim().toLowerCase();return all.filter(x=>inWhere(x.v,
 function render(fit){
   const h=hits();cluster.clearLayers();cluster.addLayers(h.map(x=>x.m));
   const n=h.length,lab=labelOf(where);
-  cnt.textContent=q.trim()?`${n} ${n===1?'venue':'venues'} found`:where?`${n} ${n===1?'venue':'venues'} in ${lab}`:`${n} venues across the UK`;
+  cnt.textContent=q.trim()?`${n} ${n===1?'venue':'venues'} found`:where?`${n} ${n===1?'venue':'venues'} in ${lab}`:'';
   let rows=h.map(x=>({x,d:me?miles(me,[x.v.la,x.v.ln]):null}));
   if(sort==='near'&&me) rows.sort((a,b)=>a.d-b.d); else rows.sort((a,b)=>a.x.v.n.replace(/^the\s+/i,'').localeCompare(b.x.v.n.replace(/^the\s+/i,''),'en',{sensitivity:'base'}));
   const rowLi=({x,d})=>`<li><button class="vn" type="button" data-s="${esc(x.v.s)}">${esc(x.v.n)}</button><span class="va">${esc(x.v.a)}</span>${sort==='near'&&d!=null?`<span class="vd">${fmtMi(d)}</span>`:''}</li>`;
