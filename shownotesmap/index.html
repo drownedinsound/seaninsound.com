@@ -73,7 +73,7 @@ h2{margin:0;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font
 #venues{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));column-gap:32px}
 #venues li{padding:14px 0;border-bottom:1px dotted #555;display:grid;gap:2px}
 /* Venue names: Druk XX Cond Super capitals (web use confirmed). League Gothic Condensed is the fallback. */
-.vn{background:none;border:0;padding:0;text-align:left;font-family:'Druk XX Cond','league-gothic-condensed','league-gothic','Arial Narrow',Impact,sans-serif;font-weight:400;font-size:46px;line-height:.98;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;color:var(--paper)}
+.vn{background:none;border:0;padding:0;text-align:left;font-family:'Druk XX Cond','league-gothic-condensed','league-gothic','Arial Narrow',Impact,sans-serif;font-weight:400;font-size:52px;line-height:.98;letter-spacing:.17em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;text-transform:uppercase;cursor:pointer;color:var(--paper)}
 .vn:hover{color:var(--pink)}
 .va{font-size:15px;opacity:.75}
 .vd{font-family:'ltc-flash','abril-text',sans-serif;color:var(--pink);font-size:17px}
@@ -90,7 +90,7 @@ footer a{color:var(--pink)}
 .leaflet-popup-content{font-size:16px}
 #near{padding:0 14px}
 h2{font-size:30px}
-.vn{font-size:40px}
+.vn{font-size:44px;letter-spacing:.15em}
 .chiprow{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:2px 16px 4px}
 .chiprow::-webkit-scrollbar{display:none}
 .chip{flex:none;white-space:nowrap;padding:10px 14px}
@@ -174,18 +174,20 @@ const tally=(f)=>{const o={};all.forEach(x=>{const k=f(x.v);if(k)o[k]=(o[k]||0)+
 const NAT=['England','Scotland','Wales','Northern Ireland'];
 const REG=['London','South West','South East','Midlands','North West','North East','Yorkshire and the Humber','East of England'];
 const NAT_ORDER=['Scotland','Wales','Northern Ireland'];
+const RL={'South West':'South West England','South East':'South East England','North West':'North West England','North East':'North East England'};
+const rl=k=>RL[k]||k;
 const CITIES=['Manchester','Glasgow','Bristol','Brighton and Hove','Liverpool','Leeds','Newcastle','Birmingham','Edinburgh'];
 const nN=tally(v=>v.nat),nR=tally(v=>v.reg),nC=tally(v=>v.cg),nT=tally(v=>(v.cg||v.reg==='London')?'':v.c);
 function group(label,items){const g=document.createElement('optgroup');g.label=label;items.forEach(([val,text])=>g.appendChild(new Option(text,val)));sel.appendChild(g)}
 sel.add(new Option(`Everywhere (${all.length})`,''));
 group('Nations',NAT.map(k=>['nat:'+k,`${k} (${nN[k]})`]));
-group('Regions of England',REG.map(k=>['reg:'+k,`${k} (${nR[k]})`]));
+group('Regions of England',REG.map(k=>['reg:'+k,`${rl(k)} (${nR[k]})`]));
 group('Cities',CITIES.map(k=>['city:'+k,`${k} (${nC[k]})`]));
 group('Other towns',Object.keys(nT).sort((a,b)=>a.localeCompare(b)).map(k=>['town:'+k,`${k} (${nT[k]})`]));
 const chipsEl=document.getElementById('chips');
 const chip=(label,val,n)=>`<button type="button" class="chip" data-w="${esc(val)}" aria-pressed="false">${esc(label)} (${n})</button>`;
-chipsEl.innerHTML=`<div class="chiprow">${chip('All','',all.length)}${NAT_ORDER.map(k=>chip(k,'nat:'+k,nN[k])).join('')}</div>`
- +`<div class="chiprow"><span class="chiplabel">England</span>${chip('All England','nat:England',nN.England)}${REG.map(g=>chip(g,'reg:'+g,nR[g])).join('')}</div>`;
+chipsEl.innerHTML=`<div class="chiprow">${chip('All','',all.length)}${NAT_ORDER.map(k=>chip(k,'nat:'+k,nN[k])).join('')}${chip('England','nat:England',nN.England)}</div>`
+ +`<div class="chiprow">${REG.map(g=>chip(rl(g),'reg:'+g,nR[g])).join('')}</div>`;
 const labelOf=val=>{const o=[...sel.options].find(o=>o.value===val);return o?o.textContent.replace(/\s*\(\d+\)$/,''):''};
 function inWhere(v,w){if(!w)return true;const i=w.indexOf(':'),k=w.slice(0,i),val=w.slice(i+1);
   return k==='nat'?v.nat===val:k==='reg'?v.reg===val:k==='city'?v.cg===val:v.c===val}
@@ -211,7 +213,7 @@ function render(fit){
   const grouped=sort==='az'&&!q.trim()&&(where===''||where==='nat:England');
   if(!rows.length) list.innerHTML='<li class="empty">No venues match. Try a different search.</li>';
   else if(grouped){
-    const spec=(where===''?NAT_ORDER.map(k=>[k,r=>r.x.v.nat===k]):[]).concat(REG.map(g=>[g,r=>r.x.v.reg===g]),where===''?[['Channel Islands',r=>r.x.v.nat==='Channel Islands']]:[]);
+    const spec=(where===''?NAT_ORDER.map(k=>[k,r=>r.x.v.nat===k]):[]).concat(REG.map(g=>[rl(g),r=>r.x.v.reg===g]),where===''?[['Channel Islands',r=>r.x.v.nat==='Channel Islands']]:[]);
     list.innerHTML=spec.map(([label,fn])=>{const part=rows.filter(fn);return part.length?`<li class="gh"><h3>${esc(label)} <span>(${part.length})</span></h3></li>`+part.map(rowLi).join(''):''}).join('');
   } else list.innerHTML=rows.map(rowLi).join('');
   chipsEl.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.w===where));
