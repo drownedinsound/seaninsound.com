@@ -4,56 +4,104 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
 <title>SHOWNOTES Stockists</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
-<meta name="theme-color" content="#000000">
 <link rel="stylesheet" href="https://use.typekit.net/ulr4flt.css">
 <style>
 :root{--pink:#e95470;--paper:#f9fdf4;--black:#000;--land:#0d0d0d}
 *{box-sizing:border-box}
-html,body{margin:0;height:100%;background:var(--black);color:var(--paper);font-family:'abril-text',Georgia,'Times New Roman',serif;font-weight:400}
+html,body{margin:0;background:var(--black);color:var(--paper);font-family:'abril-text',Georgia,'Times New Roman',serif;font-weight:400}
+button{font:inherit;color:inherit}
+#stage{position:relative;height:78vh;height:78svh;min-height:480px;max-height:860px}
 #map{position:absolute;inset:0;background:var(--black)}
 .leaflet-container{background:var(--black);font-family:inherit}
 .leaflet-control-attribution{display:none}
-.panel{position:absolute;z-index:1000;top:16px;left:16px;right:16px;max-width:360px;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.panel{position:absolute;z-index:1000;top:16px;left:16px;right:16px;max-width:380px;display:flex;flex-direction:column;gap:8px;pointer-events:none}
 .panel>*{pointer-events:auto}
-h1{margin:0;font-family:'Abril Fatface',serif;font-weight:400;font-size:28px;letter-spacing:.02em;color:var(--pink)}
+h1{margin:0}
+.logo{display:block;width:200px;max-width:60vw;height:auto}
 .sub{margin:0 0 4px;font-size:15px;color:var(--paper);opacity:.85}
-input,select{width:100%;background:rgba(0,0,0,.85);color:var(--paper);border:1px solid var(--pink);border-radius:0;padding:12px 14px;font:inherit;font-size:16px}
+.note{margin:0;font-size:14px;color:var(--paper);opacity:.85;min-height:0}
+.note:empty{display:none}
+input,select{width:100%;background:rgba(0,0,0,.88);color:var(--paper);border:1px solid var(--pink);border-radius:0;padding:12px 14px;font:inherit;font-size:16px}
 select{-webkit-appearance:none;appearance:none;padding-right:40px;cursor:pointer;
  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23e95470' stroke-width='2'/%3E%3C/svg%3E");
  background-repeat:no-repeat;background-position:right 14px center;background-size:12px 8px}
-select option{background:#000;color:var(--paper)}
+select option,select optgroup{background:#000;color:var(--paper)}
 input::placeholder{color:rgba(249,253,244,.5)}
-input:focus,select:focus{outline:2px solid var(--paper);outline-offset:1px}
+input:focus,select:focus,button:focus-visible,a:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
+.row{display:flex;gap:8px}
+.row select{flex:1;min-width:0}
+#near{flex:none;background:var(--pink);color:#000;border:1px solid var(--pink);padding:0 16px;font-size:16px;font-weight:700;cursor:pointer;border-radius:0}
+#near:hover{background:var(--paper);border-color:var(--paper)}
+#near[disabled]{opacity:.6;cursor:wait}
 .pin{width:12px;height:12px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 3px rgba(233,84,112,.25),0 0 14px 3px rgba(233,84,112,.55)}
+.me{width:16px;height:16px;border-radius:50%;background:var(--paper);box-shadow:0 0 0 5px rgba(249,253,244,.28)}
 .cl{display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--pink);color:#000;font-family:'ltc-flash','abril-text',sans-serif;box-shadow:0 0 0 4px rgba(233,84,112,.25),0 0 22px 6px rgba(233,84,112,.5)}
 .leaflet-popup-content-wrapper{background:var(--paper);color:#000;border-radius:0;box-shadow:0 0 0 2px var(--pink)}
 .leaflet-popup-tip{background:var(--paper)}
 .leaflet-popup-content{margin:14px 16px;font-size:15px;line-height:1.4}
 .leaflet-popup-content b{display:block;font-family:'abril-text',serif;font-weight:700;font-size:20px;line-height:1.15;margin-bottom:4px}
-.leaflet-popup-content a{color:#b8284a;font-weight:400}
+.leaflet-popup-content a{color:#b8284a}
+.dir{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px}
+.rep{display:block;margin-top:10px;font-size:13px;opacity:.75}
 .leaflet-container a.leaflet-popup-close-button{color:#000}
 .leaflet-bar a{background:#000;color:var(--pink);border-color:var(--pink)}
 .leaflet-bar a:hover{background:var(--pink);color:#000}
 .leaflet-bar a.leaflet-disabled{background:#000;color:#5a2a35;cursor:default}
-.logo{display:block;width:200px;max-width:60vw;height:auto}
-@media(max-width:480px){.logo{width:150px}.panel{top:12px;left:12px;right:12px;max-width:none}.leaflet-bar a{width:44px;height:44px;line-height:44px;font-size:22px}.leaflet-control-zoom{margin:0 12px 24px 0!important}.leaflet-popup-content{font-size:16px}}
+#list{padding:48px 16px 32px;border-top:2px solid var(--pink)}
+.lhead{max-width:1100px;margin:0 auto 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+h2{margin:0;font-family:'ltc-flash','abril-text',sans-serif;font-weight:400;font-size:34px;color:var(--pink);letter-spacing:.02em}
+.sort{display:flex}
+.sort button{background:transparent;border:1px solid var(--pink);color:var(--paper);padding:10px 16px;font-size:16px;cursor:pointer;border-radius:0}
+.sort button+button{border-left:0}
+.sort button[aria-pressed="true"]{background:var(--pink);color:#000;font-weight:700}
+.sort button[disabled]{opacity:.45;cursor:not-allowed}
+#venues{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));column-gap:32px}
+#venues li{padding:14px 0;border-bottom:1px dotted #555;display:grid;gap:2px}
+.vn{background:none;border:0;padding:0;text-align:left;font-weight:700;font-size:19px;line-height:1.2;cursor:pointer;color:var(--paper)}
+.vn:hover{color:var(--pink)}
+.va{font-size:15px;opacity:.75}
+.vd{font-family:'ltc-flash','abril-text',sans-serif;color:var(--pink);font-size:17px}
+.empty{max-width:1100px;margin:0 auto;opacity:.8}
+footer{padding:8px 16px 48px;text-align:center;font-size:15px;opacity:.8}
+footer a{color:var(--pink)}
+@media(max-width:480px){.logo{width:150px}.panel{top:12px;left:12px;right:12px;max-width:none}.leaflet-bar a{width:44px;height:44px;line-height:44px;font-size:22px}.leaflet-control-zoom{margin:0 12px 24px 0!important}.leaflet-popup-content{font-size:16px}#near{padding:0 14px}h2{font-size:30px}#stage{height:74vh;height:74svh}}
 </style>
 </head>
 <body>
-<div id="map" role="application" aria-label="Map of SHOWNOTES stockists"></div>
-<div class="panel">
-  <h1><img src="shownotes-logo.png" alt="SHOWNOTES" class="logo"></h1>
-  <p class="sub" id="count"></p>
-  <input id="q" type="search" placeholder="Search venue or city" aria-label="Search venue or city" autocomplete="off">
-  <select id="city" aria-label="Filter by city"><option value="">All cities</option></select>
+<div id="stage">
+  <div id="map" role="application" aria-label="Map of SHOWNOTES stockists"></div>
+  <div class="panel">
+    <h1><img class="logo" src="shownotes-logo.png" alt="SHOWNOTES"></h1>
+    <p class="sub" id="count" aria-live="polite"></p>
+    <input id="q" type="search" placeholder="Search venue or town" aria-label="Search venue or town" autocomplete="off">
+    <div class="row">
+      <select id="where" aria-label="Filter by place"></select>
+      <button id="near" type="button">Near me</button>
+    </div>
+    <p class="note" id="note" aria-live="polite"></p>
+  </div>
 </div>
+
+<section id="list" aria-labelledby="lh">
+  <div class="lhead">
+    <h2 id="lh">Every venue</h2>
+    <div class="sort" role="group" aria-label="Sort venues">
+      <button id="sAZ" type="button" aria-pressed="true">A to Z</button>
+      <button id="sNear" type="button" aria-pressed="false" disabled>Nearest</button>
+    </div>
+  </div>
+  <ul id="venues"></ul>
+</section>
+<footer><p>See something wrong? <a href="mailto:shownotes@drownedinsound.org?subject=SHOWNOTES%20map">shownotes@drownedinsound.org</a></p></footer>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
 <script src="isles.js"></script>
-<script src="venues.js"></script>
+<script src="venues.js?v=3"></script>
 <script>
 const phone=()=>window.innerWidth<=480;
 const topPad=()=>phone()?document.querySelector('.panel').offsetHeight+20:40;
@@ -65,37 +113,112 @@ L.geoJSON(window.ISLES,{style:f=>f.properties.ie
  ?{color:'#e95470',weight:.8,opacity:.35,fillColor:'#0a0a0a',fillOpacity:1}
  :{color:'#e95470',weight:1.2,opacity:.9,fillColor:'#0d0d0d',fillOpacity:1},interactive:false}).addTo(map);
 
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const icon=L.divIcon({className:'',html:'<div class="pin"></div>',iconSize:[12,12],iconAnchor:[6,6],popupAnchor:[0,-8]});
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pinIcon=L.divIcon({className:'',html:'<div class="pin"></div>',iconSize:[12,12],iconAnchor:[6,6],popupAnchor:[0,-8]});
 const cluster=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:38,spiderfyOnMaxZoom:true,
  iconCreateFunction:c=>{const n=c.getChildCount(),s=n<10?26:n<50?34:44;
-  return L.divIcon({className:'',html:`<div class="cl" style="width:${s}px;height:${s}px;font-size:${s<30?13:16}px">${n}</div>`,iconSize:[s,s]});}});
+  return L.divIcon({className:'',html:`<div class="cl" style="width:${s}px;height:${s}px;font-size:${s<30?15:19}px">${n}</div>`,iconSize:[s,s]});}});
 map.addLayer(cluster);
 
+const MAILTO='shownotes@drownedinsound.org';
+function popupHtml(v){
+  const q=encodeURIComponent(v.n+', '+v.a),ll=v.la+','+v.ln,nm=encodeURIComponent(v.n);
+  const body=encodeURIComponent(`Venue: ${v.n}\nShown on the map as: ${v.a}\n\nWhat needs changing?\n`);
+  return `<b>${esc(v.n)}</b>${esc(v.a)}
+   <div class="dir"><a href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">Google Maps</a>
+   <a href="https://maps.apple.com/?q=${nm}&ll=${ll}" target="_blank" rel="noopener">Apple Maps</a>
+   <a href="https://citymapper.com/directions?endcoord=${ll}&endname=${nm}" target="_blank" rel="noopener">Citymapper</a></div>
+   <a class="rep" href="mailto:${MAILTO}?subject=${encodeURIComponent('SHOWNOTES map: '+v.n)}&body=${body}">Report a problem with this venue</a>`;
+}
 const all=window.VENUES.map(v=>{
-  const m=L.marker([v.la,v.ln],{icon,title:v.n,alt:v.n,keyboard:true});
-  const q=encodeURIComponent(v.n+', '+v.a);
-  m.bindPopup(`<b>${esc(v.n)}</b>${esc(v.a)}<br><a href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">Open in Google Maps</a>`,{maxWidth:300,autoPanPaddingTopLeft:[16,170],autoPanPaddingBottomRight:[16,24]});
+  const m=L.marker([v.la,v.ln],{icon:pinIcon,title:v.n,alt:v.n,keyboard:true});
+  m.bindPopup(()=>popupHtml(v),{maxWidth:300,autoPanPaddingTopLeft:[16,phone()?topPad():170],autoPanPaddingBottomRight:[16,24]});
+  m.on('popupopen',()=>{openSlug=v.s;writeHash()});m.on('popupclose',()=>{if(openSlug===v.s){openSlug='';writeHash()}});
   return {v,m,t:(v.n+' '+v.c).toLowerCase()};
 });
-const cities=[...new Set(all.map(x=>x.v.c))].sort((a,b)=>a.localeCompare(b));
-const sel=document.getElementById('city');
-const counts={};all.forEach(x=>{counts[x.v.c]=(counts[x.v.c]||0)+1});
-cities.forEach(c=>sel.add(new Option(`${c} (${counts[c]})`,c)));
-const cnt=document.getElementById('count'),qi=document.getElementById('q');
-function render(){
-  const q=qi.value.trim().toLowerCase(),c=sel.value;
-  const hit=all.filter(x=>(!c||x.v.c===c)&&(!q||x.t.includes(q)));
-  cluster.clearLayers();cluster.addLayers(hit.map(x=>x.m));
-  const n=hit.length;
-  cnt.textContent=(c||q)?`${n} ${n===1?'venue':'venues'} found`:`${n} venues across the UK`;
-  if((c||q)&&n===1){map.setView([hit[0].v.la,hit[0].v.ln],13,{animate:false});hit[0].m.openPopup();}
-  else if((c||q)&&n){map.fitBounds(L.latLngBounds(hit.map(x=>[x.v.la,x.v.ln])),{paddingTopLeft:[40,topPad()+(phone()?0:20)],paddingBottomRight:[40,60],maxZoom:13,animate:false});}
-  else if(!c&&!q){home();}
+const bySlug=Object.fromEntries(all.map(x=>[x.v.s,x]));
+
+// ---------- places: nations, regions, cities, other towns ----------
+const sel=document.getElementById('where'),cnt=document.getElementById('count'),qi=document.getElementById('q'),note=document.getElementById('note');
+const tally=(f)=>{const o={};all.forEach(x=>{const k=f(x.v);if(k)o[k]=(o[k]||0)+1});return o};
+const NAT=['England','Scotland','Wales','Northern Ireland'];
+const REG=['London','South East','South West','Midlands','North East','North West','Yorkshire and the Humber','East of England'];
+const CITIES=['Manchester','Glasgow','Bristol','Brighton and Hove','Liverpool','Leeds','Newcastle','Birmingham','Edinburgh'];
+const nN=tally(v=>v.nat),nR=tally(v=>v.reg),nC=tally(v=>v.cg),nT=tally(v=>(v.cg||v.reg==='London')?'':v.c);
+function group(label,items){const g=document.createElement('optgroup');g.label=label;items.forEach(([val,text])=>g.appendChild(new Option(text,val)));sel.appendChild(g)}
+sel.add(new Option(`Everywhere (${all.length})`,''));
+group('Nations',NAT.map(k=>['nat:'+k,`${k} (${nN[k]})`]));
+group('Regions of England',REG.map(k=>['reg:'+k,`${k} (${nR[k]})`]));
+group('Cities',CITIES.map(k=>['city:'+k,`${k} (${nC[k]})`]));
+group('Other towns',Object.keys(nT).sort((a,b)=>a.localeCompare(b)).map(k=>['town:'+k,`${k} (${nT[k]})`]));
+const labelOf=val=>{const o=[...sel.options].find(o=>o.value===val);return o?o.textContent.replace(/\s*\(\d+\)$/,''):''};
+function inWhere(v,w){if(!w)return true;const i=w.indexOf(':'),k=w.slice(0,i),val=w.slice(i+1);
+  return k==='nat'?v.nat===val:k==='reg'?v.reg===val:k==='city'?v.cg===val:v.c===val}
+
+// ---------- state, hash, location ----------
+let where='',q='',sort='az',me=null,meMarker=null,openSlug='';
+function writeHash(){const p=new URLSearchParams();if(where)p.set('where',where);if(openSlug)p.set('venue',openSlug);
+  const h=p.toString();history.replaceState(null,'',h?'#'+h:location.pathname+location.search)}
+const miles=(a,b)=>{const R=3958.8,r=Math.PI/180,dLa=(b[0]-a[0])*r,dLn=(b[1]-a[1])*r;
+  const h=Math.sin(dLa/2)**2+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dLn/2)**2;return 2*R*Math.asin(Math.sqrt(h))};
+const fmtMi=d=>d<0.1?'Under 0.1 mi':d<10?d.toFixed(1)+' mi':Math.round(d)+' mi';
+
+// ---------- render ----------
+const list=document.getElementById('venues'),sAZ=document.getElementById('sAZ'),sNear=document.getElementById('sNear');
+function hits(){const s=q.trim().toLowerCase();return all.filter(x=>inWhere(x.v,where)&&(!s||x.t.includes(s)))}
+function render(fit){
+  const h=hits();cluster.clearLayers();cluster.addLayers(h.map(x=>x.m));
+  const n=h.length,lab=labelOf(where);
+  cnt.textContent=q.trim()?`${n} ${n===1?'venue':'venues'} found`:where?`${n} ${n===1?'venue':'venues'} in ${lab}`:`${n} venues across the UK`;
+  let rows=h.map(x=>({x,d:me?miles(me,[x.v.la,x.v.ln]):null}));
+  if(sort==='near'&&me) rows.sort((a,b)=>a.d-b.d); else rows.sort((a,b)=>a.x.v.n.replace(/^the\s+/i,'').localeCompare(b.x.v.n.replace(/^the\s+/i,''),'en',{sensitivity:'base'}));
+  list.innerHTML=rows.length?rows.map(({x,d})=>`<li><button class="vn" type="button" data-s="${esc(x.v.s)}">${esc(x.v.n)}</button><span class="va">${esc(x.v.a)}</span>${sort==='near'&&d!=null?`<span class="vd">${fmtMi(d)}</span>`:''}</li>`).join(''):'<li class="empty">No venues match. Try a different search.</li>';
+  sAZ.setAttribute('aria-pressed',sort==='az');sNear.setAttribute('aria-pressed',sort==='near');sNear.disabled=!me;
+  if(fit){
+    if(h.length===1){map.setView([h[0].v.la,h[0].v.ln],13,{animate:false})}
+    else if(h.length){map.fitBounds(L.latLngBounds(h.map(x=>[x.v.la,x.v.ln])),{paddingTopLeft:[40,topPad()+(phone()?0:20)],paddingBottomRight:[40,60],maxZoom:13,animate:false})}
+    else home();
+    if(!where&&!q.trim())home();
+  }
 }
-let t;qi.addEventListener('input',()=>{clearTimeout(t);t=setTimeout(()=>{sel.value='';render()},250)});
-sel.addEventListener('change',()=>{qi.value='';render()});
-render();
+function openVenue(slug,scroll){const x=bySlug[slug];if(!x)return;
+  if(!cluster.hasLayer(x.m)){where='';sel.value='';q='';qi.value='';render(false)}
+  if(scroll)document.getElementById('stage').scrollIntoView({behavior:'smooth',block:'start'});
+  cluster.zoomToShowLayer(x.m,()=>x.m.openPopup());
+  if(!map.hasLayer(x.m)||!x.m._icon)map.setView([x.v.la,x.v.ln],13,{animate:false})}
+
+qi.addEventListener('input',(()=>{let t;return()=>{clearTimeout(t);t=setTimeout(()=>{q=qi.value;sel.value='';where='';writeHash();render(true)},250)}})());
+sel.addEventListener('change',()=>{where=sel.value;q='';qi.value='';openSlug='';writeHash();render(true)});
+sAZ.addEventListener('click',()=>{sort='az';render(false)});
+sNear.addEventListener('click',()=>{if(me){sort='near';render(false)}});
+list.addEventListener('click',e=>{const b=e.target.closest('.vn');if(b)openVenue(b.dataset.s,true)});
+
+// ---------- near me ----------
+const nearBtn=document.getElementById('near');
+function useLocation(pos){
+  me=pos;sort='near';
+  if(meMarker)map.removeLayer(meMarker);
+  meMarker=L.marker(me,{icon:L.divIcon({className:'',html:'<div class="me"></div>',iconSize:[16,16],iconAnchor:[8,8]}),interactive:false,keyboard:false}).addTo(map);
+  render(false);
+  const h=hits().map(x=>({x,d:miles(me,[x.v.la,x.v.ln])})).sort((a,b)=>a.d-b.d).slice(0,6);
+  if(h.length)map.fitBounds(L.latLngBounds([me].concat(h.map(r=>[r.x.v.la,r.x.v.ln]))),{paddingTopLeft:[40,topPad()+(phone()?0:20)],paddingBottomRight:[40,60],maxZoom:13,animate:false});
+  note.textContent=`Nearest first, from where you are. Your location stays on your device.`;
+}
+nearBtn.addEventListener('click',()=>{
+  if(!navigator.geolocation){note.textContent='Your browser can’t share your location.';return}
+  nearBtn.disabled=true;note.textContent='Finding you…';
+  navigator.geolocation.getCurrentPosition(p=>{nearBtn.disabled=false;useLocation([p.coords.latitude,p.coords.longitude])},
+   err=>{nearBtn.disabled=false;note.textContent=err&&err.code===1?'Location is switched off for this page. Search for a town instead.':'Couldn’t find you. Search for a town instead.'},
+   {enableHighAccuracy:false,timeout:12000,maximumAge:600000});
+});
+
+// ---------- start: honour a shared link ----------
+(function init(){
+  const p=new URLSearchParams(location.hash.slice(1));
+  const w=p.get('where');if(w&&[...sel.options].some(o=>o.value===w)){where=w;sel.value=w}
+  render(!!where);
+  const v=p.get('venue');if(v&&bySlug[v])setTimeout(()=>openVenue(v,false),300);
+})();
 </script>
 </body>
 </html>
