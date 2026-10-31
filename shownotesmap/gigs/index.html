@@ -28,6 +28,7 @@ input::placeholder{color:rgba(249,253,244,.5)}
 .chips{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
 .chip{background:transparent;border:1px solid var(--pink);padding:8px 14px;font-size:15px;cursor:pointer;border-radius:0;white-space:nowrap}
 .chip[aria-pressed="true"]{background:var(--pink);color:#000;font-weight:700}
+.msel{display:none}
 .near{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
 .near .chips{margin-top:0}
 select{background:#000;color:var(--paper);border:1px solid var(--pink);border-radius:0;padding:8px 10px;font:inherit;font-size:15px;max-width:100%}
@@ -69,7 +70,11 @@ footer{padding-bottom:56px;text-align:center;font-size:15px;opacity:.85}
  .bigdot{width:22px;height:22px;margin-top:0}
  .ar{font-size:26px}
  h2{font-size:30px}
- .chip{padding:8px 11px;font-size:14px}
+ .msel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+ .msel select{width:100%}
+ #mMiles{grid-column:1/-1}
+ #months,#kinds,#miles{display:none}
+ .near{margin-top:8px}
  .near select{flex:1 1 140px}
 }
 </style>
@@ -84,6 +89,11 @@ footer{padding-bottom:56px;text-align:center;font-size:15px;opacity:.85}
 <main>
   <div class="controls">
     <input id="q" type="search" placeholder="Search artist, venue or town" aria-label="Search artist, venue or town" autocomplete="off">
+    <div class="msel">
+      <select id="mMonth" aria-label="Month"></select>
+      <select id="mKind" aria-label="Type of gig"></select>
+      <select id="mMiles" aria-label="Distance"></select>
+    </div>
     <div class="chips" id="months" aria-label="Filter by month"></div>
     <div class="chips" id="kinds" aria-label="Filter by type"></div>
     <div class="near">
@@ -116,9 +126,16 @@ townEl.innerHTML+=Object.keys(TW).sort().map(t=>`<option value="${esc(t)}">${esc
 milesEl.innerHTML=[0,10,20,50,100].map(m=>`<button class="chip" type="button" data-r="${m}" aria-pressed="false">${m?'Within '+m+' miles':'Any distance'}</button>`).join('');
 const miles=(a,b,c,d)=>{const R=3958.8,t=x=>x*Math.PI/180,h=Math.sin(t(c-a)/2)**2+Math.cos(t(a))*Math.cos(t(c))*Math.sin(t(d-b)/2)**2;return 2*R*Math.asin(Math.sqrt(h))};
 const dist=g=>st.at&&g.la!=null?miles(st.at[0],st.at[1],g.la,g.ln):null;
+const mM=document.getElementById('mMonth'),mK=document.getElementById('mKind'),mR=document.getElementById('mMiles');
 const monthsEl=document.getElementById('months'),kindsEl=document.getElementById('kinds'),outEl=document.getElementById('out'),cnt=document.getElementById('count'),qi=document.getElementById('q');
 monthsEl.innerHTML=`<button class="chip" type="button" data-m="" aria-pressed="true">All dates</button>`+months.map(m=>{const [y,mo]=m.split('-');return `<button class="chip" type="button" data-m="${m}" aria-pressed="false">${MONTH[+mo-1]}${+y!==+months[0].slice(0,4)?' '+y:''}</button>`}).join('');
 kindsEl.innerHTML=KINDS.map(([k,l])=>`<button class="chip${k==='copy'?' cp':''}" type="button" data-k="${k}" aria-pressed="false">${k==='copy'?'<span class="dot" aria-hidden="true"></span>':''}${l}</button>`).join('');
+mM.innerHTML='<option value="">All dates</option>'+months.map(m=>{const [y,mo]=m.split('-');return `<option value="${m}">${MONTH[+mo-1]}${+y!==+months[0].slice(0,4)?' '+y:''}</option>`}).join('');
+mK.innerHTML=KINDS.map(([k,l])=>`<option value="${k}">${l}</option>`).join('');
+mR.innerHTML=[0,10,20,50,100].map(m=>`<option value="${m}">${m?'Within '+m+' miles':'Any distance'}</option>`).join('');
+mM.addEventListener('change',()=>{st.m=mM.value;write();render()});
+mK.addEventListener('change',()=>{st.k=mK.value;write();render()});
+mR.addEventListener('change',()=>{st.r=+mR.value;write();render()});
 function fmt(g){
   const a=parse(g.d),f=(d,o)=>d.toLocaleDateString('en-GB',o).toUpperCase();
   if(g.e&&g.e!==g.d){const b=parse(g.e);return a.getMonth()===b.getMonth()?`${a.getDate()}-${b.getDate()} ${f(a,{month:'short'})}`:`${a.getDate()} ${f(a,{month:'short'})} - ${b.getDate()} ${f(b,{month:'short'})}`}
@@ -141,6 +158,7 @@ function render(){
   milesEl.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.r===st.r));
   locEl.setAttribute('aria-pressed',st.name==='you');
   townEl.value=st.name&&TW[st.name]?st.name:'';
+  mM.value=st.m;mK.value=st.k;mR.value=String(st.r);
   noteEl.textContent=st.r&&!st.at?'Choose "Near me" or a town to use the distance filter.':(st.r?'Distances are straight-line and measured to the venue, or the middle of the town if the venue is not on our list. Gigs in Ireland are not included.':'');
   let html='',cur='';
   for(const g of list){const m=g.d.slice(0,7);if(m!==cur){if(cur)html+='</ul>';cur=m;const [y,mo]=m.split('-');html+=`<h2 aria-label="${MONTH[+mo-1]+' '+y}">${oify(MONTH[+mo-1]+' '+y)}</h2><ul>`}html+=row(g)}
