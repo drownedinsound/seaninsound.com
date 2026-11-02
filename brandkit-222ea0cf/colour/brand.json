@@ -1,0 +1,176 @@
+{
+  "name": "SHOWNOTES",
+  "source": "Drowned in Sound and SHOWNOTES brand kit, 2 November 2026",
+  "colour": {
+    "pink": {
+      "hex": "#EE5D75",
+      "use": "Print pink. Page fills, headlines, labels, emphasis text. Second most common fill in the magazine."
+    },
+    "pink-logo": {
+      "hex": "#E95470",
+      "use": "Pink inside the digital logo files. Use for anything sitting next to the logo on screen."
+    },
+    "ink": {
+      "hex": "#010204",
+      "use": "Body text on light pages, text on pink."
+    },
+    "black": {
+      "hex": "#121211",
+      "use": "Large black shapes, circles and black page fills. Most common fill by area."
+    },
+    "paper": {
+      "hex": "#F1E8F3",
+      "use": "Body text on black or pink pages (a very slightly lilac off-white)."
+    },
+    "white": {
+      "hex": "#FFFFFF",
+      "use": "Wedges, tags, cut-out shapes, photo credits on dark."
+    },
+    "logo-white": {
+      "hex": "#F9FDF4",
+      "use": "Off-white inside the digital logo file."
+    },
+    "yellow": {
+      "hex": "#FFF200",
+      "use": "Appears once, tiny. Not part of the system. Do not use."
+    }
+  },
+  "type": {
+    "body": {
+      "face": "Abril Text Regular",
+      "size_pt": "9-10",
+      "leading_pt": 13,
+      "align": "justified",
+      "colour": "ink on white, paper on black/pink"
+    },
+    "emphasis": {
+      "face": "Abril Text Italic / SemiBold Italic",
+      "colour": "pink",
+      "use": "credits, standfirst asides, listing details"
+    },
+    "run-in": {
+      "face": "Abril Text Bold",
+      "size_pt": 14,
+      "use": "intro paragraph at the top of a feature, on pink or black"
+    },
+    "label": {
+      "face": "Flash SB Regular",
+      "size_pt": 26,
+      "case": "UPPER",
+      "angle_deg": 15,
+      "use": "section labels such as FEATURE, OPINION, COVER STORY, INTERVIEW. In print these sit on a tilted wedge; for social assets use the label as plain text only."
+    },
+    "stamp": {
+      "face": "Abril Text SemiBold Italic",
+      "size_pt": 36,
+      "angle_deg": 17,
+      "colour": "pink",
+      "use": "FREE! on the cover"
+    },
+    "headline": {
+      "face": "A different display face per feature",
+      "known": [
+        "BT Super Seventy (cover, Spread Like Wildfire)",
+        "Becker Gothics Concave (Flower Power With Punch)",
+        "Megascope (Manic Memories)",
+        "Buxom (page 8-9)",
+        "Emfatick NF (Pitch Perfect)",
+        "Gikit trial (Post-Shownotes)"
+      ]
+    },
+    "stand-in-for-web": {
+      "display": "Abril Fatface (Google Fonts)",
+      "text": "Playfair Display (Google Fonts)",
+      "note": "Temporary until the licensed font files are supplied."
+    }
+  },
+  "shape": {
+    "angles_deg": {
+      "tag": 15,
+      "stamp": 17
+    },
+    "vocabulary": [
+      "solid circle",
+      "right-angled wedge with one slanted cut",
+      "starburst",
+      "tilted tag on a white wedge",
+      "full-bleed pink or black page"
+    ],
+    "fill": "flat colour only: no gradients, no glow, no drop shadows",
+    "note": "Shapes may frame or sit behind a layout but must not contain text."
+  },
+  "social": {
+    "feed_portrait": {
+      "px": [
+        1080,
+        1440
+      ],
+      "ratio": "3:4",
+      "export": [
+        2160,
+        2880
+      ],
+      "margin_px": 60
+    },
+    "story": {
+      "px": [
+        1080,
+        1920
+      ],
+      "ratio": "9:16"
+    },
+    "background": "black",
+    "logo": "pink logo, top left, 240-300px wide"
+  },
+  "rules": [
+    "Text never sits inside a shape. Shapes are decorative only and stay separate from type.",
+    "The magazine's tilted tags (FEATURE, OPINION) are text on a wedge. Do not recreate them in generated assets. Set labels as plain text on the black background.",
+    "Flat colour only: no gradients, no drop shadows. (Pin glow is allowed on the web map only.)",
+    "One typeface family per asset for text, pink for emphasis, paper (#F1E8F3) for body on black."
+  ],
+  "video": {
+    "added": "1 Nov 2026, from the Rou Reynolds podcast episode",
+    "grade": {
+      "base": "Fujifilm Eterna-style film look, flat colour, richer than natural, skin warm but not red.",
+      "fuji_camera": {
+        "lut": "luts/DiS Eterna - Fuji Richer colour.cube",
+        "use": "Fuji interview camera, node 02 after a plain node 01"
+      },
+      "iphone_wide": {
+        "lut": "luts/DiS Eterna - iPhone matched.cube",
+        "use": "iPhone wide shot, matched to the Fuji with skin slightly less red"
+      },
+      "resolve_install": "/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/DiS/",
+      "how": "One still per camera from a graded timeline, applied to every clip of that camera. Then check the LUT tick on each camera, because a node appearing does not prove which LUT it is.",
+      "other_variants": "Alternatives tested (Natural, Pro Neg, Classic Chrome, Astia and iPhone variants) are in luts/ if the Fuji look needs revisiting."
+    },
+    "type": {
+      "headline": "Alternate Gothic No2, capitals",
+      "subtitle": "Cardo Bold",
+      "logo_only": "Druk is for the logo only, never live text"
+    },
+    "colour": {
+      "pink": "#E95470",
+      "paper": "#F1E8F3",
+      "black": "#121211",
+      "note": "Flat colour only, no gradients or shadows. Black is the brand kit black, also used for the subtitle strip."
+    },
+    "reels_safe_zone": {
+      "canvas_px": [
+        1080,
+        1920
+      ],
+      "top_px": 220,
+      "bottom_px": 450,
+      "sides_px": 35,
+      "button_rail": "100px wide at bottom right, from about 750px up, so text stops 135px from the right edge near the bottom"
+    },
+    "rules": [
+      "Logo small, top right, about 256px tall",
+      "Open and close with matching logo bumpers",
+      "No end-card box and no LINK IN BIO line, the caption carries the link",
+      "Title overlays held for 5 seconds or more",
+      "Subtitles: continuous black strip, 72px at 1080 wide, no gaps between lines, none on 16:9"
+    ]
+  }
+}
