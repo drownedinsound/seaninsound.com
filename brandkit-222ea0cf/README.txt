@@ -9,7 +9,7 @@ FOLDERS
   logos/SHOWNOTES            SHOWNOTES logo in pink, black and off-white (transparent PNG, 4500 x 4500 with empty space
                              around the wordmark). The files ending -cropped have the empty space trimmed off (4202 x 678, 6.2 : 1).
   colour/                    brand.json (all colours and rules) and tokens.css (ready-to-use CSS variables)
-  type/                      FONTS.md (what we use, where to get it, licences) and Cardo (the only font we can share)
+  type/                      FONTS.md (what we use, where to get it, licences). No font files are included.
   reference/video            Reels safe zone diagram
 
 NOT INCLUDED ON PURPOSE
