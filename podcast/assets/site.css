@@ -67,6 +67,11 @@ textarea,input,select,button{font-family:var(--body)}
 .sleeve .sl-name{font:400 17cqw/.92 var(--display);text-transform:uppercase;overflow-wrap:anywhere}
 .sleeve .sl-org{font:700 7.5cqw/1.15 var(--body)}
 .sleeve.p0{background:#E95470;color:#010204}.sleeve.p1{background:#F1E8F3;color:#010204}.sleeve.p2{background:#121211;color:#E95470;box-shadow:inset 0 0 0 2px #F1E8F3}.sleeve.p3{background:#FFFFFF;color:#010204}
+.sleeve .sl-wedge{position:absolute;right:0;bottom:0;width:46%;height:46%;clip-path:polygon(100% 0,100% 100%,0 100%);background:#121211}
+.sleeve.p0 .sl-wedge{background:#121211}.sleeve.p1 .sl-wedge,.sleeve.p3 .sl-wedge,.sleeve.p2 .sl-wedge{background:#E95470}
+.sleeve .sl-circ{position:absolute;right:7cqw;top:7cqw;left:auto;bottom:auto;width:34cqw;height:34cqw;border-radius:50%;object-fit:cover;border:1.5cqw solid #010204;background:#FFFFFF}
+.sleeve.p2 .sl-circ{border-color:#F1E8F3}
+.sleeve .sl-top,.sleeve .sl-name,.sleeve .sl-org{position:relative;z-index:1}
 .sleeve.p2 .sl-name{color:#FFFFFF}
 .sleeve img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .sleeve.photo{background:#121211;display:block !important}.sleeve.photo .sl-name{position:absolute;left:0;right:0;bottom:0;margin:0 !important;padding:3cqw 5cqw;background:#121211;color:#FFFFFF;font:400 11cqw/1 var(--display);text-transform:uppercase}
