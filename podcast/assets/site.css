@@ -417,4 +417,4 @@ main a,main li,main p{overflow-wrap:anywhere}
 .wall .tile[hidden]{display:none}
 @media(max-width:900px){.tgrid,.hgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.hgrid{grid-template-columns:1fr}.sgrid,.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.orgs{grid-template-columns:repeat(2,minmax(0,1fr))}.rfs{grid-template-columns:repeat(2,minmax(0,1fr))}.tgrid,.sgrid,.pgrid{grid-template-columns:1fr}.hcard{grid-template-columns:96px minmax(0,1fr)}.hphoto{width:96px;height:96px;font-size:32px}.pbtn{width:100%;justify-content:center}.band{padding:44px 0}}
-@media(prefers-reduced-motion:reduce){.cover video{display:none}}
+
