@@ -13,7 +13,7 @@ footer.site a:hover{text-decoration:underline !important;text-decoration-thickne
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--white);outline-offset:2px}
 h1,h2,h3{font-family:var(--display);text-transform:uppercase;font-weight:400;line-height:.95;margin:0 0 .4em;letter-spacing:.01em;color:var(--white)}
 h1{font-size:clamp(52px,9vw,128px)}h2{font-size:clamp(36px,5vw,64px)}h3{font-size:28px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}.wrap.wide{max-width:1320px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
 .label{font:400 16px/1 var(--display);text-transform:uppercase;letter-spacing:.12em;color:var(--pink)}
 .skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:var(--white);color:var(--ink);padding:8px 12px;z-index:99}
 header.site{position:sticky;top:0;z-index:50;background:var(--black);border-bottom:2px solid var(--pink)}
@@ -281,7 +281,7 @@ footer.site ul{list-style:none;margin:0;padding:0}footer.site li{margin:6px 0}
 .dx-on-pink h1,.dx-on-paper h1,.dx-on-pink h2,.dx-on-paper h2{color:var(--ink)}
 .dx-playlist h3.dx-playlist__title{color:var(--white)}
 
-.combo .wrap{max-width:1120px;padding:0 clamp(20px,5vw,64px)}.combo .wrap.wide{max-width:1320px}
+.combo .wrap{max-width:1320px;padding:0 clamp(20px,5vw,64px)}
 header.site .wrap,footer.site .wrap,.chero .wrap,.band.slim .wrap,.combo header.site .wrap,.combo footer.site .wrap{max-width:1320px}
 .chero{position:relative;overflow:hidden;min-height:min(calc(100vh - 66px),820px);display:flex;align-items:flex-end;padding:0;background:var(--black)}
 .chero .clip.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 20%}
