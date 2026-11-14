@@ -4,5 +4,5 @@ var mb=document.querySelector('.menubtn');if(mb){mb.addEventListener('click',fun
 (function(){var box=document.getElementById('archive');if(!box)return;var data=JSON.parse(document.getElementById('archive-data').textContent);
 var q=document.getElementById('q'),fs=document.getElementById('fshow'),ft=document.getElementById('ftopic'),fse=document.getElementById('fseason'),fv=document.getElementById('fvideo'),out=document.getElementById('list'),cnt=document.getElementById('count');
 function render(){var s=q.value.toLowerCase();var res=data.filter(function(d){return(!s||d.t.indexOf(s)>-1)&&(!fs.value||d.s===fs.value)&&(!ft.value||d.tp.indexOf(ft.value)>-1)&&(!fse.value||d.se===fse.value)&&(!fv.value||(fv.value==='full'&&d.v===2)||(fv.value==='any'&&d.v>0)||(fv.value==='none'&&d.v===0))});
-cnt.textContent=res.length+' of '+data.length+' episodes';out.innerHTML=res.map(function(d){return '<a class="row" href="'+d.u+'"><img loading="lazy" src="'+d.i+'" alt=""><div><h3>'+d.h+'</h3><div class="meta">'+d.m+'</div></div></a>'}).join('')}
+cnt.textContent=res.length+' of '+data.length+' episodes';out.innerHTML=res.map(function(d){return '<a class="row" href="'+d.u+'"><div class="rowart">'+d.i+'</div><div><h3>'+d.h+'</h3><div class="meta">'+d.m+'</div></div></a>'}).join('')}
 [q,fs,ft,fse,fv].forEach(function(x){x.addEventListener('input',render)});render()})();
