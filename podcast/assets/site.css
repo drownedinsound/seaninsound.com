@@ -407,6 +407,7 @@ main a,main li,main p{overflow-wrap:anywhere}
 .chero .srow{font-size:15px;letter-spacing:.04em;white-space:nowrap}@media(max-width:900px){.chero .srow{white-space:normal}}
 @media(min-width:761px){.chero .wrap>.srow{max-width:none}}
 @media(min-width:761px){.chero .wrap>.who2{max-width:none}.who2 b{font-size:clamp(20px,2.1vw,30px)}.who2 b+b{margin-left:0}.who2 p{max-width:none}.chero .pbtn{font-size:19px;padding:9px 16px 9px 12px;gap:8px}.chero .pbtn svg{width:22px;height:22px}.chero .cta{gap:10px}}
+.gstrip{padding:36px 0 30px}.gstrip .label,.gstrip .stats li b,.gstrip .stats li span,.gstrip .small,.gstrip .stats .small{color:var(--ink)}.gstrip .sh{color:var(--ink)}
 .lede2{font-size:clamp(20px,2.2vw,26px);max-width:30em;margin:0 0 18px}
 .pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:20px}
 .more{margin-top:22px;font:700 20px var(--body)}
