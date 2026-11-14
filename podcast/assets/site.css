@@ -53,6 +53,8 @@ main{min-height:60vh}section{padding:56px 0}
 .card,.paper a.card,.pink a.card{color:var(--paper)}.paper .card h3,.pink .card h3{color:var(--white)}
 .card .label,.paper .card .label,.pink .card .label{color:var(--pink)}
 .paper .card p,.pink .card p,.paper .card .meta,.pink .card .meta{color:var(--paper)}
+.tile,.card,.shelf a,.thumbs a,.row{text-decoration:none}
+.paper .btn,.paper a.btn{color:var(--ink)}.paper .btn.line,.paper a.btn.line{color:var(--ink)}
 .paper .chip{color:var(--ink);border-color:var(--ink)}.paper .chip:hover{background:var(--pink);border-color:var(--pink);color:var(--ink)}
 .paper .btn.line{color:var(--ink);border-color:var(--ink)}.paper .btn.line:hover{background:var(--ink);color:var(--paper)}
 .pink .btn.line{color:var(--ink);border-color:var(--ink)}.pink .btn.line:hover{background:var(--ink);color:var(--paper)}
