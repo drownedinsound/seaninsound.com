@@ -3,7 +3,13 @@
 --display:'League Gothic','Druk XX Cond Super','Alternate Gothic No2',Impact,sans-serif;--body:'Playfair Display','Abril Text',Georgia,serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--black);color:var(--paper);font:400 18px/1.55 var(--body)}
-a{color:var(--pink);text-underline-offset:3px}a:hover{color:var(--white)}
+a{color:var(--pink);text-decoration:none}a:hover{color:var(--white)}
+/* links: quiet by default. Only links inside running text get a thin, softened underline (so they are not told apart by colour alone). */
+main p a:not(.btn):not(.chip),main li a:not(.chip):not(.btn),main blockquote a,main .small a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:color-mix(in srgb,currentColor 45%,transparent)}
+main p a:not(.btn):not(.chip):hover,main li a:not(.chip):not(.btn):hover,main .small a:hover{text-decoration-color:currentColor}
+footer.site a,footer.site li a,.card h3 a,.card a.card,.take a,.row,.tile,.shelf a,.thumbs a,nav a,.brand,.chips a{text-decoration:none !important}
+footer.site a:hover{text-decoration:underline !important;text-decoration-thickness:1px;text-underline-offset:4px}
+.paper a,.paper main a{text-decoration-color:color-mix(in srgb,currentColor 45%,transparent)}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--white);outline-offset:2px}
 h1,h2,h3{font-family:var(--display);text-transform:uppercase;font-weight:400;line-height:.95;margin:0 0 .4em;letter-spacing:.01em;color:var(--white)}
 h1{font-size:clamp(52px,9vw,128px)}h2{font-size:clamp(36px,5vw,64px)}h3{font-size:28px}
@@ -55,6 +61,10 @@ main{min-height:60vh}section{padding:56px 0}
 .card .label,.paper .card .label,.pink .card .label{color:var(--pink)}
 .paper .card p,.pink .card p,.paper .card .meta,.pink .card .meta{color:var(--paper)}
 .tile,.card,.shelf a,.thumbs a,.row{text-decoration:none}
+/* The PODCAST device from the new DiS Podcast logo: small, wide-spaced, italic caps with a solid disc for the O (echoing SHOWNOTES' circular Os) */
+.podword{display:inline-flex;align-items:center;font:400 .62em/1 var(--display);font-style:italic;text-transform:uppercase;letter-spacing:.42em;color:inherit;white-space:nowrap}
+.podword i{display:inline-block;width:.78em;height:.78em;border-radius:50%;background:currentColor;margin:0 .42em 0 -.02em}
+.brand{flex-direction:column;align-items:flex-start;gap:2px;line-height:1}.brand .brand-row{display:flex;align-items:center;gap:10px}.brand .podword{font-size:15px;color:var(--paper);margin-left:50px}
 .paper .btn,.paper a.btn{color:var(--ink)}.paper .btn.line,.paper a.btn.line{color:var(--ink)}
 .paper .chip{color:var(--ink);border-color:var(--ink)}.paper .chip:hover{background:var(--pink);border-color:var(--pink);color:var(--ink)}
 .paper .btn.line{color:var(--ink);border-color:var(--ink)}.paper .btn.line:hover{background:var(--ink);color:var(--paper)}
@@ -106,3 +116,127 @@ footer.site ul{list-style:none;margin:0;padding:0}footer.site li{margin:6px 0}
 .share{background:var(--panel);border:2px solid var(--paper);padding:18px;margin:18px 0}.share textarea{width:100%;min-height:110px;font:inherit;font-size:16px;background:var(--black);color:var(--paper);border:2px solid var(--paper);padding:10px}
 .lane{border-top:6px solid var(--pink);padding-top:22px}
 .small{font-size:16px}
+
+/* ===== DiS design language: components (prefix dx-). Flat colour only. No gradients, no shadows. ===== */
+:root{
+  
+  --font-display:var(--display);
+  --font-body:var(--body);
+  --font-label:var(--display);
+  --step:8px; --gutter:24px; --margin:clamp(16px,5.5vw,64px);
+  --tilt:-15deg; --stamp-tilt:-17deg;
+  --clip-wedge:polygon(0 0,100% 0,0 100%);
+  --clip-wedge-trap:polygon(0 0,100% 0,100% 38%,0 100%);
+  --clip-cut:polygon(0 0,100% 0,100% 88%,0 100%);
+  --clip-star:polygon(50% 0%,57.5% 22%,75% 6.7%,70.5% 29.5%,93.3% 25%,78% 42.5%,100% 50%,78% 57.5%,93.3% 75%,70.5% 70.5%,75% 93.3%,57.5% 78%,50% 100%,42.5% 78%,25% 93.3%,29.5% 70.5%,6.7% 75%,22% 57.5%,0% 50%,22% 42.5%,6.7% 25%,29.5% 29.5%,25% 6.7%,42.5% 22%);
+}
+.dx-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--gutter);row-gap:calc(var(--step)*3);padding-inline:var(--margin);max-width:1440px;margin-inline:auto}
+.dx-span-2{grid-column:span 2}.dx-span-3{grid-column:span 3}.dx-span-4{grid-column:span 4}.dx-span-6{grid-column:1/-1}
+@media(max-width:900px){.dx-span-2{grid-column:span 3}.dx-span-4{grid-column:1/-1}}
+@media(max-width:600px){.dx-span-2,.dx-span-3{grid-column:1/-1}}
+
+/* shapes: decorative only, aria-hidden, never contain text */
+.dx-wedge{display:block;width:var(--w,160px);aspect-ratio:2/1;background:var(--c,var(--black));clip-path:var(--clip-wedge)}
+.dx-wedge--trap{clip-path:var(--clip-wedge-trap)}
+.dx-wedge--flip{transform:scaleX(-1)}
+.dx-dot{display:block;flex:none;width:var(--d,48px);aspect-ratio:1;border-radius:50%;background:var(--c,var(--black))}
+.dx-dots{display:flex;align-items:flex-end;gap:0}
+.dx-dots .dx-dot:nth-child(1){--d:64px}.dx-dots .dx-dot:nth-child(2){--d:52px}.dx-dots .dx-dot:nth-child(3){--d:40px}.dx-dots .dx-dot:nth-child(4){--d:28px}.dx-dots .dx-dot:nth-child(5){--d:16px}
+.dx-star{display:block;width:var(--d,120px);aspect-ratio:1;background:var(--c,var(--black));clip-path:var(--clip-star)}
+
+/* buttons: flat swap on hover, as on the live site */
+.dx-btn{display:inline-block;font:400 28px/1 var(--font-display);text-transform:uppercase;letter-spacing:.02em;padding:12px 24px;background:var(--pink);color:var(--ink);border:2px solid var(--pink);text-decoration:none;cursor:pointer}
+.dx-btn:hover{background:var(--white);border-color:var(--white);color:var(--ink)}
+.dx-btn--line{background:transparent;color:var(--paper);border-color:var(--paper)}
+.dx-btn--line:hover{background:var(--paper);color:var(--ink)}
+.dx-on-pink .dx-btn{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.dx-on-pink .dx-btn:hover{background:var(--white);border-color:var(--white);color:var(--ink)}
+.dx-on-paper .dx-btn{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+:where(a,button,input):focus-visible{outline:3px solid var(--white);outline-offset:3px}
+.dx-on-pink :where(a,button,input):focus-visible,.dx-on-paper :where(a,button,input):focus-visible{outline-color:var(--ink)}
+
+/* 1. WEDGE LABEL (kit label: 15 degrees, upper case; shapes sit beside the text, never behind it) */
+.dx-tag{display:inline-flex;align-items:flex-end;gap:8px;min-height:56px;color:var(--pink);text-decoration:none}
+.dx-tag__shape{display:flex;align-items:flex-end;gap:8px}
+.dx-tag .dx-wedge{--w:56px;--c:var(--white)}
+.dx-tag .dx-dot{--d:16px;--c:var(--white)}
+.dx-tag__text{display:inline-block;font:400 32px/1 var(--font-label);font-style:italic;text-transform:uppercase;letter-spacing:.02em;transform:rotate(var(--tilt));transform-origin:left bottom;margin-bottom:8px;padding-right:8px}
+.dx-on-pink .dx-tag,.dx-on-paper .dx-tag{color:var(--ink)}
+.dx-on-pink .dx-tag .dx-wedge,.dx-on-pink .dx-tag .dx-dot{--c:var(--white)}
+.dx-on-paper .dx-tag .dx-wedge,.dx-on-paper .dx-tag .dx-dot{--c:var(--black)}
+
+/* 2. STAMP BADGE (kit stamp: Abril semibold italic, pink, 17 degrees; plain text, no plate) */
+.dx-stamp{display:inline-flex;align-items:center;gap:8px;transform:rotate(var(--stamp-tilt));transform-origin:left center}
+.dx-stamp__text{font:italic 700 clamp(32px,5vw,48px)/1 var(--font-body);color:var(--pink)}
+.dx-stamp .dx-dot{--d:16px;--c:var(--white)}
+.dx-on-pink .dx-stamp__text,.dx-on-paper .dx-stamp__text{color:var(--ink)}
+.dx-on-pink .dx-stamp .dx-dot{--c:var(--black)}
+
+/* 3. FEATURE CARD WITH CUT-OUT PHOTO */
+.dx-feature{position:relative;display:flex;flex-direction:column;height:100%;background:var(--pink);color:var(--ink);text-decoration:none;border:2px solid var(--pink)}
+.dx-feature--black{background:var(--black);color:var(--paper);border-color:var(--paper)}
+.dx-feature--paper{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.dx-feature__body{padding:24px 24px 16px;display:flex;flex-direction:column;gap:16px;flex:1}
+.dx-feature__title{font:400 clamp(40px,4.4vw,56px)/.98 var(--font-display);text-transform:uppercase;margin:0}
+.dx-feature--black .dx-feature__title{color:var(--white)}
+.dx-feature__dek{font:400 18px/1.55 var(--font-body);margin:0}
+.dx-feature__photo{position:relative;margin:0}
+.dx-feature__photo img,.dx-feature__photo .dx-ph{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;clip-path:var(--clip-cut)}
+.dx-credit-tag{position:absolute;left:0;bottom:0;background:var(--white);color:var(--ink);font:400 16px/1 var(--font-body);padding:4px 8px}
+.dx-credit-tag b{font-weight:700}
+.dx-feature:hover{background:var(--white);border-color:var(--white);color:var(--ink)}
+.dx-feature--black:hover{background:var(--pink);border-color:var(--pink);color:var(--ink)}
+.dx-feature--black:hover .dx-feature__title{color:var(--ink)}
+.dx-feature .dx-tag{color:var(--ink)}
+.dx-feature--black .dx-tag{color:var(--pink)}
+.dx-feature--paper .dx-tag .dx-wedge,.dx-feature--paper .dx-tag .dx-dot{--c:var(--black)}
+.dx-feature:hover .dx-tag{color:var(--ink)}
+.dx-ph{background:var(--black);position:relative;overflow:hidden}
+
+/* 4. EPISODE SLEEVE (square; type scales with its own width) */
+.dx-sleeve{container-type:inline-size;position:relative;aspect-ratio:1;background:var(--pink);color:var(--ink);display:grid;grid-template-rows:auto 1fr auto;padding:7cqw;overflow:hidden}
+.dx-sleeve--black{background:var(--black);color:var(--paper);outline:2px solid var(--paper);outline-offset:-2px}
+.dx-sleeve--paper{background:var(--paper);color:var(--ink)}
+.dx-sleeve__top{font:400 8cqw/1 var(--font-display);text-transform:uppercase;letter-spacing:.08em;position:relative;z-index:1}
+.dx-sleeve__title{align-self:end;font:400 19cqw/.9 var(--font-display);text-transform:uppercase;margin:0;position:relative;z-index:1;overflow-wrap:anywhere}
+.dx-sleeve--black .dx-sleeve__title{color:var(--white)}
+.dx-sleeve__org{font:700 7cqw/1.15 var(--font-body);margin-top:3cqw;position:relative;z-index:1}
+.dx-sleeve .dx-wedge{position:absolute;right:0;top:0;width:34cqw;--c:var(--black);transform:scaleX(-1);}
+.dx-sleeve--black .dx-wedge{--c:var(--pink)}
+.dx-sleeve .dx-dot{position:absolute;right:7cqw;top:20cqw;width:9cqw}
+
+/* 5. GUEST STRIP (circular, pink duotone via multiply; flat colours only) */
+.dx-guests{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(144px,1fr);gap:var(--gutter);overflow-x:auto;scroll-snap-type:x proximity;padding:8px 0 16px;margin:0;list-style:none}
+.dx-guest{scroll-snap-align:start;text-align:left;color:var(--paper)}
+.dx-guest__pic{display:block;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--pink);margin-bottom:16px}
+.dx-guest__pic img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15);mix-blend-mode:multiply}
+.dx-guest__name{font:700 18px/1.25 var(--font-body);color:var(--white);display:block}
+.dx-guest__role{font:italic 400 16px/1.4 var(--font-body);color:var(--pink);display:block}
+
+/* 6. PLAYLIST MODULE */
+.dx-playlist{background:var(--black);color:var(--paper);border:2px solid var(--paper);display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:0}
+.dx-playlist__head{padding:24px;position:relative;display:flex;flex-direction:column;gap:16px;border-right:2px solid var(--paper)}
+.dx-playlist__title{font:400 clamp(40px,5vw,64px)/.95 var(--font-display);text-transform:uppercase;color:var(--white);margin:0}
+.dx-playlist__disc{width:96px;aspect-ratio:1;border-radius:50%;background:var(--pink);margin-top:auto}
+.dx-playlist__tracks{list-style:none;margin:0;padding:8px 24px;counter-reset:t}
+.dx-playlist__tracks li{counter-increment:t;display:grid;grid-template-columns:48px 1fr;gap:8px;align-items:baseline;padding:16px 0;border-top:2px solid var(--paper);font:400 18px/1.4 var(--font-body)}
+.dx-playlist__tracks li:first-child{border-top:0}
+.dx-playlist__tracks li:before{content:counter(t);font:italic 400 32px/1 var(--font-label);color:var(--pink)}
+.dx-playlist__tracks b{color:var(--white);font-weight:700}
+.dx-playlist__cta{padding:16px 24px 24px;grid-column:1/-1;border-top:2px solid var(--paper);display:flex;flex-wrap:wrap;gap:16px}
+@media(max-width:700px){.dx-playlist{grid-template-columns:1fr}.dx-playlist__head{border-right:0;border-bottom:2px solid var(--paper)}}
+
+/* utilities: pull quote, credit line, drop cap, run-in */
+.dx-pull{font:700 clamp(24px,3vw,32px)/1.3 var(--font-body);color:var(--pink);margin:32px 0;padding:0}
+.dx-on-pink .dx-pull{color:var(--ink)}
+.dx-credit{font:italic 400 16px/1.5 var(--font-body);color:var(--pink)}
+.dx-runin{font:700 22px/1.45 var(--font-body)}
+.dx-dropcap::first-letter{font:italic 400 4.2em/.8 var(--font-body);float:left;padding:8px 8px 0 0;color:inherit}
+
+/* site overrides: the global heading colour must not beat the component's own colour rules (kit: ink on pink and paper, white on black) */
+.dx-feature h3.dx-feature__title,.dx-feature--paper h3.dx-feature__title{color:var(--ink)}
+.dx-feature--black h3.dx-feature__title{color:var(--white)}
+.dx-feature--black:hover h3.dx-feature__title{color:var(--ink)}
+.dx-feature--paper:hover h3.dx-feature__title{color:var(--ink)}
+.dx-on-pink h1,.dx-on-paper h1,.dx-on-pink h2,.dx-on-paper h2{color:var(--ink)}
+.dx-playlist h3.dx-playlist__title{color:var(--white)}

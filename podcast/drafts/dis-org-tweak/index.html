@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DiS.org tweak mockup</title><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+/* ===== DiS design language: components (prefix dx-). Flat colour only. No gradients, no shadows. ===== */
+:root{
+  --pink:#E95470; --black:#121211; --ink:#010204; --paper:#F1E8F3; --white:#FFFFFF;
+  --font-display:'Druk XX Cond Super','league-gothic','League Gothic Condensed','League Gothic',Impact,sans-serif;
+  --font-body:'Abril Text','abril-text','Playfair Display',Georgia,serif;
+  --font-label:'LTC Flash','ltc-flash','Flash SB','League Gothic','Arial Narrow',sans-serif;
+  --step:8px; --gutter:24px; --margin:clamp(16px,5.5vw,64px);
+  --tilt:-15deg; --stamp-tilt:-17deg;
+  --clip-wedge:polygon(0 0,100% 0,0 100%);
+  --clip-wedge-trap:polygon(0 0,100% 0,100% 38%,0 100%);
+  --clip-cut:polygon(0 0,100% 0,100% 88%,0 100%);
+  --clip-star:polygon(50% 0%,57.5% 22%,75% 6.7%,70.5% 29.5%,93.3% 25%,78% 42.5%,100% 50%,78% 57.5%,93.3% 75%,70.5% 70.5%,75% 93.3%,57.5% 78%,50% 100%,42.5% 78%,25% 93.3%,29.5% 70.5%,6.7% 75%,22% 57.5%,0% 50%,22% 42.5%,6.7% 25%,29.5% 29.5%,25% 6.7%,42.5% 22%);
+}
+.dx-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--gutter);row-gap:calc(var(--step)*3);padding-inline:var(--margin);max-width:1440px;margin-inline:auto}
+.dx-span-2{grid-column:span 2}.dx-span-3{grid-column:span 3}.dx-span-4{grid-column:span 4}.dx-span-6{grid-column:1/-1}
+@media(max-width:900px){.dx-span-2{grid-column:span 3}.dx-span-4{grid-column:1/-1}}
+@media(max-width:600px){.dx-span-2,.dx-span-3{grid-column:1/-1}}
+
+/* shapes: decorative only, aria-hidden, never contain text */
+.dx-wedge{display:block;width:var(--w,160px);aspect-ratio:2/1;background:var(--c,var(--black));clip-path:var(--clip-wedge)}
+.dx-wedge--trap{clip-path:var(--clip-wedge-trap)}
+.dx-wedge--flip{transform:scaleX(-1)}
+.dx-dot{display:block;flex:none;width:var(--d,48px);aspect-ratio:1;border-radius:50%;background:var(--c,var(--black))}
+.dx-dots{display:flex;align-items:flex-end;gap:0}
+.dx-dots .dx-dot:nth-child(1){--d:64px}.dx-dots .dx-dot:nth-child(2){--d:52px}.dx-dots .dx-dot:nth-child(3){--d:40px}.dx-dots .dx-dot:nth-child(4){--d:28px}.dx-dots .dx-dot:nth-child(5){--d:16px}
+.dx-star{display:block;width:var(--d,120px);aspect-ratio:1;background:var(--c,var(--black));clip-path:var(--clip-star)}
+
+/* buttons: flat swap on hover, as on the live site */
+.dx-btn{display:inline-block;font:400 28px/1 var(--font-display);text-transform:uppercase;letter-spacing:.02em;padding:12px 24px;background:var(--pink);color:var(--ink);border:2px solid var(--pink);text-decoration:none;cursor:pointer}
+.dx-btn:hover{background:var(--white);border-color:var(--white);color:var(--ink)}
+.dx-btn--line{background:transparent;color:var(--paper);border-color:var(--paper)}
+.dx-btn--line:hover{background:var(--paper);color:var(--ink)}
+.dx-on-pink .dx-btn{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.dx-on-pink .dx-btn:hover{background:var(--white);border-color:var(--white);color:var(--ink)}
+.dx-on-paper .dx-btn{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+:where(a,button,input):focus-visible{outline:3px solid var(--white);outline-offset:3px}
+.dx-on-pink :where(a,button,input):focus-visible,.dx-on-paper :where(a,button,input):focus-visible{outline-color:var(--ink)}
+
+/* 1. WEDGE LABEL (kit label: 15 degrees, upper case; shapes sit beside the text, never behind it) */
+.dx-tag{display:inline-flex;align-items:flex-end;gap:8px;min-height:56px;color:var(--pink);text-decoration:none}
+.dx-tag__shape{display:flex;align-items:flex-end;gap:8px}
+.dx-tag .dx-wedge{--w:56px;--c:var(--white)}
+.dx-tag .dx-dot{--d:16px;--c:var(--white)}
+.dx-tag__text{display:inline-block;font:400 32px/1 var(--font-label);font-style:italic;text-transform:uppercase;letter-spacing:.02em;transform:rotate(var(--tilt));transform-origin:left bottom;margin-bottom:8px;padding-right:8px}
+.dx-on-pink .dx-tag,.dx-on-paper .dx-tag{color:var(--ink)}
+.dx-on-pink .dx-tag .dx-wedge,.dx-on-pink .dx-tag .dx-dot{--c:var(--white)}
+.dx-on-paper .dx-tag .dx-wedge,.dx-on-paper .dx-tag .dx-dot{--c:var(--black)}
+
+/* 2. STAMP BADGE (kit stamp: Abril semibold italic, pink, 17 degrees; plain text, no plate) */
+.dx-stamp{display:inline-flex;align-items:center;gap:8px;transform:rotate(var(--stamp-tilt));transform-origin:left center}
+.dx-stamp__text{font:italic 700 clamp(32px,5vw,48px)/1 var(--font-body);color:var(--pink)}
+.dx-stamp .dx-dot{--d:16px;--c:var(--white)}
+.dx-on-pink .dx-stamp__text,.dx-on-paper .dx-stamp__text{color:var(--ink)}
+.dx-on-pink .dx-stamp .dx-dot{--c:var(--black)}
+
+/* 3. FEATURE CARD WITH CUT-OUT PHOTO */
+.dx-feature{position:relative;display:flex;flex-direction:column;height:100%;background:var(--pink);color:var(--ink);text-decoration:none;border:2px solid var(--pink)}
+.dx-feature--black{background:var(--black);color:var(--paper);border-color:var(--paper)}
+.dx-feature--paper{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.dx-feature__body{padding:24px 24px 16px;display:flex;flex-direction:column;gap:16px;flex:1}
+.dx-feature__title{font:400 clamp(40px,4.4vw,56px)/.98 var(--font-display);text-transform:uppercase;margin:0}
+.dx-feature--black .dx-feature__title{color:var(--white)}
+.dx-feature__dek{font:400 18px/1.55 var(--font-body);margin:0}
+.dx-feature__photo{position:relative;margin:0}
+.dx-feature__photo img,.dx-feature__photo .dx-ph{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;clip-path:var(--clip-cut)}
+.dx-credit-tag{position:absolute;left:0;bottom:0;background:var(--white);color:var(--ink);font:400 16px/1 var(--font-body);padding:4px 8px}
+.dx-credit-tag b{font-weight:700}
+.dx-feature:hover{background:var(--white);border-color:var(--white);color:var(--ink)}
+.dx-feature--black:hover{background:var(--pink);border-color:var(--pink);color:var(--ink)}
+.dx-feature--black:hover .dx-feature__title{color:var(--ink)}
+.dx-feature .dx-tag{color:var(--ink)}
+.dx-feature--black .dx-tag{color:var(--pink)}
+.dx-feature--paper .dx-tag .dx-wedge,.dx-feature--paper .dx-tag .dx-dot{--c:var(--black)}
+.dx-feature:hover .dx-tag{color:var(--ink)}
+.dx-ph{background:var(--black);position:relative;overflow:hidden}
+
+/* 4. EPISODE SLEEVE (square; type scales with its own width) */
+.dx-sleeve{container-type:inline-size;position:relative;aspect-ratio:1;background:var(--pink);color:var(--ink);display:grid;grid-template-rows:auto 1fr auto;padding:7cqw;overflow:hidden}
+.dx-sleeve--black{background:var(--black);color:var(--paper);outline:2px solid var(--paper);outline-offset:-2px}
+.dx-sleeve--paper{background:var(--paper);color:var(--ink)}
+.dx-sleeve__top{font:400 8cqw/1 var(--font-display);text-transform:uppercase;letter-spacing:.08em;position:relative;z-index:1}
+.dx-sleeve__title{align-self:end;font:400 19cqw/.9 var(--font-display);text-transform:uppercase;margin:0;position:relative;z-index:1;overflow-wrap:anywhere}
+.dx-sleeve--black .dx-sleeve__title{color:var(--white)}
+.dx-sleeve__org{font:700 7cqw/1.15 var(--font-body);margin-top:3cqw;position:relative;z-index:1}
+.dx-sleeve .dx-wedge{position:absolute;right:0;top:0;width:34cqw;--c:var(--black);transform:scaleX(-1);}
+.dx-sleeve--black .dx-wedge{--c:var(--pink)}
+.dx-sleeve .dx-dot{position:absolute;right:7cqw;top:20cqw;width:9cqw}
+
+/* 5. GUEST STRIP (circular, pink duotone via multiply; flat colours only) */
+.dx-guests{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(144px,1fr);gap:var(--gutter);overflow-x:auto;scroll-snap-type:x proximity;padding:8px 0 16px;margin:0;list-style:none}
+.dx-guest{scroll-snap-align:start;text-align:left;color:var(--paper)}
+.dx-guest__pic{display:block;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--pink);margin-bottom:16px}
+.dx-guest__pic img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15);mix-blend-mode:multiply}
+.dx-guest__name{font:700 18px/1.25 var(--font-body);color:var(--white);display:block}
+.dx-guest__role{font:italic 400 16px/1.4 var(--font-body);color:var(--pink);display:block}
+
+/* 6. PLAYLIST MODULE */
+.dx-playlist{background:var(--black);color:var(--paper);border:2px solid var(--paper);display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:0}
+.dx-playlist__head{padding:24px;position:relative;display:flex;flex-direction:column;gap:16px;border-right:2px solid var(--paper)}
+.dx-playlist__title{font:400 clamp(40px,5vw,64px)/.95 var(--font-display);text-transform:uppercase;color:var(--white);margin:0}
+.dx-playlist__disc{width:96px;aspect-ratio:1;border-radius:50%;background:var(--pink);margin-top:auto}
+.dx-playlist__tracks{list-style:none;margin:0;padding:8px 24px;counter-reset:t}
+.dx-playlist__tracks li{counter-increment:t;display:grid;grid-template-columns:48px 1fr;gap:8px;align-items:baseline;padding:16px 0;border-top:2px solid var(--paper);font:400 18px/1.4 var(--font-body)}
+.dx-playlist__tracks li:first-child{border-top:0}
+.dx-playlist__tracks li:before{content:counter(t);font:italic 400 32px/1 var(--font-label);color:var(--pink)}
+.dx-playlist__tracks b{color:var(--white);font-weight:700}
+.dx-playlist__cta{padding:16px 24px 24px;grid-column:1/-1;border-top:2px solid var(--paper);display:flex;flex-wrap:wrap;gap:16px}
+@media(max-width:700px){.dx-playlist{grid-template-columns:1fr}.dx-playlist__head{border-right:0;border-bottom:2px solid var(--paper)}}
+
+/* utilities: pull quote, credit line, drop cap, run-in */
+.dx-pull{font:700 clamp(24px,3vw,32px)/1.3 var(--font-body);color:var(--pink);margin:32px 0;padding:0}
+.dx-on-pink .dx-pull{color:var(--ink)}
+.dx-credit{font:italic 400 16px/1.5 var(--font-body);color:var(--pink)}
+.dx-runin{font:700 22px/1.45 var(--font-body)}
+.dx-dropcap::first-letter{font:italic 400 4.2em/.8 var(--font-body);float:left;padding:8px 8px 0 0;color:inherit}
+
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--paper);font:400 18px/1.55 var(--font-body)}
+img{max-width:100%}
+a{color:var(--pink);text-underline-offset:.18em}a:hover{color:var(--white)}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;margin:0;color:var(--white)}
+.demo{background:var(--paper);color:var(--ink);font:400 16px/1.4 var(--font-body);padding:8px var(--margin);display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center}
+.demo a{color:#B02A45;font-weight:700}
+.demo strong{font-weight:700}
+.divider{background:var(--paper);color:var(--ink);padding:8px var(--margin);font:400 28px/1 var(--font-display);text-transform:uppercase;letter-spacing:.04em}
+header.site{background:var(--black);border-bottom:2px solid var(--pink);position:sticky;top:0;z-index:10}
+header.site .in{display:flex;align-items:center;gap:24px;min-height:72px;padding-inline:var(--margin);max-width:1440px;margin:auto;flex-wrap:wrap}
+.brand{font:400 32px/1 var(--font-display);text-transform:uppercase;color:var(--pink);text-decoration:none;letter-spacing:.02em}
+.brand:hover{color:var(--white)}
+header.site nav{display:flex;gap:8px 24px;flex-wrap:wrap;margin-left:auto;align-items:center}
+header.site nav a{font:400 24px/1 var(--font-display);text-transform:uppercase;color:var(--paper);text-decoration:none;padding:8px 0}
+header.site nav a:hover,header.site nav a[aria-current]{color:var(--pink)}
+header.site .dx-btn{font-size:24px;padding:8px 16px}
+@media(max-width:700px){header.site nav a:not(.dx-btn){display:none}header.site nav{margin-left:auto}}
+
+/* hero */
+.hero{background:var(--pink);color:var(--ink);padding:48px 0 0;overflow:hidden}
+.hero .dx-grid{align-items:start}
+.hero__eyebrow{grid-column:1/-1;display:flex;align-items:center;gap:24px;min-height:64px}
+.hero h1{grid-column:1/span 5;color:var(--ink);font-size:clamp(64px,11vw,176px);line-height:.92;text-wrap:balance}
+.hero__shapes{grid-column:6/span 1;grid-row:2;display:flex;flex-direction:column;align-items:flex-end;gap:24px;justify-self:end}
+.hero__text{grid-column:1/span 4;font:700 22px/1.45 var(--font-body);margin:0}
+.hero__form{grid-column:1/span 4;display:flex;flex-wrap:wrap;gap:16px}
+.hero__form input{flex:1 1 240px;min-width:0;font:400 18px/1 var(--font-body);padding:14px 16px;background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:0}
+.hero__form input::placeholder{color:#4a4a48}
+.hero__base{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;margin-top:16px}
+.hero__base .dx-wedge{--w:min(36vw,420px);--c:var(--black)}
+.hero__base .dx-dots{margin-right:calc(var(--margin) * -.25)}
+@media(max-width:900px){.hero h1,.hero__text,.hero__form{grid-column:1/-1}.hero__shapes{display:none}}
+
+section.block{padding:64px 0}
+.sec-head{grid-column:1/-1;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;border-bottom:2px solid var(--pink);padding-bottom:16px}
+.sec-head h2{font-size:clamp(40px,6vw,72px);line-height:.95}
+.chips{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chip{display:inline-block;font:400 24px/1 var(--font-display);text-transform:uppercase;padding:8px 16px;border:2px solid var(--paper);color:var(--paper);text-decoration:none}
+.chip:hover,.chip[aria-current]{background:var(--pink);border-color:var(--pink);color:var(--ink)}
+.ph--a{background:var(--black)}
+.ph .dx-dot,.ph .dx-wedge,.ph .dx-star{position:absolute}
+.ph-label{position:absolute;left:8px;top:8px;font:400 16px/1 var(--font-body);background:var(--white);color:var(--ink);padding:4px 8px;z-index:2}
+
+/* episode */
+.ep{background:var(--black);padding:64px 0}
+.ep__sleeve{grid-column:1/span 2}
+.ep__head{grid-column:3/-1;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.ep__head h1{font-size:clamp(48px,7vw,104px);line-height:.93}
+.ep__meta{font:italic 400 16px/1.4 var(--font-body);color:var(--pink);margin:0}
+.ep__listen{display:flex;flex-wrap:wrap;gap:16px}
+@media(max-width:900px){.ep__sleeve{grid-column:1/span 4}.ep__head{grid-column:1/-1}}
+@media(max-width:600px){.ep__sleeve{grid-column:1/-1}}
+.prose{grid-column:2/span 4;display:flex;flex-direction:column;gap:24px}
+.prose p{margin:0}
+.prose h2{font-size:clamp(36px,4vw,56px);color:var(--white);margin-top:24px}
+.prose .dx-pull{margin:16px 0}
+@media(max-width:900px){.prose{grid-column:1/-1}}
+.fullcol{grid-column:1/-1}
+.take{background:var(--pink);color:var(--ink);padding:64px 0}
+.take ol{list-style:none;margin:0;padding:0;counter-reset:n;display:grid;gap:16px}
+.take li{counter-increment:n;display:grid;grid-template-columns:72px 1fr;gap:16px;border-top:2px solid var(--ink);padding-top:16px;font:400 20px/1.5 var(--font-body)}
+.take li:before{content:counter(n);font:italic 400 56px/1 var(--font-label);color:var(--ink)}
+.take h2{color:var(--ink);font-size:clamp(40px,6vw,72px)}
+
+footer.site{background:var(--black);border-top:2px solid var(--pink);padding:48px 0 64px;font-size:16px}
+footer.site h3{font-size:32px;color:var(--pink);margin-bottom:8px}
+footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer.site a{color:var(--paper)}footer.site a:hover{color:var(--pink)}
+
+</style></head><body>
+<div class="demo"><strong>Mockup, not live.</strong> Stand-in fonts: League Gothic (display, label) and Playfair Display (body) until Druk, LTC Flash and Abril Text are in place.
+<a href="#home">Homepage</a><a href="#episode">Podcast episode post</a><a href="#grid">Card grid</a></div>
+
+<div class="divider" id="home">1. Homepage hero</div>
+<header class="site"><div class="in">
+  <a class="brand" href="#home">Drowned in Sound</a>
+  <nav aria-label="Main"><a href="#" aria-current="page">Home</a><a href="#">Newsletter</a><a href="#">Features</a><a href="#">Magazine</a><a href="#episode">Podcasts</a><a href="#">Playlists</a><a class="dx-btn" href="#">Subscribe</a></nav>
+</div></header>
+
+<section class="hero dx-on-pink">
+  <div class="dx-grid">
+    <div class="hero__eyebrow">
+      <span class="dx-tag"><span class="dx-tag__shape" aria-hidden="true"><i class="dx-wedge"></i><i class="dx-dot"></i></span><span class="dx-tag__text">Newsletter</span></span>
+      <span class="dx-stamp"><span class="dx-stamp__text">Free!</span><i class="dx-dot" aria-hidden="true"></i></span>
+    </div>
+    <h1>Surfacing music's collective power for change</h1>
+    <div class="hero__shapes" aria-hidden="true"><i class="dx-star" style="--d:120px"></i><i class="dx-dot" style="--d:56px"></i></div>
+    <p class="hero__text">For 25 years our publication and podcast has recommended music. We now also spark conversations and create resources to help music fans discover their collective power.</p>
+    <form class="hero__form" onsubmit="return false"><label class="visually-hidden" for="em" style="position:absolute;left:-999px">Email</label><input id="em" type="email" placeholder="Your.email@example.com"><button class="dx-btn" type="submit">Subscribe</button></form>
+    <div class="hero__base" aria-hidden="true"><i class="dx-wedge dx-wedge--trap"></i><span class="dx-dots"><i class="dx-dot"></i><i class="dx-dot"></i><i class="dx-dot"></i><i class="dx-dot"></i><i class="dx-dot"></i></span></div>
+  </div>
+</section>
+
+<section class="block" id="grid">
+  <div class="dx-grid">
+    <div class="sec-head"><h2>Featured stories</h2><a class="dx-btn dx-btn--line" href="#">All stories</a></div>
+    <ul class="chips"><li><a class="chip" href="#" aria-current="true">All</a></li><li><a class="chip" href="#">Essay</a></li><li><a class="chip" href="#">Interview</a></li><li><a class="chip" href="#">Podcast</a></li><li><a class="chip" href="#">Recommended</a></li><li><a class="chip" href="#">Resources</a></li></ul>
+
+    <div class="dx-span-3"><a class="dx-feature" href="#">
+      <figure class="dx-feature__photo"><div class="dx-ph" style="aspect-ratio:4/3;clip-path:var(--clip-cut);background:var(--black)"><span class="ph-label">Photo placeholder</span><i class="dx-dot" style="right:12%;top:18%;--d:96px;--c:var(--pink)"></i><i class="dx-wedge" style="left:0;bottom:0;--w:55%;--c:var(--paper)"></i></div><figcaption class="dx-credit-tag"><b>Photo:</b> Credit Name</figcaption></figure>
+      <div class="dx-feature__body">
+        <span class="dx-tag"><span class="dx-tag__shape" aria-hidden="true"><i class="dx-wedge"></i><i class="dx-dot"></i></span><span class="dx-tag__text">Essay</span></span>
+        <h3 class="dx-feature__title">Gene Simmons: the last gasp of an old order</h3>
+        <p class="dx-feature__dek">Why the KISS frontman's idea of rock and roll is running out of road, and who is building what comes next.</p>
+      </div></a></div>
+
+    <div class="dx-span-3"><a class="dx-feature dx-feature--black" href="#">
+      <div class="dx-feature__body">
+        <span class="dx-tag"><span class="dx-tag__shape" aria-hidden="true"><i class="dx-wedge"></i><i class="dx-dot"></i></span><span class="dx-tag__text">Interview</span></span>
+        <h3 class="dx-feature__title">Enter Shikari speak exclusively to DiS</h3>
+        <p class="dx-feature__dek">Rou Reynolds on protecting nature from billionaires, and why a gig can be a meeting.</p>
+      </div>
+      <figure class="dx-feature__photo" style="margin-top:auto"><div class="dx-ph" style="aspect-ratio:16/9;clip-path:var(--clip-cut);background:var(--pink)"><span class="ph-label">Photo placeholder</span><i class="dx-dot" style="left:8%;bottom:10%;--d:80px"></i></div><figcaption class="dx-credit-tag"><b>Photo:</b> Credit Name</figcaption></figure></a></div>
+
+    <div class="dx-span-2"><a class="dx-feature dx-feature--paper" href="#">
+      <div class="dx-feature__body">
+        <span class="dx-tag"><span class="dx-tag__shape" aria-hidden="true"><i class="dx-wedge"></i><i class="dx-dot"></i></span><span class="dx-tag__text">Resources</span></span>
+        <h3 class="dx-feature__title">Are phone-free events the way forward?</h3>
+        <p class="dx-feature__dek">Four venues, three artists and one very quiet front row.</p>
+      </div></a></div>
+    <div class="dx-span-2"><a class="dx-feature" href="#">
+      <div class="dx-feature__body">
+        <span class="dx-tag"><span class="dx-tag__shape" aria-hidden="true"><i class="dx-wedge"></i><i class="dx-dot"></i></span><span class="dx-tag__text">Newsletter</span></span>
+        <h3 class="dx-feature__title">Hello the CD resurgence</h3>
+        <p class="dx-feature__dek">We have been expecting you. Here is what is selling and why.</p>
+      </div></a></div>
+    <div class="dx-span-2"><a class="dx-feature dx-feature--black" href="#">
+      <div class="dx-feature__body">
+        <span class="dx-tag"><span class="dx-tag__shape" aria-hidden="true"><i class="dx-wedge"></i><i class="dx-dot"></i></span><span class="dx-tag__text">Podcast</span></span>
+        <h3 class="dx-feature__title">How Music Can Save The World</h3>
+        <p class="dx-feature__dek">Shain Shapiro's new series kicks off with Billie Eilish's mum.</p>
+      </div></a></div>
+  </div>
+</section>
+
+<div class="divider" id="episode">2. Podcast episode post with playlist block</div>
+<header class="site"><div class="in"><a class="brand" href="#home">Drowned in Sound</a><nav aria-label="Main"><a href="#">Home</a><a href="#">Newsletter</a><a href="#episode" aria-current="page">Podcasts</a><a href="#">Playlists</a><a class="dx-btn" href="#">Subscribe</a></nav></div></header>
+<article class="ep">
+  <div class="dx-grid">
+    <div class="ep__sleeve"><div class="dx-sleeve">
+      <i class="dx-wedge" aria-hidden="true"></i><i class="dx-dot" aria-hidden="true"></i>
+      <span class="dx-sleeve__top">Ep. 12</span>
+      <h2 class="dx-sleeve__title">Rou Reynolds</h2>
+      <span class="dx-sleeve__org">Drowned in Sound Podcast</span></div></div>
+    <div class="ep__head">
+      <a class="dx-tag" href="#"><span class="dx-tag__shape" aria-hidden="true"><i class="dx-wedge"></i><i class="dx-dot"></i></span><span class="dx-tag__text">Podcast</span></a>
+      <h1>Enter Shikari: protecting nature from billionaires</h1>
+      <p class="ep__meta">With Sean Adams and Helena Wadia. 29 October 2026. 58 minutes.</p>
+      <div class="ep__listen"><a class="dx-btn" href="#">Play on Apple</a><a class="dx-btn dx-btn--line" href="#">Spotify</a><a class="dx-btn dx-btn--line" href="#">Watch on YouTube</a></div>
+    </div>
+  </div>
+</article>
+<section class="block" style="padding-top:0">
+  <div class="dx-grid">
+    <div class="prose">
+      <p class="dx-runin">What happens when a band that has spent 25 years shouting about the system decides to organise inside it?</p>
+      <p class="dx-dropcap">Rou Reynolds joins us a few days before the tour starts, and we start where we always do, with a record (the first one he ever bought, a decision he is still not sure about). Placeholder copy to show the drop cap and the measure of the reading column.</p>
+      <p class="dx-pull">"A gig is not the product. It is the room where people find out they are not alone."</p>
+      <p>Placeholder body text. Abril Text at 18px on 1.55, paper on black, 15.7 to 1. Links are pink with a visible underline.</p>
+      <p class="dx-credit">Photo: Credit Name. Recorded at a place with good coffee.</p>
+    </div>
+    <div class="fullcol"><h2 style="font-size:clamp(36px,5vw,64px);margin-bottom:16px">Who you will hear</h2>
+      <ul class="dx-guests">
+        <li class="dx-guest"><span class="dx-guest__pic"><span class="dx-ph" style="display:block;width:100%;height:100%;background:var(--pink)"></span></span><span class="dx-guest__name">Rou Reynolds</span><span class="dx-guest__role">Enter Shikari</span></li>
+        <li class="dx-guest"><span class="dx-guest__pic"><span class="dx-ph" style="display:block;width:100%;height:100%;background:var(--pink)"></span></span><span class="dx-guest__name">Helena Wadia</span><span class="dx-guest__role">Co-host</span></li>
+        <li class="dx-guest"><span class="dx-guest__pic"><span class="dx-ph" style="display:block;width:100%;height:100%;background:var(--pink)"></span></span><span class="dx-guest__name">Sean Adams</span><span class="dx-guest__role">Host</span></li>
+      </ul></div>
+    <div class="fullcol">
+      <section class="dx-playlist" aria-labelledby="pl1">
+        <div class="dx-playlist__head">
+          <span class="dx-tag"><span class="dx-tag__shape" aria-hidden="true"><i class="dx-wedge"></i><i class="dx-dot"></i></span><span class="dx-tag__text">Playlist</span></span>
+          <h3 class="dx-playlist__title" id="pl1">Enter Shikari special</h3>
+          <p style="margin:0">A feast of Shikari with a side order of Pitchshifter, Hundred Reasons, Fugazi and Refused.</p>
+          <i class="dx-playlist__disc" aria-hidden="true"></i>
+        </div>
+        <ol class="dx-playlist__tracks">
+          <li><span><b>Enter Shikari</b>, Sorry, You're Not a Winner</span></li>
+          <li><span><b>Pitchshifter</b>, Genius</span></li>
+          <li><span><b>Hundred Reasons</b>, If I Could</span></li>
+          <li><span><b>Fugazi</b>, Waiting Room</span></li>
+          <li><span><b>Refused</b>, New Noise</span></li>
+        </ol>
+        <div class="dx-playlist__cta"><a class="dx-btn" href="#">Open on Qobuz</a><a class="dx-btn dx-btn--line" href="#">All playlists</a></div>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="take dx-on-pink"><div class="dx-grid"><div class="fullcol"><h2>Three things to take away</h2></div><div class="prose" style="grid-column:2/span 4"><ol><li>Organising beats outrage, and rooms beat feeds.</li><li>Bands can write the rider as well as the record.</li><li>Ask the venue what it needs before you ask what it can give.</li></ol></div></div></section>
+
+<footer class="site"><div class="dx-grid"><div class="dx-span-2"><h3>Drowned in Sound</h3><p>Independent, informed, warm and fan-first.</p></div><div class="dx-span-2"><h3>Read</h3><ul><li><a href="#">Features</a></li><li><a href="#">Newsletter</a></li><li><a href="#">Archive</a></li></ul></div><div class="dx-span-2"><h3>Listen</h3><ul><li><a href="#">Podcasts</a></li><li><a href="#">Playlists</a></li><li><a href="#">SHOWNOTES</a></li></ul></div></div></footer>
+
+</body></html>
