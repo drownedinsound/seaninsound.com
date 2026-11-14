@@ -60,7 +60,7 @@ main{min-height:60vh}section{padding:56px 0}
  footer.site .cols{grid-template-columns:1fr 1fr}
  .ep-hero .sleeve{max-width:300px}
  .row{grid-template-columns:64px 1fr}.row .rowart{width:64px;height:64px}
- .brand .brand-row{font-size:24px}.brand img{height:36px;width:36px}.brand .podword{margin-left:46px}
+ .brand img{height:52px;width:52px}.brand .podword{font-size:15px}
 }
 .ep-hero{display:grid;grid-template-columns:minmax(220px,380px) 1fr;gap:32px;align-items:start}
 @media(max-width:760px){.ep-hero{grid-template-columns:1fr}}
@@ -84,7 +84,7 @@ main{min-height:60vh}section{padding:56px 0}
 /* The PODCAST device from the new DiS Podcast logo: small, wide-spaced, italic caps with a solid disc for the O (echoing SHOWNOTES' circular Os) */
 .podword{display:inline-flex;align-items:center;font:400 .62em/1 var(--display);font-style:italic;text-transform:uppercase;letter-spacing:.42em;color:inherit;white-space:nowrap}
 .podword i{display:inline-block;width:.78em;height:.78em;border-radius:50%;background:currentColor;margin:0 .42em 0 -.02em}
-.brand{flex-direction:column;align-items:flex-start;gap:2px;line-height:1}.brand .brand-row{display:flex;align-items:center;gap:10px}.brand .podword{font-size:15px;color:var(--paper);margin-left:50px}
+.brand{flex-direction:row;align-items:center;gap:14px;line-height:1}.brand img{height:64px;width:64px;display:block}.brand .podword{font-size:17px;color:var(--paper)}
 .paper .btn,.paper a.btn{color:var(--ink)}.paper .btn.line,.paper a.btn.line{color:var(--ink)}
 .paper .chip{color:var(--ink);border-color:var(--ink)}.paper .chip:hover{background:var(--pink);border-color:var(--pink);color:var(--ink)}
 .paper .btn.line{color:var(--ink);border-color:var(--ink)}.paper .btn.line:hover{background:var(--ink);color:var(--paper)}
