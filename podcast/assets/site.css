@@ -86,6 +86,10 @@ main{min-height:60vh}section{padding:56px 0}
 .podword i{display:inline-block;width:.78em;height:.78em;border-radius:50%;background:currentColor;margin:0 .42em 0 -.02em}
 .brand{flex-direction:row;align-items:center;gap:14px;line-height:1}.brand img{height:64px;width:64px;display:block}.brand .podword{font-size:17px;color:var(--paper)}
 .paper .btn,.paper a.btn{color:var(--ink)}.paper .btn.line,.paper a.btn.line{color:var(--ink)}
+.paper .label{color:#B02A45}
+.card .small+.chips,.card p.small+ul.chips{margin-top:8px}
+.card .chip,.paper .card .chip{color:var(--paper);border-color:var(--paper)}
+.card .chip:hover{color:var(--ink)}
 .paper .chip{color:var(--ink);border-color:var(--ink)}.paper .chip:hover{background:var(--pink);border-color:var(--pink);color:var(--ink)}
 .paper .btn.line{color:var(--ink);border-color:var(--ink)}.paper .btn.line:hover{background:var(--ink);color:var(--paper)}
 .pink .btn.line{color:var(--ink);border-color:var(--ink)}.pink .btn.line:hover{background:var(--ink);color:var(--paper)}
