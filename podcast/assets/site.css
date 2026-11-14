@@ -395,7 +395,7 @@ header.site .wrap,footer.site .wrap,.chero .wrap,.band.slim .wrap,.combo header.
 .bk2 img{object-fit:contain !important;background:var(--ink)}
 .frow{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:20px;max-width:900px}.frow input,.frow select{font:400 17px var(--body);padding:12px;background:var(--black);color:var(--paper);border:2px solid var(--paper);width:100%}
 @media(max-width:700px){.frow{grid-template-columns:1fr}}
-.mission{background:var(--black)}.mission .m1{font:400 clamp(40px,6.4vw,92px)/.98 var(--display);text-transform:uppercase;color:var(--pink);margin:10px 0 22px;max-width:14em}.mission .m2{font:400 clamp(21px,2.4vw,30px)/1.4 var(--body);max-width:30em;margin:0;color:var(--paper)}
+.mission{background:var(--black)}.mission .m1{font:400 clamp(44px,8.6vw,128px)/.96 var(--display);text-transform:uppercase;color:var(--pink);margin:10px 0 22px;max-width:9.5em;text-wrap:balance}.mission .m2{font:400 clamp(21px,2.4vw,30px)/1.4 var(--body);max-width:30em;margin:0;color:var(--paper)}
 .chip{max-width:100%;white-space:normal}.chips{min-width:0}
 .door a{display:inline-block;padding:12px 0}.srow a{display:inline-block;padding:10px 0}
 .follow .pbtn.sm{min-height:44px}.wfilter button,#wclear{min-height:40px}
