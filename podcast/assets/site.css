@@ -42,6 +42,26 @@ main{min-height:60vh}section{padding:56px 0}
 .chip{display:inline-block;border:2px solid var(--paper);color:var(--paper);padding:5px 12px;text-decoration:none;font-size:16px}
 .chip:hover,.chip[aria-pressed=true]{background:var(--pink);border-color:var(--pink);color:var(--ink)}
 .hero{padding:72px 0 48px}.hero p.lede{font-size:clamp(20px,2.4vw,28px);max-width:30em}
+.hero-split{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,1fr);gap:32px;align-items:center}
+@media(max-width:860px){.hero-split{grid-template-columns:minmax(0,1fr);gap:28px}}
+@media(max-width:600px){
+ body{font-size:18px}
+ section{padding:40px 0}.hero{padding:44px 0 32px}
+ .wrap{padding:0 16px}
+ h2{font-size:clamp(34px,10vw,48px)}
+ .wall{grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:6px}
+ .chip{padding:11px 14px}
+ .btn{padding:14px 18px;font-size:22px}
+ .listen .btn,.hero .btn{flex:1 1 auto;text-align:center}
+ nav.main a{padding:12px 2px;font-size:26px}
+ .shelf a{flex-basis:150px}.shelf .sleeve{width:150px;height:150px}
+ .card.bucket h3.bk{font-size:38px}
+ .support{padding:44px 0}
+ footer.site .cols{grid-template-columns:1fr 1fr}
+ .ep-hero .sleeve{max-width:300px}
+ .row{grid-template-columns:64px 1fr}.row .rowart{width:64px;height:64px}
+ .brand .brand-row{font-size:24px}.brand img{height:36px;width:36px}.brand .podword{margin-left:46px}
+}
 .ep-hero{display:grid;grid-template-columns:minmax(220px,380px) 1fr;gap:32px;align-items:start}
 @media(max-width:760px){.ep-hero{grid-template-columns:1fr}}
 .ep-hero img{width:100%;aspect-ratio:1;object-fit:cover;border:2px solid var(--paper)}
@@ -72,7 +92,7 @@ main{min-height:60vh}section{padding:56px 0}
 th,.bar,.matrix{font-family:var(--body)}
 textarea,input,select,button{font-family:var(--body)}
 .sleeve{container-type:inline-size;aspect-ratio:1;display:flex !important;flex-direction:column;justify-content:space-between;padding:0;overflow:hidden;position:relative;width:100%}
-.sleeve>span{margin-left:7cqw;margin-right:7cqw}.sleeve .sl-top{margin-top:7cqw}.sleeve .sl-org{margin-bottom:7cqw}
+.sleeve>span{margin-left:7cqw;margin-right:7cqw}.sleeve .sl-top{margin-top:7cqw}.sleeve .sl-org{margin-bottom:7cqw;max-width:52%}
 .sleeve span{display:block}.sleeve .sl-top{font:400 8cqw/1 var(--display);text-transform:uppercase;letter-spacing:.08em}
 .sleeve .sl-name{font:400 17cqw/.92 var(--display);text-transform:uppercase;overflow-wrap:anywhere}
 .sleeve .sl-org{font:700 7.5cqw/1.15 var(--body)}
