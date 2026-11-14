@@ -7,12 +7,20 @@ function render(){var s=q.value.toLowerCase();var res=data.filter(function(d){re
 cnt.textContent=res.length+' of '+data.length+' episodes';out.innerHTML=res.map(function(d){return '<a class="row" href="'+d.u+'"><div class="rowart">'+d.i+'</div><div><h3>'+d.h+'</h3><div class="meta">'+d.m+'</div></div></a>'}).join('')}
 [q,fs,ft,fse,fv].forEach(function(x){x.addEventListener('input',render)});render()})();
 
-(function(){var rm0=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(!rm0&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){var v=x.target;if(x.isIntersecting){v.play().catch(function(){})}else{v.pause()}})},{threshold:.4});document.querySelectorAll('video.inview').forEach(function(v){io.observe(v)})}})();
+window.__ens=function(v){if(!v.getAttribute('src')&&v.dataset.src){v.src=v.dataset.src;v.load()}};
+(function(){var KEY='dis-still',still=false;try{still=localStorage.getItem(KEY)==='1'}catch(e){}
+var op=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){if(window.__still)return Promise.resolve();return op.apply(this,arguments)};
+window.__still=still;
+function sync(){document.querySelectorAll('video').forEach(function(v){if(window.__still)v.pause()});b.setAttribute('aria-pressed',window.__still?'true':'false');b.textContent=window.__still?'Play motion':'Pause motion'}
+var b=document.createElement('button');b.type='button';b.className='motionbtn';b.setAttribute('aria-label','Pause or play moving images');
+b.addEventListener('click',function(){window.__still=!window.__still;try{localStorage.setItem(KEY,window.__still?'1':'0')}catch(e){}if(!window.__still){document.querySelectorAll('video.bg').forEach(function(v){v.play().catch(function(){})})}sync()});
+if(document.querySelector('video')){document.body.appendChild(b);sync()}})();
+(function(){var rm0=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(window.matchMedia&&matchMedia('(hover: none)').matches)document.querySelectorAll('a.scard video').forEach(function(v){v.classList.add('inview')});if(!rm0&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){var v=x.target;if(x.isIntersecting){window.__ens(v);v.play().catch(function(){})}else{v.pause()}})},{threshold:.2});document.querySelectorAll('video.inview').forEach(function(v){io.observe(v)})}})();
 (function(){var vs=[].slice.call(document.querySelectorAll('video'));vs.forEach(function(v){v.muted=true;v.defaultMuted=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','')});
 var hv=document.querySelector('video.clip.bg');if(hv&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){var go=function(){hv.play().catch(function(){})};go();hv.addEventListener('loadeddata',go);['touchstart','scroll','click'].forEach(function(ev){window.addEventListener(ev,function f(){go();window.removeEventListener(ev,f)},{passive:true})})}})();
 (function(){var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.querySelectorAll('video.clip.bg').forEach(function(v){if(rm){v.pause();v.removeAttribute('autoplay')}else if('IntersectionObserver' in window){new IntersectionObserver(function(en){en.forEach(function(x){x.isIntersecting?v.play().catch(function(){}):v.pause()})}).observe(v)}});
-if(!rm)document.querySelectorAll('a.scard').forEach(function(a){var v=a.querySelector('video');if(!v)return;function go(){v.play().catch(function(){})}function st(){v.pause()}a.addEventListener('mouseenter',go);a.addEventListener('focus',go);a.addEventListener('mouseleave',st);a.addEventListener('blur',st)});
+if(!rm)document.querySelectorAll('a.scard').forEach(function(a){var v=a.querySelector('video');if(!v)return;function go(){window.__ens(v);v.play().catch(function(){})}function st(){v.pause()}a.addEventListener('mouseenter',go);a.addEventListener('focus',go);a.addEventListener('mouseleave',st);a.addEventListener('blur',st)});
 var tip=document.createElement('div');tip.id='bctip';document.body.appendChild(tip);
 document.addEventListener('mouseover',function(ev){var a=ev.target.closest&&ev.target.closest('a.bc.on');if(!a){tip.style.display='none';return}tip.textContent=a.getAttribute('data-tip');tip.style.display='block'});
 document.addEventListener('mousemove',function(ev){if(tip.style.display==='block'){tip.style.left=Math.min(ev.clientX+14,innerWidth-310)+'px';tip.style.top=(ev.clientY+16)+'px'}});
