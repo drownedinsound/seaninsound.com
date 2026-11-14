@@ -50,6 +50,7 @@ main{min-height:60vh}section{padding:56px 0}
 /* type system: condensed caps = headings, labels, buttons, nav. Serif = everything you read. */
 .card h3,.row h3,.thumbs a,.shelf a{font:700 20px/1.25 var(--body);text-transform:none;letter-spacing:0}
 .card h3,.row h3{color:var(--white);margin:6px 0 6px}
+.card.bucket h3.bk{font:400 44px/.95 var(--display);text-transform:uppercase;letter-spacing:.01em;margin:6px 0 10px}.card.bucket p{font-size:18px}
 .card,.paper a.card,.pink a.card{color:var(--paper)}.paper .card h3,.pink .card h3{color:var(--white)}
 .card .label,.paper .card .label,.pink .card .label{color:var(--pink)}
 .paper .card p,.pink .card p,.paper .card .meta,.pink .card .meta{color:var(--paper)}
