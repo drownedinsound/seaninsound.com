@@ -28,7 +28,7 @@ nav.main a:hover,nav.main a[aria-current]{color:var(--pink)}
 .btn.line{background:transparent;color:var(--paper);border-color:var(--paper)}.btn.line:hover{background:var(--paper);color:var(--ink)}
 nav.main .btn{padding:10px 16px;color:var(--ink)}nav.main .btn:hover{color:var(--ink)}
 .menubtn{display:none;margin-left:auto;background:var(--pink);color:var(--ink);border:0;font:400 22px/1 var(--display);text-transform:uppercase;padding:10px 16px;cursor:pointer}
-@media(max-width:860px){.menubtn{display:block}nav.main{display:none;width:100%;flex-direction:column;align-items:flex-start;margin:0;padding-bottom:14px}nav.main.open{display:flex}}
+@media(max-width:1000px){.menubtn{display:block}nav.main{display:none;width:100%;flex-direction:column;align-items:flex-start;margin:0;padding-bottom:14px}nav.main.open{display:flex}}
 main{min-height:60vh}section{padding:56px 0}
 .pink{background:var(--pink);color:var(--ink)}.pink h1,.pink h2,.pink h3{color:var(--ink)}.pink a{color:var(--ink)}
 .pink .label{color:var(--ink)}.pink .btn{background:var(--ink);color:var(--paper);border-color:var(--ink)}.pink .btn:hover{background:var(--black)}
