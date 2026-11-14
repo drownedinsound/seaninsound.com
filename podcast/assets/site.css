@@ -401,7 +401,7 @@ header.site .wrap,footer.site .wrap,.chero .wrap,.band.slim .wrap,.combo header.
 .follow .pbtn.sm{min-height:44px}.wfilter button,#wclear{min-height:40px}
 @media(max-width:760px){.hcard{grid-template-columns:96px minmax(0,1fr)}.hcard>div{min-width:0}.hgrid{grid-template-columns:minmax(0,1fr)}}
 main a,main li,main p{overflow-wrap:anywhere}
-.motionbtn{position:fixed;left:12px;bottom:12px;z-index:70;background:var(--black);color:var(--paper);border:2px solid var(--pink);font:700 14px var(--body);padding:9px 14px;cursor:pointer;min-height:40px}.motionbtn:hover{background:var(--pink);color:var(--ink)}.abar~.motionbtn,.pkbar~.motionbtn{display:none}
+.motionbtn{position:fixed;left:12px;bottom:12px;z-index:70;background:var(--black);color:var(--paper);border:2px solid var(--pink);font:700 14px var(--body);padding:9px 14px;cursor:pointer;min-height:40px}.motionbtn.nudge{background:var(--pink);color:var(--ink)}.motionbtn:hover{background:var(--pink);color:var(--ink)}.abar~.motionbtn,.pkbar~.motionbtn{display:none}
 @media(hover:none){.cover video{opacity:1}}
 .pbtn{color:var(--ink)}.pbtn:hover{background:#fff;color:var(--ink)}
 .chero .srow{font-size:15px;letter-spacing:.04em;white-space:nowrap}@media(max-width:900px){.chero .srow{white-space:normal}}
