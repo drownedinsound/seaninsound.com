@@ -410,6 +410,20 @@ main a,main li,main p{overflow-wrap:anywhere}
 .gstrip{padding:36px 0 30px}.gsin .label,.gsin .stats li b,.gsin .stats li span,.gsin .small,.gsin .stats .small{color:var(--ink)}.gsin .sh{color:var(--ink)}
 .band.pink.slim{padding-bottom:34px}.gsin{padding-top:34px}
 @media(max-width:760px){.gsin{padding-top:22px}.gsin .sh{margin-bottom:18px}.gsin .stats ul{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;margin-bottom:18px}.gsin .stats li b{font-size:64px}.gsin .stats li span{font-size:14px;letter-spacing:.12em}.gsin .stats .small{margin:0;max-width:none}.band.pink.slim{padding-bottom:18px}}
+/* Hero, option A (Sean, 15 Nov 2026): full-width stage, video fades in from black, very large headline; desktop only */
+@media(min-width:761px){
+.chero{min-height:min(calc(100vh - 66px),860px)}
+.chero .wrap>*{max-width:none}
+.chero .clip.bg{position:absolute;left:0;right:auto;width:82%;height:100%;object-position:50% 0%;transform:translateX(18%);-webkit-mask-image:linear-gradient(90deg,transparent 0,transparent 8%,#000 52%);mask-image:linear-gradient(90deg,transparent 0,transparent 8%,#000 52%)}
+.chero .scrim{display:block;background:linear-gradient(0deg,rgba(18,18,17,.8),transparent 38%)}
+.chero .wrap{padding-bottom:40px}
+.chero .wrap>h1{font-size:clamp(60px,8vw,150px) !important;line-height:.92;margin:0 0 22px}
+.chero .wrap>h1 span{background:none !important;padding:0 !important}
+.chero .lede{font-size:clamp(20px,1.8vw,28px);max-width:26em !important}
+.chero .who2{display:flex;gap:6px 56px;flex-wrap:wrap;margin:0 0 22px}
+.chero .who2 p{margin:0}
+.chero .pbtn{font-size:16px;padding:7px 14px 7px 10px}.chero .pbtn svg{width:19px;height:19px}
+}
 .lede2{font-size:clamp(20px,2.2vw,26px);max-width:30em;margin:0 0 18px}
 .pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:20px}
 .more{margin-top:22px;font:700 20px var(--body)}
