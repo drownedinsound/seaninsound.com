@@ -424,6 +424,7 @@ main a,main li,main p{overflow-wrap:anywhere}
 .chero .who2 p{margin:0}
 .chero .pbtn{font-size:16px;padding:7px 14px 7px 10px}.chero .pbtn svg{width:19px;height:19px}
 }
+.orgs li a{display:flex;align-items:center;justify-content:center;width:100%;min-height:60px}.orgs li a:hover img,.orgs li a:focus-visible img{opacity:.7}.orgs li a:focus-visible{outline:3px solid var(--pink);outline-offset:4px}
 .lede2{font-size:clamp(20px,2.2vw,26px);max-width:30em;margin:0 0 18px}
 .pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:20px}
 .more{margin-top:22px;font:700 20px var(--body)}
