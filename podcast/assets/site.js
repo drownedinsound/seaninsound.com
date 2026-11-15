@@ -28,18 +28,18 @@ document.addEventListener('mouseover',function(ev){var a=ev.target.closest&&ev.t
 document.addEventListener('mousemove',function(ev){if(tip.style.display==='block'){tip.style.left=Math.min(ev.clientX+14,innerWidth-310)+'px';tip.style.top=(ev.clientY+16)+'px'}});
 document.addEventListener('focusin',function(ev){var a=ev.target.closest&&ev.target.closest('a.bc.on');if(a){var r=a.getBoundingClientRect();tip.textContent=a.getAttribute('data-tip');tip.style.display='block';tip.style.left=Math.max(8,Math.min(r.left,innerWidth-310))+'px';tip.style.top=(r.bottom+8)+'px'}});
 document.addEventListener('focusout',function(){tip.style.display='none'});
-var w=document.getElementById('wall');if(w){var tiles=[].slice.call(w.querySelectorAll('.wt')),secs=[].slice.call(w.querySelectorAll('.wsea')),labs=[].slice.call(document.querySelectorAll('button.bcl[data-theme]')),gch=[].slice.call(document.querySelectorAll('#gtypes .chip')),cnt=document.getElementById('wallcount'),clr=document.getElementById('wclear'),qi=document.getElementById('eq'),si=document.getElementById('es'),vi=document.getElementById('ev'),cur='',curg='';
+var w=document.getElementById('wall');if(w){var tiles=[].slice.call(w.querySelectorAll('.wt')),secs=[].slice.call(w.querySelectorAll('.wsea')),labs=[].slice.call(document.querySelectorAll('button.bcl[data-theme]')),gch=[].slice.call(document.querySelectorAll('#gtypes .chip')),cnt=document.getElementById('wallcount'),clr=document.getElementById('wclear'),qi=document.getElementById('eq'),si=document.getElementById('es'),vi=document.getElementById('ev'),cur='',curg='',org='',orgn='';
 function apply(t,g){cur=t;curg=g;var q=qi.value.trim().toLowerCase(),sh=si.value,v=vi.value,n=0;
-tiles.forEach(function(x){var d=x.dataset,ok=(!t||(d.t||'').split(' ').indexOf(t)>-1)&&(!g||(d.g||'').split(' ').indexOf(g)>-1)&&(!sh||d.s===sh)&&(!q||(d.q||'').indexOf(q)>-1)&&(!v||(v==='full'&&d.v==='2')||(v==='any'&&d.v!=='0')||(v==='none'&&d.v==='0'));x.hidden=!ok;if(ok)n++});
+tiles.forEach(function(x){var d=x.dataset,ok=(!t||(d.t||'').split(' ').indexOf(t)>-1)&&(!g||(d.g||'').split(' ').indexOf(g)>-1)&&(!org||(d.o||'').split(' ').indexOf(org)>-1)&&(!sh||d.s===sh)&&(!q||(d.q||'').indexOf(q)>-1)&&(!v||(v==='full'&&d.v==='2')||(v==='any'&&d.v!=='0')||(v==='none'&&d.v==='0'));x.hidden=!ok;if(ok)n++});
 secs.forEach(function(sec){sec.hidden=!sec.querySelector('.wt:not([hidden])')});
 [].slice.call(document.querySelectorAll('.bcrow[data-topic]')).forEach(function(r){var sel=r.getAttribute('data-topic')===t;r.classList.toggle('sel',sel);r.classList.toggle('dimrow',!!t&&!sel)});
 gch.forEach(function(c){c.setAttribute('aria-pressed',c.getAttribute('data-gtype')===g?'true':'false')});
-var any=t||g||q||sh||v;cnt.textContent=any?(n+' of '+tiles.length+' episodes'):(tiles.length+' episodes');clr.hidden=!any}
+var any=t||g||q||sh||v||org;cnt.textContent=any?(n+' of '+tiles.length+' episodes'+(org&&orgn?' with '+orgn:'')):(tiles.length+' episodes');clr.hidden=!any}
 function url(){var a=[];if(cur)a.push('theme='+cur);if(curg)a.push('type='+curg);if(si.value)a.push('show='+si.value);if(qi.value.trim())a.push('q='+encodeURIComponent(qi.value.trim()));if(history.replaceState)history.replaceState(null,'',a.length?'?'+a.join('&'):location.pathname)}
 function jump(){var f=document.querySelector('.wsea:not([hidden])');if(f)window.scrollTo({top:f.getBoundingClientRect().top+scrollY-120,behavior:'smooth'})}
 labs.forEach(function(l){l.addEventListener('click',function(){var t=l.getAttribute('data-theme');t=(t===cur)?'':t;apply(t,curg);url();if(t)jump()})});
 gch.forEach(function(c){c.addEventListener('click',function(){var g=c.getAttribute('data-gtype');g=(g===curg)?'':g;apply(cur,g);url();if(g)jump()})});
 [qi,si,vi].forEach(function(x){x.addEventListener('input',function(){apply(cur,curg);url()})});
-clr.addEventListener('click',function(){qi.value='';si.value='';vi.value='';apply('','');url()});
+clr.addEventListener('click',function(){qi.value='';si.value='';vi.value='';org='';orgn='';apply('','');url()});
 var P=function(k){var m=new RegExp('[?&]'+k+'=([^&]*)').exec(location.search);return m?decodeURIComponent(m[1]):''};
-if(P('q'))qi.value=P('q');if(P('show'))si.value=P('show');apply(P('theme'),P('type'))}})();
+if(P('org')){org=P('org');orgn=P('on')}if(P('q'))qi.value=P('q');if(P('show'))si.value=P('show');apply(P('theme'),P('type'));if(org)setTimeout(jump,150)}})();
