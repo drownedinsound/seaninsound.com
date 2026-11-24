@@ -1,0 +1,404 @@
+<!-- ========================================================
+     THE ANCHORESS - FEATURED CLIENT SECTION
+     ======================================================== -->
+<section id="featured-client" class="section section--alt featured-client">
+  <div class="container">
+    <div class="featured-client__header">
+      <h2>Currently Managing</h2>
+    </div>
+
+    <div class="featured-client__wrapper">
+      <!-- Left: Photo & Basic Info -->
+      <div class="featured-client__visual">
+        <img 
+          class="featured-client__photo" 
+          src="assets/anchoress-photo.jpg" 
+          alt="Catherine Anne Davies (The Anchoress)"
+          width="280"
+          height="380"
+        >
+        <div class="featured-client__name-block">
+          <h3>Catherine Anne Davies</h3>
+          <p class="featured-client__aka">The Anchoress</p>
+          <a href="https://www.theanchoress.co.uk/" target="_blank" rel="noopener" class="featured-client__link">
+            theanchoress.co.uk
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Infographic & Copy -->
+      <div class="featured-client__content">
+        
+        <!-- Key Stats -->
+        <div class="featured-client__stats">
+          <div class="featured-client__stat-item">
+            <span class="featured-client__stat-number">2</span>
+            <span class="featured-client__stat-label">Studio Albums</span>
+          </div>
+          <div class="featured-client__stat-item">
+            <span class="featured-client__stat-number">20K+</span>
+            <span class="featured-client__stat-label">Physical Sales</span>
+          </div>
+          <div class="featured-client__stat-item">
+            <span class="featured-client__stat-number">UK #31</span>
+            <span class="featured-client__stat-label"><em>The Art of Losing</em></span>
+          </div>
+          <div class="featured-client__stat-item">
+            <span class="featured-client__stat-number">83/100</span>
+            <span class="featured-client__stat-label">Metacritic Score</span>
+          </div>
+        </div>
+
+        <!-- Critical Acclaim -->
+        <div class="featured-client__accolades">
+          <p class="featured-client__accolade-label">Critical Acclaim</p>
+          <ul class="featured-client__accolade-list">
+            <li>PROG Magazine Album of the Year</li>
+            <li>Sunday Times Best Albums of 2021</li>
+            <li>HMV Welsh Album of the Year</li>
+            <li>MPG Self-Producing Artist Nominee (2022, 2023)</li>
+          </ul>
+        </div>
+
+        <!-- Notable Collaborators -->
+        <div class="featured-client__collaborators">
+          <p class="featured-client__collab-label">Collaborated With</p>
+          <div class="featured-client__collab-list">
+            <span class="collab-tag">Bernard Butler</span>
+            <span class="collab-tag">Simple Minds</span>
+            <span class="collab-tag">Manic Street Preachers</span>
+            <span class="collab-tag">James Dean Bradfield</span>
+          </div>
+        </div>
+
+        <!-- Notable Fans / Quotes -->
+        <div class="featured-client__quotes">
+          <p class="featured-client__quotes-label">Notable Admirers</p>
+          <div class="featured-client__quote-item">
+            <p class="featured-client__quote-text">
+              &ldquo;One of the best albums of the year.&rdquo;
+            </p>
+            <p class="featured-client__quote-source">— Elton John, <em>Rocket Hour</em></p>
+          </div>
+          <div class="featured-client__quote-item">
+            <p class="featured-client__quote-text">
+              &ldquo;Wales's much more explicitly feminist answer to Lana Del Rey.&rdquo;
+            </p>
+            <p class="featured-client__quote-source">— Ann Powers, NPR</p>
+          </div>
+          <div class="featured-client__quote-item">
+            <p class="featured-client__quote-text">
+              A long-time fan who personally invited her to headline his Meltdown Festival.
+            </p>
+            <p class="featured-client__quote-source">— Robert Smith, The Cure</p>
+          </div>
+        </div>
+
+        <!-- Teaser Copy -->
+        <div class="featured-client__teaser">
+          <p><strong>New album coming August 2026.</strong></p>
+          <p>
+            A multi-instrumentalist, self-producing artist, and PhD in literary theory, Catherine Anne Davies has built a dedicated following through two critically acclaimed albums that blend concept album ambition with intimate, uncompromising songwriting. Managing her complete campaign strategy, release coordination, and industry positioning.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================================
+     STYLE BLOCK (to be merged into style.css)
+     ======================================================== -->
+<style>
+.featured-client {
+  padding: 4rem 0;
+}
+
+.featured-client__header {
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.featured-client__header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #000;
+}
+
+.featured-client__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* Photo & Name Block */
+.featured-client__visual {
+  position: relative;
+}
+
+.featured-client__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.featured-client__name-block {
+  text-align: left;
+}
+
+.featured-client__name-block h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: #000;
+}
+
+.featured-client__aka {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0 0 1rem 0;
+  font-style: italic;
+}
+
+.featured-client__link {
+  display: inline-block;
+  color: #ff1493;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.featured-client__link:hover {
+  opacity: 0.7;
+}
+
+/* Stats Grid */
+.featured-client__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.featured-client__stat-item {
+  text-align: center;
+}
+
+.featured-client__stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff1493;
+  margin-bottom: 0.5rem;
+}
+
+.featured-client__stat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.featured-client__stat-label em {
+  font-style: italic;
+  color: #000;
+}
+
+/* Accolades */
+.featured-client__accolades {
+  margin-bottom: 2rem;
+}
+
+.featured-client__accolade-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: 0.05em;
+}
+
+.featured-client__accolade-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featured-client__accolade-list li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.featured-client__accolade-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ff1493;
+  font-weight: bold;
+}
+
+/* Collaborators */
+.featured-client__collaborators {
+  margin-bottom: 2rem;
+}
+
+.featured-client__collab-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: 0.05em;
+}
+
+.featured-client__collab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.collab-tag {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Quotes */
+.featured-client__quotes {
+  margin-bottom: 2rem;
+}
+
+.featured-client__quotes-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+}
+
+.featured-client__quote-item {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.featured-client__quote-item:before {
+  content: """;
+  position: absolute;
+  left: 0;
+  font-size: 2.5rem;
+  color: #ff1493;
+  opacity: 0.3;
+  line-height: 0.8;
+}
+
+.featured-client__quote-text {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0 0 0.25rem 0;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.featured-client__quote-source {
+  font-size: 0.85rem;
+  color: #999;
+  margin: 0;
+}
+
+.featured-client__quote-source em {
+  font-style: italic;
+}
+
+/* Teaser Copy */
+.featured-client__teaser {
+  padding: 1.5rem;
+  background: #fff9f5;
+  border-left: 4px solid #ff1493;
+  border-radius: 4px;
+}
+
+.featured-client__teaser p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.featured-client__teaser p:last-child {
+  margin-bottom: 0;
+}
+
+.featured-client__teaser strong {
+  color: #ff1493;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .featured-client__wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-client__header h2 {
+    font-size: 2rem;
+  }
+
+  .featured-client__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured-client__collab-list {
+    gap: 0.5rem;
+  }
+
+  .collab-tag {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+</style>
+
+<!-- ========================================================
+     NOTES FOR INTEGRATION
+     ======================================================== -->
+<!--
+PLACEMENT IN MAIN HTML:
+Insert this entire section between </section> (line 103, end of STATS)
+and <div class="logos-strip section section--dark"> (line 108, start of AS SEEN IN)
+
+CHANGES TO TOP NAV:
+Line 36: Change from 
+  <a class="hero__link-btn" href="https://music-editors.com" target="_blank" rel="noopener">Association of Music Editors</a>
+to:
+  <a class="hero__link-btn" href="https://www.theanchoress.co.uk" target="_blank" rel="noopener">The Anchoress</a>
+
+BIO EDIT (add after existing bio paragraphs, before closing </div>):
+"I'm currently managing the complete campaign for The Anchoress (Catherine Anne Davies), 
+a Welsh multi-instrumentalist and self-producing artist with two critically acclaimed albums 
+and a distinctive approach to art-pop that blends literary theory with visceral production."
+
+IMAGE NEEDED:
+You'll need to provide: assets/anchoress-photo.jpg
+Recommended dimensions: 600px wide x 800px tall (or 3:4 aspect ratio)
+File size: optimized for web (under 200KB)
+-->

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>The Anchoress — Homepage Funnel Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dis-bg:       #0A0A0A;
+      --dis-panel:    #111111;
+      --dis-panel-2:  #1A1A1A;
+      --dis-accent:   #FF2E95;
+      --dis-white:    #FFFFFF;
+      --dis-grey:     #CCCCCC;
+      --dis-divider:  #1E1E1E;
+      --dis-headline: 'Francois One', sans-serif;
+      --dis-body:     'Cardo', serif;
+    }
+
+    body {
+      background: var(--dis-bg);
+      color: var(--dis-white);
+      font-family: var(--dis-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--dis-white); }
+    a:hover { color: var(--dis-accent); }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 64px 48px 80px;
+    }
+
+    /* ---- HEADER ---- */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--dis-divider);
+      margin-bottom: 48px;
+      gap: 24px;
+    }
+
+    .header-eyebrow {
+      font-family: var(--dis-headline);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--dis-accent);
+      margin-bottom: 14px;
+    }
+
+    .header-title {
+      font-family: var(--dis-headline);
+      font-size: clamp(38px, 6vw, 64px);
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--dis-white);
+    }
+
+    .header-title span { color: var(--dis-accent); }
+
+    .header-meta { text-align: right; }
+
+    .header-period {
+      font-family: var(--dis-headline);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dis-accent);
+      margin-bottom: 6px;
+    }
+
+    .header-sub {
+      font-family: var(--dis-body);
+      font-size: 14px;
+      color: var(--dis-grey);
+      line-height: 1.5;
+      max-width: 220px;
+      margin-left: auto;
+    }
+
+    /* ---- LEAD / EXEC SUMMARY ---- */
+    .lead {
+      background: var(--dis-panel);
+      border-left: 3px solid var(--dis-accent);
+      padding: 28px 32px;
+      margin-bottom: 40px;
+    }
+
+    .lead p { font-size: 18px; line-height: 1.65; color: var(--dis-white); }
+    .lead p + p { margin-top: 16px; }
+
+    /* ---- SECTION LABEL ---- */
+    .section-label {
+      font-family: var(--dis-headline);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--dis-accent);
+      margin-bottom: 20px;
+    }
+
+    .section { margin-bottom: 56px; }
+
+    /* ---- SUGGESTION CARDS ---- */
+    .suggestion {
+      background: var(--dis-panel);
+      padding: 26px 30px;
+      margin-bottom: 2px;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 20px;
+    }
+
+    .suggestion-num {
+      font-family: var(--dis-headline);
+      font-size: 32px;
+      color: var(--dis-accent);
+      line-height: 1;
+    }
+
+    .suggestion-title {
+      font-family: var(--dis-headline);
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--dis-white);
+      margin-bottom: 8px;
+    }
+
+    .suggestion-body {
+      font-family: var(--dis-body);
+      font-size: 14.5px;
+      color: var(--dis-grey);
+      line-height: 1.6;
+    }
+
+    /* ---- CURRENT ORDER CHIPS ---- */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .chip {
+      font-family: var(--dis-headline);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--dis-white);
+      background: var(--dis-panel);
+      border: 1px solid var(--dis-divider);
+      padding: 8px 12px;
+      white-space: nowrap;
+    }
+
+    .chip.flag {
+      border-color: var(--dis-accent);
+      color: var(--dis-accent);
+    }
+
+    .chip-arrow { color: #444; align-self: center; font-size: 12px; }
+
+    .legend {
+      font-family: var(--dis-body);
+      font-size: 12.5px;
+      font-style: italic;
+      color: var(--dis-grey);
+      margin-top: 14px;
+    }
+    .legend .dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--dis-accent);
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    /* ---- COMPARATOR GRID ---- */
+    .comparator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--dis-divider);
+    }
+
+    .comparator-card {
+      background: var(--dis-panel);
+      padding: 28px;
+    }
+
+    .comparator-name {
+      font-family: var(--dis-headline);
+      font-size: 20px;
+      text-transform: uppercase;
+      color: var(--dis-white);
+      margin-bottom: 2px;
+    }
+
+    .comparator-link {
+      font-family: var(--dis-body);
+      font-size: 12.5px;
+      font-style: italic;
+      color: var(--dis-accent);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .comparator-link:hover { text-decoration: underline; }
+
+    .comparator-fold {
+      font-family: var(--dis-body);
+      font-size: 13.5px;
+      color: var(--dis-grey);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      min-height: 60px;
+    }
+
+    /* funnel / order diagram */
+    .funnel { display: flex; flex-direction: column; }
+    .funnel-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+    .funnel-step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 14px;
+      width: 1px;
+      height: calc(100% - 8px);
+      background: var(--dis-divider);
+    }
+    .funnel-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--dis-accent);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .funnel-label {
+      font-family: var(--dis-body);
+      font-size: 13px;
+      color: var(--dis-white);
+      line-height: 1.4;
+    }
+
+    .bio-tag {
+      display: inline-block;
+      margin-top: 16px;
+      font-family: var(--dis-headline);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #666;
+      border: 1px solid var(--dis-divider);
+      padding: 5px 10px;
+    }
+
+    /* ---- PATTERN LIST ---- */
+    .pattern {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--dis-divider);
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 18px;
+    }
+    .pattern:last-child { border-bottom: none; }
+
+    .pattern-num {
+      font-family: var(--dis-headline);
+      font-size: 22px;
+      color: var(--dis-accent);
+      line-height: 1;
+    }
+
+    .pattern-title {
+      font-family: var(--dis-headline);
+      font-size: 14.5px;
+      text-transform: uppercase;
+      color: var(--dis-white);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .pattern-body {
+      font-family: var(--dis-body);
+      font-size: 14px;
+      color: var(--dis-grey);
+      line-height: 1.6;
+    }
+
+    /* ---- DIVIDER ---- */
+    .rule { border: none; border-top: 1px solid var(--dis-divider); margin: 48px 0; }
+
+    /* ---- METHODOLOGY ---- */
+    .method-list { list-style: none; }
+    .method-list li {
+      font-family: var(--dis-body);
+      font-size: 13.5px;
+      color: var(--dis-grey);
+      line-height: 1.6;
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .method-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--dis-accent);
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      border-top: 1px solid var(--dis-divider);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-title {
+      font-family: var(--dis-headline);
+      font-size: 16px;
+      text-transform: uppercase;
+      color: var(--dis-white);
+      margin-bottom: 6px;
+    }
+
+    .footer-detail {
+      font-family: var(--dis-body);
+      font-size: 13px;
+      color: var(--dis-grey);
+      line-height: 1.6;
+    }
+
+    .footer-tag {
+      font-family: var(--dis-headline);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #555;
+    }
+
+    @media (max-width: 720px) {
+      .page { padding: 40px 24px 60px; }
+      .header { grid-template-columns: 1fr; }
+      .header-meta { text-align: left; }
+      .header-sub { margin-left: 0; }
+      .comparator-grid { grid-template-columns: 1fr; }
+      .suggestion { grid-template-columns: 32px 1fr; }
+    }
+
+    @media print {
+      body { background: #0A0A0A; }
+      .page { padding: 40px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="header-eyebrow">Internal Research — Not for Distribution</div>
+      <div class="header-title">Homepage<br><span>Funnel</span> Audit</div>
+    </div>
+    <div class="header-meta">
+      <div class="header-period">The Anchoress</div>
+      <div class="header-sub">asweoncewere.com · prepared 21 July 2026 for discussion, not yet applied</div>
+    </div>
+  </div>
+
+  <!-- EXEC SUMMARY -->
+  <div class="lead">
+    <p>I looked at how six comparable UK/adjacent art-pop and art-rock artists structure their homepages — Self Esteem, John Grant, Anna Calvi, Gazelle Twin, Marika Hackman, and Villagers — to see how asweoncewere.com's current running order compares.</p>
+    <p>The short version: none of them lead with biography, none of them gate the page behind a mailing-list form, and tour dates either sit right under the hero or get demoted to a nav link entirely — never buried under editorial content. AWOW's current order puts the mailing list ahead of the hero video and Tour Dates seventh out of eleven sections, which is out of step with the field on both counts.</p>
+  </div>
+
+  <!-- SUGGESTIONS -->
+  <div class="section">
+    <div class="section-label">Top-Level Suggestions</div>
+
+    <div class="suggestion">
+      <div class="suggestion-num">01</div>
+      <div>
+        <div class="suggestion-title">Move the mailing list signup below the hero video</div>
+        <div class="suggestion-body">This is the biggest outlier against the comparator set. All six treat the newsletter as a footer action, after the visitor has already seen the release and tour info — never before the hero. Right now AWOW asks for an email address before the visitor has even seen the video.</div>
+      </div>
+    </div>
+
+    <div class="suggestion">
+      <div class="suggestion-num">02</div>
+      <div>
+        <div class="suggestion-title">Consider pulling Tour Dates higher up the page</div>
+        <div class="suggestion-body">Tour Dates currently sit at position 7, after News and newsletter posts. Since the album campaign has real near-term dates, both comparator camps — tour-forward and tour-as-destination — argue for surfacing dates closer to the hero/merch block, or at minimum not burying them under editorial content.</div>
+      </div>
+    </div>
+
+    <div class="suggestion">
+      <div class="suggestion-num">03</div>
+      <div>
+        <div class="suggestion-title">Treat the News → Press → Biog stack as a deliberate differentiator, not a default</div>
+        <div class="suggestion-body">The editorial back half of the page — News, newsletter posts, Press quotes, full Biog — is more expansive than anything in the comparator set attempts. That may be a genuine point of difference for Catherine, and it lines up with the site's brief to preserve the original structure — but it's worth naming as a conscious choice to keep, rather than something the comparator data itself recommends.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CURRENT STATE -->
+  <div class="section">
+    <div class="section-label">Where AWOW Sits Today</div>
+    <div class="chip-row">
+      <span class="chip">Preorder Banner</span>
+      <span class="chip flag">Mailing List</span>
+      <span class="chip">Hero Video</span>
+      <span class="chip">Merch / Formats</span>
+      <span class="chip">News</span>
+      <span class="chip">Newsletter Posts</span>
+      <span class="chip flag">Tour Dates</span>
+      <span class="chip">Production &amp; Co-Writing Bio</span>
+      <span class="chip">Press Quotes</span>
+      <span class="chip">Full Biog</span>
+      <span class="chip">Photo Gallery</span>
+    </div>
+    <div class="legend"><span class="dot"></span>flagged — out of step with all six comparators</div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- COMPARATORS -->
+  <div class="section">
+    <div class="section-label">The Comparators — Live, 21 July 2026</div>
+
+    <div class="comparator-grid">
+
+      <div class="comparator-card">
+        <div class="comparator-name">Self Esteem</div>
+        <a class="comparator-link" href="https://selfesteem.love" target="_blank" rel="noopener">selfesteem.love ↗</a>
+        <div class="comparator-fold">Full hero for the new album with a "Listen Now" CTA.</div>
+        <div class="funnel">
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Hero (new album)</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Tour dates</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Videos</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Merch / store</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Footer nav</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Mailing list (footer)</div></div>
+        </div>
+        <div class="bio-tag">No bio on homepage</div>
+      </div>
+
+      <div class="comparator-card">
+        <div class="comparator-name">John Grant</div>
+        <a class="comparator-link" href="https://johngrantmusic.com" target="_blank" rel="noopener">johngrantmusic.com ↗</a>
+        <div class="comparator-fold">"The New Album — Out Now" plus a link to formats. That's the entire homepage.</div>
+        <div class="funnel">
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Hero (new album, out now)</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Formats / bundles link</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Nav: Home / Store / Tour / Music / Watch / Sign Up</div></div>
+        </div>
+        <div class="bio-tag">No bio on homepage</div>
+      </div>
+
+      <div class="comparator-card">
+        <div class="comparator-name">Anna Calvi</div>
+        <a class="comparator-link" href="https://annacalvi.co.uk" target="_blank" rel="noopener">annacalvi.co.uk ↗</a>
+        <div class="comparator-fold">Full-bleed typographic teaser for a new EP, with feature-artist credits listed under the title.</div>
+        <div class="funnel">
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Hero (EP teaser + credits)</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Pre-save</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Live</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Store</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Sign up</div></div>
+        </div>
+        <div class="bio-tag">No bio on homepage</div>
+      </div>
+
+      <div class="comparator-card">
+        <div class="comparator-name">Gazelle Twin</div>
+        <a class="comparator-link" href="https://gazelletwin.com" target="_blank" rel="noopener">gazelletwin.com ↗</a>
+        <div class="comparator-fold">Glitch-video trailer for a film she scored, with a Mark Kermode review quote folded into the hero.</div>
+        <div class="funnel">
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Hero: current news item + press quote</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Tour dates</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Booking / press / management contacts</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Newsletter</div></div>
+        </div>
+        <div class="bio-tag">No bio section (one contextual quote only)</div>
+      </div>
+
+      <div class="comparator-card">
+        <div class="comparator-name">Marika Hackman</div>
+        <a class="comparator-link" href="https://marikahackman.com" target="_blank" rel="noopener">marikahackman.com ↗</a>
+        <div class="comparator-fold">Hand-drawn album art with "shop" and "tour" buttons front and centre.</div>
+        <div class="funnel">
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Hero (album art + shop/tour buttons)</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Streaming links</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Earlier singles</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Mailing list</div></div>
+        </div>
+        <div class="bio-tag">No bio on homepage</div>
+      </div>
+
+      <div class="comparator-card">
+        <div class="comparator-name">Villagers</div>
+        <a class="comparator-link" href="https://wearevillagers.com" target="_blank" rel="noopener">wearevillagers.com ↗</a>
+        <div class="comparator-fold">The homepage is a reverse-chronological news feed — literally a blog. Everything else lives behind nav links.</div>
+        <div class="funnel">
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">News feed (only content on homepage)</div></div>
+          <div class="funnel-step"><div class="funnel-dot"></div><div class="funnel-label">Nav: Live / Music / Video / Store (separate pages)</div></div>
+        </div>
+        <div class="bio-tag">No bio on homepage</div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- PATTERNS -->
+  <div class="section">
+    <div class="section-label">Patterns Worth Naming</div>
+
+    <div class="pattern">
+      <div class="pattern-num">01</div>
+      <div>
+        <div class="pattern-title">Nobody leads with, or even really includes, a biography on the homepage</div>
+        <div class="pattern-body">Every comparator assumes the visitor already knows who the artist is, or is happy to find out via Wikipedia or press. Story and biographical text is pushed to a separate About page, if it exists at all, rather than living in the scroll.</div>
+      </div>
+    </div>
+
+    <div class="pattern">
+      <div class="pattern-num">02</div>
+      <div>
+        <div class="pattern-title">The mailing list signup is always a floor, never a gate</div>
+        <div class="pattern-body">It sits in the footer after every comparator — once the visitor has already seen the release CTA, tour dates, and merch — never before the hero.</div>
+      </div>
+    </div>
+
+    <div class="pattern">
+      <div class="pattern-num">03</div>
+      <div>
+        <div class="pattern-title">Tour dates split into two camps</div>
+        <div class="pattern-body">"Tour-forward" sites (Self Esteem, Gazelle Twin) put dates immediately under the hero. "Tour-as-destination" sites (John Grant, Anna Calvi, Marika Hackman) demote it to a nav link and keep the homepage to a single CTA screen. Nobody buries dates under a News section.</div>
+      </div>
+    </div>
+
+    <div class="pattern">
+      <div class="pattern-num">04</div>
+      <div>
+        <div class="pattern-title">Press quotes as a dedicated homepage block are essentially absent</div>
+        <div class="pattern-body">Gazelle Twin's one Mark Kermode quote is tied to a specific current story (a film score), not a curated carousel.</div>
+      </div>
+    </div>
+
+    <div class="pattern">
+      <div class="pattern-num">05</div>
+      <div>
+        <div class="pattern-title">A photo gallery as a homepage section doesn't exist on any of these</div>
+        <div class="pattern-body">Social channels do that job instead.</div>
+      </div>
+    </div>
+
+    <div class="pattern">
+      <div class="pattern-num">06</div>
+      <div>
+        <div class="pattern-title">Merch/format showcase sitting near the hero is completely standard</div>
+        <div class="pattern-body">Self Esteem, John Grant, Anna Calvi, and Marika Hackman all do a version of this.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- METHODOLOGY -->
+  <div class="section">
+    <div class="section-label">Methodology &amp; Limitations</div>
+    <ul class="method-list">
+      <li>Comparator sites were browsed live on 21 July 2026; content changes on their end after this date won't be reflected here.</li>
+      <li>Susanne Sundfør was originally planned as a sixth comparator but her site was returning a blank page at the time of research, so Villagers was substituted.</li>
+      <li>Scale and genre fit were judged qualitatively — no chart-position or streaming-number cutoff was applied.</li>
+      <li>This audit covers content order only — not mobile layouts, load performance, or accessibility.</li>
+      <li>No screenshots of comparator sites are embedded here — click through via the links above to see them live.</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">
+      <div class="footer-title">The Anchoress — Homepage Funnel Audit</div>
+      <div class="footer-detail">Prepared for discussion. No changes have been made to <a href="https://asweoncewere.com" target="_blank" rel="noopener">asweoncewere.com</a>.</div>
+    </div>
+    <div class="footer-tag">Unlisted page · seaninsound.com</div>
+  </div>
+
+</div>
+</body>
+</html>

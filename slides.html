@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sean Adams - Instagram Carousel Slides</title>
+  <link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111111;
+      padding: 60px 40px;
+      font-family: 'Cardo', Georgia, serif;
+    }
+
+    .page-note {
+      color: #555;
+      font-family: 'Francois One', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-align: center;
+      margin-bottom: 60px;
+      line-height: 2;
+    }
+
+    .slides-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 80px;
+    }
+
+    /* ---- SLIDE BASE ---- */
+    .slide {
+      width: 1080px;
+      height: 1350px;
+      background: #0A0A0A;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* Top pink rule */
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #FF2E95;
+    }
+
+    /* Consistent chrome: header bar */
+    .slide__chrome {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 26px 64px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .slide__name {
+      font-family: 'Francois One', sans-serif;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #FF2E95;
+    }
+
+    .slide__num {
+      font-family: 'Cardo', serif;
+      font-size: 18px;
+      color: #444;
+      letter-spacing: 0.06em;
+    }
+
+    /* Footer */
+    .slide__footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 0 64px 32px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .slide__url {
+      font-family: 'Francois One', sans-serif;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #333;
+    }
+
+    /* Content area */
+    .slide__content {
+      position: absolute;
+      top: 90px; bottom: 70px;
+      left: 64px; right: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Labels */
+    .label {
+      font-family: 'Francois One', sans-serif;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #555;
+      margin-bottom: 32px;
+    }
+
+    .label--pink {
+      color: #FF2E95;
+    }
+
+    /* Pink rule divider */
+    .rule {
+      width: 56px;
+      height: 3px;
+      background: #FF2E95;
+      margin-bottom: 36px;
+    }
+
+    /* Typography scale */
+    .headline {
+      font-family: 'Francois One', sans-serif;
+      font-size: 96px;
+      line-height: 1.0;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+    }
+
+    .headline--large {
+      font-size: 108px;
+      line-height: 0.95;
+    }
+
+    .headline--medium {
+      font-size: 76px;
+      line-height: 1.05;
+    }
+
+    .headline--small {
+      font-size: 60px;
+      line-height: 1.1;
+    }
+
+    .headline--pink {
+      color: #FF2E95;
+    }
+
+    .body-text {
+      font-family: 'Cardo', Georgia, serif;
+      font-size: 40px;
+      line-height: 1.4;
+      color: #CCCCCC;
+    }
+
+    .body-text--large {
+      font-size: 48px;
+      line-height: 1.35;
+    }
+
+    .body-text em {
+      font-style: italic;
+      color: #FF2E95;
+    }
+
+    .muted {
+      color: #555;
+    }
+
+    /* =============================================
+       SLIDE 1 - COVER
+       ============================================= */
+    .slide-1 .slide__content {
+      justify-content: flex-end;
+      padding-bottom: 40px;
+    }
+
+    .slide-1 .headshot {
+      position: absolute;
+      top: 80px; left: 0; right: 0;
+      bottom: 280px;
+      background: url('assets/sean-headshot.jpg') center top / cover no-repeat;
+      opacity: 0.7;
+    }
+
+    .slide-1 .headshot-fade {
+      position: absolute;
+      bottom: 270px; left: 0; right: 0;
+      height: 300px;
+      background: linear-gradient(to bottom, transparent, #0A0A0A);
+    }
+
+    .slide-1 .tagline {
+      font-family: 'Francois One', sans-serif;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #FF2E95;
+      margin-bottom: 20px;
+    }
+
+    .slide-1 .main-headline {
+      font-family: 'Francois One', sans-serif;
+      font-size: 80px;
+      line-height: 1.0;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 28px;
+    }
+
+    .slide-1 .sub {
+      font-family: 'Cardo', serif;
+      font-size: 38px;
+      line-height: 1.4;
+      color: #999;
+      font-style: italic;
+    }
+
+    /* =============================================
+       SLIDE 2 - ORIGIN
+       ============================================= */
+    .slide-2 .year-block {
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+      margin-bottom: 40px;
+    }
+
+    .slide-2 .year {
+      font-family: 'Francois One', sans-serif;
+      font-size: 200px;
+      line-height: 1;
+      color: #1a1a1a;
+      letter-spacing: -0.04em;
+      position: relative;
+      z-index: 0;
+    }
+
+    .slide-2 .year-label {
+      font-family: 'Francois One', sans-serif;
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #FF2E95;
+      position: absolute;
+      top: 100px;
+      left: 64px;
+      z-index: 1;
+    }
+
+    /* =============================================
+       SLIDE 5 - THE STAT
+       ============================================= */
+    .stat-bar-track {
+      height: 52px;
+      background: #1a1a1a;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .stat-bar-fill {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 20px;
+      font-family: 'Francois One', sans-serif;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .stat-bar-fill--pink {
+      background: #FF2E95;
+    }
+
+    .stat-bar-fill--grey {
+      background: #444;
+    }
+
+    .stat-bar-label {
+      font-family: 'Francois One', sans-serif;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .stat-bar-label--pink { color: #FF2E95; }
+    .stat-bar-label--grey { color: #666; }
+
+    .stat-multiplier {
+      font-family: 'Cardo', serif;
+      font-size: 16px;
+      color: #444;
+      float: right;
+    }
+
+    /* =============================================
+       SLIDE 6 - BREADTH
+       ============================================= */
+    .credit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .credit-item {
+      border-top: 1px solid #1e1e1e;
+      padding: 30px 0;
+    }
+
+    .credit-item:last-child {
+      border-bottom: 1px solid #1e1e1e;
+    }
+
+    .credit-org {
+      font-family: 'Francois One', sans-serif;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+
+    .credit-role {
+      font-family: 'Cardo', serif;
+      font-size: 28px;
+      font-style: italic;
+      color: #666;
+    }
+
+    /* =============================================
+       SLIDE 7 - NOW
+       ============================================= */
+    .now-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .now-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 26px 0;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    .now-item:last-child {
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .now-dot {
+      width: 8px;
+      height: 8px;
+      background: #FF2E95;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 16px;
+    }
+
+    .now-text {}
+
+    .now-title {
+      font-family: 'Francois One', sans-serif;
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #FFFFFF;
+    }
+
+    .now-desc {
+      font-family: 'Cardo', serif;
+      font-size: 26px;
+      color: #666;
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    /* =============================================
+       SLIDE 9 - CTA
+       ============================================= */
+    .cta-handle {
+      font-family: 'Francois One', sans-serif;
+      font-size: 72px;
+      text-transform: uppercase;
+      color: #FF2E95;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 32px;
+    }
+
+    .cta-divider {
+      width: 100%;
+      height: 1px;
+      background: #1e1e1e;
+      margin: 40px 0;
+    }
+
+    .follow-for-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .follow-for-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .follow-for-dot {
+      width: 6px;
+      height: 6px;
+      background: #FF2E95;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .follow-for-text {
+      font-family: 'Cardo', serif;
+      font-size: 32px;
+      color: #999;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="page-note">
+    Instagram Carousel - Sean Adams - Introduce Yourself<br>
+    1080 x 1350 px per slide - screenshot each slide individually<br>
+    9 slides total
+  </p>
+
+  <div class="slides-container">
+
+    <!-- ============================================================
+         SLIDE 1 - COVER
+         ============================================================ -->
+    <div class="slide slide-1">
+      <div class="slide__chrome">
+        <span class="slide__name">Sean Adams</span>
+        <span class="slide__num">01 / 09</span>
+      </div>
+
+      <div class="headshot"></div>
+      <div class="headshot-fade"></div>
+
+      <div class="slide__content">
+        <p class="tagline">25 years in music</p>
+        <h1 class="main-headline">Here's what<br>I've learned.</h1>
+        <p class="sub">Founder, Drowned in Sound.<br>Swipe to meet me.</p>
+      </div>
+
+      <div class="slide__footer">
+        <span class="slide__url">seaninsound.com</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SLIDE 2 - ORIGIN
+         ============================================================ -->
+    <div class="slide slide-2">
+      <div class="slide__chrome">
+        <span class="slide__name">Sean Adams</span>
+        <span class="slide__num">02 / 09</span>
+      </div>
+
+      <div class="slide__content" style="justify-content:flex-start; padding-top:40px;">
+        <p class="label label--pink">The beginning</p>
+        <div class="rule"></div>
+
+        <div style="position:relative; margin-bottom: 20px;">
+          <span class="slide-2__year" style="font-family:'Francois One',sans-serif;font-size:220px;line-height:1;color:#161616;letter-spacing:-0.04em;display:block;margin-left:-8px;">1998</span>
+          <p style="position:absolute;top:60px;left:4px;font-family:'Cardo',serif;font-size:44px;line-height:1.35;color:#FFFFFF;">I started reviewing<br>demos by <em style="color:#FF2E95;font-style:italic;">Muse</em><br>and <em style="color:#FF2E95;font-style:italic;">Coldplay</em> from<br>my bedroom.</p>
+        </div>
+
+        <p style="font-family:'Cardo',serif;font-size:38px;line-height:1.4;color:#666;font-style:italic;margin-top:16px;">Two years later,<br>Drowned in Sound launched.</p>
+      </div>
+
+      <div class="slide__footer">
+        <span class="slide__url">seaninsound.com</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SLIDE 3 - THE LABEL / PROOF
+         ============================================================ -->
+    <div class="slide slide-3">
+      <div class="slide__chrome">
+        <span class="slide__name">Sean Adams</span>
+        <span class="slide__num">03 / 09</span>
+      </div>
+
+      <div class="slide__content">
+        <p class="label label--pink">DiS Recordings</p>
+        <div class="rule"></div>
+
+        <p style="font-family:'Cardo',serif;font-size:42px;line-height:1.4;color:#999;font-style:italic;margin-bottom:48px;">We released their debut singles before the world knew their names.</p>
+
+        <div style="display:flex;flex-direction:column;gap:24px;">
+          <div style="border-left:3px solid #FF2E95;padding-left:28px;">
+            <p style="font-family:'Francois One',sans-serif;font-size:48px;text-transform:uppercase;color:#FFFFFF;letter-spacing:0.02em;">Kaiser Chiefs</p>
+            <p style="font-family:'Cardo',serif;font-size:26px;color:#555;font-style:italic;">Debut single, 2003</p>
+          </div>
+          <div style="border-left:3px solid #FF2E95;padding-left:28px;">
+            <p style="font-family:'Francois One',sans-serif;font-size:48px;text-transform:uppercase;color:#FFFFFF;letter-spacing:0.02em;">Bat for Lashes</p>
+            <p style="font-family:'Cardo',serif;font-size:26px;color:#555;font-style:italic;">Debut single, 2004</p>
+          </div>
+          <div style="border-left:3px solid #FF2E95;padding-left:28px;">
+            <p style="font-family:'Francois One',sans-serif;font-size:48px;text-transform:uppercase;color:#FFFFFF;letter-spacing:0.02em;">Martha Wainwright</p>
+            <p style="font-family:'Cardo',serif;font-size:26px;color:#555;font-style:italic;">80,000 CDs sold</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide__footer">
+        <span class="slide__url">seaninsound.com</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SLIDE 4 - THE CONVICTION
+         ============================================================ -->
+    <div class="slide slide-4">
+      <div class="slide__chrome">
+        <span class="slide__name">Sean Adams</span>
+        <span class="slide__num">04 / 09</span>
+      </div>
+
+      <!-- Background pattern: large faded text -->
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Francois One',sans-serif;font-size:400px;color:#0f0f0f;line-height:1;white-space:nowrap;pointer-events:none;user-select:none;letter-spacing:-0.04em;">DiS</div>
+
+      <div class="slide__content" style="justify-content:center;">
+        <p class="label label--pink" style="margin-bottom:48px;">What I believe</p>
+
+        <h2 style="font-family:'Francois One',sans-serif;font-size:100px;line-height:0.95;text-transform:uppercase;color:#FFFFFF;letter-spacing:-0.01em;margin-bottom:48px;">Music<br>is upstream<br>from<br>politics.</h2>
+
+        <p style="font-family:'Cardo',serif;font-size:38px;line-height:1.4;color:#666;font-style:italic;">And it always has been.</p>
+      </div>
+
+      <div class="slide__footer">
+        <span class="slide__url">seaninsound.com</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SLIDE 5 - THE DATA
+         ============================================================ -->
+    <div class="slide slide-5">
+      <div class="slide__chrome">
+        <span class="slide__name">Sean Adams</span>
+        <span class="slide__num">05 / 09</span>
+      </div>
+
+      <div class="slide__content">
+        <p class="label label--pink">Who we platform</p>
+        <div class="rule"></div>
+
+        <p style="font-family:'Cardo',serif;font-style:italic;font-size:38px;color:#999;line-height:1.4;margin-bottom:56px;">A male-hosted podcast where 63% of our 93 guests are female or non-binary.</p>
+
+        <div style="margin-bottom:28px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;">
+            <span class="stat-bar-label stat-bar-label--pink">Drowned in Sound</span>
+          </div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill stat-bar-fill--pink" style="width:91%;">63.4%</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:52px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;">
+            <span class="stat-bar-label stat-bar-label--grey">Industry average</span>
+            <span style="font-family:'Cardo',serif;font-size:18px;color:#444;">2.3x lower</span>
+          </div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill stat-bar-fill--grey" style="width:39%;">27.2%</div>
+          </div>
+        </div>
+
+        <div style="border-left:2px solid #FF2E95;padding-left:20px;">
+          <p style="font-family:'Francois One',sans-serif;font-size:24px;text-transform:uppercase;letter-spacing:0.06em;color:#CCC;margin-bottom:6px;">88% of our episodes feature at least one female or non-binary guest</p>
+          <p style="font-family:'Cardo',serif;font-size:22px;color:#555;font-style:italic;">Industry average: 37.4%</p>
+        </div>
+      </div>
+
+      <div class="slide__footer">
+        <span class="slide__url">seaninsound.com</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SLIDE 6 - BEYOND MUSIC
+         ============================================================ -->
+    <div class="slide slide-6">
+      <div class="slide__chrome">
+        <span class="slide__name">Sean Adams</span>
+        <span class="slide__num">06 / 09</span>
+      </div>
+
+      <div class="slide__content">
+        <p class="label label--pink">Beyond music</p>
+        <div class="rule"></div>
+
+        <ul class="credit-list">
+          <li class="credit-item">
+            <p class="credit-org">BBC Radio 6 Music</p>
+            <p class="credit-role">Social Media Producer, 2016-21</p>
+          </li>
+          <li class="credit-item">
+            <p class="credit-org">The Sunday Times</p>
+            <p class="credit-role">"My Generation" columnist, 2009-12</p>
+          </li>
+          <li class="credit-item">
+            <p class="credit-org">StopTheTories.vote</p>
+            <p class="credit-role">Strategic comms - 1.75 million reached</p>
+          </li>
+          <li class="credit-item">
+            <p class="credit-org">Studio Richter Mahr</p>
+            <p class="credit-role">Digital consultant, 2021-22</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="slide__footer">
+        <span class="slide__url">seaninsound.com</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SLIDE 7 - RIGHT NOW
+         ============================================================ -->
+    <div class="slide slide-7">
+      <div class="slide__chrome">
+        <span class="slide__name">Sean Adams</span>
+        <span class="slide__num">07 / 09</span>
+      </div>
+
+      <div class="slide__content">
+        <p class="label label--pink">Right now</p>
+        <div class="rule"></div>
+
+        <ul class="now-list">
+          <li class="now-item">
+            <div class="now-dot"></div>
+            <div class="now-text">
+              <p class="now-title">Drowned in Sound Podcast</p>
+              <p class="now-desc">300K impressions/month. Guests include Enter Shikari, Faithless, Kelly Lee Owens.</p>
+            </div>
+          </li>
+          <li class="now-item">
+            <div class="now-dot"></div>
+            <div class="now-text">
+              <p class="now-title">The Anchoress</p>
+              <p class="now-desc">Artist management - Catherine Anne Davies. Forthcoming third album.</p>
+            </div>
+          </li>
+          <li class="now-item">
+            <div class="now-dot"></div>
+            <div class="now-text">
+              <p class="now-title">The Sounding</p>
+              <p class="now-desc">Growth consultancy for purpose-driven organisations, with Tom Venvell.</p>
+            </div>
+          </li>
+          <li class="now-item">
+            <div class="now-dot"></div>
+            <div class="now-text">
+              <p class="now-title">Association of Music Editors</p>
+              <p class="now-desc">A collective voice for editors of music publications and podcasts.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="slide__footer">
+        <span class="slide__url">seaninsound.com</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SLIDE 8 - POV
+         ============================================================ -->
+    <div class="slide slide-8">
+      <div class="slide__chrome">
+        <span class="slide__name">Sean Adams</span>
+        <span class="slide__num">08 / 09</span>
+      </div>
+
+      <!-- Faded background number -->
+      <div style="position:absolute;bottom:-60px;right:-20px;font-family:'Francois One',sans-serif;font-size:500px;color:#0d0d0d;line-height:1;pointer-events:none;user-select:none;">25</div>
+
+      <div class="slide__content" style="justify-content:center;">
+        <p class="label label--pink" style="margin-bottom:48px;">What 25 years taught me</p>
+
+        <h2 style="font-family:'Francois One',sans-serif;font-size:84px;line-height:1.0;text-transform:uppercase;color:#FFFFFF;margin-bottom:48px;">Music fans are an untapped political force.</h2>
+
+        <p style="font-family:'Cardo',serif;font-size:40px;line-height:1.4;color:#666;font-style:italic;">And no one is speaking to them like that.</p>
+
+        <p style="font-family:'Cardo',serif;font-size:40px;line-height:1.4;color:#666;font-style:italic;margin-top:24px;">Yet.</p>
+      </div>
+
+      <div class="slide__footer">
+        <span class="slide__url">seaninsound.com</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SLIDE 9 - CTA
+         ============================================================ -->
+    <div class="slide slide-9">
+      <div class="slide__chrome">
+        <span class="slide__name">Sean Adams</span>
+        <span class="slide__num">09 / 09</span>
+      </div>
+
+      <div class="slide__content" style="justify-content:center;">
+        <p class="label" style="color:#444;margin-bottom:24px;">Follow for</p>
+
+        <ul class="follow-for-list" style="margin-bottom:56px;">
+          <li class="follow-for-item">
+            <div class="follow-for-dot"></div>
+            <p class="follow-for-text">Music, power, and what comes next</p>
+          </li>
+          <li class="follow-for-item">
+            <div class="follow-for-dot"></div>
+            <p class="follow-for-text">The DiS podcast - weekly conversations</p>
+          </li>
+          <li class="follow-for-item">
+            <div class="follow-for-dot"></div>
+            <p class="follow-for-text">Behind the scenes of independent music</p>
+          </li>
+          <li class="follow-for-item">
+            <div class="follow-for-dot"></div>
+            <p class="follow-for-text">25 years of music industry experience, shared</p>
+          </li>
+        </ul>
+
+        <div class="cta-divider"></div>
+
+        <p style="font-family:'Francois One',sans-serif;font-size:22px;text-transform:uppercase;letter-spacing:0.16em;color:#444;margin-bottom:16px;">Find me at</p>
+        <p class="cta-handle">seaninsound.com</p>
+
+        <p style="font-family:'Cardo',serif;font-size:30px;font-style:italic;color:#555;margin-top:20px;">What would you like to know? Drop it in the comments.</p>
+      </div>
+
+      <div class="slide__footer">
+        <span class="slide__url">seaninsound.com</span>
+      </div>
+    </div>
+
+  </div><!-- /slides-container -->
+
+</body>
+</html>
